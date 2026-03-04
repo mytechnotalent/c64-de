@@ -4,13 +4,14 @@
         {
             "type": "6502",
             "request": "launch",
-            "name": "Debug: built-in 6502 emulator"
+            "name": "Debug: built-in 6502 emulator",
+            "preLaunchTask": "Set Active Project"
         },
         {
             "type": "vice",
             "request": "launch",
             "name": "Debug: VICE (full C64)",
-            "program": "${workspaceFolder}/build/forbidden_game.prg"
+            "preLaunchTask": "Set Active Project"
         }
     ]
 }

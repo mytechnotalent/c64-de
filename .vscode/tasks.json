@@ -3,6 +3,21 @@
     "inputs": [],
     "tasks": [
         {
+            "label": "Set Active Project",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "${workspaceFolder}/tools/set_active_project.py",
+                "${workspaceFolder}",
+                "${relativeFile}"
+            ],
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "Format ASM",
             "type": "shell",
             "command": "python3",

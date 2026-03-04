@@ -92,8 +92,6 @@ Search by game title, publisher, or year. Download the `.d64` file and drop it i
 tools/d64toasm.sh  GameName.d64
 ```
 
-> **Note:** D64 files at the workspace root are gitignored (`*.d64`) to avoid committing copyrighted software.
-
 ### d64toasm.sh — Full Pipeline
 
 Converts a `.d64` disk image into a ready-to-edit KickAssembler project with a working `build.sh`:

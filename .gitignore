@@ -21,9 +21,6 @@ venv/
 *.vs
 *.breakpoints
 
-# Copyrighted disk images at workspace root
-*.d64
-
 # VICE
 *.d64.bak
 

@@ -1,0 +1,9 @@
+{
+    "name": "forbidden_game",
+    "description": "Forbidden Forest 1983 Cosmi",
+    "toolkit": "kick",
+    "sources": [
+        "projects/forbidden_forest_1983_cosmi/forbidden_game.asm"
+    ],
+    "build": "debug"
+}

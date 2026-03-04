@@ -1,0 +1,82 @@
+{
+    "version": "2.0.0",
+    "inputs": [],
+    "tasks": [
+        {
+            "label": "Format ASM",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "${workspaceFolder}/tools/format_asm.py",
+                "${file}"
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build C64 Project",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${fileDirname}/build.sh"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build & Run C64 Project",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${fileDirname}/build.sh",
+                "run"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build & Debug C64 Project",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "${fileDirname}/build.sh",
+                "debug"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build for VS64 Debug",
+            "type": "shell",
+            "command": "/opt/homebrew/opt/openjdk@21/bin/java",
+            "args": [
+                "-jar",
+                "${workspaceFolder}/KickAssembler/KickAss.jar",
+                "${file}",
+                "-debugdump",
+                "-showmem",
+                "-symbolfile",
+                "-odir",
+                "${fileDirname}/make",
+                "-o",
+                "${fileDirname}/make/${fileBasenameNoExtension}.prg"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

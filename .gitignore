@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# C64 / KickAssembler build output
+**/build/
+*.prg
+*.sym
+*.vs
+*.breakpoints
+
+# Copyrighted disk images at workspace root
+*.d64
+
+# VICE
+*.d64.bak
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride

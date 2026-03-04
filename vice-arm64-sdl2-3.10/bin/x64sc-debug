@@ -1,0 +1,35 @@
+#!/bin/bash
+# Wrapper to launch VICE x64sc with proper macOS Dock icon
+# Used by VS64 debugger - launches via 'open' for app bundle icon,
+# then monitors the VICE process for proper cleanup.
+#
+# We use 'open --env' to pass PROGRAM=x64sc so the universal VICE
+# binary knows to emulate the C64 (cycle-exact).
+
+VICE_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+VICE_APP="$VICE_DIR/VICE.app"
+
+# Launch VICE.app with proper env and args
+# -W: wait for app to quit, -n: open new instance
+# --env: pass environment variables into the app
+open -W -n -a "$VICE_APP" \
+    --env PROGRAM=x64sc \
+    --env VICE_INITIAL_CWD="$(pwd)" \
+    --args "$@" &
+OPEN_PID=$!
+
+# Find the actual VICE process (give it a moment to start)
+sleep 0.5
+VICE_PID=$(pgrep -n -f "VICE.app/Contents/MacOS/VICE")
+
+# When this script is killed (by VS64 disconnect), kill VICE too
+cleanup() {
+    if [ -n "$VICE_PID" ] && kill -0 "$VICE_PID" 2>/dev/null; then
+        kill "$VICE_PID" 2>/dev/null
+    fi
+    exit 0
+}
+trap cleanup SIGTERM SIGINT SIGHUP
+
+# Wait for open to finish (which waits for VICE to quit)
+wait $OPEN_PID 2>/dev/null

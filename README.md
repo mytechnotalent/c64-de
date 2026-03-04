@@ -6,7 +6,7 @@
 
 # C64 Development Environment
 
-A hardcore macOS development environment to forge and reverse engineer C64 legends with and develop new ones with pure 6502 Assembler!
+A hardcore macOS development environment to forge and reverse engineer C-64 legends with and develop new ones with pure 6502 Assembler!
 
 ## Quick Setup
 

@@ -4,6 +4,14 @@
 
 <br>
 
+# Today's Tutorial [March 4, 2026]
+## Lesson 123: x64 Course (Part 3 - Logic Gates)
+This tutorial will discuss logic gates.
+
+-> Click [HERE](https://0xinfection.github.io/reversing) to read the FREE ebook.
+
+<br>
+
 # C64 Development Environment
 
 A hardcore macOS development environment to forge and reverse engineer C-64 legends with and develop new ones with pure 6502 Assembler!

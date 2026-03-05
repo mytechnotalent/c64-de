@@ -167,6 +167,9 @@ OPCODES = {
     0xFE: ("INC", "abx"),
 }
 
+# Number of data bytes emitted per .byte directive line in data regions.
+BYTES_PER_ROW = 8
+
 # Maps addressing mode name -> total instruction size in bytes (opcode + operands).
 MODE_SIZES = {
     "imp": 1,
@@ -570,58 +573,165 @@ def _disassemble_one(
     )
 
 
+def _build_header(
+    load_addr: int, byte_count: int, kickass: bool, asm: bool
+) -> list[str]:
+    """Build the output header lines for a disassembly listing.
+
+    Args:
+        load_addr: C64 load address for the origin directive.
+        byte_count: Number of code bytes (informational comment only).
+        kickass: True for KickAssembler .byte format.
+        asm: True for KickAssembler mnemonic format.
+
+    Returns:
+        List of header line strings.
+    """
+    if asm:
+        return [
+            f"// Load address: ${load_addr:04X}  ({byte_count} bytes)",
+            f"* = ${load_addr:04X}",
+            "",
+        ]
+    if kickass:
+        return _kickass_header(load_addr, byte_count)
+    return []
+
+
+def _data_region_end(load_addr: int, sys_addr: int | None) -> int:
+    """Return the byte offset where the data region ends and code begins.
+
+    Args:
+        load_addr: Base load address of the PRG.
+        sys_addr: SYS entry point address, or None if no data region.
+
+    Returns:
+        Byte offset into the data buffer where disassembly should start.
+    """
+    if sys_addr is None or sys_addr <= load_addr:
+        return 0
+    return sys_addr - load_addr
+
+
+def _fmt_byte_row(chunk: bytes, addr: int) -> str:
+    """Format a chunk of data bytes as a '.byte' directive line.
+
+    Args:
+        chunk: Up to BYTES_PER_ROW data bytes.
+        addr: Start address of this chunk.
+
+    Returns:
+        Formatted '.byte $XX, $XX, ...' line with address comment.
+    """
+    byte_list = ", ".join(f"${b:02X}" for b in chunk)
+    return f"    .byte {byte_list:<35} // ${addr:04X}"
+
+
+def _emit_data_region(data: bytes, base_addr: int) -> list[str]:
+    """Emit a block of data bytes as '.byte' directive rows.
+
+    Used for BASIC tokenized data that should not be disassembled as code.
+
+    Args:
+        data: Raw data bytes to emit.
+        base_addr: Start address of the data region.
+
+    Returns:
+        List of '.byte' directive lines bookended by region comments.
+    """
+    end_addr = base_addr + len(data) - 1
+    lines = [f"    // --- BASIC data region (${base_addr:04X}-${end_addr:04X}) ---"]
+    for off in range(0, len(data), BYTES_PER_ROW):
+        lines.append(_fmt_byte_row(data[off : off + BYTES_PER_ROW], base_addr + off))
+    lines.append("")
+    lines.append(f"    // --- Code region (${base_addr + len(data):04X}+) ---")
+    return lines
+
+
 def _disassemble(
-    data: bytes, load_addr: int, kickass: bool = False, asm: bool = False
+    data: bytes,
+    load_addr: int,
+    kickass: bool = False,
+    asm: bool = False,
+    sys_addr: int | None = None,
 ) -> list[str]:
     """Disassemble all bytes in data starting at load_addr.
+
+    When sys_addr is set, bytes before that address are emitted as raw
+    '.byte' data (BASIC tokenized region) instead of being disassembled.
 
     Args:
         data: Raw code bytes (no load-address header).
         load_addr: C64 address where the data is loaded.
         kickass: True for reassemblable KickAssembler .byte output; False for listing.
         asm: True for KickAssembler mnemonic output (real mnemonics, KickAss header).
+        sys_addr: Optional SYS entry point; bytes before this are emitted as data.
 
     Returns:
         List of formatted output line strings.
     """
-    if asm:
-        header = [
-            f"// Load address: ${load_addr:04X}  ({len(data)} bytes)",
-            f"* = ${load_addr:04X}",
-            "",
-        ]
-    elif kickass:
-        header = _kickass_header(load_addr, len(data))
-    else:
-        header = []
-    lines = header
-    i = 0
+    lines = _build_header(load_addr, len(data), kickass, asm)
+    code_offset = _data_region_end(load_addr, sys_addr)
+    if code_offset > 0:
+        lines.extend(_emit_data_region(data[:code_offset], load_addr))
+    i = code_offset
     while i < len(data):
         line, i = _disassemble_one(data, i, load_addr, kickass, asm=asm)
         lines.append(line)
     return lines
 
 
-def _parse_args() -> tuple[str, int | None, bool, bool]:
-    """Parse sys.argv and return (path, optional_load_addr, kickass_flag, asm_flag).
+def _extract_sys_addr(argv: list[str]) -> tuple[list[str], int | None]:
+    """Extract --sys <hex_addr> from the argument list.
+
+    Args:
+        argv: Argument list (typically sys.argv[1:]).
 
     Returns:
-        Tuple of (file path, load address override or None, kickass bool, asm bool).
+        Tuple of (remaining args without --sys pair, sys_addr or None).
+    """
+    if "--sys" not in argv:
+        return argv, None
+    idx = argv.index("--sys")
+    sys_addr = int(argv[idx + 1], 16)
+    return argv[:idx] + argv[idx + 2 :], sys_addr
 
-    Raises:
-        SystemExit: When no file path is supplied.
+
+def _collect_flags(argv: list[str]) -> tuple[list[str], bool, bool]:
+    """Separate boolean flags from positional arguments.
+
+    Args:
+        argv: Raw argument list.
+
+    Returns:
+        Tuple of (positional args only, kickass flag, asm flag).
     """
     kickass_flags = {"-k", "--kickass"}
     asm_flags = {"-a", "--asm"}
     all_flags = kickass_flags | asm_flags
-    kickass = any(a in kickass_flags for a in sys.argv[1:])
-    asm = any(a in asm_flags for a in sys.argv[1:])
-    args = [a for a in sys.argv[1:] if a not in all_flags]
-    if not args:
-        print("Usage: disasm.py <file.prg> [load_addr_hex] [-k|--kickass] [-a|--asm]")
+    kickass = any(a in kickass_flags for a in argv)
+    asm = any(a in asm_flags for a in argv)
+    return [a for a in argv if a not in all_flags], kickass, asm
+
+
+def _parse_args() -> tuple[str, int | None, bool, bool, int | None]:
+    """Parse sys.argv and return parsed arguments for the disassembler.
+
+    Returns:
+        Tuple of (file path, load address override or None, kickass, asm, sys_addr).
+
+    Raises:
+        SystemExit: When no file path is supplied.
+    """
+    argv, sys_addr = _extract_sys_addr(sys.argv[1:])
+    positional, kickass, asm = _collect_flags(argv)
+    if not positional:
+        print(
+            "Usage: disasm.py <file.prg> [load_addr_hex] [-k|--kickass] [-a|--asm] [--sys <hex>]"
+        )
         sys.exit(1)
-    override = int(args[1], 16) if len(args) >= 2 else None
-    return args[0], override, kickass, asm
+    override = int(positional[1], 16) if len(positional) >= 2 else None
+    return positional[0], override, kickass, asm, sys_addr
 
 
 def _load_prg(path: str, addr_override: int | None) -> tuple[bytes, int]:
@@ -660,11 +770,13 @@ def _print_listing_header(path: str, load_addr: int, code: bytes) -> None:
 
 def main() -> None:
     """Entry point: parse arguments, load PRG, and print disassembly to stdout."""
-    path, addr_override, kickass, asm = _parse_args()
+    path, addr_override, kickass, asm, sys_addr = _parse_args()
     code, load_addr = _load_prg(path, addr_override)
     if not kickass and not asm:
         _print_listing_header(path, load_addr, code)
-    for line in _disassemble(code, load_addr, kickass=kickass, asm=asm):
+    for line in _disassemble(
+        code, load_addr, kickass=kickass, asm=asm, sys_addr=sys_addr
+    ):
         print(line)
 
 

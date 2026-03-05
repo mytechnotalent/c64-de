@@ -1,3697 +1,776 @@
 // Load address: $0801  (30463 bytes)
 *=$0801
-	ora $0a08,x                                  // $0801
-	brk                                          // $0804
-	sta $9322,y                                  // $0805
-	ora $22                                      // $0808
-	.byte $3A                                    // $080A  ???
-	.byte $97                                    // $080B  ???
-	and $33,x                                    // $080C
-	.byte $32                                    // $080E  ???
-	sec                                          // $080F
-	.byte $30, $2C                               // $0810  bmi $083E
-	.byte $30, $3A                               // $0812  bmi $084E
-	.byte $97                                    // $0814  ???
-	and $33,x                                    // $0815
-	.byte $32                                    // $0817  ???
-	sec                                          // $0818
-	and ($2c),y                                  // $0819
-	.byte $30, $00                               // $081B  bmi $081D
-	rol $1408,x                                  // $081D
-	brk                                          // $0820
-	sta $1122,y                                  // $0821
-	ora ($11),y                                  // $0824
-	ora ($1d),y                                  // $0826
-	ora $1d1d,x                                  // $0828
-	ora $1d1d,x                                  // $082B
-	ora $1d1d,x                                  // $082E
-	rol                                          // $0831
-	.byte $43                                    // $0832  ???
-	rol                                          // $0833
-	.byte $4F                                    // $0834  ???
-	rol                                          // $0835
-	.byte $53                                    // $0836  ???
-	rol                                          // $0837
-	eor $492a                                    // $0838
-	rol                                          // $083B
-	.byte $22                                    // $083C  ???
-	brk                                          // $083D
-	rts                                          // $083E
-	php                                          // $083F
-	asl $9900,x                                  // $0840
-	.byte $22                                    // $0843  ???
-	ora ($11),y                                  // $0844
-	ora $1d1d,x                                  // $0846
-	ora $1d1d,x                                  // $0849
-	ora $461d,x                                  // $084C
-	.byte $4F                                    // $084F  ???
-	.byte $52                                    // $0850  ???
-	.byte $42                                    // $0851  ???
-	eor #$44                                     // $0852
-	.byte $44                                    // $0854  ???
-	eor $4e                                      // $0855
-	jsr $4f46                                    // $0857
-	.byte $52                                    // $085A  ???
-	eor $53                                      // $085B
-	.byte $54                                    // $085D  ???
-	.byte $22                                    // $085E  ???
-	brk                                          // $085F
-	sta ($08,x)                                  // $0860
-	plp                                          // $0862
-	brk                                          // $0863
-	sta $1122,y                                  // $0864
-	ora ($1d),y                                  // $0867
-	ora $1d1d,x                                  // $0869
-	ora $1d1d,x                                  // $086C
-	ora $421d,x                                  // $086F
-	eor $5020,y                                  // $0872
-	eor ($55,x)                                  // $0875
-	jmp $4e20                                    // $0877
-	.byte $4F                                    // $087A  ???
-	.byte $52                                    // $087B  ???
-	eor $4e41                                    // $087C
-	.byte $22                                    // $087F  ???
-	brk                                          // $0880
-	ldx #$08                                     // $0881
-	.byte $32                                    // $0883  ???
-	brk                                          // $0884
-	sta $1122,y                                  // $0885
-	ora ($11),y                                  // $0888
-	ora $1d1d,x                                  // $088A
-	ora $1d1d,x                                  // $088D
-	ora $1d1d,x                                  // $0890
-	ora $4c9e,x                                  // $0893
-	.byte $4F                                    // $0896  ???
-	eor ($44,x)                                  // $0897
-	eor #$4e                                     // $0899
-	.byte $47                                    // $089B  ???
-	jsr $4f4e                                    // $089C
-	.byte $57                                    // $089F  ???
-	.byte $22                                    // $08A0  ???
-	brk                                          // $08A1
-	dec $08                                      // $08A2
-	.byte $3C                                    // $08A4  ???
-	brk                                          // $08A5
-	sta $0522,y                                  // $08A6
-	ora ($11),y                                  // $08A9
-	ora ($11),y                                  // $08AB
-	ora ($11),y                                  // $08AD
-	ora ($9f),y                                  // $08AF
-	.byte $43                                    // $08B1  ???
-	.byte $52                                    // $08B2  ???
-	eor ($43,x)                                  // $08B3
-	.byte $4B                                    // $08B5  ???
-	eor $44                                      // $08B6
-	jsr $5942                                    // $08B8
-	jsr $2054                                    // $08BB
-	.byte $50, $20                               // $08BE  bvc $08E0
-	.byte $44                                    // $08C0  ???
-	rol $2e2e                                    // $08C1
-	.byte $22                                    // $08C4  ???
-	brk                                          // $08C5
-	cpx #$08                                     // $08C6
-	lsr $00                                      // $08C8
-	sta $2722,y                                  // $08CA
-	lsr $4f                                      // $08CD
-	.byte $52                                    // $08CF  ???
-	.byte $42                                    // $08D0  ???
-	eor #$44                                     // $08D1
-	.byte $44                                    // $08D3  ???
-	eor $4e                                      // $08D4
-	jsr $4f46                                    // $08D6
-	.byte $52                                    // $08D9  ???
-	eor $53                                      // $08DA
-	.byte $54                                    // $08DC  ???
-	.byte $27                                    // $08DD  ???
-	.byte $22                                    // $08DE  ???
-	brk                                          // $08DF
-	ora ($09,x)                                  // $08E0
-	pha                                          // $08E2
-	brk                                          // $08E3
-	sta $4322,y                                  // $08E4
-	.byte $4F                                    // $08E7  ???
-	.byte $50, $59                               // $08E8  bvc $0943
-	.byte $52                                    // $08EA  ???
-	eor #$47                                     // $08EB
-	pha                                          // $08ED
-	.byte $54                                    // $08EE  ???
-	jsr $4328                                    // $08EF
-	and #$20                                     // $08F2
-	and ($39),y                                  // $08F4
-	sec                                          // $08F6
-	.byte $33                                    // $08F7  ???
-	bit $4320                                    // $08F8
-	.byte $4F                                    // $08FB  ???
-	.byte $53                                    // $08FC  ???
-	eor $2249                                    // $08FD
-	brk                                          // $0900
-	.byte $1C                                    // $0901  ???
-	ora #$4a                                     // $0902
-	brk                                          // $0904
-	sta $4122,y                                  // $0905
-	jmp $204c                                    // $0908
-	.byte $52                                    // $090B  ???
-	eor #$47                                     // $090C
-	pha                                          // $090E
-	.byte $54                                    // $090F  ???
-	.byte $53                                    // $0910  ???
-	jsr $4552                                    // $0911
-	.byte $53                                    // $0914  ???
-	eor $52                                      // $0915
-	lsr $45,x                                    // $0917
-	.byte $44                                    // $0919  ???
-	.byte $22                                    // $091A  ???
-	brk                                          // $091B
-	.byte $2F                                    // $091C  ???
-	ora #$50                                     // $091D
-	brk                                          // $091F
-	.byte $8B                                    // $0920  ???
-	.byte $C2                                    // $0921  ???
-	plp                                          // $0922
-	.byte $34                                    // $0923  ???
-	.byte $30, $39                               // $0924  bmi $095F
-	rol $29,x                                    // $0926
-	.byte $B2                                    // $0928  ???
-	.byte $33                                    // $0929  ???
-	.byte $32                                    // $092A  ???
-	.byte $A7                                    // $092B  ???
-	.byte $39, $30, $00                          // $092C  and $0030,y
-	and $5a09,y                                  // $092F
-	brk                                          // $0932
-	.byte $9E                                    // $0933  ???
-	sec                                          // $0934
-	and ($39),y                                  // $0935
-	.byte $32                                    // $0937  ???
-	brk                                          // $0938
-	.byte $3F                                    // $0939  ???
-	ora #$64                                     // $093A
-	brk                                          // $093C
-	.byte $80                                    // $093D  ???
-	brk                                          // $093E
-	brk                                          // $093F
-	brk                                          // $0940
-	.byte $4B                                    // $0941  ???
-	ora #$5a                                     // $0942
-	brk                                          // $0944
-	.byte $9E                                    // $0945  ???
-	sec                                          // $0946
-	and ($39),y                                  // $0947
-	.byte $32                                    // $0949  ???
-	brk                                          // $094A
-	eor ($09),y                                  // $094B
-	.byte $64                                    // $094D  ???
-	brk                                          // $094E
-	.byte $80                                    // $094F  ???
-	brk                                          // $0950
-	brk                                          // $0951
-	brk                                          // $0952
-	ora $1ef0                                    // $0953
-	cmp #$20                                     // $0956
-	.byte $F0, $F1                               // $0958  beq $094B
-	jsr $8144                                    // $095A
-	.byte $90, $0F                               // $095D  bcc $096E
-	jsr $8581                                    // $095F
-	ldy $c1                                      // $0962
-	sty $c2                                      // $0964
-	sta $c1                                      // $0966
-	lda #$30                                     // $0968
-	sta $0210,x                                  // $096A
-	inx                                          // $096D
-	sta $0210,x                                  // $096E
-	inx                                          // $0971
-	.byte $D0, $D7                               // $0972  bne $094B
-	stx $0129                                    // $0974
-	jsr $aad7                                    // $0977
-	ldx #$00                                     // $097A
-	stx $3b                                      // $097C
-	ldx #$00                                     // $097E
-	stx $3a                                      // $0980
-	lda $3b                                      // $0982
-	jsr $8643                                    // $0984
-	ldx $3d                                      // $0987
-	stx $012a                                    // $0989
-	tax                                          // $098C
-	lda $87c8,x                                  // $098D
-	jsr $8116                                    // $0990
-	lda $8788,x                                  // $0993
-	jsr $8116                                    // $0996
-	ldx #$06                                     // $0999
-	cpx #$03                                     // $099B
-	.byte $D0, $12                               // $099D  bne $09B1
-	ldy $3e                                      // $099F
-	.byte $F0, $0E                               // $09A1  beq $09B1
-	lda $3d                                      // $09A3
-	cmp #$e8                                     // $09A5
-	lda #$30                                     // $09A7
-	.byte $B0, $1D                               // $09A9  bcs $09C8
-	jsr $8113                                    // $09AB
-	dey                                          // $09AE
-	.byte $D0, $F2                               // $09AF  bne $09A3
-	asl $3d                                      // $09B1
-	.byte $90, $0E                               // $09B3  bcc $09C3
-	lda $877b,x                                  // $09B5
-	jsr $8127                                    // $09B8
-	lda $8781,x                                  // $09BB
-	.byte $F0, $03                               // $09BE  beq $09C3
-	jsr $8127                                    // $09C0
-	dex                                          // $09C3
-	.byte $D0, $D5                               // $09C4  bne $099B
-	.byte $F0, $06                               // $09C6  beq $09CE
-	jsr $8113                                    // $09C8
-	jsr $8113                                    // $09CB
-	lda $0129                                    // $09CE
-	cmp $3a                                      // $09D1
-	.byte $F0, $03                               // $09D3  beq $09D8
-	jmp $811d                                    // $09D5
-	jsr $8157                                    // $09D8
-	ldy $3e                                      // $09DB
-	.byte $F0, $2D                               // $09DD  beq $0A0C
-	lda $012a                                    // $09DF
-	cmp #$9d                                     // $09E2
-	.byte $D0, $1E                               // $09E4  bne $0A04
-	jsr $82bf                                    // $09E6
-	.byte $90, $0A                               // $09E9  bcc $09F5
-	tya                                          // $09EB
-	.byte $D0, $36                               // $09EC  bne $0A24
-	ldx $012d                                    // $09EE
-	.byte $30, $31                               // $09F1  bmi $0A24
-	.byte $10, $08                               // $09F3  bpl $09FD
-	iny                                          // $09F5
-	.byte $D0, $2C                               // $09F6  bne $0A24
-	ldx $012d                                    // $09F8
-	.byte $10, $27                               // $09FB  bpl $0A24
-	dex                                          // $09FD
-	dex                                          // $09FE
-	txa                                          // $09FF
-	ldy $3e                                      // $0A00
-	.byte $D0, $03                               // $0A02  bne $0A07
-	.byte $B9, $C2, $00                          // $0A04  lda $00C2,y
-	sta ($c1),y                                  // $0A07
-	dey                                          // $0A09
-	.byte $D0, $F8                               // $0A0A  bne $0A04
-	lda $3b                                      // $0A0C
-	sta ($c1),y                                  // $0A0E
-	jmp $8433                                    // $0A10
-	jsr $8116                                    // $0A13
-	jsr $813c                                    // $0A16
-	.byte $F0, $1C                               // $0A19  beq $0A37
-	pla                                          // $0A1B
-	pla                                          // $0A1C
-	inc $3b                                      // $0A1D
-	.byte $F0, $03                               // $0A1F  beq $0A24
-	jmp $807e                                    // $0A21
-	jmp $85c0                                    // $0A24
-	jsr $813c                                    // $0A27
-	.byte $F0, $0B                               // $0A2A  beq $0A37
-	cmp #$29                                     // $0A2C
-	.byte $F0, $09                               // $0A2E  beq $0A39
-	ora #$08                                     // $0A30
-	cmp #$2c                                     // $0A32
-	.byte $D0, $E5                               // $0A34  bne $0A1B
-	bit $3ae6                                    // $0A36
-	ldx $3c                                      // $0A39
-	rts                                          // $0A3B
-	stx $3c                                      // $0A3C
-	ldx $3a                                      // $0A3E
-	cmp $0210,x                                  // $0A40
-	rts                                          // $0A43
-	cmp #$30                                     // $0A44
-	.byte $90, $0E                               // $0A46  bcc $0A56
-	cmp #$3a                                     // $0A48
-	.byte $90, $09                               // $0A4A  bcc $0A55
-	cmp #$47                                     // $0A4C
-	.byte $B0, $03                               // $0A4E  bcs $0A53
-	cmp #$41                                     // $0A50
-	rts                                          // $0A52
-	clc                                          // $0A53
-	rts                                          // $0A54
-	sec                                          // $0A55
-	rts                                          // $0A56
-	ldx #$02                                     // $0A57
-	lda $c0,x                                    // $0A59
-	pha                                          // $0A5B
-	lda $c2,x                                    // $0A5C
-	sta $c0,x                                    // $0A5E
-	pla                                          // $0A60
-	sta $c2,x                                    // $0A61
-	dex                                          // $0A63
-	.byte $D0, $F3                               // $0A64  bne $0A59
-	rts                                          // $0A66
-	lda #$18                                     // $0A67
-	sta $012a                                    // $0A69
-	ldx #$00                                     // $0A6C
-	bit $39                                      // $0A6E
-	.byte $30, $01                               // $0A70  bmi $0A73
-	tax                                          // $0A72
-	stx $02a5                                    // $0A73
-	cpx $d6                                      // $0A76
-	.byte $F0, $01                               // $0A78  beq $0A7B
-	rts                                          // $0A7A
-	bit $39                                      // $0A7B
-	.byte $10, $03                               // $0A7D  bpl $0A82
-	jsr $8dab                                    // $0A7F
-	jsr $8d96                                    // $0A82
-	cmp #$2c                                     // $0A85
-	.byte $F0, $21                               // $0A87  beq $0AAA
-	cmp #$3a                                     // $0A89
-	.byte $F0, $1D                               // $0A8B  beq $0AAA
-	cmp #$27                                     // $0A8D
-	.byte $F0, $19                               // $0A8F  beq $0AAA
-	lda $39                                      // $0A91
-	eor #$80                                     // $0A93
-	jsr $ffd2                                    // $0A95
-	dec $012a                                    // $0A98
-	.byte $D0, $E5                               // $0A9B  bne $0A82
-	lda #$00                                     // $0A9D
-	sta $39                                      // $0A9F
-	ldx $02a5                                    // $0AA1
-	dex                                          // $0AA4
-	stx $d6                                      // $0AA5
-	jmp $8da8                                    // $0AA7
-	tay                                          // $0AAA
-	jsr $8301                                    // $0AAB
-	.byte $90, $E1                               // $0AAE  bcc $0A91
-	sta $c3                                      // $0AB0
-	stx $c4                                      // $0AB2
-	jsr $81a1                                    // $0AB4
-	bit $39                                      // $0AB7
-	.byte $30, $24                               // $0AB9  bmi $0ADF
-	jsr $8dae                                    // $0ABB
-	cpy #$2c                                     // $0ABE
-	.byte $F0, $0C                               // $0AC0  beq $0ACE
-	cpy #$27                                     // $0AC2
-	.byte $F0, $11                               // $0AC4  beq $0AD7
-	lda #$07                                     // $0AC6
-	jsr $8626                                    // $0AC8
-	jmp $83b2                                    // $0ACB
-	jsr $863f                                    // $0ACE
-	jsr $8620                                    // $0AD1
-	jmp $85cc                                    // $0AD4
-	lda #$1f                                     // $0AD7
-	jsr $8626                                    // $0AD9
-	jmp $83bd                                    // $0ADC
-	sty $39                                      // $0ADF
-	lda #$80                                     // $0AE1
-	sta $d8                                      // $0AE3
-	jsr $e981                                    // $0AE5
-	lda $d9                                      // $0AE8
-	ora #$80                                     // $0AEA
-	sta $d9                                      // $0AEC
-	lda #$00                                     // $0AEE
-	sta $d8                                      // $0AF0
-	jsr $8dab                                    // $0AF2
-	ldy $39                                      // $0AF5
-	lda #$f7                                     // $0AF7
-	cpy #$3a                                     // $0AF9
-	.byte $F0, $2D                               // $0AFB  beq $0B2A
-	lda #$df                                     // $0AFD
-	cpy #$27                                     // $0AFF
-	.byte $F0, $27                               // $0B01  beq $0B2A
-	sta $3a                                      // $0B03
-	jsr $8626                                    // $0B05
-	jsr $863f                                    // $0B08
-	jsr $8620                                    // $0B0B
-	cmp $c3                                      // $0B0E
-	.byte $F0, $12                               // $0B10  beq $0B24
-	.byte $30, $F4                               // $0B12  bmi $0B08
-	lda $c3                                      // $0B14
-	sta $c1                                      // $0B16
-	lda $c4                                      // $0B18
-	sta $c2                                      // $0B1A
-	inc $3a                                      // $0B1C
-	lda $3a                                      // $0B1E
-	.byte $D0, $E3                               // $0B20  bne $0B05
-	sta $3e                                      // $0B22
-	inc $3e                                      // $0B24
-	lda $3e                                      // $0B26
-	eor #$ff                                     // $0B28
-	jsr $8626                                    // $0B2A
-	jsr $832d                                    // $0B2D
-	jsr $8dab                                    // $0B30
-	.byte $D0, $03                               // $0B33  bne $0B38
-	jsr $8da8                                    // $0B35
-	jmp $9017                                    // $0B38
-	stx $9d                                      // $0B3B
-	stx $cc                                      // $0B3D
-	ldx #$00                                     // $0B3F
-	stx $3b                                      // $0B41
-	stx $99                                      // $0B43
-	lda #$03                                     // $0B45
-	sta $0287                                    // $0B47
-	jsr $8d63                                    // $0B4A
-	lda $d012                                    // $0B4D  ; VIC_RASTER
-	and #$0f                                     // $0B50
-	.byte $D0, $F9                               // $0B52  bne $0B4D
-	jsr $ffe4                                    // $0B54
-	.byte $F0, $F4                               // $0B57  beq $0B4D
-	sta $39                                      // $0B59
-	and #$7f                                     // $0B5B
-	cmp #$11                                     // $0B5D
-	.byte $D0, $0F                               // $0B5F  bne $0B70
-	lda #$03                                     // $0B61
-	cmp $9a                                      // $0B63
-	.byte $D0, $09                               // $0B65  bne $0B70
-	jsr $8d63                                    // $0B67
-	jsr $8167                                    // $0B6A
-	jsr $8d63                                    // $0B6D
-	lda $39                                      // $0B70
-	cmp #$0d                                     // $0B72
-	.byte $F0, $06                               // $0B74  beq $0B7C
-	jsr $8d5d                                    // $0B76
-	jmp $824d                                    // $0B79
-	jsr $8d63                                    // $0B7C
-	jsr $8d96                                    // $0B7F
-	.byte $D0, $03                               // $0B82  bne $0B87
-	jsr $85a9                                    // $0B84
-	cmp #$20                                     // $0B87
-	.byte $F0, $F9                               // $0B89  beq $0B84
-	ldx #$1c                                     // $0B8B
-	cmp $8822,x                                  // $0B8D
-	.byte $D0, $13                               // $0B90  bne $0BA5
-	sta $39                                      // $0B92
-	txa                                          // $0B94
-	asl                                          // $0B95
-	tax                                          // $0B96
-	lda $883f,x                                  // $0B97
-	sta $c1                                      // $0B9A
-	inx                                          // $0B9C
-	lda $883f,x                                  // $0B9D
-	sta $c2                                      // $0BA0
-	jmp ($00c1)                                  // $0BA2
-	dex                                          // $0BA5
-	.byte $10, $E5                               // $0BA6  bpl $0B8D
-	jmp $85c0                                    // $0BA8
-	lda $c1                                      // $0BAB
-	sta $0120                                    // $0BAD
-	lda $c2                                      // $0BB0
-	sta $0121                                    // $0BB2
-	rts                                          // $0BB5
-	lda $0129                                    // $0BB6
-	ldy $012a                                    // $0BB9
-	jmp $82c3                                    // $0BBC
-	lda $c3                                      // $0BBF
-	ldy $c4                                      // $0BC1
-	sec                                          // $0BC3
-	sbc $c1                                      // $0BC4
-	sta $012d                                    // $0BC6
-	tya                                          // $0BC9
-	.byte $10, $02                               // $0BCA  bpl $0BCE
-	eor $c2                                      // $0BCC
-	pha                                          // $0BCE
-	tya                                          // $0BCF
-	sbc $c2                                      // $0BD0
-	tay                                          // $0BD2
-	pla                                          // $0BD3
-	.byte $10, $01                               // $0BD4  bpl $0BD7
-	sec                                          // $0BD6
-	tya                                          // $0BD7
-	ora $012d                                    // $0BD8
-	rts                                          // $0BDB
-	sta $3a                                      // $0BDC
-	ldy #$00                                     // $0BDE
-	jsr $ab3f                                    // $0BE0
-	lda ($c1),y                                  // $0BE3
-	jsr $8502                                    // $0BE5
-	iny                                          // $0BE8
-	cpy $3a                                      // $0BE9
-	.byte $D0, $F3                               // $0BEB  bne $0BE0
-	jmp $ab3f                                    // $0BED
-	jsr $8309                                    // $0BF0
-	sta $c3                                      // $0BF3
-	stx $c4                                      // $0BF5
-	jsr $853f                                    // $0BF7
-	.byte $90, $04                               // $0BFA  bcc $0C00
-	sta $c3                                      // $0BFC
-	stx $c4                                      // $0BFE
-	rts                                          // $0C00
-	jsr $853f                                    // $0C01
-	sta $c1                                      // $0C04
-	stx $c2                                      // $0C06
-	rts                                          // $0C08
-	jsr $853f                                    // $0C09
-	.byte $B0, $F6                               // $0C0C  bcs $0C04
-	jmp $85c0                                    // $0C0E
-	sta $3a                                      // $0C11
-	jsr $85a9                                    // $0C13
-	jsr $8568                                    // $0C16
-	ldx #$00                                     // $0C19
-	.byte $90, $0D                               // $0C1B  bcc $0C2A
-	sta ($c1,x)                                  // $0C1D
-	sbc ($c1,x)                                  // $0C1F
-	.byte $D0, $EB                               // $0C21  bne $0C0E
-	jsr $8626                                    // $0C23
-	dec $3a                                      // $0C26
-	.byte $D0, $E9                               // $0C28  bne $0C13
-	jmp $aad7                                    // $0C2A
-	lda $39                                      // $0C2D
-	jsr $8528                                    // $0C2F
-	cmp #$3b                                     // $0C32
-	.byte $F0, $30                               // $0C34  beq $0C66
-	jsr $84ea                                    // $0C36
-	lda $39                                      // $0C39
-	cmp #$3a                                     // $0C3B
-	.byte $F0, $4F                               // $0C3D  beq $0C8E
-	cmp #$27                                     // $0C3F
-	.byte $F0, $03                               // $0C41  beq $0C46
-	jmp $85d6                                    // $0C43
-	jmp $83c7                                    // $0C46
-	lda #$22                                     // $0C49
-	sta $c1                                      // $0C4B
-	lda #$01                                     // $0C4D
-	sta $c2                                      // $0C4F
-	lda #$05                                     // $0C51
-	rts                                          // $0C53
-	ldx #$00                                     // $0C54
-	lda $8808,x                                  // $0C56
-	jsr $ffd2                                    // $0C59
-	inx                                          // $0C5C
-	cpx #$1a                                     // $0C5D
-	.byte $D0, $F5                               // $0C5F  bne $0C56
-	jmp $9030                                    // $0C61
-	nop                                          // $0C64
-	nop                                          // $0C65
-	lda $0121                                    // $0C66
-	jsr $8502                                    // $0C69
-	lda $0120                                    // $0C6C
-	jsr $8502                                    // $0C6F
-	jsr $ab3f                                    // $0C72
-	lda $0315                                    // $0C75
-	jsr $8502                                    // $0C78
-	lda $0314                                    // $0C7B
-	jsr $8502                                    // $0C7E
-	jsr $8349                                    // $0C81
-	jsr $82dc                                    // $0C84
-	.byte $D0, $20                               // $0C87  bne $0CA9
-	lda #$3a                                     // $0C89
-	jsr $84e3                                    // $0C8B
-	lda #$08                                     // $0C8E
-	jsr $82dc                                    // $0C90
-	lda #$07                                     // $0C93
-	.byte $D0, $35                               // $0C95  bne $0CCC
-	jsr $ffe1                                    // $0C97
-	.byte $F0, $0A                               // $0C9A  beq $0CA6
-	jsr $82bf                                    // $0C9C
-	.byte $90, $05                               // $0C9F  bcc $0CA6
-	lda $3b                                      // $0CA1
-	.byte $D0, $01                               // $0CA3  bne $0CA6
-	rts                                          // $0CA5
-	jsr $8dae                                    // $0CA6
-	jmp $8235                                    // $0CA9
-	jsr $82f0                                    // $0CAC
-	jsr $8397                                    // $0CAF
-	jsr $8389                                    // $0CB2
-	.byte $D0, $F8                               // $0CB5  bne $0CAF
-	jsr $82f0                                    // $0CB7
-	jsr $8397                                    // $0CBA
-	jsr $83c2                                    // $0CBD
-	.byte $D0, $F8                               // $0CC0  bne $0CBA
-	lda #$27                                     // $0CC2
-	jsr $84e3                                    // $0CC4
-	jsr $ab3f                                    // $0CC7
-	lda #$1f                                     // $0CCA
-	sta $3a                                      // $0CCC
-	ldy #$ff                                     // $0CCE
-	iny                                          // $0CD0
-	lda ($c1),y                                  // $0CD1
-	jsr $83de                                    // $0CD3
-	cpy $3a                                      // $0CD6
-	.byte $D0, $F6                               // $0CD8  bne $0CD0
-	tya                                          // $0CDA
-	jmp $8626                                    // $0CDB
-	pha                                          // $0CDE
-	and #$7f                                     // $0CDF
-	cmp #$20                                     // $0CE1
-	.byte $B0, $0C                               // $0CE3  bcs $0CF1
-	ldx #$12                                     // $0CE5
-	pla                                          // $0CE7
-	adc #$40                                     // $0CE8
-	jsr $8519                                    // $0CEA
-	lda #$92                                     // $0CED
-	.byte $D0, $07                               // $0CEF  bne $0CF8
-	cmp #$60                                     // $0CF1
-	pla                                          // $0CF3
-	.byte $90, $02                               // $0CF4  bcc $0CF8
-	lda #$2e                                     // $0CF6
-	jsr $ffd2                                    // $0CF8
-	lda #$00                                     // $0CFB
-	sta $d4                                      // $0CFD
-	rts                                          // $0CFF
-	jsr $8301                                    // $0D00
-	.byte $90, $03                               // $0D03  bcc $0D08
-	jsr $82ab                                    // $0D05
-	jsr $855f                                    // $0D08
-	.byte $90, $08                               // $0D0B  bcc $0D15
-	sei                                          // $0D0D
-	sta $0314                                    // $0D0E
-	stx $0315                                    // $0D11
-	cli                                          // $0D14
-	jsr $8349                                    // $0D15
-	.byte $D0, $0E                               // $0D18  bne $0D28
-	lda #$08                                     // $0D1A
-	bit $03a9                                    // $0D1C
-	pha                                          // $0D1F
-	jsr $8309                                    // $0D20
-	sta $c3                                      // $0D23
-	stx $c4                                      // $0D25
-	pla                                          // $0D27
-	jsr $8311                                    // $0D28
-	lda $c3                                      // $0D2B
-	sta $c1                                      // $0D2D
-	lda $c4                                      // $0D2F
-	sta $c2                                      // $0D31
-	jsr $8dae                                    // $0D33
-	jsr $832d                                    // $0D36
-	jsr $84e5                                    // $0D39
-	jsr $ab3f                                    // $0D3C
-	jmp $8238                                    // $0D3F
-	ldy #$00                                     // $0D42
-	sty $b7                                      // $0D44
-	lda #$02                                     // $0D46
-	sta $bc                                      // $0D48
-	lda #$00                                     // $0D4A
-	sta $bb                                      // $0D4C
-	jsr $ffcf                                    // $0D4E
-	cmp #$20                                     // $0D51
-	.byte $F0, $F9                               // $0D53  beq $0D4E
-	cmp #$0d                                     // $0D55
-	.byte $F0, $1B                               // $0D57  beq $0D74
-	cmp #$22                                     // $0D59
-	.byte $D0, $14                               // $0D5B  bne $0D71
-	jsr $ffcf                                    // $0D5D
-	cmp #$22                                     // $0D60
-	.byte $F0, $10                               // $0D62  beq $0D74
-	cmp #$0d                                     // $0D64
-	.byte $F0, $0C                               // $0D66  beq $0D74
-	sta ($bb),y                                  // $0D68
-	inc $b7                                      // $0D6A
-	iny                                          // $0D6C
-	cpy #$14                                     // $0D6D
-	.byte $D0, $EC                               // $0D6F  bne $0D5D
-	jmp $85c0                                    // $0D71
-	rts                                          // $0D74
-	ldy #$01                                     // $0D75
-	sty $b9                                      // $0D77
-	sty $ba                                      // $0D79
-	jsr $8442                                    // $0D7B
-	cmp #$0d                                     // $0D7E
-	.byte $D0, $17                               // $0D80  bne $0D99
-	lda $39                                      // $0D82
-	cmp #$4c                                     // $0D84
-	.byte $D0, $E9                               // $0D86  bne $0D71
-	jsr $8da8                                    // $0D88
-	lda #$00                                     // $0D8B
-	jsr $ffd5                                    // $0D8D
-	lda $90                                      // $0D90
-	and #$10                                     // $0D92
-	.byte $D0, $DB                               // $0D94  bne $0D71
-	jmp $8235                                    // $0D96
-	jsr $ffcf                                    // $0D99
-	cmp #$0d                                     // $0D9C
-	.byte $F0, $E2                               // $0D9E  beq $0D82
-	cmp #$20                                     // $0DA0
-	.byte $D0, $F0                               // $0DA2  bne $0D94
-	jsr $8568                                    // $0DA4
-	and #$0f                                     // $0DA7
-	.byte $F0, $C6                               // $0DA9  beq $0D71
-	cmp #$03                                     // $0DAB
-	.byte $F0, $FA                               // $0DAD  beq $0DA9
-	sta $ba                                      // $0DAF
-	jsr $ffcf                                    // $0DB1
-	cmp #$0d                                     // $0DB4
-	.byte $F0, $CA                               // $0DB6  beq $0D82
-	cmp #$20                                     // $0DB8
-	.byte $D0, $E6                               // $0DBA  bne $0DA2
-	jsr $82f0                                    // $0DBC
-	.byte $90, $C1                               // $0DBF  bcc $0D82
-	pha                                          // $0DC1
-	txa                                          // $0DC2
-	tay                                          // $0DC3
-	pla                                          // $0DC4
-	tax                                          // $0DC5
-	nop                                          // $0DC6
-	nop                                          // $0DC7
-	nop                                          // $0DC8
-	nop                                          // $0DC9
-	nop                                          // $0DCA
-	nop                                          // $0DCB
-	nop                                          // $0DCC
-	nop                                          // $0DCD
-	nop                                          // $0DCE
-	nop                                          // $0DCF
-	nop                                          // $0DD0
-	nop                                          // $0DD1
-	lda $39                                      // $0DD2
-	cmp #$53                                     // $0DD4
-	.byte $D0, $E2                               // $0DD6  bne $0DBA
-	jsr $8da8                                    // $0DD8
-	lda #$c1                                     // $0DDB
-	jsr $ffd8                                    // $0DDD
-	jmp $8235                                    // $0DE0
-	sta $39                                      // $0DE3
-	lda $39                                      // $0DE5
-	jsr $8522                                    // $0DE7
-	nop                                          // $0DEA
-	nop                                          // $0DEB
-	nop                                          // $0DEC
-	nop                                          // $0DED
-	nop                                          // $0DEE
-	nop                                          // $0DEF
-	nop                                          // $0DF0
-	nop                                          // $0DF1
-	nop                                          // $0DF2
-	nop                                          // $0DF3
-	nop                                          // $0DF4
-	nop                                          // $0DF5
-	nop                                          // $0DF6
-	nop                                          // $0DF7
-	nop                                          // $0DF8
-	nop                                          // $0DF9
-	nop                                          // $0DFA
-	lda $c2                                      // $0DFB
-	jsr $8502                                    // $0DFD
-	lda $c1                                      // $0E00
-	pha                                          // $0E02
-	lsr                                          // $0E03
-	lsr                                          // $0E04
-	lsr                                          // $0E05
-	lsr                                          // $0E06
-	jsr $850d                                    // $0E07
-	pla                                          // $0E0A
-	and #$0f                                     // $0E0B
-	clc                                          // $0E0D
-	adc #$f6                                     // $0E0E
-	.byte $90, $02                               // $0E10  bcc $0E14
-	adc #$06                                     // $0E12
-	adc #$3a                                     // $0E14
-	jmp $ffd2                                    // $0E16
-	pha                                          // $0E19
-	txa                                          // $0E1A
-	jsr $ffd2                                    // $0E1B
-	pla                                          // $0E1E
-	jmp $ffd2                                    // $0E1F
-	pha                                          // $0E22
-	jsr $aad7                                    // $0E23
-	.byte $D0, $F6                               // $0E26  bne $0E1E
-	pha                                          // $0E28
-	lda $9a                                      // $0E29
-	cmp #$03                                     // $0E2B
-	.byte $D0, $EF                               // $0E2D  bne $0E1E
-	txa                                          // $0E2F
-	pha                                          // $0E30
-	tya                                          // $0E31
-	pha                                          // $0E32
-	ldx $d6                                      // $0E33
-	jsr $e9ff                                    // $0E35
-	pla                                          // $0E38
-	tay                                          // $0E39
-	pla                                          // $0E3A
-	tax                                          // $0E3B
-	jmp $851e                                    // $0E3C
-	lda #$00                                     // $0E3F
-	sta $0100                                    // $0E41
-	jsr $ffcf                                    // $0E44
-	cmp #$20                                     // $0E47
-	.byte $F0, $F9                               // $0E49  beq $0E44
-	cmp #$24                                     // $0E4B
-	.byte $F0, $13                               // $0E4D  beq $0E62
-	cmp #$0d                                     // $0E4F
-	.byte $D0, $02                               // $0E51  bne $0E55
-	clc                                          // $0E53
-	rts                                          // $0E54
-	jsr $8144                                    // $0E55
-	.byte $90, $FA                               // $0E58  bcc $0E54
-	jsr $8581                                    // $0E5A
-	.byte $B0, $08                               // $0E5D  bcs $0E67
-	jsr $85a9                                    // $0E5F
-	jsr $8568                                    // $0E62
-	.byte $90, $19                               // $0E65  bcc $0E80
-	tax                                          // $0E67
-	lda #$00                                     // $0E68
-	sta $0100                                    // $0E6A
-	jsr $85a9                                    // $0E6D
-	cmp #$24                                     // $0E70
-	.byte $F0, $F4                               // $0E72  beq $0E68
-	cmp #$20                                     // $0E74
-	.byte $D0, $09                               // $0E76  bne $0E81
-	jsr $85a9                                    // $0E78
-	cmp #$20                                     // $0E7B
-	.byte $D0, $0F                               // $0E7D  bne $0E8E
-	clc                                          // $0E7F
-	rts                                          // $0E80
-	jsr $8596                                    // $0E81
-	asl                                          // $0E84
-	asl                                          // $0E85
-	asl                                          // $0E86
-	asl                                          // $0E87
-	sta $0100                                    // $0E88
-	jsr $85a9                                    // $0E8B
-	jsr $8596                                    // $0E8E
-	ora $0100                                    // $0E91
-	sec                                          // $0E94
-	rts                                          // $0E95
-	cmp #$30                                     // $0E96
-	.byte $90, $26                               // $0E98  bcc $0EC0
-	cmp #$3a                                     // $0E9A
-	php                                          // $0E9C
-	and #$0f                                     // $0E9D
-	plp                                          // $0E9F
-	.byte $90, $02                               // $0EA0  bcc $0EA4
-	adc #$08                                     // $0EA2
-	cmp #$10                                     // $0EA4
-	.byte $B0, $18                               // $0EA6  bcs $0EC0
-	rts                                          // $0EA8
-	nop                                          // $0EA9
-	nop                                          // $0EAA
-	nop                                          // $0EAB
-	nop                                          // $0EAC
-	nop                                          // $0EAD
-	nop                                          // $0EAE
-	nop                                          // $0EAF
-	nop                                          // $0EB0
-	nop                                          // $0EB1
-	nop                                          // $0EB2
-	nop                                          // $0EB3
-	nop                                          // $0EB4
-	nop                                          // $0EB5
-	nop                                          // $0EB6
-	nop                                          // $0EB7
-	jsr $ffcf                                    // $0EB8
-	cmp #$0d                                     // $0EBB
-	.byte $F0, $04                               // $0EBD  beq $0EC3
-	rts                                          // $0EBF
-	jsr $ab45                                    // $0EC0
-	jmp $8235                                    // $0EC3
-	jsr $82f0                                    // $0EC6
-	jsr $8397                                    // $0EC9
-	jsr $85d1                                    // $0ECC
-	.byte $D0, $F8                               // $0ECF  bne $0EC9
-	lda #$2c                                     // $0ED1
-	jsr $84e3                                    // $0ED3
-	jsr $863f                                    // $0ED6
-	pha                                          // $0ED9
-	jsr $8689                                    // $0EDA
-	pla                                          // $0EDD
-	jsr $86a4                                    // $0EDE
-	ldx #$06                                     // $0EE1
-	cpx #$03                                     // $0EE3
-	.byte $D0, $12                               // $0EE5  bne $0EF9
-	ldy $3e                                      // $0EE7
-	.byte $F0, $0E                               // $0EE9  beq $0EF9
-	lda $3d                                      // $0EEB
-	cmp #$e8                                     // $0EED
-	lda ($c1),y                                  // $0EEF
-	.byte $B0, $1D                               // $0EF1  bcs $0F10
-	jsr $8502                                    // $0EF3
-	dey                                          // $0EF6
-	.byte $D0, $F2                               // $0EF7  bne $0EEB
-	asl $3d                                      // $0EF9
-	.byte $90, $0E                               // $0EFB  bcc $0F0B
-	lda $877b,x                                  // $0EFD
-	jsr $ffd2                                    // $0F00
-	lda $8781,x                                  // $0F03
-	.byte $F0, $03                               // $0F06  beq $0F0B
-	jsr $ffd2                                    // $0F08
-	dex                                          // $0F0B
-	.byte $D0, $D5                               // $0F0C  bne $0EE3
-	.byte $F0, $10                               // $0F0E  beq $0F20
-	jsr $8633                                    // $0F10
-	tax                                          // $0F13
-	inx                                          // $0F14
-	.byte $D0, $01                               // $0F15  bne $0F18
-	iny                                          // $0F17
-	tya                                          // $0F18
-	jsr $8502                                    // $0F19
-	txa                                          // $0F1C
-	jsr $8502                                    // $0F1D
-	lda $3e                                      // $0F20
-	.byte $D0, $02                               // $0F22  bne $0F26
-	lda #$00                                     // $0F24
-	jsr $8632                                    // $0F26
-	sta $c1                                      // $0F29
-	sty $c2                                      // $0F2B
-	.byte $D0, $02                               // $0F2D  bne $0F31
-	inc $3b                                      // $0F2F
-	rts                                          // $0F31
-	sec                                          // $0F32
-	ldy $c2                                      // $0F33
-	tax                                          // $0F35
-	.byte $10, $01                               // $0F36  bpl $0F39
-	dey                                          // $0F38
-	adc $c1                                      // $0F39
-	.byte $90, $01                               // $0F3B  bcc $0F3E
-	iny                                          // $0F3D
-	rts                                          // $0F3E
-	ldx #$00                                     // $0F3F
-	lda ($c1,x)                                  // $0F41
-	tay                                          // $0F43
-	lsr                                          // $0F44
-	.byte $90, $0B                               // $0F45  bcc $0F52
-	lsr                                          // $0F47
-	.byte $B0, $17                               // $0F48  bcs $0F61
-	cmp #$22                                     // $0F4A
-	.byte $F0, $13                               // $0F4C  beq $0F61
-	and #$07                                     // $0F4E
-	ora #$80                                     // $0F50
-	lsr                                          // $0F52
-	tax                                          // $0F53
-	lda $872a,x                                  // $0F54
-	.byte $B0, $04                               // $0F57  bcs $0F5D
-	lsr                                          // $0F59
-	lsr                                          // $0F5A
-	lsr                                          // $0F5B
-	lsr                                          // $0F5C
-	and #$0f                                     // $0F5D
-	.byte $D0, $04                               // $0F5F  bne $0F65
-	ldy #$80                                     // $0F61
-	lda #$00                                     // $0F63
-	tax                                          // $0F65
-	lda $876e,x                                  // $0F66
-	sta $3d                                      // $0F69
-	and #$03                                     // $0F6B
-	sta $3e                                      // $0F6D
-	tya                                          // $0F6F
-	and #$8f                                     // $0F70
-	tax                                          // $0F72
-	tya                                          // $0F73
-	ldy #$03                                     // $0F74
-	cpx #$8a                                     // $0F76
-	.byte $F0, $0B                               // $0F78  beq $0F85
-	lsr                                          // $0F7A
-	.byte $90, $08                               // $0F7B  bcc $0F85
-	lsr                                          // $0F7D
-	lsr                                          // $0F7E
-	ora #$20                                     // $0F7F
-	dey                                          // $0F81
-	.byte $D0, $FA                               // $0F82  bne $0F7E
-	iny                                          // $0F84
-	dey                                          // $0F85
-	.byte $D0, $F2                               // $0F86  bne $0F7A
-	rts                                          // $0F88
-	ldy $3e                                      // $0F89
-	iny                                          // $0F8B
-	tya                                          // $0F8C
-	jsr $82dc                                    // $0F8D
-	sec                                          // $0F90
-	lda #$02                                     // $0F91
-	sbc $3e                                      // $0F93
-	.byte $F0, $0C                               // $0F95  beq $0FA3
-	asl                                          // $0F97
-	ora #$02                                     // $0F98
-	ora $3e                                      // $0F9A
-	tax                                          // $0F9C
-	jsr $ab3f                                    // $0F9D
-	dex                                          // $0FA0
-	.byte $D0, $FA                               // $0FA1  bne $0F9D
-	rts                                          // $0FA3
-	tay                                          // $0FA4
-	ldx #$03                                     // $0FA5
-	lda $8788,y                                  // $0FA7
-	sta $0129                                    // $0FAA
-	lda $87c8,y                                  // $0FAD
-	sta $012a                                    // $0FB0
-	lda #$00                                     // $0FB3
-	ldy #$05                                     // $0FB5
-	asl $012a                                    // $0FB7
-	rol $0129                                    // $0FBA
-	rol                                          // $0FBD
-	dey                                          // $0FBE
-	.byte $D0, $F6                               // $0FBF  bne $0FB7
-	adc #$3f                                     // $0FC1
-	jsr $ffd2                                    // $0FC3
-	dex                                          // $0FC6
-	.byte $D0, $EA                               // $0FC7  bne $0FB3
-	jmp $ab3f                                    // $0FC9
-	jsr $2020                                    // $0FCC
-	jsr $2020                                    // $0FCF
-	jsr $2020                                    // $0FD2
-	jsr $2020                                    // $0FD5
-	jsr $4820                                    // $0FD8
-	eor $53                                      // $0FDB
-	eor $4e4f                                    // $0FDD
-	jsr $3620                                    // $0FE0
-	.byte $34                                    // $0FE3  ???
-	ora $200d                                    // $0FE4
-	jsr $2020                                    // $0FE7
-	jsr $2020                                    // $0FEA
-	jsr $2020                                    // $0FED
-	jsr $5942                                    // $0FF0
-	jsr $2e54                                    // $0FF3
-	eor $202e                                    // $0FF6
-	.byte $50, $45                               // $0FF9  bvc $1040
-	.byte $54                                    // $0FFB  ???
-	eor $52                                      // $0FFC
-	.byte $53                                    // $0FFE  ???
-	.byte $4F                                    // $0FFF  ???
-	jsr $6000                                    // $1000
-	jsr $6140                                    // $1003
-	jsr $6090                                    // $1006
-	jsr $7690                                    // $1009
-	jsr $61f0                                    // $100C
-	lda $dc00                                    // $100F  ; CIA1_PRA
-	and #$1f                                     // $1012
-	eor #$1f                                     // $1014
-	.byte $F0, $F7                               // $1016  beq $100F
-	lda $d015                                    // $1018  ; VIC_SPEN
-	and #$f0                                     // $101B
-	sta $d015                                    // $101D  ; VIC_SPEN
-	lda $24                                      // $1020
-	.byte $F0, $0E                               // $1022  beq $1032
-	dec $1d                                      // $1024
-	.byte $D0, $07                               // $1026  bne $102F
-	lda #$0a                                     // $1028
-	sta $1d                                      // $102A
-	jsr $633b                                    // $102C
-	jmp $113b                                    // $102F
-	lda $25                                      // $1032
-	.byte $F0, $0E                               // $1034  beq $1044
-	dec $1d                                      // $1036
-	.byte $D0, $07                               // $1038  bne $1041
-	lda #$70                                     // $103A
-	sta $1d                                      // $103C
-	jsr $63e4                                    // $103E
-	jmp $113b                                    // $1041
-	lda $18                                      // $1044
-	.byte $F0, $1A                               // $1046  beq $1062
-	lda $57                                      // $1048
-	cmp #$0f                                     // $104A
-	.byte $D0, $03                               // $104C  bne $1051
-	jsr $7040                                    // $104E
-	lda #$02                                     // $1051
-	sta $44                                      // $1053
-	jsr $640d                                    // $1055
-	lda $57                                      // $1058
-	.byte $F0, $03                               // $105A  beq $105F
-	jsr $7035                                    // $105C
-	jmp $113b                                    // $105F
-	lda $19                                      // $1062
-	.byte $F0, $14                               // $1064  beq $107A
-	lda $57                                      // $1066
-	cmp #$f0                                     // $1068
-	.byte $D0, $03                               // $106A  bne $106F
-	jsr $7060                                    // $106C
-	jsr $6580                                    // $106F
-	lda $57                                      // $1072
-	.byte $F0, $04                               // $1074  beq $107A
-	jsr $7035                                    // $1076
-	nop                                          // $1079
-	lda $dc00                                    // $107A  ; CIA1_PRA
-	and #$1f                                     // $107D
-	eor #$1f                                     // $107F
-	.byte $D0, $03                               // $1081  bne $1086
-	jmp $113b                                    // $1083
-	cmp #$01                                     // $1086
-	.byte $D0, $12                               // $1088  bne $109C
-	dec $1d                                      // $108A
-	.byte $D0, $0B                               // $108C  bne $1099
-	lda #$12                                     // $108E
-	sta $1d                                      // $1090
-	lda #$00                                     // $1092
-	sta $0d                                      // $1094
-	jsr $6275                                    // $1096
-	jmp $113b                                    // $1099
-	cmp #$02                                     // $109C
-	.byte $D0, $12                               // $109E  bne $10B2
-	dec $1d                                      // $10A0
-	.byte $D0, $0B                               // $10A2  bne $10AF
-	lda #$12                                     // $10A4
-	sta $1d                                      // $10A6
-	lda #$01                                     // $10A8
-	sta $0d                                      // $10AA
-	jsr $626e                                    // $10AC
-	jmp $113b                                    // $10AF
-	cmp #$10                                     // $10B2
-	.byte $D0, $1E                               // $10B4  bne $10D4
-	lda $26                                      // $10B6
-	.byte $F0, $0E                               // $10B8  beq $10C8
-	inc $25                                      // $10BA
-	lda #$8f                                     // $10BC
-	sta $1d                                      // $10BE
-	nop                                          // $10C0
-	nop                                          // $10C1
-	jsr $63e0                                    // $10C2
-	jmp $113b                                    // $10C5
-	inc $24                                      // $10C8
-	jsr $6300                                    // $10CA
-	lda $23                                      // $10CD
-	sta $1d                                      // $10CF
-	jmp $113b                                    // $10D1
-	cmp #$04                                     // $10D4
-	.byte $90, $30                               // $10D6  bcc $1108
-	cmp #$07                                     // $10D8
-	.byte $B0, $2C                               // $10DA  bcs $1108
-	lda $1d                                      // $10DC
-	cmp #$20                                     // $10DE
-	.byte $90, $04                               // $10E0  bcc $10E6
-	lda #$20                                     // $10E2
-	sta $1d                                      // $10E4
-	dec $1d                                      // $10E6
-	.byte $D0, $06                               // $10E8  bne $10F0
-	lda $16                                      // $10EA
-	.byte $D0, $05                               // $10EC  bne $10F3
-	inc $18                                      // $10EE
-	jmp $113b                                    // $10F0
-	dec $16                                      // $10F3
-	dec $16                                      // $10F5
-	sec                                          // $10F7
-	lda $1b                                      // $10F8
-	sbc #$08                                     // $10FA
-	sta $1b                                      // $10FC
-	jsr $61f0                                    // $10FE
-	lda #$18                                     // $1101
-	sta $1d                                      // $1103
-	jmp $113b                                    // $1105
-	cmp #$08                                     // $1108
-	.byte $90, $1A                               // $110A  bcc $1126
-	cmp #$0b                                     // $110C
-	.byte $B0, $16                               // $110E  bcs $1126
-	lda $1d                                      // $1110
-	cmp #$20                                     // $1112
-	.byte $90, $04                               // $1114  bcc $111A
-	lda #$20                                     // $1116
-	sta $1d                                      // $1118
-	dec $1d                                      // $111A
-	.byte $D0, $08                               // $111C  bne $1126
-	lda $16                                      // $111E
-	cmp #$14                                     // $1120
-	.byte $90, $05                               // $1122  bcc $1129
-	inc $19                                      // $1124
-	jmp $113b                                    // $1126
-	inc $16                                      // $1129
-	inc $16                                      // $112B
-	clc                                          // $112D
-	lda $1b                                      // $112E
-	adc #$08                                     // $1130
-	sta $1b                                      // $1132
-	jsr $61f0                                    // $1134
-	lda #$18                                     // $1137
-	sta $1d                                      // $1139
-	ldx #$02                                     // $113B
-	ldy $68                                      // $113D
-	dey                                          // $113F
-	.byte $D0, $FD                               // $1140  bne $113F
-	dex                                          // $1142
-	.byte $D0, $F8                               // $1143  bne $113D
-	nop                                          // $1145
-	nop                                          // $1146
-	nop                                          // $1147
-	lda $48                                      // $1148
-	.byte $F0, $0B                               // $114A  beq $1157
-	dec $4f                                      // $114C
-	.byte $D0, $07                               // $114E  bne $1157
-	lda #$18                                     // $1150
-	sta $4f                                      // $1152
-	jsr $6840                                    // $1154
-	jmp $686c                                    // $1157
-	jsr $ffea                                    // $115A
-	jsr $ffe1                                    // $115D
-	.byte $D0, $03                               // $1160  bne $1165
-	jmp $2000                                    // $1162
-	lda $41                                      // $1165
-	cmp $69                                      // $1167
-	.byte $D0, $03                               // $1169  bne $116E
-	jmp $2400                                    // $116B
-	cmp $6a                                      // $116E
-	.byte $D0, $03                               // $1170  bne $1175
-	jmp $2400                                    // $1172
-	cmp $6b                                      // $1175
-	.byte $D0, $03                               // $1177  bne $117C
-	jmp $2400                                    // $1179
-	cmp $6c                                      // $117C
-	.byte $D0, $03                               // $117E  bne $1183
-	jmp $2400                                    // $1180
-	cmp $6d                                      // $1183
-	.byte $D0, $03                               // $1185  bne $118A
-	jmp $2400                                    // $1187
-	cmp $6e                                      // $118A
-	.byte $D0, $03                               // $118C  bne $1191
-	jmp $2400                                    // $118E
-	jmp $11e0                                    // $1191
-	nop                                          // $1194
-	nop                                          // $1195
-	nop                                          // $1196
-	nop                                          // $1197
-	nop                                          // $1198
-	nop                                          // $1199
-	nop                                          // $119A
-	nop                                          // $119B
-	nop                                          // $119C
-	nop                                          // $119D
-	nop                                          // $119E
-	nop                                          // $119F
-	nop                                          // $11A0
-	nop                                          // $11A1
-	nop                                          // $11A2
-	nop                                          // $11A3
-	nop                                          // $11A4
-	nop                                          // $11A5
-	nop                                          // $11A6
-	nop                                          // $11A7
-	nop                                          // $11A8
-	nop                                          // $11A9
-	nop                                          // $11AA
-	nop                                          // $11AB
-	nop                                          // $11AC
-	nop                                          // $11AD
-	nop                                          // $11AE
-	nop                                          // $11AF
-	nop                                          // $11B0
-	nop                                          // $11B1
-	nop                                          // $11B2
-	nop                                          // $11B3
-	nop                                          // $11B4
-	nop                                          // $11B5
-	nop                                          // $11B6
-	nop                                          // $11B7
-	nop                                          // $11B8
-	nop                                          // $11B9
-	nop                                          // $11BA
-	nop                                          // $11BB
-	nop                                          // $11BC
-	nop                                          // $11BD
-	nop                                          // $11BE
-	nop                                          // $11BF
-	nop                                          // $11C0
-	nop                                          // $11C1
-	nop                                          // $11C2
-	nop                                          // $11C3
-	nop                                          // $11C4
-	nop                                          // $11C5
-	nop                                          // $11C6
-	nop                                          // $11C7
-	nop                                          // $11C8
-	nop                                          // $11C9
-	nop                                          // $11CA
-	nop                                          // $11CB
-	nop                                          // $11CC
-	nop                                          // $11CD
-	nop                                          // $11CE
-	nop                                          // $11CF
-	nop                                          // $11D0
-	nop                                          // $11D1
-	nop                                          // $11D2
-	nop                                          // $11D3
-	nop                                          // $11D4
-	nop                                          // $11D5
-	nop                                          // $11D6
-	nop                                          // $11D7
-	nop                                          // $11D8
-	nop                                          // $11D9
-	nop                                          // $11DA
-	nop                                          // $11DB
-	nop                                          // $11DC
-	nop                                          // $11DD
-	nop                                          // $11DE
-	nop                                          // $11DF
-	lda $d017                                    // $11E0  ; VIC_SPYEXP
-	and #$fe                                     // $11E3
-	sta $d017                                    // $11E5  ; VIC_SPYEXP
-	lda $d01d                                    // $11E8  ; VIC_SPXEXP
-	and #$fe                                     // $11EB
-	sta $d01d                                    // $11ED  ; VIC_SPXEXP
-	jmp $1200                                    // $11F0
-	nop                                          // $11F3
-	nop                                          // $11F4
-	nop                                          // $11F5
-	nop                                          // $11F6
-	nop                                          // $11F7
-	nop                                          // $11F8
-	nop                                          // $11F9
-	nop                                          // $11FA
-	nop                                          // $11FB
-	nop                                          // $11FC
-	nop                                          // $11FD
-	nop                                          // $11FE
-	nop                                          // $11FF
-	lda $43                                      // $1200
-	.byte $F0, $03                               // $1202  beq $1207
-	jmp $1800                                    // $1204
-	lda $42                                      // $1207
-	.byte $D0, $0F                               // $1209  bne $121A
-	dec $4b                                      // $120B
-	.byte $F0, $03                               // $120D  beq $1212
-	jmp $1800                                    // $120F
-	lda #$6f                                     // $1212
-	sta $4b                                      // $1214
-	lda $4e                                      // $1216
-	sta $42                                      // $1218
-	.byte $10, $03                               // $121A  bpl $121F
-	jmp $1500                                    // $121C
-	cmp #$01                                     // $121F
-	.byte $D0, $1E                               // $1221  bne $1241
-	lda $dc04                                    // $1223
-	and #$01                                     // $1226
-	.byte $F0, $07                               // $1228  beq $1231
-	lda #$0f                                     // $122A
-	sta $57                                      // $122C
-	jmp $1235                                    // $122E
-	lda #$f0                                     // $1231
-	sta $57                                      // $1233
-	jsr $6fb0                                    // $1235
-	lda $42                                      // $1238
-	ora #$80                                     // $123A
-	sta $42                                      // $123C
-	jmp $1020                                    // $123E
-	cmp #$02                                     // $1241
-	.byte $D0, $10                               // $1243  bne $1255
-	lda #$00                                     // $1245
-	sta $57                                      // $1247
-	jsr $6edd                                    // $1249
-	lda $42                                      // $124C
-	ora #$80                                     // $124E
-	sta $42                                      // $1250
-	jmp $1020                                    // $1252
-	cmp #$04                                     // $1255
-	.byte $D0, $10                               // $1257  bne $1269
-	lda #$00                                     // $1259
-	sta $52                                      // $125B
-	jsr $6a00                                    // $125D
-	lda $42                                      // $1260
-	ora #$80                                     // $1262
-	sta $42                                      // $1264
-	jmp $1020                                    // $1266
-	cmp #$08                                     // $1269
-	.byte $D0, $42                               // $126B  bne $12AF
-	dec $55                                      // $126D
-	.byte $F0, $03                               // $126F  beq $1274
-	jmp $1020                                    // $1271
-	lda $dc04                                    // $1274
-	and #$0f                                     // $1277
-	sta $52                                      // $1279
-	cmp #$03                                     // $127B
-	.byte $D0, $06                               // $127D  bne $1285
-	jsr $68f0                                    // $127F
-	jmp $129e                                    // $1282
-	cmp #$07                                     // $1285
-	.byte $D0, $0A                               // $1287  bne $1293
-	lda #$00                                     // $1289
-	sta $50                                      // $128B
-	jsr $7870                                    // $128D
-	jmp $129e                                    // $1290
-	cmp #$0b                                     // $1293
-	.byte $D0, $DA                               // $1295  bne $1271
-	lda #$01                                     // $1297
-	sta $50                                      // $1299
-	jsr $7870                                    // $129B
-	lda $42                                      // $129E
-	ora #$80                                     // $12A0
-	sta $42                                      // $12A2
-	lda #$90                                     // $12A4
-	sta $30                                      // $12A6
-	lda #$55                                     // $12A8
-	sta $31                                      // $12AA
-	jmp $1500                                    // $12AC
-	cmp #$10                                     // $12AF
-	.byte $D0, $53                               // $12B1  bne $1306
-	lda $dc04                                    // $12B3
-	and #$01                                     // $12B6
-	.byte $F0, $07                               // $12B8  beq $12C1
-	lda #$0f                                     // $12BA
-	sta $57                                      // $12BC
-	jmp $12c5                                    // $12BE
-	lda #$f0                                     // $12C1
-	sta $57                                      // $12C3
-	jsr $7d20                                    // $12C5
-	lda #$00                                     // $12C8
-	sta $33                                      // $12CA
-	lda #$c0                                     // $12CC
-	sta $30                                      // $12CE
-	sta $34                                      // $12D0
-	lda #$5b                                     // $12D2
-	sta $31                                      // $12D4
-	sta $35                                      // $12D6
-	lda #$00                                     // $12D8
-	sta $50                                      // $12DA
-	sta $52                                      // $12DC
-	lda #$3f                                     // $12DE
-	sta $51                                      // $12E0
-	lda #$ff                                     // $12E2
-	sta $53                                      // $12E4
-	lda $dc04                                    // $12E6
-	sta $d004                                    // $12E9
-	sta $d006                                    // $12EC
-	jsr $7cd0                                    // $12EF
-	lda $42                                      // $12F2
-	ora #$80                                     // $12F4
-	sta $42                                      // $12F6
-	ldx #$7f                                     // $12F8
-	lda $2f80,x                                  // $12FA
-	sta $2dc0,x                                  // $12FD
-	dex                                          // $1300
-	.byte $10, $F7                               // $1301  bpl $12FA
-	jmp $1020                                    // $1303
-	cmp #$20                                     // $1306
-	.byte $D0, $32                               // $1308  bne $133C
-	lda #$00                                     // $130A
-	sta $33                                      // $130C
-	lda #$30                                     // $130E
-	sta $30                                      // $1310
-	sta $34                                      // $1312
-	lda #$5c                                     // $1314
-	sta $31                                      // $1316
-	sta $35                                      // $1318
-	jsr $1400                                    // $131A
-	lda $42                                      // $131D
-	ora #$80                                     // $131F
-	sta $42                                      // $1321
-	lda #$81                                     // $1323
-	sta $d404                                    // $1325  ; SID_CR1
-	sta $d412                                    // $1328
-	lda #$11                                     // $132B
-	sta $d40b                                    // $132D
-	lda #$00                                     // $1330
-	sta $d021                                    // $1332  ; VIC_BG0
-	lda #$ff                                     // $1335
-	sta $46                                      // $1337
-	jmp $1020                                    // $1339
-	jmp $1020                                    // $133C
-	nop                                          // $133F
-	nop                                          // $1340
-	nop                                          // $1341
-	nop                                          // $1342
-	nop                                          // $1343
-	nop                                          // $1344
-	nop                                          // $1345
-	nop                                          // $1346
-	nop                                          // $1347
-	nop                                          // $1348
-	nop                                          // $1349
-	nop                                          // $134A
-	nop                                          // $134B
-	nop                                          // $134C
-	nop                                          // $134D
-	nop                                          // $134E
-	nop                                          // $134F
-	nop                                          // $1350
-	nop                                          // $1351
-	nop                                          // $1352
-	nop                                          // $1353
-	nop                                          // $1354
-	nop                                          // $1355
-	nop                                          // $1356
-	nop                                          // $1357
-	nop                                          // $1358
-	nop                                          // $1359
-	nop                                          // $135A
-	nop                                          // $135B
-	nop                                          // $135C
-	nop                                          // $135D
-	nop                                          // $135E
-	nop                                          // $135F
-	nop                                          // $1360
-	nop                                          // $1361
-	nop                                          // $1362
-	nop                                          // $1363
-	nop                                          // $1364
-	nop                                          // $1365
-	nop                                          // $1366
-	nop                                          // $1367
-	nop                                          // $1368
-	nop                                          // $1369
-	nop                                          // $136A
-	nop                                          // $136B
-	nop                                          // $136C
-	nop                                          // $136D
-	nop                                          // $136E
-	nop                                          // $136F
-	nop                                          // $1370
-	nop                                          // $1371
-	nop                                          // $1372
-	nop                                          // $1373
-	nop                                          // $1374
-	nop                                          // $1375
-	nop                                          // $1376
-	nop                                          // $1377
-	nop                                          // $1378
-	nop                                          // $1379
-	nop                                          // $137A
-	nop                                          // $137B
-	nop                                          // $137C
-	nop                                          // $137D
-	nop                                          // $137E
-	nop                                          // $137F
-	nop                                          // $1380
-	nop                                          // $1381
-	nop                                          // $1382
-	nop                                          // $1383
-	nop                                          // $1384
-	nop                                          // $1385
-	nop                                          // $1386
-	nop                                          // $1387
-	nop                                          // $1388
-	nop                                          // $1389
-	nop                                          // $138A
-	nop                                          // $138B
-	nop                                          // $138C
-	nop                                          // $138D
-	nop                                          // $138E
-	nop                                          // $138F
-	nop                                          // $1390
-	nop                                          // $1391
-	nop                                          // $1392
-	nop                                          // $1393
-	nop                                          // $1394
-	nop                                          // $1395
-	nop                                          // $1396
-	nop                                          // $1397
-	nop                                          // $1398
-	nop                                          // $1399
-	nop                                          // $139A
-	nop                                          // $139B
-	nop                                          // $139C
-	nop                                          // $139D
-	nop                                          // $139E
-	nop                                          // $139F
-	nop                                          // $13A0
-	nop                                          // $13A1
-	nop                                          // $13A2
-	nop                                          // $13A3
-	nop                                          // $13A4
-	nop                                          // $13A5
-	nop                                          // $13A6
-	nop                                          // $13A7
-	nop                                          // $13A8
-	nop                                          // $13A9
-	nop                                          // $13AA
-	nop                                          // $13AB
-	nop                                          // $13AC
-	nop                                          // $13AD
-	nop                                          // $13AE
-	nop                                          // $13AF
-	nop                                          // $13B0
-	nop                                          // $13B1
-	nop                                          // $13B2
-	nop                                          // $13B3
-	nop                                          // $13B4
-	nop                                          // $13B5
-	nop                                          // $13B6
-	nop                                          // $13B7
-	nop                                          // $13B8
-	nop                                          // $13B9
-	nop                                          // $13BA
-	nop                                          // $13BB
-	nop                                          // $13BC
-	nop                                          // $13BD
-	nop                                          // $13BE
-	nop                                          // $13BF
-	nop                                          // $13C0
-	nop                                          // $13C1
-	nop                                          // $13C2
-	nop                                          // $13C3
-	nop                                          // $13C4
-	nop                                          // $13C5
-	nop                                          // $13C6
-	nop                                          // $13C7
-	nop                                          // $13C8
-	nop                                          // $13C9
-	nop                                          // $13CA
-	nop                                          // $13CB
-	nop                                          // $13CC
-	nop                                          // $13CD
-	nop                                          // $13CE
-	nop                                          // $13CF
-	nop                                          // $13D0
-	nop                                          // $13D1
-	nop                                          // $13D2
-	nop                                          // $13D3
-	nop                                          // $13D4
-	nop                                          // $13D5
-	nop                                          // $13D6
-	nop                                          // $13D7
-	nop                                          // $13D8
-	nop                                          // $13D9
-	nop                                          // $13DA
-	nop                                          // $13DB
-	nop                                          // $13DC
-	nop                                          // $13DD
-	nop                                          // $13DE
-	nop                                          // $13DF
-	nop                                          // $13E0
-	nop                                          // $13E1
-	nop                                          // $13E2
-	nop                                          // $13E3
-	nop                                          // $13E4
-	nop                                          // $13E5
-	nop                                          // $13E6
-	nop                                          // $13E7
-	nop                                          // $13E8
-	nop                                          // $13E9
-	nop                                          // $13EA
-	nop                                          // $13EB
-	nop                                          // $13EC
-	nop                                          // $13ED
-	nop                                          // $13EE
-	nop                                          // $13EF
-	nop                                          // $13F0
-	nop                                          // $13F1
-	nop                                          // $13F2
-	nop                                          // $13F3
-	nop                                          // $13F4
-	nop                                          // $13F5
-	nop                                          // $13F6
-	nop                                          // $13F7
-	nop                                          // $13F8
-	nop                                          // $13F9
-	nop                                          // $13FA
-	nop                                          // $13FB
-	nop                                          // $13FC
-	nop                                          // $13FD
-	nop                                          // $13FE
-	nop                                          // $13FF
-	lda #$ce                                     // $1400
-	sta $07f9                                    // $1402
-	lda #$cf                                     // $1405
-	sta $07fa                                    // $1407
-	lda #$d0                                     // $140A
-	sta $07fb                                    // $140C
-	lda #$b1                                     // $140F
-	sta $07ff                                    // $1411
-	lda #$58                                     // $1414
-	sta $d003                                    // $1416  ; VIC_SP1Y
-	lda #$6c                                     // $1419
-	sta $d005                                    // $141B
-	lda #$80                                     // $141E
-	sta $d007                                    // $1420
-	lda #$30                                     // $1423
-	sta $d00f                                    // $1425
-	lda #$a0                                     // $1428
-	sta $d00e                                    // $142A
-	lda $d010                                    // $142D  ; VIC_SPXMSB
-	and #$00                                     // $1430
-	sta $d010                                    // $1432  ; VIC_SPXMSB
-	lda #$00                                     // $1435
-	sta $37                                      // $1437
-	lda #$00                                     // $1439
-	sta $d028                                    // $143B
-	sta $d029                                    // $143E
-	sta $d02a                                    // $1441
-	lda #$00                                     // $1444
-	sta $d02e                                    // $1446
-	lda $d017                                    // $1449  ; VIC_SPYEXP
-	and #$f0                                     // $144C
-	ora #$80                                     // $144E
-	sta $d017                                    // $1450  ; VIC_SPYEXP
-	lda $d01d                                    // $1453  ; VIC_SPXEXP
-	and #$f0                                     // $1456
-	ora #$80                                     // $1458
-	sta $d01d                                    // $145A  ; VIC_SPXEXP
-	lda $d01b                                    // $145D  ; VIC_SPPRI
-	ora #$8e                                     // $1460
-	sta $d01b                                    // $1462  ; VIC_SPPRI
-	lda $d01c                                    // $1465  ; VIC_SPMCOL
-	ora #$0e                                     // $1468
-	sta $d01c                                    // $146A  ; VIC_SPMCOL
-	lda $d015                                    // $146D  ; VIC_SPEN
-	ora #$8e                                     // $1470
-	sta $d015                                    // $1472  ; VIC_SPEN
-	lda #$50                                     // $1475
-	sta $d002                                    // $1477  ; VIC_SP1X
-	sta $d004                                    // $147A
-	sta $d006                                    // $147D
-	lda #$00                                     // $1480
-	sta $50                                      // $1482
-	sta $54                                      // $1484
-	sta $51                                      // $1486
-	lda #$05                                     // $1488
-	sta $56                                      // $148A
-	rts                                          // $148C
-	nop                                          // $148D
-	nop                                          // $148E
-	nop                                          // $148F
-	lda #$30                                     // $1490
-	sta $d003                                    // $1492  ; VIC_SP1Y
-	lda #$80                                     // $1495
-	sta $d007                                    // $1497
-	lda $d017                                    // $149A  ; VIC_SPYEXP
-	ora #$0e                                     // $149D
-	sta $d017                                    // $149F  ; VIC_SPYEXP
-	lda $d01d                                    // $14A2  ; VIC_SPXEXP
-	ora #$0e                                     // $14A5
-	sta $d017                                    // $14A7  ; VIC_SPYEXP
-	ora #$0e                                     // $14AA
-	sta $d01d                                    // $14AC  ; VIC_SPXEXP
-	lda $d01b                                    // $14AF  ; VIC_SPPRI
-	ora #$8e                                     // $14B2
-	sta $d01b                                    // $14B4  ; VIC_SPPRI
-	lda #$58                                     // $14B7
-	sta $d005                                    // $14B9
-	rts                                          // $14BC
-	nop                                          // $14BD
-	nop                                          // $14BE
-	nop                                          // $14BF
-	nop                                          // $14C0
-	nop                                          // $14C1
-	nop                                          // $14C2
-	nop                                          // $14C3
-	nop                                          // $14C4
-	nop                                          // $14C5
-	nop                                          // $14C6
-	nop                                          // $14C7
-	nop                                          // $14C8
-	nop                                          // $14C9
-	nop                                          // $14CA
-	nop                                          // $14CB
-	nop                                          // $14CC
-	nop                                          // $14CD
-	nop                                          // $14CE
-	nop                                          // $14CF
-	nop                                          // $14D0
-	nop                                          // $14D1
-	nop                                          // $14D2
-	nop                                          // $14D3
-	nop                                          // $14D4
-	nop                                          // $14D5
-	nop                                          // $14D6
-	nop                                          // $14D7
-	nop                                          // $14D8
-	nop                                          // $14D9
-	nop                                          // $14DA
-	nop                                          // $14DB
-	nop                                          // $14DC
-	nop                                          // $14DD
-	nop                                          // $14DE
-	nop                                          // $14DF
-	nop                                          // $14E0
-	nop                                          // $14E1
-	nop                                          // $14E2
-	nop                                          // $14E3
-	nop                                          // $14E4
-	nop                                          // $14E5
-	nop                                          // $14E6
-	nop                                          // $14E7
-	nop                                          // $14E8
-	nop                                          // $14E9
-	nop                                          // $14EA
-	nop                                          // $14EB
-	nop                                          // $14EC
-	nop                                          // $14ED
-	nop                                          // $14EE
-	nop                                          // $14EF
-	nop                                          // $14F0
-	nop                                          // $14F1
-	nop                                          // $14F2
-	nop                                          // $14F3
-	nop                                          // $14F4
-	nop                                          // $14F5
-	nop                                          // $14F6
-	nop                                          // $14F7
-	nop                                          // $14F8
-	nop                                          // $14F9
-	nop                                          // $14FA
-	nop                                          // $14FB
-	nop                                          // $14FC
-	nop                                          // $14FD
-	nop                                          // $14FE
-	nop                                          // $14FF
-	lda $42                                      // $1500
-	and #$7f                                     // $1502
-	cmp #$01                                     // $1504
-	.byte $D0, $14                               // $1506  bne $151C
-	dec $4d                                      // $1508
-	.byte $D0, $07                               // $150A  bne $1513
-	lda #$20                                     // $150C
-	sta $4d                                      // $150E
-	jsr $615a                                    // $1510
-	jsr $75c0                                    // $1513
-	jsr $74c5                                    // $1516
-	jmp $1800                                    // $1519
-	cmp #$02                                     // $151C
-	.byte $D0, $1A                               // $151E  bne $153A
-	dec $4d                                      // $1520
-	.byte $D0, $0A                               // $1522  bne $152E
-	lda #$60                                     // $1524
-	sta $4d                                      // $1526
-	jsr $6c20                                    // $1528
-	jsr $76f0                                    // $152B
-	jsr $75c0                                    // $152E
-	jsr $74c5                                    // $1531
-	jsr $61c5                                    // $1534
-	jmp $1800                                    // $1537
-	cmp #$04                                     // $153A
-	.byte $D0, $0D                               // $153C  bne $154B
-	lda #$05                                     // $153E
-	sta $44                                      // $1540
-	jsr $6a90                                    // $1542
-	jsr $77f0                                    // $1545
-	jmp $1800                                    // $1548
-	cmp #$08                                     // $154B
-	.byte $D0, $4E                               // $154D  bne $159D
-	lda $52                                      // $154F
-	cmp #$03                                     // $1551
-	.byte $D0, $13                               // $1553  bne $1568
-	lda $50                                      // $1555
-	cmp #$09                                     // $1557
-	.byte $F0, $03                               // $1559  beq $155E
-	jsr $7ad0                                    // $155B
-	lda $51                                      // $155E
-	.byte $F0, $03                               // $1560  beq $1565
-	jsr $7a90                                    // $1562
-	jmp $1594                                    // $1565
-	cmp #$07                                     // $1568
-	.byte $D0, $06                               // $156A  bne $1572
-	jsr $7947                                    // $156C
-	jmp $1579                                    // $156F
-	cmp #$0b                                     // $1572
-	.byte $D0, $15                               // $1574  bne $158B
-	jsr $79d4                                    // $1576
-	lda $d002                                    // $1579  ; VIC_SP1X
-	cmp #$80                                     // $157C
-	.byte $90, $14                               // $157E  bcc $1594
-	cmp #$b0                                     // $1580
-	.byte $B0, $10                               // $1582  bcs $1594
-	lda $d010                                    // $1584  ; VIC_SPXMSB
-	and #$02                                     // $1587
-	.byte $F0, $09                               // $1589  beq $1594
-	lda $42                                      // $158B
-	and #$7f                                     // $158D
-	sta $42                                      // $158F
-	jmp $1020                                    // $1591
-	jsr $7c4a                                    // $1594
-	jsr $69a9                                    // $1597
-	jmp $1800                                    // $159A
-	cmp #$10                                     // $159D
-	.byte $D0, $29                               // $159F  bne $15CA
-	dec $4d                                      // $15A1
-	.byte $D0, $10                               // $15A3  bne $15B5
-	lda #$20                                     // $15A5
-	sta $4d                                      // $15A7
-	jsr $615a                                    // $15A9
-	jsr $7e0f                                    // $15AC
-	jsr $7db0                                    // $15AF
-	jsr $7e4a                                    // $15B2
-	jmp $1800                                    // $15B5
-	jmp $1020                                    // $15B8
-	sta $d015                                    // $15BB  ; VIC_SPEN
-	lda $4e                                      // $15BE
-	sta $42                                      // $15C0
-	dec $54                                      // $15C2
-	jmp $1020                                    // $15C4
-	jmp $1800                                    // $15C7
-	cmp #$20                                     // $15CA
-	.byte $D0, $35                               // $15CC  bne $1603
-	inc $52                                      // $15CE
-	.byte $D0, $20                               // $15D0  bne $15F2
-	lda #$00                                     // $15D2
-	sta $d02e                                    // $15D4
-	inc $53                                      // $15D7
-	.byte $D0, $17                               // $15D9  bne $15F2
-	jsr $1490                                    // $15DB
-	inc $54                                      // $15DE
-	lda $54                                      // $15E0
-	cmp #$02                                     // $15E2
-	.byte $D0, $0C                               // $15E4  bne $15F2
-	jsr $1700                                    // $15E6
-	lda $42                                      // $15E9
-	and #$7f                                     // $15EB
-	sta $43                                      // $15ED
-	jmp $1800                                    // $15EF
-	jsr $6e88                                    // $15F2
-	lda #$81                                     // $15F5
-	sta $d404                                    // $15F7  ; SID_CR1
-	sta $d412                                    // $15FA
-	jsr $7eb0                                    // $15FD
-	jmp $1020                                    // $1600
-	jmp $1020                                    // $1603
-	nop                                          // $1606
-	nop                                          // $1607
-	nop                                          // $1608
-	nop                                          // $1609
-	nop                                          // $160A
-	nop                                          // $160B
-	nop                                          // $160C
-	nop                                          // $160D
-	nop                                          // $160E
-	nop                                          // $160F
-	nop                                          // $1610
-	nop                                          // $1611
-	nop                                          // $1612
-	nop                                          // $1613
-	nop                                          // $1614
-	nop                                          // $1615
-	nop                                          // $1616
-	nop                                          // $1617
-	nop                                          // $1618
-	nop                                          // $1619
-	nop                                          // $161A
-	nop                                          // $161B
-	nop                                          // $161C
-	nop                                          // $161D
-	nop                                          // $161E
-	nop                                          // $161F
-	nop                                          // $1620
-	nop                                          // $1621
-	nop                                          // $1622
-	nop                                          // $1623
-	nop                                          // $1624
-	nop                                          // $1625
-	nop                                          // $1626
-	nop                                          // $1627
-	nop                                          // $1628
-	nop                                          // $1629
-	nop                                          // $162A
-	nop                                          // $162B
-	nop                                          // $162C
-	nop                                          // $162D
-	nop                                          // $162E
-	nop                                          // $162F
-	nop                                          // $1630
-	nop                                          // $1631
-	nop                                          // $1632
-	nop                                          // $1633
-	nop                                          // $1634
-	nop                                          // $1635
-	nop                                          // $1636
-	nop                                          // $1637
-	nop                                          // $1638
-	nop                                          // $1639
-	nop                                          // $163A
-	nop                                          // $163B
-	nop                                          // $163C
-	nop                                          // $163D
-	nop                                          // $163E
-	nop                                          // $163F
-	nop                                          // $1640
-	nop                                          // $1641
-	nop                                          // $1642
-	nop                                          // $1643
-	nop                                          // $1644
-	nop                                          // $1645
-	nop                                          // $1646
-	nop                                          // $1647
-	nop                                          // $1648
-	nop                                          // $1649
-	nop                                          // $164A
-	nop                                          // $164B
-	nop                                          // $164C
-	nop                                          // $164D
-	nop                                          // $164E
-	nop                                          // $164F
-	nop                                          // $1650
-	nop                                          // $1651
-	nop                                          // $1652
-	nop                                          // $1653
-	nop                                          // $1654
-	nop                                          // $1655
-	nop                                          // $1656
-	nop                                          // $1657
-	nop                                          // $1658
-	nop                                          // $1659
-	nop                                          // $165A
-	nop                                          // $165B
-	nop                                          // $165C
-	nop                                          // $165D
-	nop                                          // $165E
-	nop                                          // $165F
-	nop                                          // $1660
-	nop                                          // $1661
-	nop                                          // $1662
-	nop                                          // $1663
-	nop                                          // $1664
-	nop                                          // $1665
-	nop                                          // $1666
-	nop                                          // $1667
-	nop                                          // $1668
-	nop                                          // $1669
-	nop                                          // $166A
-	nop                                          // $166B
-	nop                                          // $166C
-	nop                                          // $166D
-	nop                                          // $166E
-	nop                                          // $166F
-	nop                                          // $1670
-	nop                                          // $1671
-	nop                                          // $1672
-	nop                                          // $1673
-	nop                                          // $1674
-	nop                                          // $1675
-	nop                                          // $1676
-	nop                                          // $1677
-	nop                                          // $1678
-	nop                                          // $1679
-	nop                                          // $167A
-	nop                                          // $167B
-	nop                                          // $167C
-	nop                                          // $167D
-	nop                                          // $167E
-	nop                                          // $167F
-	nop                                          // $1680
-	nop                                          // $1681
-	nop                                          // $1682
-	nop                                          // $1683
-	nop                                          // $1684
-	nop                                          // $1685
-	nop                                          // $1686
-	nop                                          // $1687
-	nop                                          // $1688
-	nop                                          // $1689
-	nop                                          // $168A
-	nop                                          // $168B
-	nop                                          // $168C
-	nop                                          // $168D
-	nop                                          // $168E
-	nop                                          // $168F
-	nop                                          // $1690
-	nop                                          // $1691
-	nop                                          // $1692
-	nop                                          // $1693
-	nop                                          // $1694
-	nop                                          // $1695
-	nop                                          // $1696
-	nop                                          // $1697
-	nop                                          // $1698
-	nop                                          // $1699
-	nop                                          // $169A
-	nop                                          // $169B
-	nop                                          // $169C
-	nop                                          // $169D
-	nop                                          // $169E
-	nop                                          // $169F
-	nop                                          // $16A0
-	nop                                          // $16A1
-	nop                                          // $16A2
-	nop                                          // $16A3
-	nop                                          // $16A4
-	nop                                          // $16A5
-	nop                                          // $16A6
-	nop                                          // $16A7
-	nop                                          // $16A8
-	nop                                          // $16A9
-	nop                                          // $16AA
-	nop                                          // $16AB
-	nop                                          // $16AC
-	nop                                          // $16AD
-	nop                                          // $16AE
-	nop                                          // $16AF
-	nop                                          // $16B0
-	nop                                          // $16B1
-	nop                                          // $16B2
-	nop                                          // $16B3
-	nop                                          // $16B4
-	nop                                          // $16B5
-	nop                                          // $16B6
-	nop                                          // $16B7
-	nop                                          // $16B8
-	nop                                          // $16B9
-	nop                                          // $16BA
-	nop                                          // $16BB
-	nop                                          // $16BC
-	nop                                          // $16BD
-	nop                                          // $16BE
-	nop                                          // $16BF
-	nop                                          // $16C0
-	nop                                          // $16C1
-	nop                                          // $16C2
-	nop                                          // $16C3
-	nop                                          // $16C4
-	nop                                          // $16C5
-	nop                                          // $16C6
-	nop                                          // $16C7
-	nop                                          // $16C8
-	nop                                          // $16C9
-	nop                                          // $16CA
-	nop                                          // $16CB
-	nop                                          // $16CC
-	nop                                          // $16CD
-	nop                                          // $16CE
-	nop                                          // $16CF
-	nop                                          // $16D0
-	nop                                          // $16D1
-	nop                                          // $16D2
-	nop                                          // $16D3
-	nop                                          // $16D4
-	nop                                          // $16D5
-	nop                                          // $16D6
-	nop                                          // $16D7
-	nop                                          // $16D8
-	nop                                          // $16D9
-	nop                                          // $16DA
-	nop                                          // $16DB
-	nop                                          // $16DC
-	nop                                          // $16DD
-	nop                                          // $16DE
-	nop                                          // $16DF
-	nop                                          // $16E0
-	nop                                          // $16E1
-	nop                                          // $16E2
-	nop                                          // $16E3
-	nop                                          // $16E4
-	nop                                          // $16E5
-	nop                                          // $16E6
-	nop                                          // $16E7
-	nop                                          // $16E8
-	nop                                          // $16E9
-	nop                                          // $16EA
-	nop                                          // $16EB
-	nop                                          // $16EC
-	nop                                          // $16ED
-	nop                                          // $16EE
-	nop                                          // $16EF
-	nop                                          // $16F0
-	nop                                          // $16F1
-	nop                                          // $16F2
-	nop                                          // $16F3
-	nop                                          // $16F4
-	nop                                          // $16F5
-	nop                                          // $16F6
-	nop                                          // $16F7
-	nop                                          // $16F8
-	nop                                          // $16F9
-	nop                                          // $16FA
-	nop                                          // $16FB
-	nop                                          // $16FC
-	nop                                          // $16FD
-	nop                                          // $16FE
-	nop                                          // $16FF
-	lda #$00                                     // $1700
-	sta $d015                                    // $1702  ; VIC_SPEN
-	sta $d01b                                    // $1705  ; VIC_SPPRI
-	sta $d001                                    // $1708  ; VIC_SP0Y
-	sta $d003                                    // $170B  ; VIC_SP1Y
-	sta $d005                                    // $170E
-	sta $d007                                    // $1711
-	sta $d009                                    // $1714
-	sta $d00b                                    // $1717
-	sta $d00d                                    // $171A
-	sta $d00f                                    // $171D
-	lda #$98                                     // $1720
-	sta $07f8                                    // $1722
-	lda #$99                                     // $1725
-	sta $07f9                                    // $1727
-	lda #$9a                                     // $172A
-	sta $07fa                                    // $172C
-	lda #$9b                                     // $172F
-	sta $07fb                                    // $1731
-	lda #$9c                                     // $1734
-	sta $07fc                                    // $1736
-	lda #$9d                                     // $1739
-	sta $07fd                                    // $173B
-	lda #$9e                                     // $173E
-	sta $07fe                                    // $1740
-	lda #$9f                                     // $1743
-	sta $07ff                                    // $1745
-	lda #$60                                     // $1748
-	sta $d000                                    // $174A  ; VIC_SP0X
-	sta $d006                                    // $174D
-	lda #$90                                     // $1750
-	sta $d002                                    // $1752  ; VIC_SP1X
-	sta $d008                                    // $1755
-	lda #$c0                                     // $1758
-	sta $d004                                    // $175A
-	sta $d00a                                    // $175D
-	lda #$78                                     // $1760
-	sta $d00c                                    // $1762
-	lda #$a8                                     // $1765
-	sta $d00e                                    // $1767
-	lda #$0b                                     // $176A
-	sta $d026                                    // $176C  ; VIC_SPMCOL1
-	lda #$07                                     // $176F
-	sta $d025                                    // $1771  ; VIC_SPMCOL0
-	ldx #$07                                     // $1774
-	lda #$02                                     // $1776
-	sta $d027,x                                  // $1778
-	dex                                          // $177B
-	.byte $10, $FA                               // $177C  bpl $1778
-	lda #$ff                                     // $177E
-	sta $d017                                    // $1780  ; VIC_SPYEXP
-	sta $d01d                                    // $1783  ; VIC_SPXEXP
-	sta $d01c                                    // $1786  ; VIC_SPMCOL
-	lda #$00                                     // $1789
-	sta $d010                                    // $178B  ; VIC_SPXMSB
-	rts                                          // $178E
-	nop                                          // $178F
-	lda #$c0                                     // $1790
-	sta $d015                                    // $1792  ; VIC_SPEN
-	inc $d00d                                    // $1795
-	inc $d00f                                    // $1798
-	lda $d00d                                    // $179B
-	cmp #$2b                                     // $179E
-	.byte $D0, $02                               // $17A0  bne $17A4
-	inc $50                                      // $17A2
-	lda $50                                      // $17A4
-	.byte $F0, $32                               // $17A6  beq $17DA
-	lda #$f8                                     // $17A8
-	sta $d015                                    // $17AA  ; VIC_SPEN
-	inc $d007                                    // $17AD
-	inc $d009                                    // $17B0
-	inc $d00b                                    // $17B3
-	lda $d007                                    // $17B6
-	cmp #$29                                     // $17B9
-	.byte $D0, $02                               // $17BB  bne $17BF
-	inc $51                                      // $17BD
-	lda $51                                      // $17BF
-	.byte $F0, $17                               // $17C1  beq $17DA
-	lda #$ff                                     // $17C3
-	sta $d015                                    // $17C5  ; VIC_SPEN
-	inc $d001                                    // $17C8  ; VIC_SP0Y
-	inc $d003                                    // $17CB  ; VIC_SP1Y
-	inc $d005                                    // $17CE
-	lda $d00d                                    // $17D1
-	cmp #$88                                     // $17D4
-	.byte $90, $02                               // $17D6  bcc $17DA
-	inc $52                                      // $17D8
-	rts                                          // $17DA
-	nop                                          // $17DB
-	nop                                          // $17DC
-	nop                                          // $17DD
-	nop                                          // $17DE
-	nop                                          // $17DF
-	nop                                          // $17E0
-	nop                                          // $17E1
-	nop                                          // $17E2
-	nop                                          // $17E3
-	nop                                          // $17E4
-	nop                                          // $17E5
-	nop                                          // $17E6
-	nop                                          // $17E7
-	nop                                          // $17E8
-	nop                                          // $17E9
-	nop                                          // $17EA
-	nop                                          // $17EB
-	nop                                          // $17EC
-	nop                                          // $17ED
-	nop                                          // $17EE
-	nop                                          // $17EF
-	nop                                          // $17F0
-	nop                                          // $17F1
-	nop                                          // $17F2
-	nop                                          // $17F3
-	nop                                          // $17F4
-	nop                                          // $17F5
-	nop                                          // $17F6
-	nop                                          // $17F7
-	nop                                          // $17F8
-	nop                                          // $17F9
-	nop                                          // $17FA
-	nop                                          // $17FB
-	nop                                          // $17FC
-	nop                                          // $17FD
-	nop                                          // $17FE
-	nop                                          // $17FF
-	lda $43                                      // $1800
-	.byte $D0, $03                               // $1802  bne $1807
-	jmp $1020                                    // $1804
-	.byte $10, $03                               // $1807  bpl $180C
-	jmp $1b00                                    // $1809
-	cmp #$01                                     // $180C
-	.byte $D0, $03                               // $180E  bne $1813
-	jmp $7380                                    // $1810
-	cmp #$02                                     // $1813
-	.byte $D0, $03                               // $1815  bne $181A
-	jmp $7380                                    // $1817
-	cmp #$08                                     // $181A
-	.byte $D0, $5B                               // $181C  bne $1879
-	lda #$81                                     // $181E
-	sta $d404                                    // $1820  ; SID_CR1
-	sta $d40b                                    // $1823
-	sta $d412                                    // $1826
-	lda #$00                                     // $1829
-	sta $51                                      // $182B
-	sta $52                                      // $182D
-	lda $d015                                    // $182F  ; VIC_SPEN
-	and #$fe                                     // $1832
-	sta $d015                                    // $1834  ; VIC_SPEN
-	lda $d01c                                    // $1837  ; VIC_SPMCOL
-	and #$f6                                     // $183A
-	sta $d01c                                    // $183C  ; VIC_SPMCOL
-	jsr $6d90                                    // $183F
-	ldx #$1f                                     // $1842
-	ldy #$ff                                     // $1844
-	dey                                          // $1846
-	.byte $D0, $FD                               // $1847  bne $1846
-	dex                                          // $1849
-	.byte $D0, $F8                               // $184A  bne $1844
-	jsr $7190                                    // $184C
-	lda $51                                      // $184F
-	cmp #$08                                     // $1851
-	.byte $D0, $EA                               // $1853  bne $183F
-	jsr $6d50                                    // $1855
-	jsr $61c5                                    // $1858
-	jsr $7190                                    // $185B
-	ldx #$2f                                     // $185E
-	ldy #$ff                                     // $1860
-	dey                                          // $1862
-	.byte $D0, $FD                               // $1863  bne $1862
-	dex                                          // $1865
-	.byte $D0, $F8                               // $1866  bne $1860
-	inc $d003                                    // $1868  ; VIC_SP1Y
-	inc $d005                                    // $186B
-	inc $50                                      // $186E
-	lda $50                                      // $1870
-	cmp #$50                                     // $1872
-	.byte $D0, $E2                               // $1874  bne $1858
-	jmp $18cb                                    // $1876
-	cmp #$04                                     // $1879
-	.byte $D0, $63                               // $187B  bne $18E0
-	lda #$00                                     // $187D
-	sta $33                                      // $187F
-	lda #$b0                                     // $1881
-	sta $34                                      // $1883
-	lda #$d0                                     // $1885
-	sta $30                                      // $1887
-	lda #$57                                     // $1889
-	sta $35                                      // $188B
-	sta $31                                      // $188D
-	jsr $6090                                    // $188F
-	jsr $6f80                                    // $1892
-	lda $37                                      // $1895
-	asl                                          // $1897
-	tax                                          // $1898
-	lda #$c8                                     // $1899
-	sta $d001,x                                  // $189B  ; VIC_SP0Y
-	jsr $18bd                                    // $189E
-	ldx #$01                                     // $18A1
-	inc $d003                                    // $18A3  ; VIC_SP1Y
-	inc $d005                                    // $18A6
-	inc $d007                                    // $18A9
-	dex                                          // $18AC
-	.byte $D0, $F4                               // $18AD  bne $18A3
-	jsr $18bd                                    // $18AF
-	inc $50                                      // $18B2
-	lda $50                                      // $18B4
-	cmp #$50                                     // $18B6
-	.byte $D0, $DB                               // $18B8  bne $1895
-	jmp $740f                                    // $18BA
-	ldx #$0f                                     // $18BD
-	ldy #$ff                                     // $18BF
-	dey                                          // $18C1
-	.byte $D0, $FD                               // $18C2  bne $18C1
-	dex                                          // $18C4
-	.byte $D0, $F8                               // $18C5  bne $18BF
-	rts                                          // $18C7
-	jmp $1020                                    // $18C8
-	lda #$21                                     // $18CB
-	sta $d404                                    // $18CD  ; SID_CR1
-	sta $d40b                                    // $18D0
-	lda #$41                                     // $18D3
-	sta $d412                                    // $18D5
-	lda #$00                                     // $18D8
-	sta $d006                                    // $18DA
-	jmp $740f                                    // $18DD
-	cmp #$10                                     // $18E0
-	.byte $D0, $13                               // $18E2  bne $18F7
-	lda $d017                                    // $18E4  ; VIC_SPYEXP
-	and #$f3                                     // $18E7
-	sta $d017                                    // $18E9  ; VIC_SPYEXP
-	lda $d01d                                    // $18EC  ; VIC_SPXEXP
-	and #$f3                                     // $18EF
-	sta $d01d                                    // $18F1  ; VIC_SPXEXP
-	jmp $7380                                    // $18F4
-	cmp #$20                                     // $18F7
-	.byte $D0, $5B                               // $18F9  bne $1956
-	lda #$00                                     // $18FB
-	sta $50                                      // $18FD
-	sta $51                                      // $18FF
-	sta $52                                      // $1901
-	sta $33                                      // $1903
-	lda #$a0                                     // $1905
-	sta $30                                      // $1907
-	sta $34                                      // $1909
-	lda #$5c                                     // $190B
-	sta $31                                      // $190D
-	sta $35                                      // $190F
-	lda #$41                                     // $1911
-	sta $d404                                    // $1913  ; SID_CR1
-	sta $d40b                                    // $1916
-	sta $d412                                    // $1919
-	jsr $1790                                    // $191C
-	lda $52                                      // $191F
-	.byte $D0, $15                               // $1921  bne $1938
-	ldx #$10                                     // $1923
-	ldy #$ff                                     // $1925
-	dey                                          // $1927
-	.byte $D0, $FD                               // $1928  bne $1927
-	dex                                          // $192A
-	.byte $D0, $F8                               // $192B  bne $1925
-	lda #$ff                                     // $192D
-	sta $d017                                    // $192F  ; VIC_SPYEXP
-	sta $d01d                                    // $1932  ; VIC_SPXEXP
-	jmp $191c                                    // $1935
-	ldx #$ff                                     // $1938
-	ldy #$ff                                     // $193A
-	dey                                          // $193C
-	.byte $D0, $FD                               // $193D  bne $193C
-	dex                                          // $193F
-	.byte $D0, $F8                               // $1940  bne $193A
-	lda #$21                                     // $1942
-	sta $d404                                    // $1944  ; SID_CR1
-	sta $d40b                                    // $1947
-	lda #$41                                     // $194A
-	sta $d412                                    // $194C
-	lda #$01                                     // $194F
-	sta $5f                                      // $1951
-	jmp $2200                                    // $1953
-	jmp $1020                                    // $1956
-	nop                                          // $1959
-	nop                                          // $195A
-	nop                                          // $195B
-	nop                                          // $195C
-	nop                                          // $195D
-	nop                                          // $195E
-	nop                                          // $195F
-	nop                                          // $1960
-	nop                                          // $1961
-	nop                                          // $1962
-	nop                                          // $1963
-	nop                                          // $1964
-	nop                                          // $1965
-	nop                                          // $1966
-	nop                                          // $1967
-	nop                                          // $1968
-	nop                                          // $1969
-	nop                                          // $196A
-	nop                                          // $196B
-	nop                                          // $196C
-	nop                                          // $196D
-	nop                                          // $196E
-	nop                                          // $196F
-	nop                                          // $1970
-	nop                                          // $1971
-	nop                                          // $1972
-	nop                                          // $1973
-	nop                                          // $1974
-	nop                                          // $1975
-	nop                                          // $1976
-	nop                                          // $1977
-	nop                                          // $1978
-	nop                                          // $1979
-	nop                                          // $197A
-	nop                                          // $197B
-	nop                                          // $197C
-	nop                                          // $197D
-	nop                                          // $197E
-	nop                                          // $197F
-	nop                                          // $1980
-	nop                                          // $1981
-	nop                                          // $1982
-	nop                                          // $1983
-	nop                                          // $1984
-	nop                                          // $1985
-	nop                                          // $1986
-	nop                                          // $1987
-	nop                                          // $1988
-	nop                                          // $1989
-	nop                                          // $198A
-	nop                                          // $198B
-	nop                                          // $198C
-	nop                                          // $198D
-	nop                                          // $198E
-	nop                                          // $198F
-	nop                                          // $1990
-	nop                                          // $1991
-	nop                                          // $1992
-	nop                                          // $1993
-	nop                                          // $1994
-	nop                                          // $1995
-	nop                                          // $1996
-	nop                                          // $1997
-	nop                                          // $1998
-	nop                                          // $1999
-	nop                                          // $199A
-	nop                                          // $199B
-	nop                                          // $199C
-	nop                                          // $199D
-	nop                                          // $199E
-	nop                                          // $199F
-	nop                                          // $19A0
-	nop                                          // $19A1
-	nop                                          // $19A2
-	nop                                          // $19A3
-	nop                                          // $19A4
-	nop                                          // $19A5
-	nop                                          // $19A6
-	nop                                          // $19A7
-	nop                                          // $19A8
-	nop                                          // $19A9
-	nop                                          // $19AA
-	nop                                          // $19AB
-	nop                                          // $19AC
-	nop                                          // $19AD
-	nop                                          // $19AE
-	nop                                          // $19AF
-	nop                                          // $19B0
-	nop                                          // $19B1
-	nop                                          // $19B2
-	nop                                          // $19B3
-	nop                                          // $19B4
-	nop                                          // $19B5
-	nop                                          // $19B6
-	nop                                          // $19B7
-	nop                                          // $19B8
-	nop                                          // $19B9
-	nop                                          // $19BA
-	nop                                          // $19BB
-	nop                                          // $19BC
-	nop                                          // $19BD
-	nop                                          // $19BE
-	nop                                          // $19BF
-	nop                                          // $19C0
-	nop                                          // $19C1
-	nop                                          // $19C2
-	nop                                          // $19C3
-	nop                                          // $19C4
-	nop                                          // $19C5
-	nop                                          // $19C6
-	nop                                          // $19C7
-	nop                                          // $19C8
-	nop                                          // $19C9
-	nop                                          // $19CA
-	nop                                          // $19CB
-	nop                                          // $19CC
-	nop                                          // $19CD
-	nop                                          // $19CE
-	nop                                          // $19CF
-	nop                                          // $19D0
-	nop                                          // $19D1
-	nop                                          // $19D2
-	nop                                          // $19D3
-	nop                                          // $19D4
-	nop                                          // $19D5
-	nop                                          // $19D6
-	nop                                          // $19D7
-	nop                                          // $19D8
-	nop                                          // $19D9
-	nop                                          // $19DA
-	nop                                          // $19DB
-	nop                                          // $19DC
-	nop                                          // $19DD
-	nop                                          // $19DE
-	nop                                          // $19DF
-	nop                                          // $19E0
-	nop                                          // $19E1
-	nop                                          // $19E2
-	nop                                          // $19E3
-	nop                                          // $19E4
-	nop                                          // $19E5
-	nop                                          // $19E6
-	nop                                          // $19E7
-	nop                                          // $19E8
-	nop                                          // $19E9
-	nop                                          // $19EA
-	nop                                          // $19EB
-	nop                                          // $19EC
-	nop                                          // $19ED
-	nop                                          // $19EE
-	nop                                          // $19EF
-	nop                                          // $19F0
-	nop                                          // $19F1
-	nop                                          // $19F2
-	nop                                          // $19F3
-	nop                                          // $19F4
-	nop                                          // $19F5
-	nop                                          // $19F6
-	nop                                          // $19F7
-	nop                                          // $19F8
-	nop                                          // $19F9
-	nop                                          // $19FA
-	nop                                          // $19FB
-	nop                                          // $19FC
-	nop                                          // $19FD
-	nop                                          // $19FE
-	nop                                          // $19FF
-	nop                                          // $1A00
-	nop                                          // $1A01
-	nop                                          // $1A02
-	nop                                          // $1A03
-	nop                                          // $1A04
-	nop                                          // $1A05
-	nop                                          // $1A06
-	nop                                          // $1A07
-	nop                                          // $1A08
-	nop                                          // $1A09
-	nop                                          // $1A0A
-	nop                                          // $1A0B
-	nop                                          // $1A0C
-	nop                                          // $1A0D
-	nop                                          // $1A0E
-	nop                                          // $1A0F
-	nop                                          // $1A10
-	nop                                          // $1A11
-	nop                                          // $1A12
-	nop                                          // $1A13
-	nop                                          // $1A14
-	nop                                          // $1A15
-	nop                                          // $1A16
-	nop                                          // $1A17
-	nop                                          // $1A18
-	nop                                          // $1A19
-	nop                                          // $1A1A
-	nop                                          // $1A1B
-	nop                                          // $1A1C
-	nop                                          // $1A1D
-	nop                                          // $1A1E
-	nop                                          // $1A1F
-	nop                                          // $1A20
-	nop                                          // $1A21
-	nop                                          // $1A22
-	nop                                          // $1A23
-	nop                                          // $1A24
-	nop                                          // $1A25
-	nop                                          // $1A26
-	nop                                          // $1A27
-	nop                                          // $1A28
-	nop                                          // $1A29
-	nop                                          // $1A2A
-	nop                                          // $1A2B
-	nop                                          // $1A2C
-	nop                                          // $1A2D
-	nop                                          // $1A2E
-	nop                                          // $1A2F
-	nop                                          // $1A30
-	nop                                          // $1A31
-	nop                                          // $1A32
-	nop                                          // $1A33
-	nop                                          // $1A34
-	nop                                          // $1A35
-	nop                                          // $1A36
-	nop                                          // $1A37
-	nop                                          // $1A38
-	nop                                          // $1A39
-	nop                                          // $1A3A
-	nop                                          // $1A3B
-	nop                                          // $1A3C
-	nop                                          // $1A3D
-	nop                                          // $1A3E
-	nop                                          // $1A3F
-	nop                                          // $1A40
-	nop                                          // $1A41
-	nop                                          // $1A42
-	nop                                          // $1A43
-	nop                                          // $1A44
-	nop                                          // $1A45
-	nop                                          // $1A46
-	nop                                          // $1A47
-	nop                                          // $1A48
-	nop                                          // $1A49
-	nop                                          // $1A4A
-	nop                                          // $1A4B
-	nop                                          // $1A4C
-	nop                                          // $1A4D
-	nop                                          // $1A4E
-	nop                                          // $1A4F
-	nop                                          // $1A50
-	nop                                          // $1A51
-	nop                                          // $1A52
-	nop                                          // $1A53
-	nop                                          // $1A54
-	nop                                          // $1A55
-	nop                                          // $1A56
-	nop                                          // $1A57
-	nop                                          // $1A58
-	nop                                          // $1A59
-	nop                                          // $1A5A
-	nop                                          // $1A5B
-	nop                                          // $1A5C
-	nop                                          // $1A5D
-	nop                                          // $1A5E
-	nop                                          // $1A5F
-	nop                                          // $1A60
-	nop                                          // $1A61
-	nop                                          // $1A62
-	nop                                          // $1A63
-	nop                                          // $1A64
-	nop                                          // $1A65
-	nop                                          // $1A66
-	nop                                          // $1A67
-	nop                                          // $1A68
-	nop                                          // $1A69
-	nop                                          // $1A6A
-	nop                                          // $1A6B
-	nop                                          // $1A6C
-	nop                                          // $1A6D
-	nop                                          // $1A6E
-	nop                                          // $1A6F
-	nop                                          // $1A70
-	nop                                          // $1A71
-	nop                                          // $1A72
-	nop                                          // $1A73
-	nop                                          // $1A74
-	nop                                          // $1A75
-	nop                                          // $1A76
-	nop                                          // $1A77
-	nop                                          // $1A78
-	nop                                          // $1A79
-	nop                                          // $1A7A
-	nop                                          // $1A7B
-	nop                                          // $1A7C
-	nop                                          // $1A7D
-	nop                                          // $1A7E
-	nop                                          // $1A7F
-	nop                                          // $1A80
-	nop                                          // $1A81
-	nop                                          // $1A82
-	nop                                          // $1A83
-	nop                                          // $1A84
-	nop                                          // $1A85
-	nop                                          // $1A86
-	nop                                          // $1A87
-	nop                                          // $1A88
-	nop                                          // $1A89
-	nop                                          // $1A8A
-	nop                                          // $1A8B
-	nop                                          // $1A8C
-	nop                                          // $1A8D
-	nop                                          // $1A8E
-	nop                                          // $1A8F
-	nop                                          // $1A90
-	nop                                          // $1A91
-	nop                                          // $1A92
-	nop                                          // $1A93
-	nop                                          // $1A94
-	nop                                          // $1A95
-	nop                                          // $1A96
-	nop                                          // $1A97
-	nop                                          // $1A98
-	nop                                          // $1A99
-	nop                                          // $1A9A
-	nop                                          // $1A9B
-	nop                                          // $1A9C
-	nop                                          // $1A9D
-	nop                                          // $1A9E
-	nop                                          // $1A9F
-	nop                                          // $1AA0
-	nop                                          // $1AA1
-	nop                                          // $1AA2
-	nop                                          // $1AA3
-	nop                                          // $1AA4
-	nop                                          // $1AA5
-	nop                                          // $1AA6
-	nop                                          // $1AA7
-	nop                                          // $1AA8
-	nop                                          // $1AA9
-	nop                                          // $1AAA
-	nop                                          // $1AAB
-	nop                                          // $1AAC
-	nop                                          // $1AAD
-	nop                                          // $1AAE
-	nop                                          // $1AAF
-	nop                                          // $1AB0
-	nop                                          // $1AB1
-	nop                                          // $1AB2
-	nop                                          // $1AB3
-	nop                                          // $1AB4
-	nop                                          // $1AB5
-	nop                                          // $1AB6
-	nop                                          // $1AB7
-	nop                                          // $1AB8
-	nop                                          // $1AB9
-	nop                                          // $1ABA
-	nop                                          // $1ABB
-	nop                                          // $1ABC
-	nop                                          // $1ABD
-	nop                                          // $1ABE
-	nop                                          // $1ABF
-	nop                                          // $1AC0
-	nop                                          // $1AC1
-	nop                                          // $1AC2
-	nop                                          // $1AC3
-	nop                                          // $1AC4
-	nop                                          // $1AC5
-	nop                                          // $1AC6
-	nop                                          // $1AC7
-	nop                                          // $1AC8
-	nop                                          // $1AC9
-	nop                                          // $1ACA
-	nop                                          // $1ACB
-	nop                                          // $1ACC
-	nop                                          // $1ACD
-	nop                                          // $1ACE
-	nop                                          // $1ACF
-	nop                                          // $1AD0
-	nop                                          // $1AD1
-	nop                                          // $1AD2
-	nop                                          // $1AD3
-	nop                                          // $1AD4
-	nop                                          // $1AD5
-	nop                                          // $1AD6
-	nop                                          // $1AD7
-	nop                                          // $1AD8
-	nop                                          // $1AD9
-	nop                                          // $1ADA
-	nop                                          // $1ADB
-	nop                                          // $1ADC
-	nop                                          // $1ADD
-	nop                                          // $1ADE
-	nop                                          // $1ADF
-	nop                                          // $1AE0
-	nop                                          // $1AE1
-	nop                                          // $1AE2
-	nop                                          // $1AE3
-	nop                                          // $1AE4
-	nop                                          // $1AE5
-	nop                                          // $1AE6
-	nop                                          // $1AE7
-	nop                                          // $1AE8
-	nop                                          // $1AE9
-	nop                                          // $1AEA
-	nop                                          // $1AEB
-	nop                                          // $1AEC
-	nop                                          // $1AED
-	nop                                          // $1AEE
-	nop                                          // $1AEF
-	nop                                          // $1AF0
-	nop                                          // $1AF1
-	nop                                          // $1AF2
-	nop                                          // $1AF3
-	nop                                          // $1AF4
-	nop                                          // $1AF5
-	nop                                          // $1AF6
-	nop                                          // $1AF7
-	nop                                          // $1AF8
-	nop                                          // $1AF9
-	nop                                          // $1AFA
-	nop                                          // $1AFB
-	nop                                          // $1AFC
-	nop                                          // $1AFD
-	nop                                          // $1AFE
-	nop                                          // $1AFF
-	lda $43                                      // $1B00
-	and #$7f                                     // $1B02
-	cmp #$01                                     // $1B04
-	.byte $D0, $0E                               // $1B06  bne $1B16
-	jsr $7630                                    // $1B08
-	lda #$00                                     // $1B0B
-	sta $43                                      // $1B0D
-	sta $42                                      // $1B0F
-	inc $41                                      // $1B11
-	jmp $1020                                    // $1B13
-	cmp #$02                                     // $1B16
-	.byte $D0, $53                               // $1B18  bne $1B6D
-	lda $d015                                    // $1B1A  ; VIC_SPEN
-	and #$f4                                     // $1B1D
-	sta $d015                                    // $1B1F  ; VIC_SPEN
-	lda #$00                                     // $1B22
-	sta $51                                      // $1B24
-	sta $52                                      // $1B26
-	sta $24                                      // $1B28
-	sta $28                                      // $1B2A
-	sta $42                                      // $1B2C
-	sta $43                                      // $1B2E
-	lda #$81                                     // $1B30
-	sta $d404                                    // $1B32  ; SID_CR1
-	sta $d40b                                    // $1B35
-	lda #$10                                     // $1B38
-	sta $29                                      // $1B3A
-	jsr $6d90                                    // $1B3C
-	lda $51                                      // $1B3F
-	cmp #$06                                     // $1B41
-	.byte $F0, $0D                               // $1B43  beq $1B52
-	ldx #$1f                                     // $1B45
-	ldy #$ff                                     // $1B47
-	dey                                          // $1B49
-	.byte $D0, $FD                               // $1B4A  bne $1B49
-	dex                                          // $1B4C
-	.byte $D0, $F8                               // $1B4D  bne $1B47
-	jmp $1b3c                                    // $1B4F
-	lda #$21                                     // $1B52
-	sta $d404                                    // $1B54  ; SID_CR1
-	lda #$41                                     // $1B57
-	sta $d40b                                    // $1B59
-	sta $d412                                    // $1B5C
-	lda #$f0                                     // $1B5F
-	sta $d015                                    // $1B61  ; VIC_SPEN
-	inc $41                                      // $1B64
-	lda #$01                                     // $1B66
-	sta $26                                      // $1B68
-	jmp $1020                                    // $1B6A
-	cmp #$04                                     // $1B6D
-	.byte $D0, $03                               // $1B6F  bne $1B74
-	jmp $1020                                    // $1B71
-	cmp #$08                                     // $1B74
-	.byte $F0, $03                               // $1B76  beq $1B7B
-	jmp $1c97                                    // $1B78
-	lda #$81                                     // $1B7B
-	sta $d404                                    // $1B7D  ; SID_CR1
-	sta $d40b                                    // $1B80
-	sta $d412                                    // $1B83
-	lda $d002                                    // $1B86  ; VIC_SP1X
-	sta $d000                                    // $1B89  ; VIC_SP0X
-	lda $d004                                    // $1B8C
-	sta $d006                                    // $1B8F
-	lda $d003                                    // $1B92  ; VIC_SP1Y
-	sta $d001                                    // $1B95  ; VIC_SP0Y
-	sta $d007                                    // $1B98
-	lda $07fa                                    // $1B9B
-	sta $07fb                                    // $1B9E
-	lda #$dd                                     // $1BA1
-	sta $07f8                                    // $1BA3
-	lda #$de                                     // $1BA6
-	sta $07fa                                    // $1BA8
-	lda $d01c                                    // $1BAB  ; VIC_SPMCOL
-	and #$f0                                     // $1BAE
-	ora #$0a                                     // $1BB0
-	sta $d01c                                    // $1BB2  ; VIC_SPMCOL
-	lda #$02                                     // $1BB5
-	sta $d028                                    // $1BB7
-	sta $d02a                                    // $1BBA
-	lda #$07                                     // $1BBD
-	sta $d027                                    // $1BBF
-	lda #$08                                     // $1BC2
-	sta $d029                                    // $1BC4
-	lda $d015                                    // $1BC7  ; VIC_SPEN
-	ora #$0f                                     // $1BCA
-	sta $d015                                    // $1BCC  ; VIC_SPEN
-	lda $d017                                    // $1BCF  ; VIC_SPYEXP
-	ora #$0f                                     // $1BD2
-	sta $d017                                    // $1BD4  ; VIC_SPYEXP
-	lda $d01d                                    // $1BD7  ; VIC_SPXEXP
-	ora #$0f                                     // $1BDA
-	sta $d01d                                    // $1BDC  ; VIC_SPXEXP
-	lda $52                                      // $1BDF
-	cmp #$03                                     // $1BE1
-	.byte $D0, $15                               // $1BE3  bne $1BFA
-	lda $50                                      // $1BE5
-	cmp #$06                                     // $1BE7
-	.byte $B0, $0F                               // $1BE9  bcs $1BFA
-	lda $d01b                                    // $1BEB  ; VIC_SPPRI
-	ora #$0f                                     // $1BEE
-	sta $d01b                                    // $1BF0  ; VIC_SPPRI
-	lda #$80                                     // $1BF3
-	sta $55                                      // $1BF5
-	jmp $1c06                                    // $1BF7
-	lda $d01b                                    // $1BFA  ; VIC_SPPRI
-	and #$f0                                     // $1BFD
-	sta $d01b                                    // $1BFF  ; VIC_SPPRI
-	lda #$98                                     // $1C02
-	sta $55                                      // $1C04
-	lda $07f8                                    // $1C06
-	cmp #$dd                                     // $1C09
-	.byte $D0, $0F                               // $1C0B  bne $1C1C
-	inc $07f8                                    // $1C0D
-	inc $d027                                    // $1C10
-	dec $07fa                                    // $1C13
-	dec $d029                                    // $1C16
-	jmp $1c28                                    // $1C19
-	dec $07f8                                    // $1C1C
-	dec $d027                                    // $1C1F
-	inc $07fa                                    // $1C22
-	inc $d029                                    // $1C25
-	ldx #$14                                     // $1C28
-	ldy #$ff                                     // $1C2A
-	dey                                          // $1C2C
-	.byte $D0, $FD                               // $1C2D  bne $1C2C
-	dex                                          // $1C2F
-	.byte $D0, $F8                               // $1C30  bne $1C2A
-	inc $d001                                    // $1C32  ; VIC_SP0Y
-	inc $d003                                    // $1C35  ; VIC_SP1Y
-	inc $d005                                    // $1C38
-	inc $d007                                    // $1C3B
-	lda $d001                                    // $1C3E  ; VIC_SP0Y
-	cmp $55                                      // $1C41
-	.byte $90, $C1                               // $1C43  bcc $1C06
-	lda #$bc                                     // $1C45
-	sta $07f8                                    // $1C47
-	lda #$bd                                     // $1C4A
-	sta $07fa                                    // $1C4C
-	lda $07f8                                    // $1C4F
-	cmp #$bc                                     // $1C52
-	.byte $D0, $0F                               // $1C54  bne $1C65
-	inc $07f8                                    // $1C56
-	inc $d027                                    // $1C59
-	dec $07fa                                    // $1C5C
-	dec $d029                                    // $1C5F
-	jmp $1c71                                    // $1C62
-	dec $07f8                                    // $1C65
-	dec $d027                                    // $1C68
-	inc $07fa                                    // $1C6B
-	inc $d029                                    // $1C6E
-	ldx #$1f                                     // $1C71
-	ldy #$ff                                     // $1C73
-	dey                                          // $1C75
-	.byte $D0, $FD                               // $1C76  bne $1C75
-	dex                                          // $1C78
-	.byte $D0, $F8                               // $1C79  bne $1C73
-	inc $50                                      // $1C7B
-	.byte $D0, $D0                               // $1C7D  bne $1C4F
-	lda #$00                                     // $1C7F
-	sta $42                                      // $1C81
-	sta $43                                      // $1C83
-	inc $41                                      // $1C85
-	lda #$21                                     // $1C87
-	sta $d404                                    // $1C89  ; SID_CR1
-	sta $d40b                                    // $1C8C
-	lda #$41                                     // $1C8F
-	sta $d412                                    // $1C91
-	jmp $1d1f                                    // $1C94
-	cmp #$10                                     // $1C97
-	.byte $F0, $03                               // $1C99  beq $1C9E
-	jmp $1d43                                    // $1C9B
-	lda #$00                                     // $1C9E
-	sta $33                                      // $1CA0
-	lda #$80                                     // $1CA2
-	sta $30                                      // $1CA4
-	lda #$5b                                     // $1CA6
-	sta $31                                      // $1CA8
-	nop                                          // $1CAA
-	lda #$81                                     // $1CAB
-	sta $d412                                    // $1CAD
-	lda #$00                                     // $1CB0
-	sta $50                                      // $1CB2
-	sta $53                                      // $1CB4
-	lda #$3f                                     // $1CB6
-	sta $51                                      // $1CB8
-	jsr $6cd0                                    // $1CBA
-	lda $53                                      // $1CBD
-	cmp #$ff                                     // $1CBF
-	.byte $F0, $22                               // $1CC1  beq $1CE5
-	lda $dc04                                    // $1CC3
-	and #$03                                     // $1CC6
-	cmp #$02                                     // $1CC8
-	.byte $D0, $0C                               // $1CCA  bne $1CD8
-	lda $dc04                                    // $1CCC
-	and #$1e                                     // $1CCF
-	lsr                                          // $1CD1
-	sta $d029                                    // $1CD2
-	sta $d02a                                    // $1CD5
-	ldx #$08                                     // $1CD8
-	ldy #$ff                                     // $1CDA
-	dey                                          // $1CDC
-	.byte $D0, $FD                               // $1CDD  bne $1CDC
-	dex                                          // $1CDF
-	.byte $D0, $F8                               // $1CE0  bne $1CDA
-	jmp $1cba                                    // $1CE2
-	lda #$f0                                     // $1CE5
-	sta $d015                                    // $1CE7  ; VIC_SPEN
-	ldx #$7f                                     // $1CEA
-	lda $2f80,x                                  // $1CEC
-	sta $2dc0,x                                  // $1CEF
-	dex                                          // $1CF2
-	.byte $10, $F7                               // $1CF3  bpl $1CEC
-	lda #$41                                     // $1CF5
-	sta $d412                                    // $1CF7
-	inc $41                                      // $1CFA
-	lda #$00                                     // $1CFC
-	sta $42                                      // $1CFE
-	sta $43                                      // $1D00
-	nop                                          // $1D02
-	nop                                          // $1D03
-	lda $d015                                    // $1D04  ; VIC_SPEN
-	and #$f0                                     // $1D07
-	sta $d015                                    // $1D09  ; VIC_SPEN
-	lda #$00                                     // $1D0C
-	sta $33                                      // $1D0E
-	lda #$c0                                     // $1D10
-	sta $30                                      // $1D12
-	sta $34                                      // $1D14
-	lda #$5b                                     // $1D16
-	sta $31                                      // $1D18
-	sta $35                                      // $1D1A
-	jmp $1020                                    // $1D1C
-	lda #$00                                     // $1D1F
-	sta $33                                      // $1D21
-	lda #$90                                     // $1D23
-	sta $30                                      // $1D25
-	sta $34                                      // $1D27
-	lda #$55                                     // $1D29
-	sta $31                                      // $1D2B
-	sta $35                                      // $1D2D
-	lda $d015                                    // $1D2F  ; VIC_SPEN
-	and #$f0                                     // $1D32
-	sta $d015                                    // $1D34  ; VIC_SPEN
-	jmp $1020                                    // $1D37
-	lda #$99                                     // $1D3A
-	sta $28                                      // $1D3C
-	sta $29                                      // $1D3E
-	jmp $1020                                    // $1D40
-	cmp #$20                                     // $1D43
-	.byte $F0, $03                               // $1D45  beq $1D4A
-	jmp $1e10                                    // $1D47
-	lda #$00                                     // $1D4A
-	sta $33                                      // $1D4C
-	lda #$40                                     // $1D4E
-	sta $30                                      // $1D50
-	sta $34                                      // $1D52
-	lda #$5c                                     // $1D54
-	sta $31                                      // $1D56
-	sta $35                                      // $1D58
-	ldx #$07                                     // $1D5A
-	lda #$dd                                     // $1D5C
-	sta $07f8,x                                  // $1D5E
-	lda #$07                                     // $1D61
-	sta $d027,x                                  // $1D63
-	dex                                          // $1D66
-	.byte $10, $F3                               // $1D67  bpl $1D5C
-	lda #$00                                     // $1D69
-	sta $50                                      // $1D6B
-	sta $d01b                                    // $1D6D  ; VIC_SPPRI
-	sta $d01c                                    // $1D70  ; VIC_SPMCOL
-	sta $d017                                    // $1D73  ; VIC_SPYEXP
-	sta $d01d                                    // $1D76  ; VIC_SPXEXP
-	lda #$ff                                     // $1D79
-	sta $d015                                    // $1D7B  ; VIC_SPEN
-	lda #$06                                     // $1D7E
-	sta $51                                      // $1D80
-	lda $d000                                    // $1D82  ; VIC_SP0X
-	sta $52                                      // $1D85
-	lda $d001                                    // $1D87  ; VIC_SP0Y
-	sta $53                                      // $1D8A
-	ldx #$0e                                     // $1D8C
-	lda $52                                      // $1D8E
-	sta $d000,x                                  // $1D90  ; VIC_SP0X
-	lda $53                                      // $1D93
-	sta $d001,x                                  // $1D95  ; VIC_SP0Y
-	dex                                          // $1D98
-	dex                                          // $1D99
-	.byte $10, $F2                               // $1D9A  bpl $1D8E
-	lda $d021                                    // $1D9C  ; VIC_BG0
-	and #$0f                                     // $1D9F
-	cmp #$01                                     // $1DA1
-	.byte $D0, $08                               // $1DA3  bne $1DAD
-	lda #$08                                     // $1DA5
-	sta $d021                                    // $1DA7  ; VIC_BG0
-	jmp $1db2                                    // $1DAA
-	lda #$01                                     // $1DAD
-	sta $d021                                    // $1DAF  ; VIC_BG0
-	dec $d001                                    // $1DB2  ; VIC_SP0Y
-	inc $d002                                    // $1DB5  ; VIC_SP1X
-	dec $d003                                    // $1DB8  ; VIC_SP1Y
-	inc $d004                                    // $1DBB
-	inc $d006                                    // $1DBE
-	inc $d007                                    // $1DC1
-	inc $d009                                    // $1DC4
-	dec $d00a                                    // $1DC7
-	inc $d00b                                    // $1DCA
-	dec $d00c                                    // $1DCD
-	dec $d00e                                    // $1DD0
-	dec $d00f                                    // $1DD3
-	ldx #$04                                     // $1DD6
-	ldy #$ff                                     // $1DD8
-	dey                                          // $1DDA
-	.byte $D0, $FD                               // $1DDB  bne $1DDA
-	dex                                          // $1DDD
-	.byte $D0, $F8                               // $1DDE  bne $1DD8
-	lda #$00                                     // $1DE0
-	sta $33                                      // $1DE2
-	lda $d009                                    // $1DE4
-	.byte $D0, $03                               // $1DE7  bne $1DEC
-	jmp $1d8c                                    // $1DE9
-	dec $50                                      // $1DEC
-	.byte $D0, $AC                               // $1DEE  bne $1D9C
-	dec $51                                      // $1DF0
-	.byte $D0, $A8                               // $1DF2  bne $1D9C
-	lda #$00                                     // $1DF4
-	sta $d021                                    // $1DF6  ; VIC_BG0
-	lda #$21                                     // $1DF9
-	sta $d404                                    // $1DFB  ; SID_CR1
-	sta $d40b                                    // $1DFE
-	lda #$41                                     // $1E01
-	sta $d412                                    // $1E03
-	lda #$00                                     // $1E06
-	sta $d015                                    // $1E08  ; VIC_SPEN
-	inc $41                                      // $1E0B
-	jmp $1020                                    // $1E0D
-	jmp $1020                                    // $1E10
-	nop                                          // $1E13
-	nop                                          // $1E14
-	nop                                          // $1E15
-	nop                                          // $1E16
-	nop                                          // $1E17
-	nop                                          // $1E18
-	nop                                          // $1E19
-	nop                                          // $1E1A
-	nop                                          // $1E1B
-	nop                                          // $1E1C
-	nop                                          // $1E1D
-	nop                                          // $1E1E
-	nop                                          // $1E1F
-	nop                                          // $1E20
-	nop                                          // $1E21
-	nop                                          // $1E22
-	nop                                          // $1E23
-	nop                                          // $1E24
-	nop                                          // $1E25
-	nop                                          // $1E26
-	nop                                          // $1E27
-	nop                                          // $1E28
-	nop                                          // $1E29
-	nop                                          // $1E2A
-	nop                                          // $1E2B
-	nop                                          // $1E2C
-	nop                                          // $1E2D
-	nop                                          // $1E2E
-	nop                                          // $1E2F
-	nop                                          // $1E30
-	nop                                          // $1E31
-	nop                                          // $1E32
-	nop                                          // $1E33
-	nop                                          // $1E34
-	nop                                          // $1E35
-	nop                                          // $1E36
-	nop                                          // $1E37
-	nop                                          // $1E38
-	nop                                          // $1E39
-	nop                                          // $1E3A
-	nop                                          // $1E3B
-	nop                                          // $1E3C
-	nop                                          // $1E3D
-	nop                                          // $1E3E
-	nop                                          // $1E3F
-	nop                                          // $1E40
-	nop                                          // $1E41
-	nop                                          // $1E42
-	nop                                          // $1E43
-	nop                                          // $1E44
-	nop                                          // $1E45
-	nop                                          // $1E46
-	nop                                          // $1E47
-	nop                                          // $1E48
-	nop                                          // $1E49
-	nop                                          // $1E4A
-	nop                                          // $1E4B
-	nop                                          // $1E4C
-	nop                                          // $1E4D
-	nop                                          // $1E4E
-	nop                                          // $1E4F
-	nop                                          // $1E50
-	nop                                          // $1E51
-	nop                                          // $1E52
-	nop                                          // $1E53
-	nop                                          // $1E54
-	nop                                          // $1E55
-	nop                                          // $1E56
-	nop                                          // $1E57
-	nop                                          // $1E58
-	nop                                          // $1E59
-	nop                                          // $1E5A
-	nop                                          // $1E5B
-	nop                                          // $1E5C
-	nop                                          // $1E5D
-	nop                                          // $1E5E
-	nop                                          // $1E5F
-	nop                                          // $1E60
-	nop                                          // $1E61
-	nop                                          // $1E62
-	nop                                          // $1E63
-	nop                                          // $1E64
-	nop                                          // $1E65
-	nop                                          // $1E66
-	nop                                          // $1E67
-	nop                                          // $1E68
-	nop                                          // $1E69
-	nop                                          // $1E6A
-	nop                                          // $1E6B
-	nop                                          // $1E6C
-	nop                                          // $1E6D
-	nop                                          // $1E6E
-	nop                                          // $1E6F
-	nop                                          // $1E70
-	nop                                          // $1E71
-	nop                                          // $1E72
-	nop                                          // $1E73
-	nop                                          // $1E74
-	nop                                          // $1E75
-	nop                                          // $1E76
-	nop                                          // $1E77
-	nop                                          // $1E78
-	nop                                          // $1E79
-	nop                                          // $1E7A
-	nop                                          // $1E7B
-	nop                                          // $1E7C
-	nop                                          // $1E7D
-	nop                                          // $1E7E
-	nop                                          // $1E7F
-	nop                                          // $1E80
-	nop                                          // $1E81
-	nop                                          // $1E82
-	nop                                          // $1E83
-	nop                                          // $1E84
-	nop                                          // $1E85
-	nop                                          // $1E86
-	nop                                          // $1E87
-	nop                                          // $1E88
-	nop                                          // $1E89
-	nop                                          // $1E8A
-	nop                                          // $1E8B
-	nop                                          // $1E8C
-	nop                                          // $1E8D
-	nop                                          // $1E8E
-	nop                                          // $1E8F
-	nop                                          // $1E90
-	nop                                          // $1E91
-	nop                                          // $1E92
-	nop                                          // $1E93
-	nop                                          // $1E94
-	nop                                          // $1E95
-	nop                                          // $1E96
-	nop                                          // $1E97
-	nop                                          // $1E98
-	nop                                          // $1E99
-	nop                                          // $1E9A
-	nop                                          // $1E9B
-	nop                                          // $1E9C
-	nop                                          // $1E9D
-	nop                                          // $1E9E
-	nop                                          // $1E9F
-	nop                                          // $1EA0
-	nop                                          // $1EA1
-	nop                                          // $1EA2
-	nop                                          // $1EA3
-	nop                                          // $1EA4
-	nop                                          // $1EA5
-	nop                                          // $1EA6
-	nop                                          // $1EA7
-	nop                                          // $1EA8
-	nop                                          // $1EA9
-	nop                                          // $1EAA
-	nop                                          // $1EAB
-	nop                                          // $1EAC
-	nop                                          // $1EAD
-	nop                                          // $1EAE
-	nop                                          // $1EAF
-	nop                                          // $1EB0
-	nop                                          // $1EB1
-	nop                                          // $1EB2
-	nop                                          // $1EB3
-	nop                                          // $1EB4
-	nop                                          // $1EB5
-	nop                                          // $1EB6
-	nop                                          // $1EB7
-	nop                                          // $1EB8
-	nop                                          // $1EB9
-	nop                                          // $1EBA
-	nop                                          // $1EBB
-	nop                                          // $1EBC
-	nop                                          // $1EBD
-	nop                                          // $1EBE
-	nop                                          // $1EBF
-	nop                                          // $1EC0
-	nop                                          // $1EC1
-	nop                                          // $1EC2
-	nop                                          // $1EC3
-	nop                                          // $1EC4
-	nop                                          // $1EC5
-	nop                                          // $1EC6
-	nop                                          // $1EC7
-	nop                                          // $1EC8
-	nop                                          // $1EC9
-	nop                                          // $1ECA
-	nop                                          // $1ECB
-	nop                                          // $1ECC
-	nop                                          // $1ECD
-	nop                                          // $1ECE
-	nop                                          // $1ECF
-	nop                                          // $1ED0
-	nop                                          // $1ED1
-	nop                                          // $1ED2
-	nop                                          // $1ED3
-	nop                                          // $1ED4
-	nop                                          // $1ED5
-	nop                                          // $1ED6
-	nop                                          // $1ED7
-	nop                                          // $1ED8
-	nop                                          // $1ED9
-	nop                                          // $1EDA
-	nop                                          // $1EDB
-	nop                                          // $1EDC
-	nop                                          // $1EDD
-	nop                                          // $1EDE
-	nop                                          // $1EDF
-	nop                                          // $1EE0
-	nop                                          // $1EE1
-	nop                                          // $1EE2
-	nop                                          // $1EE3
-	nop                                          // $1EE4
-	nop                                          // $1EE5
-	nop                                          // $1EE6
-	nop                                          // $1EE7
-	nop                                          // $1EE8
-	nop                                          // $1EE9
-	nop                                          // $1EEA
-	nop                                          // $1EEB
-	nop                                          // $1EEC
-	nop                                          // $1EED
-	nop                                          // $1EEE
-	nop                                          // $1EEF
-	nop                                          // $1EF0
-	nop                                          // $1EF1
-	nop                                          // $1EF2
-	nop                                          // $1EF3
-	nop                                          // $1EF4
-	nop                                          // $1EF5
-	nop                                          // $1EF6
-	nop                                          // $1EF7
-	nop                                          // $1EF8
-	nop                                          // $1EF9
-	nop                                          // $1EFA
-	nop                                          // $1EFB
-	nop                                          // $1EFC
-	nop                                          // $1EFD
-	nop                                          // $1EFE
-	nop                                          // $1EFF
-	nop                                          // $1F00
-	nop                                          // $1F01
-	nop                                          // $1F02
-	nop                                          // $1F03
-	nop                                          // $1F04
-	nop                                          // $1F05
-	nop                                          // $1F06
-	nop                                          // $1F07
-	nop                                          // $1F08
-	nop                                          // $1F09
-	nop                                          // $1F0A
-	nop                                          // $1F0B
-	nop                                          // $1F0C
-	nop                                          // $1F0D
-	nop                                          // $1F0E
-	nop                                          // $1F0F
-	nop                                          // $1F10
-	nop                                          // $1F11
-	nop                                          // $1F12
-	nop                                          // $1F13
-	nop                                          // $1F14
-	nop                                          // $1F15
-	nop                                          // $1F16
-	nop                                          // $1F17
-	nop                                          // $1F18
-	nop                                          // $1F19
-	nop                                          // $1F1A
-	nop                                          // $1F1B
-	nop                                          // $1F1C
-	nop                                          // $1F1D
-	nop                                          // $1F1E
-	nop                                          // $1F1F
-	nop                                          // $1F20
-	nop                                          // $1F21
-	nop                                          // $1F22
-	nop                                          // $1F23
-	nop                                          // $1F24
-	nop                                          // $1F25
-	nop                                          // $1F26
-	nop                                          // $1F27
-	nop                                          // $1F28
-	nop                                          // $1F29
-	nop                                          // $1F2A
-	nop                                          // $1F2B
-	nop                                          // $1F2C
-	nop                                          // $1F2D
-	nop                                          // $1F2E
-	nop                                          // $1F2F
-	nop                                          // $1F30
-	nop                                          // $1F31
-	nop                                          // $1F32
-	nop                                          // $1F33
-	nop                                          // $1F34
-	nop                                          // $1F35
-	nop                                          // $1F36
-	nop                                          // $1F37
-	nop                                          // $1F38
-	nop                                          // $1F39
-	nop                                          // $1F3A
-	nop                                          // $1F3B
-	nop                                          // $1F3C
-	nop                                          // $1F3D
-	nop                                          // $1F3E
-	nop                                          // $1F3F
-	nop                                          // $1F40
-	nop                                          // $1F41
-	nop                                          // $1F42
-	nop                                          // $1F43
-	nop                                          // $1F44
-	nop                                          // $1F45
-	nop                                          // $1F46
-	nop                                          // $1F47
-	nop                                          // $1F48
-	nop                                          // $1F49
-	nop                                          // $1F4A
-	nop                                          // $1F4B
-	nop                                          // $1F4C
-	nop                                          // $1F4D
-	nop                                          // $1F4E
-	nop                                          // $1F4F
-	nop                                          // $1F50
-	nop                                          // $1F51
-	nop                                          // $1F52
-	nop                                          // $1F53
-	nop                                          // $1F54
-	nop                                          // $1F55
-	nop                                          // $1F56
-	nop                                          // $1F57
-	nop                                          // $1F58
-	nop                                          // $1F59
-	nop                                          // $1F5A
-	nop                                          // $1F5B
-	nop                                          // $1F5C
-	nop                                          // $1F5D
-	nop                                          // $1F5E
-	nop                                          // $1F5F
-	nop                                          // $1F60
-	nop                                          // $1F61
-	nop                                          // $1F62
-	nop                                          // $1F63
-	nop                                          // $1F64
-	nop                                          // $1F65
-	nop                                          // $1F66
-	nop                                          // $1F67
-	nop                                          // $1F68
-	nop                                          // $1F69
-	nop                                          // $1F6A
-	nop                                          // $1F6B
-	nop                                          // $1F6C
-	nop                                          // $1F6D
-	nop                                          // $1F6E
-	nop                                          // $1F6F
-	nop                                          // $1F70
-	nop                                          // $1F71
-	nop                                          // $1F72
-	nop                                          // $1F73
-	nop                                          // $1F74
-	nop                                          // $1F75
-	nop                                          // $1F76
-	nop                                          // $1F77
-	nop                                          // $1F78
-	nop                                          // $1F79
-	nop                                          // $1F7A
-	nop                                          // $1F7B
-	nop                                          // $1F7C
-	nop                                          // $1F7D
-	nop                                          // $1F7E
-	nop                                          // $1F7F
-	nop                                          // $1F80
-	nop                                          // $1F81
-	nop                                          // $1F82
-	nop                                          // $1F83
-	nop                                          // $1F84
-	nop                                          // $1F85
-	nop                                          // $1F86
-	nop                                          // $1F87
-	nop                                          // $1F88
-	nop                                          // $1F89
-	nop                                          // $1F8A
-	nop                                          // $1F8B
-	nop                                          // $1F8C
-	nop                                          // $1F8D
-	nop                                          // $1F8E
-	nop                                          // $1F8F
-	nop                                          // $1F90
-	nop                                          // $1F91
-	nop                                          // $1F92
-	nop                                          // $1F93
-	nop                                          // $1F94
-	nop                                          // $1F95
-	nop                                          // $1F96
-	nop                                          // $1F97
-	nop                                          // $1F98
-	nop                                          // $1F99
-	nop                                          // $1F9A
-	nop                                          // $1F9B
-	nop                                          // $1F9C
-	nop                                          // $1F9D
-	nop                                          // $1F9E
-	nop                                          // $1F9F
-	nop                                          // $1FA0
-	nop                                          // $1FA1
-	nop                                          // $1FA2
-	nop                                          // $1FA3
-	nop                                          // $1FA4
-	nop                                          // $1FA5
-	nop                                          // $1FA6
-	nop                                          // $1FA7
-	nop                                          // $1FA8
-	nop                                          // $1FA9
-	nop                                          // $1FAA
-	nop                                          // $1FAB
-	nop                                          // $1FAC
-	nop                                          // $1FAD
-	nop                                          // $1FAE
-	nop                                          // $1FAF
-	nop                                          // $1FB0
-	nop                                          // $1FB1
-	nop                                          // $1FB2
-	nop                                          // $1FB3
-	nop                                          // $1FB4
-	nop                                          // $1FB5
-	nop                                          // $1FB6
-	nop                                          // $1FB7
-	nop                                          // $1FB8
-	nop                                          // $1FB9
-	nop                                          // $1FBA
-	nop                                          // $1FBB
-	nop                                          // $1FBC
-	nop                                          // $1FBD
-	nop                                          // $1FBE
-	nop                                          // $1FBF
-	nop                                          // $1FC0
-	nop                                          // $1FC1
-	nop                                          // $1FC2
-	nop                                          // $1FC3
-	nop                                          // $1FC4
-	nop                                          // $1FC5
-	nop                                          // $1FC6
-	nop                                          // $1FC7
-	nop                                          // $1FC8
-	nop                                          // $1FC9
-	nop                                          // $1FCA
-	nop                                          // $1FCB
-	nop                                          // $1FCC
-	nop                                          // $1FCD
-	nop                                          // $1FCE
-	nop                                          // $1FCF
-	nop                                          // $1FD0
-	nop                                          // $1FD1
-	nop                                          // $1FD2
-	nop                                          // $1FD3
-	nop                                          // $1FD4
-	nop                                          // $1FD5
-	nop                                          // $1FD6
-	nop                                          // $1FD7
-	nop                                          // $1FD8
-	nop                                          // $1FD9
-	nop                                          // $1FDA
-	nop                                          // $1FDB
-	nop                                          // $1FDC
-	nop                                          // $1FDD
-	nop                                          // $1FDE
-	nop                                          // $1FDF
-	nop                                          // $1FE0
-	nop                                          // $1FE1
-	nop                                          // $1FE2
-	nop                                          // $1FE3
-	nop                                          // $1FE4
-	nop                                          // $1FE5
-	nop                                          // $1FE6
-	nop                                          // $1FE7
-	nop                                          // $1FE8
-	nop                                          // $1FE9
-	nop                                          // $1FEA
-	nop                                          // $1FEB
-	nop                                          // $1FEC
-	nop                                          // $1FED
-	nop                                          // $1FEE
-	nop                                          // $1FEF
-	nop                                          // $1FF0
-	nop                                          // $1FF1
-	nop                                          // $1FF2
-	nop                                          // $1FF3
-	nop                                          // $1FF4
-	nop                                          // $1FF5
-	nop                                          // $1FF6
-	nop                                          // $1FF7
-	nop                                          // $1FF8
-	nop                                          // $1FF9
-	nop                                          // $1FFA
-	nop                                          // $1FFB
-	nop                                          // $1FFC
-	nop                                          // $1FFD
-	nop                                          // $1FFE
-	nop                                          // $1FFF
+	// --- BASIC data region ($0801-$1FFF) ---
+	.byte $1D, $08, $0A, $00, $99, $22, $93, $05 // $0801
+	.byte $22, $3A, $97, $35, $33, $32, $38, $30 // $0809
+	.byte $2C, $30, $3A, $97, $35, $33, $32, $38 // $0811
+	.byte $31, $2C, $30, $00, $3E, $08, $14, $00 // $0819
+	.byte $99, $22, $11, $11, $11, $11, $1D, $1D // $0821
+	.byte $1D, $1D, $1D, $1D, $1D, $1D, $1D, $1D // $0829
+	.byte $2A, $43, $2A, $4F, $2A, $53, $2A, $4D // $0831
+	.byte $2A, $49, $2A, $22, $00, $60, $08, $1E // $0839
+	.byte $00, $99, $22, $11, $11, $1D, $1D, $1D // $0841
+	.byte $1D, $1D, $1D, $1D, $1D, $46, $4F, $52 // $0849
+	.byte $42, $49, $44, $44, $45, $4E, $20, $46 // $0851
+	.byte $4F, $52, $45, $53, $54, $22, $00, $81 // $0859
+	.byte $08, $28, $00, $99, $22, $11, $11, $1D // $0861
+	.byte $1D, $1D, $1D, $1D, $1D, $1D, $1D, $1D // $0869
+	.byte $42, $59, $20, $50, $41, $55, $4C, $20 // $0871
+	.byte $4E, $4F, $52, $4D, $41, $4E, $22, $00 // $0879
+	.byte $A2, $08, $32, $00, $99, $22, $11, $11 // $0881
+	.byte $11, $1D, $1D, $1D, $1D, $1D, $1D, $1D // $0889
+	.byte $1D, $1D, $1D, $9E, $4C, $4F, $41, $44 // $0891
+	.byte $49, $4E, $47, $20, $4E, $4F, $57, $22 // $0899
+	.byte $00, $C6, $08, $3C, $00, $99, $22, $05 // $08A1
+	.byte $11, $11, $11, $11, $11, $11, $11, $9F // $08A9
+	.byte $43, $52, $41, $43, $4B, $45, $44, $20 // $08B1
+	.byte $42, $59, $20, $54, $20, $50, $20, $44 // $08B9
+	.byte $2E, $2E, $2E, $22, $00, $E0, $08, $46 // $08C1
+	.byte $00, $99, $22, $27, $46, $4F, $52, $42 // $08C9
+	.byte $49, $44, $44, $45, $4E, $20, $46, $4F // $08D1
+	.byte $52, $45, $53, $54, $27, $22, $00, $01 // $08D9
+	.byte $09, $48, $00, $99, $22, $43, $4F, $50 // $08E1
+	.byte $59, $52, $49, $47, $48, $54, $20, $28 // $08E9
+	.byte $43, $29, $20, $31, $39, $38, $33, $2C // $08F1
+	.byte $20, $43, $4F, $53, $4D, $49, $22, $00 // $08F9
+	.byte $1C, $09, $4A, $00, $99, $22, $41, $4C // $0901
+	.byte $4C, $20, $52, $49, $47, $48, $54, $53 // $0909
+	.byte $20, $52, $45, $53, $45, $52, $56, $45 // $0911
+	.byte $44, $22, $00, $2F, $09, $50, $00, $8B // $0919
+	.byte $C2, $28, $34, $30, $39, $36, $29, $B2 // $0921
+	.byte $33, $32, $A7, $39, $30, $00, $39, $09 // $0929
+	.byte $5A, $00, $9E, $38, $31, $39, $32, $00 // $0931
+	.byte $3F, $09, $64, $00, $80, $00, $00, $00 // $0939
+	.byte $4B, $09, $5A, $00, $9E, $38, $31, $39 // $0941
+	.byte $32, $00, $51, $09, $64, $00, $80, $00 // $0949
+	.byte $00, $00, $0D, $F0, $1E, $C9, $20, $F0 // $0951
+	.byte $F1, $20, $44, $81, $90, $0F, $20, $81 // $0959
+	.byte $85, $A4, $C1, $84, $C2, $85, $C1, $A9 // $0961
+	.byte $30, $9D, $10, $02, $E8, $9D, $10, $02 // $0969
+	.byte $E8, $D0, $D7, $8E, $29, $01, $20, $D7 // $0971
+	.byte $AA, $A2, $00, $86, $3B, $A2, $00, $86 // $0979
+	.byte $3A, $A5, $3B, $20, $43, $86, $A6, $3D // $0981
+	.byte $8E, $2A, $01, $AA, $BD, $C8, $87, $20 // $0989
+	.byte $16, $81, $BD, $88, $87, $20, $16, $81 // $0991
+	.byte $A2, $06, $E0, $03, $D0, $12, $A4, $3E // $0999
+	.byte $F0, $0E, $A5, $3D, $C9, $E8, $A9, $30 // $09A1
+	.byte $B0, $1D, $20, $13, $81, $88, $D0, $F2 // $09A9
+	.byte $06, $3D, $90, $0E, $BD, $7B, $87, $20 // $09B1
+	.byte $27, $81, $BD, $81, $87, $F0, $03, $20 // $09B9
+	.byte $27, $81, $CA, $D0, $D5, $F0, $06, $20 // $09C1
+	.byte $13, $81, $20, $13, $81, $AD, $29, $01 // $09C9
+	.byte $C5, $3A, $F0, $03, $4C, $1D, $81, $20 // $09D1
+	.byte $57, $81, $A4, $3E, $F0, $2D, $AD, $2A // $09D9
+	.byte $01, $C9, $9D, $D0, $1E, $20, $BF, $82 // $09E1
+	.byte $90, $0A, $98, $D0, $36, $AE, $2D, $01 // $09E9
+	.byte $30, $31, $10, $08, $C8, $D0, $2C, $AE // $09F1
+	.byte $2D, $01, $10, $27, $CA, $CA, $8A, $A4 // $09F9
+	.byte $3E, $D0, $03, $B9, $C2, $00, $91, $C1 // $0A01
+	.byte $88, $D0, $F8, $A5, $3B, $91, $C1, $4C // $0A09
+	.byte $33, $84, $20, $16, $81, $20, $3C, $81 // $0A11
+	.byte $F0, $1C, $68, $68, $E6, $3B, $F0, $03 // $0A19
+	.byte $4C, $7E, $80, $4C, $C0, $85, $20, $3C // $0A21
+	.byte $81, $F0, $0B, $C9, $29, $F0, $09, $09 // $0A29
+	.byte $08, $C9, $2C, $D0, $E5, $2C, $E6, $3A // $0A31
+	.byte $A6, $3C, $60, $86, $3C, $A6, $3A, $DD // $0A39
+	.byte $10, $02, $60, $C9, $30, $90, $0E, $C9 // $0A41
+	.byte $3A, $90, $09, $C9, $47, $B0, $03, $C9 // $0A49
+	.byte $41, $60, $18, $60, $38, $60, $A2, $02 // $0A51
+	.byte $B5, $C0, $48, $B5, $C2, $95, $C0, $68 // $0A59
+	.byte $95, $C2, $CA, $D0, $F3, $60, $A9, $18 // $0A61
+	.byte $8D, $2A, $01, $A2, $00, $24, $39, $30 // $0A69
+	.byte $01, $AA, $8E, $A5, $02, $E4, $D6, $F0 // $0A71
+	.byte $01, $60, $24, $39, $10, $03, $20, $AB // $0A79
+	.byte $8D, $20, $96, $8D, $C9, $2C, $F0, $21 // $0A81
+	.byte $C9, $3A, $F0, $1D, $C9, $27, $F0, $19 // $0A89
+	.byte $A5, $39, $49, $80, $20, $D2, $FF, $CE // $0A91
+	.byte $2A, $01, $D0, $E5, $A9, $00, $85, $39 // $0A99
+	.byte $AE, $A5, $02, $CA, $86, $D6, $4C, $A8 // $0AA1
+	.byte $8D, $A8, $20, $01, $83, $90, $E1, $85 // $0AA9
+	.byte $C3, $86, $C4, $20, $A1, $81, $24, $39 // $0AB1
+	.byte $30, $24, $20, $AE, $8D, $C0, $2C, $F0 // $0AB9
+	.byte $0C, $C0, $27, $F0, $11, $A9, $07, $20 // $0AC1
+	.byte $26, $86, $4C, $B2, $83, $20, $3F, $86 // $0AC9
+	.byte $20, $20, $86, $4C, $CC, $85, $A9, $1F // $0AD1
+	.byte $20, $26, $86, $4C, $BD, $83, $84, $39 // $0AD9
+	.byte $A9, $80, $85, $D8, $20, $81, $E9, $A5 // $0AE1
+	.byte $D9, $09, $80, $85, $D9, $A9, $00, $85 // $0AE9
+	.byte $D8, $20, $AB, $8D, $A4, $39, $A9, $F7 // $0AF1
+	.byte $C0, $3A, $F0, $2D, $A9, $DF, $C0, $27 // $0AF9
+	.byte $F0, $27, $85, $3A, $20, $26, $86, $20 // $0B01
+	.byte $3F, $86, $20, $20, $86, $C5, $C3, $F0 // $0B09
+	.byte $12, $30, $F4, $A5, $C3, $85, $C1, $A5 // $0B11
+	.byte $C4, $85, $C2, $E6, $3A, $A5, $3A, $D0 // $0B19
+	.byte $E3, $85, $3E, $E6, $3E, $A5, $3E, $49 // $0B21
+	.byte $FF, $20, $26, $86, $20, $2D, $83, $20 // $0B29
+	.byte $AB, $8D, $D0, $03, $20, $A8, $8D, $4C // $0B31
+	.byte $17, $90, $86, $9D, $86, $CC, $A2, $00 // $0B39
+	.byte $86, $3B, $86, $99, $A9, $03, $8D, $87 // $0B41
+	.byte $02, $20, $63, $8D, $AD, $12, $D0, $29 // $0B49
+	.byte $0F, $D0, $F9, $20, $E4, $FF, $F0, $F4 // $0B51
+	.byte $85, $39, $29, $7F, $C9, $11, $D0, $0F // $0B59
+	.byte $A9, $03, $C5, $9A, $D0, $09, $20, $63 // $0B61
+	.byte $8D, $20, $67, $81, $20, $63, $8D, $A5 // $0B69
+	.byte $39, $C9, $0D, $F0, $06, $20, $5D, $8D // $0B71
+	.byte $4C, $4D, $82, $20, $63, $8D, $20, $96 // $0B79
+	.byte $8D, $D0, $03, $20, $A9, $85, $C9, $20 // $0B81
+	.byte $F0, $F9, $A2, $1C, $DD, $22, $88, $D0 // $0B89
+	.byte $13, $85, $39, $8A, $0A, $AA, $BD, $3F // $0B91
+	.byte $88, $85, $C1, $E8, $BD, $3F, $88, $85 // $0B99
+	.byte $C2, $6C, $C1, $00, $CA, $10, $E5, $4C // $0BA1
+	.byte $C0, $85, $A5, $C1, $8D, $20, $01, $A5 // $0BA9
+	.byte $C2, $8D, $21, $01, $60, $AD, $29, $01 // $0BB1
+	.byte $AC, $2A, $01, $4C, $C3, $82, $A5, $C3 // $0BB9
+	.byte $A4, $C4, $38, $E5, $C1, $8D, $2D, $01 // $0BC1
+	.byte $98, $10, $02, $45, $C2, $48, $98, $E5 // $0BC9
+	.byte $C2, $A8, $68, $10, $01, $38, $98, $0D // $0BD1
+	.byte $2D, $01, $60, $85, $3A, $A0, $00, $20 // $0BD9
+	.byte $3F, $AB, $B1, $C1, $20, $02, $85, $C8 // $0BE1
+	.byte $C4, $3A, $D0, $F3, $4C, $3F, $AB, $20 // $0BE9
+	.byte $09, $83, $85, $C3, $86, $C4, $20, $3F // $0BF1
+	.byte $85, $90, $04, $85, $C3, $86, $C4, $60 // $0BF9
+	.byte $20, $3F, $85, $85, $C1, $86, $C2, $60 // $0C01
+	.byte $20, $3F, $85, $B0, $F6, $4C, $C0, $85 // $0C09
+	.byte $85, $3A, $20, $A9, $85, $20, $68, $85 // $0C11
+	.byte $A2, $00, $90, $0D, $81, $C1, $E1, $C1 // $0C19
+	.byte $D0, $EB, $20, $26, $86, $C6, $3A, $D0 // $0C21
+	.byte $E9, $4C, $D7, $AA, $A5, $39, $20, $28 // $0C29
+	.byte $85, $C9, $3B, $F0, $30, $20, $EA, $84 // $0C31
+	.byte $A5, $39, $C9, $3A, $F0, $4F, $C9, $27 // $0C39
+	.byte $F0, $03, $4C, $D6, $85, $4C, $C7, $83 // $0C41
+	.byte $A9, $22, $85, $C1, $A9, $01, $85, $C2 // $0C49
+	.byte $A9, $05, $60, $A2, $00, $BD, $08, $88 // $0C51
+	.byte $20, $D2, $FF, $E8, $E0, $1A, $D0, $F5 // $0C59
+	.byte $4C, $30, $90, $EA, $EA, $AD, $21, $01 // $0C61
+	.byte $20, $02, $85, $AD, $20, $01, $20, $02 // $0C69
+	.byte $85, $20, $3F, $AB, $AD, $15, $03, $20 // $0C71
+	.byte $02, $85, $AD, $14, $03, $20, $02, $85 // $0C79
+	.byte $20, $49, $83, $20, $DC, $82, $D0, $20 // $0C81
+	.byte $A9, $3A, $20, $E3, $84, $A9, $08, $20 // $0C89
+	.byte $DC, $82, $A9, $07, $D0, $35, $20, $E1 // $0C91
+	.byte $FF, $F0, $0A, $20, $BF, $82, $90, $05 // $0C99
+	.byte $A5, $3B, $D0, $01, $60, $20, $AE, $8D // $0CA1
+	.byte $4C, $35, $82, $20, $F0, $82, $20, $97 // $0CA9
+	.byte $83, $20, $89, $83, $D0, $F8, $20, $F0 // $0CB1
+	.byte $82, $20, $97, $83, $20, $C2, $83, $D0 // $0CB9
+	.byte $F8, $A9, $27, $20, $E3, $84, $20, $3F // $0CC1
+	.byte $AB, $A9, $1F, $85, $3A, $A0, $FF, $C8 // $0CC9
+	.byte $B1, $C1, $20, $DE, $83, $C4, $3A, $D0 // $0CD1
+	.byte $F6, $98, $4C, $26, $86, $48, $29, $7F // $0CD9
+	.byte $C9, $20, $B0, $0C, $A2, $12, $68, $69 // $0CE1
+	.byte $40, $20, $19, $85, $A9, $92, $D0, $07 // $0CE9
+	.byte $C9, $60, $68, $90, $02, $A9, $2E, $20 // $0CF1
+	.byte $D2, $FF, $A9, $00, $85, $D4, $60, $20 // $0CF9
+	.byte $01, $83, $90, $03, $20, $AB, $82, $20 // $0D01
+	.byte $5F, $85, $90, $08, $78, $8D, $14, $03 // $0D09
+	.byte $8E, $15, $03, $58, $20, $49, $83, $D0 // $0D11
+	.byte $0E, $A9, $08, $2C, $A9, $03, $48, $20 // $0D19
+	.byte $09, $83, $85, $C3, $86, $C4, $68, $20 // $0D21
+	.byte $11, $83, $A5, $C3, $85, $C1, $A5, $C4 // $0D29
+	.byte $85, $C2, $20, $AE, $8D, $20, $2D, $83 // $0D31
+	.byte $20, $E5, $84, $20, $3F, $AB, $4C, $38 // $0D39
+	.byte $82, $A0, $00, $84, $B7, $A9, $02, $85 // $0D41
+	.byte $BC, $A9, $00, $85, $BB, $20, $CF, $FF // $0D49
+	.byte $C9, $20, $F0, $F9, $C9, $0D, $F0, $1B // $0D51
+	.byte $C9, $22, $D0, $14, $20, $CF, $FF, $C9 // $0D59
+	.byte $22, $F0, $10, $C9, $0D, $F0, $0C, $91 // $0D61
+	.byte $BB, $E6, $B7, $C8, $C0, $14, $D0, $EC // $0D69
+	.byte $4C, $C0, $85, $60, $A0, $01, $84, $B9 // $0D71
+	.byte $84, $BA, $20, $42, $84, $C9, $0D, $D0 // $0D79
+	.byte $17, $A5, $39, $C9, $4C, $D0, $E9, $20 // $0D81
+	.byte $A8, $8D, $A9, $00, $20, $D5, $FF, $A5 // $0D89
+	.byte $90, $29, $10, $D0, $DB, $4C, $35, $82 // $0D91
+	.byte $20, $CF, $FF, $C9, $0D, $F0, $E2, $C9 // $0D99
+	.byte $20, $D0, $F0, $20, $68, $85, $29, $0F // $0DA1
+	.byte $F0, $C6, $C9, $03, $F0, $FA, $85, $BA // $0DA9
+	.byte $20, $CF, $FF, $C9, $0D, $F0, $CA, $C9 // $0DB1
+	.byte $20, $D0, $E6, $20, $F0, $82, $90, $C1 // $0DB9
+	.byte $48, $8A, $A8, $68, $AA, $EA, $EA, $EA // $0DC1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $0DC9
+	.byte $EA, $A5, $39, $C9, $53, $D0, $E2, $20 // $0DD1
+	.byte $A8, $8D, $A9, $C1, $20, $D8, $FF, $4C // $0DD9
+	.byte $35, $82, $85, $39, $A5, $39, $20, $22 // $0DE1
+	.byte $85, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $0DE9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $0DF1
+	.byte $EA, $EA, $A5, $C2, $20, $02, $85, $A5 // $0DF9
+	.byte $C1, $48, $4A, $4A, $4A, $4A, $20, $0D // $0E01
+	.byte $85, $68, $29, $0F, $18, $69, $F6, $90 // $0E09
+	.byte $02, $69, $06, $69, $3A, $4C, $D2, $FF // $0E11
+	.byte $48, $8A, $20, $D2, $FF, $68, $4C, $D2 // $0E19
+	.byte $FF, $48, $20, $D7, $AA, $D0, $F6, $48 // $0E21
+	.byte $A5, $9A, $C9, $03, $D0, $EF, $8A, $48 // $0E29
+	.byte $98, $48, $A6, $D6, $20, $FF, $E9, $68 // $0E31
+	.byte $A8, $68, $AA, $4C, $1E, $85, $A9, $00 // $0E39
+	.byte $8D, $00, $01, $20, $CF, $FF, $C9, $20 // $0E41
+	.byte $F0, $F9, $C9, $24, $F0, $13, $C9, $0D // $0E49
+	.byte $D0, $02, $18, $60, $20, $44, $81, $90 // $0E51
+	.byte $FA, $20, $81, $85, $B0, $08, $20, $A9 // $0E59
+	.byte $85, $20, $68, $85, $90, $19, $AA, $A9 // $0E61
+	.byte $00, $8D, $00, $01, $20, $A9, $85, $C9 // $0E69
+	.byte $24, $F0, $F4, $C9, $20, $D0, $09, $20 // $0E71
+	.byte $A9, $85, $C9, $20, $D0, $0F, $18, $60 // $0E79
+	.byte $20, $96, $85, $0A, $0A, $0A, $0A, $8D // $0E81
+	.byte $00, $01, $20, $A9, $85, $20, $96, $85 // $0E89
+	.byte $0D, $00, $01, $38, $60, $C9, $30, $90 // $0E91
+	.byte $26, $C9, $3A, $08, $29, $0F, $28, $90 // $0E99
+	.byte $02, $69, $08, $C9, $10, $B0, $18, $60 // $0EA1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $0EA9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $20 // $0EB1
+	.byte $CF, $FF, $C9, $0D, $F0, $04, $60, $20 // $0EB9
+	.byte $45, $AB, $4C, $35, $82, $20, $F0, $82 // $0EC1
+	.byte $20, $97, $83, $20, $D1, $85, $D0, $F8 // $0EC9
+	.byte $A9, $2C, $20, $E3, $84, $20, $3F, $86 // $0ED1
+	.byte $48, $20, $89, $86, $68, $20, $A4, $86 // $0ED9
+	.byte $A2, $06, $E0, $03, $D0, $12, $A4, $3E // $0EE1
+	.byte $F0, $0E, $A5, $3D, $C9, $E8, $B1, $C1 // $0EE9
+	.byte $B0, $1D, $20, $02, $85, $88, $D0, $F2 // $0EF1
+	.byte $06, $3D, $90, $0E, $BD, $7B, $87, $20 // $0EF9
+	.byte $D2, $FF, $BD, $81, $87, $F0, $03, $20 // $0F01
+	.byte $D2, $FF, $CA, $D0, $D5, $F0, $10, $20 // $0F09
+	.byte $33, $86, $AA, $E8, $D0, $01, $C8, $98 // $0F11
+	.byte $20, $02, $85, $8A, $20, $02, $85, $A5 // $0F19
+	.byte $3E, $D0, $02, $A9, $00, $20, $32, $86 // $0F21
+	.byte $85, $C1, $84, $C2, $D0, $02, $E6, $3B // $0F29
+	.byte $60, $38, $A4, $C2, $AA, $10, $01, $88 // $0F31
+	.byte $65, $C1, $90, $01, $C8, $60, $A2, $00 // $0F39
+	.byte $A1, $C1, $A8, $4A, $90, $0B, $4A, $B0 // $0F41
+	.byte $17, $C9, $22, $F0, $13, $29, $07, $09 // $0F49
+	.byte $80, $4A, $AA, $BD, $2A, $87, $B0, $04 // $0F51
+	.byte $4A, $4A, $4A, $4A, $29, $0F, $D0, $04 // $0F59
+	.byte $A0, $80, $A9, $00, $AA, $BD, $6E, $87 // $0F61
+	.byte $85, $3D, $29, $03, $85, $3E, $98, $29 // $0F69
+	.byte $8F, $AA, $98, $A0, $03, $E0, $8A, $F0 // $0F71
+	.byte $0B, $4A, $90, $08, $4A, $4A, $09, $20 // $0F79
+	.byte $88, $D0, $FA, $C8, $88, $D0, $F2, $60 // $0F81
+	.byte $A4, $3E, $C8, $98, $20, $DC, $82, $38 // $0F89
+	.byte $A9, $02, $E5, $3E, $F0, $0C, $0A, $09 // $0F91
+	.byte $02, $05, $3E, $AA, $20, $3F, $AB, $CA // $0F99
+	.byte $D0, $FA, $60, $A8, $A2, $03, $B9, $88 // $0FA1
+	.byte $87, $8D, $29, $01, $B9, $C8, $87, $8D // $0FA9
+	.byte $2A, $01, $A9, $00, $A0, $05, $0E, $2A // $0FB1
+	.byte $01, $2E, $29, $01, $2A, $88, $D0, $F6 // $0FB9
+	.byte $69, $3F, $20, $D2, $FF, $CA, $D0, $EA // $0FC1
+	.byte $4C, $3F, $AB, $20, $20, $20, $20, $20 // $0FC9
+	.byte $20, $20, $20, $20, $20, $20, $20, $20 // $0FD1
+	.byte $20, $48, $45, $53, $4D, $4F, $4E, $20 // $0FD9
+	.byte $20, $36, $34, $0D, $0D, $20, $20, $20 // $0FE1
+	.byte $20, $20, $20, $20, $20, $20, $20, $20 // $0FE9
+	.byte $42, $59, $20, $54, $2E, $4D, $2E, $20 // $0FF1
+	.byte $50, $45, $54, $45, $52, $53, $4F, $20 // $0FF9
+	.byte $00, $60, $20, $40, $61, $20, $90, $60 // $1001
+	.byte $20, $90, $76, $20, $F0, $61, $AD, $00 // $1009
+	.byte $DC, $29, $1F, $49, $1F, $F0, $F7, $AD // $1011
+	.byte $15, $D0, $29, $F0, $8D, $15, $D0, $A5 // $1019
+	.byte $24, $F0, $0E, $C6, $1D, $D0, $07, $A9 // $1021
+	.byte $0A, $85, $1D, $20, $3B, $63, $4C, $3B // $1029
+	.byte $11, $A5, $25, $F0, $0E, $C6, $1D, $D0 // $1031
+	.byte $07, $A9, $70, $85, $1D, $20, $E4, $63 // $1039
+	.byte $4C, $3B, $11, $A5, $18, $F0, $1A, $A5 // $1041
+	.byte $57, $C9, $0F, $D0, $03, $20, $40, $70 // $1049
+	.byte $A9, $02, $85, $44, $20, $0D, $64, $A5 // $1051
+	.byte $57, $F0, $03, $20, $35, $70, $4C, $3B // $1059
+	.byte $11, $A5, $19, $F0, $14, $A5, $57, $C9 // $1061
+	.byte $F0, $D0, $03, $20, $60, $70, $20, $80 // $1069
+	.byte $65, $A5, $57, $F0, $04, $20, $35, $70 // $1071
+	.byte $EA, $AD, $00, $DC, $29, $1F, $49, $1F // $1079
+	.byte $D0, $03, $4C, $3B, $11, $C9, $01, $D0 // $1081
+	.byte $12, $C6, $1D, $D0, $0B, $A9, $12, $85 // $1089
+	.byte $1D, $A9, $00, $85, $0D, $20, $75, $62 // $1091
+	.byte $4C, $3B, $11, $C9, $02, $D0, $12, $C6 // $1099
+	.byte $1D, $D0, $0B, $A9, $12, $85, $1D, $A9 // $10A1
+	.byte $01, $85, $0D, $20, $6E, $62, $4C, $3B // $10A9
+	.byte $11, $C9, $10, $D0, $1E, $A5, $26, $F0 // $10B1
+	.byte $0E, $E6, $25, $A9, $8F, $85, $1D, $EA // $10B9
+	.byte $EA, $20, $E0, $63, $4C, $3B, $11, $E6 // $10C1
+	.byte $24, $20, $00, $63, $A5, $23, $85, $1D // $10C9
+	.byte $4C, $3B, $11, $C9, $04, $90, $30, $C9 // $10D1
+	.byte $07, $B0, $2C, $A5, $1D, $C9, $20, $90 // $10D9
+	.byte $04, $A9, $20, $85, $1D, $C6, $1D, $D0 // $10E1
+	.byte $06, $A5, $16, $D0, $05, $E6, $18, $4C // $10E9
+	.byte $3B, $11, $C6, $16, $C6, $16, $38, $A5 // $10F1
+	.byte $1B, $E9, $08, $85, $1B, $20, $F0, $61 // $10F9
+	.byte $A9, $18, $85, $1D, $4C, $3B, $11, $C9 // $1101
+	.byte $08, $90, $1A, $C9, $0B, $B0, $16, $A5 // $1109
+	.byte $1D, $C9, $20, $90, $04, $A9, $20, $85 // $1111
+	.byte $1D, $C6, $1D, $D0, $08, $A5, $16, $C9 // $1119
+	.byte $14, $90, $05, $E6, $19, $4C, $3B, $11 // $1121
+	.byte $E6, $16, $E6, $16, $18, $A5, $1B, $69 // $1129
+	.byte $08, $85, $1B, $20, $F0, $61, $A9, $18 // $1131
+	.byte $85, $1D, $A2, $02, $A4, $68, $88, $D0 // $1139
+	.byte $FD, $CA, $D0, $F8, $EA, $EA, $EA, $A5 // $1141
+	.byte $48, $F0, $0B, $C6, $4F, $D0, $07, $A9 // $1149
+	.byte $18, $85, $4F, $20, $40, $68, $4C, $6C // $1151
+	.byte $68, $20, $EA, $FF, $20, $E1, $FF, $D0 // $1159
+	.byte $03, $4C, $00, $20, $A5, $41, $C5, $69 // $1161
+	.byte $D0, $03, $4C, $00, $24, $C5, $6A, $D0 // $1169
+	.byte $03, $4C, $00, $24, $C5, $6B, $D0, $03 // $1171
+	.byte $4C, $00, $24, $C5, $6C, $D0, $03, $4C // $1179
+	.byte $00, $24, $C5, $6D, $D0, $03, $4C, $00 // $1181
+	.byte $24, $C5, $6E, $D0, $03, $4C, $00, $24 // $1189
+	.byte $4C, $E0, $11, $EA, $EA, $EA, $EA, $EA // $1191
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1199
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $11A1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $11A9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $11B1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $11B9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $11C1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $11C9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $11D1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $AD // $11D9
+	.byte $17, $D0, $29, $FE, $8D, $17, $D0, $AD // $11E1
+	.byte $1D, $D0, $29, $FE, $8D, $1D, $D0, $4C // $11E9
+	.byte $00, $12, $EA, $EA, $EA, $EA, $EA, $EA // $11F1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $A5 // $11F9
+	.byte $43, $F0, $03, $4C, $00, $18, $A5, $42 // $1201
+	.byte $D0, $0F, $C6, $4B, $F0, $03, $4C, $00 // $1209
+	.byte $18, $A9, $6F, $85, $4B, $A5, $4E, $85 // $1211
+	.byte $42, $10, $03, $4C, $00, $15, $C9, $01 // $1219
+	.byte $D0, $1E, $AD, $04, $DC, $29, $01, $F0 // $1221
+	.byte $07, $A9, $0F, $85, $57, $4C, $35, $12 // $1229
+	.byte $A9, $F0, $85, $57, $20, $B0, $6F, $A5 // $1231
+	.byte $42, $09, $80, $85, $42, $4C, $20, $10 // $1239
+	.byte $C9, $02, $D0, $10, $A9, $00, $85, $57 // $1241
+	.byte $20, $DD, $6E, $A5, $42, $09, $80, $85 // $1249
+	.byte $42, $4C, $20, $10, $C9, $04, $D0, $10 // $1251
+	.byte $A9, $00, $85, $52, $20, $00, $6A, $A5 // $1259
+	.byte $42, $09, $80, $85, $42, $4C, $20, $10 // $1261
+	.byte $C9, $08, $D0, $42, $C6, $55, $F0, $03 // $1269
+	.byte $4C, $20, $10, $AD, $04, $DC, $29, $0F // $1271
+	.byte $85, $52, $C9, $03, $D0, $06, $20, $F0 // $1279
+	.byte $68, $4C, $9E, $12, $C9, $07, $D0, $0A // $1281
+	.byte $A9, $00, $85, $50, $20, $70, $78, $4C // $1289
+	.byte $9E, $12, $C9, $0B, $D0, $DA, $A9, $01 // $1291
+	.byte $85, $50, $20, $70, $78, $A5, $42, $09 // $1299
+	.byte $80, $85, $42, $A9, $90, $85, $30, $A9 // $12A1
+	.byte $55, $85, $31, $4C, $00, $15, $C9, $10 // $12A9
+	.byte $D0, $53, $AD, $04, $DC, $29, $01, $F0 // $12B1
+	.byte $07, $A9, $0F, $85, $57, $4C, $C5, $12 // $12B9
+	.byte $A9, $F0, $85, $57, $20, $20, $7D, $A9 // $12C1
+	.byte $00, $85, $33, $A9, $C0, $85, $30, $85 // $12C9
+	.byte $34, $A9, $5B, $85, $31, $85, $35, $A9 // $12D1
+	.byte $00, $85, $50, $85, $52, $A9, $3F, $85 // $12D9
+	.byte $51, $A9, $FF, $85, $53, $AD, $04, $DC // $12E1
+	.byte $8D, $04, $D0, $8D, $06, $D0, $20, $D0 // $12E9
+	.byte $7C, $A5, $42, $09, $80, $85, $42, $A2 // $12F1
+	.byte $7F, $BD, $80, $2F, $9D, $C0, $2D, $CA // $12F9
+	.byte $10, $F7, $4C, $20, $10, $C9, $20, $D0 // $1301
+	.byte $32, $A9, $00, $85, $33, $A9, $30, $85 // $1309
+	.byte $30, $85, $34, $A9, $5C, $85, $31, $85 // $1311
+	.byte $35, $20, $00, $14, $A5, $42, $09, $80 // $1319
+	.byte $85, $42, $A9, $81, $8D, $04, $D4, $8D // $1321
+	.byte $12, $D4, $A9, $11, $8D, $0B, $D4, $A9 // $1329
+	.byte $00, $8D, $21, $D0, $A9, $FF, $85, $46 // $1331
+	.byte $4C, $20, $10, $4C, $20, $10, $EA, $EA // $1339
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1341
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1349
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1351
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1359
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1361
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1369
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1371
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1379
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1381
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1389
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1391
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1399
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $13A1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $13A9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $13B1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $13B9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $13C1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $13C9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $13D1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $13D9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $13E1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $13E9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $13F1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $A9 // $13F9
+	.byte $CE, $8D, $F9, $07, $A9, $CF, $8D, $FA // $1401
+	.byte $07, $A9, $D0, $8D, $FB, $07, $A9, $B1 // $1409
+	.byte $8D, $FF, $07, $A9, $58, $8D, $03, $D0 // $1411
+	.byte $A9, $6C, $8D, $05, $D0, $A9, $80, $8D // $1419
+	.byte $07, $D0, $A9, $30, $8D, $0F, $D0, $A9 // $1421
+	.byte $A0, $8D, $0E, $D0, $AD, $10, $D0, $29 // $1429
+	.byte $00, $8D, $10, $D0, $A9, $00, $85, $37 // $1431
+	.byte $A9, $00, $8D, $28, $D0, $8D, $29, $D0 // $1439
+	.byte $8D, $2A, $D0, $A9, $00, $8D, $2E, $D0 // $1441
+	.byte $AD, $17, $D0, $29, $F0, $09, $80, $8D // $1449
+	.byte $17, $D0, $AD, $1D, $D0, $29, $F0, $09 // $1451
+	.byte $80, $8D, $1D, $D0, $AD, $1B, $D0, $09 // $1459
+	.byte $8E, $8D, $1B, $D0, $AD, $1C, $D0, $09 // $1461
+	.byte $0E, $8D, $1C, $D0, $AD, $15, $D0, $09 // $1469
+	.byte $8E, $8D, $15, $D0, $A9, $50, $8D, $02 // $1471
+	.byte $D0, $8D, $04, $D0, $8D, $06, $D0, $A9 // $1479
+	.byte $00, $85, $50, $85, $54, $85, $51, $A9 // $1481
+	.byte $05, $85, $56, $60, $EA, $EA, $EA, $A9 // $1489
+	.byte $30, $8D, $03, $D0, $A9, $80, $8D, $07 // $1491
+	.byte $D0, $AD, $17, $D0, $09, $0E, $8D, $17 // $1499
+	.byte $D0, $AD, $1D, $D0, $09, $0E, $8D, $17 // $14A1
+	.byte $D0, $09, $0E, $8D, $1D, $D0, $AD, $1B // $14A9
+	.byte $D0, $09, $8E, $8D, $1B, $D0, $A9, $58 // $14B1
+	.byte $8D, $05, $D0, $60, $EA, $EA, $EA, $EA // $14B9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $14C1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $14C9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $14D1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $14D9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $14E1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $14E9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $14F1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $A5 // $14F9
+	.byte $42, $29, $7F, $C9, $01, $D0, $14, $C6 // $1501
+	.byte $4D, $D0, $07, $A9, $20, $85, $4D, $20 // $1509
+	.byte $5A, $61, $20, $C0, $75, $20, $C5, $74 // $1511
+	.byte $4C, $00, $18, $C9, $02, $D0, $1A, $C6 // $1519
+	.byte $4D, $D0, $0A, $A9, $60, $85, $4D, $20 // $1521
+	.byte $20, $6C, $20, $F0, $76, $20, $C0, $75 // $1529
+	.byte $20, $C5, $74, $20, $C5, $61, $4C, $00 // $1531
+	.byte $18, $C9, $04, $D0, $0D, $A9, $05, $85 // $1539
+	.byte $44, $20, $90, $6A, $20, $F0, $77, $4C // $1541
+	.byte $00, $18, $C9, $08, $D0, $4E, $A5, $52 // $1549
+	.byte $C9, $03, $D0, $13, $A5, $50, $C9, $09 // $1551
+	.byte $F0, $03, $20, $D0, $7A, $A5, $51, $F0 // $1559
+	.byte $03, $20, $90, $7A, $4C, $94, $15, $C9 // $1561
+	.byte $07, $D0, $06, $20, $47, $79, $4C, $79 // $1569
+	.byte $15, $C9, $0B, $D0, $15, $20, $D4, $79 // $1571
+	.byte $AD, $02, $D0, $C9, $80, $90, $14, $C9 // $1579
+	.byte $B0, $B0, $10, $AD, $10, $D0, $29, $02 // $1581
+	.byte $F0, $09, $A5, $42, $29, $7F, $85, $42 // $1589
+	.byte $4C, $20, $10, $20, $4A, $7C, $20, $A9 // $1591
+	.byte $69, $4C, $00, $18, $C9, $10, $D0, $29 // $1599
+	.byte $C6, $4D, $D0, $10, $A9, $20, $85, $4D // $15A1
+	.byte $20, $5A, $61, $20, $0F, $7E, $20, $B0 // $15A9
+	.byte $7D, $20, $4A, $7E, $4C, $00, $18, $4C // $15B1
+	.byte $20, $10, $8D, $15, $D0, $A5, $4E, $85 // $15B9
+	.byte $42, $C6, $54, $4C, $20, $10, $4C, $00 // $15C1
+	.byte $18, $C9, $20, $D0, $35, $E6, $52, $D0 // $15C9
+	.byte $20, $A9, $00, $8D, $2E, $D0, $E6, $53 // $15D1
+	.byte $D0, $17, $20, $90, $14, $E6, $54, $A5 // $15D9
+	.byte $54, $C9, $02, $D0, $0C, $20, $00, $17 // $15E1
+	.byte $A5, $42, $29, $7F, $85, $43, $4C, $00 // $15E9
+	.byte $18, $20, $88, $6E, $A9, $81, $8D, $04 // $15F1
+	.byte $D4, $8D, $12, $D4, $20, $B0, $7E, $4C // $15F9
+	.byte $20, $10, $4C, $20, $10, $EA, $EA, $EA // $1601
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1609
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1611
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1619
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1621
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1629
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1631
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1639
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1641
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1649
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1651
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1659
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1661
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1669
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1671
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1679
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1681
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1689
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1691
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1699
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $16A1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $16A9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $16B1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $16B9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $16C1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $16C9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $16D1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $16D9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $16E1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $16E9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $16F1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $A9 // $16F9
+	.byte $00, $8D, $15, $D0, $8D, $1B, $D0, $8D // $1701
+	.byte $01, $D0, $8D, $03, $D0, $8D, $05, $D0 // $1709
+	.byte $8D, $07, $D0, $8D, $09, $D0, $8D, $0B // $1711
+	.byte $D0, $8D, $0D, $D0, $8D, $0F, $D0, $A9 // $1719
+	.byte $98, $8D, $F8, $07, $A9, $99, $8D, $F9 // $1721
+	.byte $07, $A9, $9A, $8D, $FA, $07, $A9, $9B // $1729
+	.byte $8D, $FB, $07, $A9, $9C, $8D, $FC, $07 // $1731
+	.byte $A9, $9D, $8D, $FD, $07, $A9, $9E, $8D // $1739
+	.byte $FE, $07, $A9, $9F, $8D, $FF, $07, $A9 // $1741
+	.byte $60, $8D, $00, $D0, $8D, $06, $D0, $A9 // $1749
+	.byte $90, $8D, $02, $D0, $8D, $08, $D0, $A9 // $1751
+	.byte $C0, $8D, $04, $D0, $8D, $0A, $D0, $A9 // $1759
+	.byte $78, $8D, $0C, $D0, $A9, $A8, $8D, $0E // $1761
+	.byte $D0, $A9, $0B, $8D, $26, $D0, $A9, $07 // $1769
+	.byte $8D, $25, $D0, $A2, $07, $A9, $02, $9D // $1771
+	.byte $27, $D0, $CA, $10, $FA, $A9, $FF, $8D // $1779
+	.byte $17, $D0, $8D, $1D, $D0, $8D, $1C, $D0 // $1781
+	.byte $A9, $00, $8D, $10, $D0, $60, $EA, $A9 // $1789
+	.byte $C0, $8D, $15, $D0, $EE, $0D, $D0, $EE // $1791
+	.byte $0F, $D0, $AD, $0D, $D0, $C9, $2B, $D0 // $1799
+	.byte $02, $E6, $50, $A5, $50, $F0, $32, $A9 // $17A1
+	.byte $F8, $8D, $15, $D0, $EE, $07, $D0, $EE // $17A9
+	.byte $09, $D0, $EE, $0B, $D0, $AD, $07, $D0 // $17B1
+	.byte $C9, $29, $D0, $02, $E6, $51, $A5, $51 // $17B9
+	.byte $F0, $17, $A9, $FF, $8D, $15, $D0, $EE // $17C1
+	.byte $01, $D0, $EE, $03, $D0, $EE, $05, $D0 // $17C9
+	.byte $AD, $0D, $D0, $C9, $88, $90, $02, $E6 // $17D1
+	.byte $52, $60, $EA, $EA, $EA, $EA, $EA, $EA // $17D9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $17E1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $17E9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $17F1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $A5 // $17F9
+	.byte $43, $D0, $03, $4C, $20, $10, $10, $03 // $1801
+	.byte $4C, $00, $1B, $C9, $01, $D0, $03, $4C // $1809
+	.byte $80, $73, $C9, $02, $D0, $03, $4C, $80 // $1811
+	.byte $73, $C9, $08, $D0, $5B, $A9, $81, $8D // $1819
+	.byte $04, $D4, $8D, $0B, $D4, $8D, $12, $D4 // $1821
+	.byte $A9, $00, $85, $51, $85, $52, $AD, $15 // $1829
+	.byte $D0, $29, $FE, $8D, $15, $D0, $AD, $1C // $1831
+	.byte $D0, $29, $F6, $8D, $1C, $D0, $20, $90 // $1839
+	.byte $6D, $A2, $1F, $A0, $FF, $88, $D0, $FD // $1841
+	.byte $CA, $D0, $F8, $20, $90, $71, $A5, $51 // $1849
+	.byte $C9, $08, $D0, $EA, $20, $50, $6D, $20 // $1851
+	.byte $C5, $61, $20, $90, $71, $A2, $2F, $A0 // $1859
+	.byte $FF, $88, $D0, $FD, $CA, $D0, $F8, $EE // $1861
+	.byte $03, $D0, $EE, $05, $D0, $E6, $50, $A5 // $1869
+	.byte $50, $C9, $50, $D0, $E2, $4C, $CB, $18 // $1871
+	.byte $C9, $04, $D0, $63, $A9, $00, $85, $33 // $1879
+	.byte $A9, $B0, $85, $34, $A9, $D0, $85, $30 // $1881
+	.byte $A9, $57, $85, $35, $85, $31, $20, $90 // $1889
+	.byte $60, $20, $80, $6F, $A5, $37, $0A, $AA // $1891
+	.byte $A9, $C8, $9D, $01, $D0, $20, $BD, $18 // $1899
+	.byte $A2, $01, $EE, $03, $D0, $EE, $05, $D0 // $18A1
+	.byte $EE, $07, $D0, $CA, $D0, $F4, $20, $BD // $18A9
+	.byte $18, $E6, $50, $A5, $50, $C9, $50, $D0 // $18B1
+	.byte $DB, $4C, $0F, $74, $A2, $0F, $A0, $FF // $18B9
+	.byte $88, $D0, $FD, $CA, $D0, $F8, $60, $4C // $18C1
+	.byte $20, $10, $A9, $21, $8D, $04, $D4, $8D // $18C9
+	.byte $0B, $D4, $A9, $41, $8D, $12, $D4, $A9 // $18D1
+	.byte $00, $8D, $06, $D0, $4C, $0F, $74, $C9 // $18D9
+	.byte $10, $D0, $13, $AD, $17, $D0, $29, $F3 // $18E1
+	.byte $8D, $17, $D0, $AD, $1D, $D0, $29, $F3 // $18E9
+	.byte $8D, $1D, $D0, $4C, $80, $73, $C9, $20 // $18F1
+	.byte $D0, $5B, $A9, $00, $85, $50, $85, $51 // $18F9
+	.byte $85, $52, $85, $33, $A9, $A0, $85, $30 // $1901
+	.byte $85, $34, $A9, $5C, $85, $31, $85, $35 // $1909
+	.byte $A9, $41, $8D, $04, $D4, $8D, $0B, $D4 // $1911
+	.byte $8D, $12, $D4, $20, $90, $17, $A5, $52 // $1919
+	.byte $D0, $15, $A2, $10, $A0, $FF, $88, $D0 // $1921
+	.byte $FD, $CA, $D0, $F8, $A9, $FF, $8D, $17 // $1929
+	.byte $D0, $8D, $1D, $D0, $4C, $1C, $19, $A2 // $1931
+	.byte $FF, $A0, $FF, $88, $D0, $FD, $CA, $D0 // $1939
+	.byte $F8, $A9, $21, $8D, $04, $D4, $8D, $0B // $1941
+	.byte $D4, $A9, $41, $8D, $12, $D4, $A9, $01 // $1949
+	.byte $85, $5F, $4C, $00, $22, $4C, $20, $10 // $1951
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1959
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1961
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1969
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1971
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1979
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1981
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1989
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1991
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1999
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $19A1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $19A9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $19B1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $19B9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $19C1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $19C9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $19D1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $19D9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $19E1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $19E9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $19F1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $19F9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A01
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A09
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A11
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A19
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A21
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A29
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A31
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A39
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A41
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A49
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A51
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A59
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A61
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A69
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A71
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A79
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A81
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A89
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A91
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1A99
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1AA1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1AA9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1AB1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1AB9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1AC1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1AC9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1AD1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1AD9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1AE1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1AE9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1AF1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $A5 // $1AF9
+	.byte $43, $29, $7F, $C9, $01, $D0, $0E, $20 // $1B01
+	.byte $30, $76, $A9, $00, $85, $43, $85, $42 // $1B09
+	.byte $E6, $41, $4C, $20, $10, $C9, $02, $D0 // $1B11
+	.byte $53, $AD, $15, $D0, $29, $F4, $8D, $15 // $1B19
+	.byte $D0, $A9, $00, $85, $51, $85, $52, $85 // $1B21
+	.byte $24, $85, $28, $85, $42, $85, $43, $A9 // $1B29
+	.byte $81, $8D, $04, $D4, $8D, $0B, $D4, $A9 // $1B31
+	.byte $10, $85, $29, $20, $90, $6D, $A5, $51 // $1B39
+	.byte $C9, $06, $F0, $0D, $A2, $1F, $A0, $FF // $1B41
+	.byte $88, $D0, $FD, $CA, $D0, $F8, $4C, $3C // $1B49
+	.byte $1B, $A9, $21, $8D, $04, $D4, $A9, $41 // $1B51
+	.byte $8D, $0B, $D4, $8D, $12, $D4, $A9, $F0 // $1B59
+	.byte $8D, $15, $D0, $E6, $41, $A9, $01, $85 // $1B61
+	.byte $26, $4C, $20, $10, $C9, $04, $D0, $03 // $1B69
+	.byte $4C, $20, $10, $C9, $08, $F0, $03, $4C // $1B71
+	.byte $97, $1C, $A9, $81, $8D, $04, $D4, $8D // $1B79
+	.byte $0B, $D4, $8D, $12, $D4, $AD, $02, $D0 // $1B81
+	.byte $8D, $00, $D0, $AD, $04, $D0, $8D, $06 // $1B89
+	.byte $D0, $AD, $03, $D0, $8D, $01, $D0, $8D // $1B91
+	.byte $07, $D0, $AD, $FA, $07, $8D, $FB, $07 // $1B99
+	.byte $A9, $DD, $8D, $F8, $07, $A9, $DE, $8D // $1BA1
+	.byte $FA, $07, $AD, $1C, $D0, $29, $F0, $09 // $1BA9
+	.byte $0A, $8D, $1C, $D0, $A9, $02, $8D, $28 // $1BB1
+	.byte $D0, $8D, $2A, $D0, $A9, $07, $8D, $27 // $1BB9
+	.byte $D0, $A9, $08, $8D, $29, $D0, $AD, $15 // $1BC1
+	.byte $D0, $09, $0F, $8D, $15, $D0, $AD, $17 // $1BC9
+	.byte $D0, $09, $0F, $8D, $17, $D0, $AD, $1D // $1BD1
+	.byte $D0, $09, $0F, $8D, $1D, $D0, $A5, $52 // $1BD9
+	.byte $C9, $03, $D0, $15, $A5, $50, $C9, $06 // $1BE1
+	.byte $B0, $0F, $AD, $1B, $D0, $09, $0F, $8D // $1BE9
+	.byte $1B, $D0, $A9, $80, $85, $55, $4C, $06 // $1BF1
+	.byte $1C, $AD, $1B, $D0, $29, $F0, $8D, $1B // $1BF9
+	.byte $D0, $A9, $98, $85, $55, $AD, $F8, $07 // $1C01
+	.byte $C9, $DD, $D0, $0F, $EE, $F8, $07, $EE // $1C09
+	.byte $27, $D0, $CE, $FA, $07, $CE, $29, $D0 // $1C11
+	.byte $4C, $28, $1C, $CE, $F8, $07, $CE, $27 // $1C19
+	.byte $D0, $EE, $FA, $07, $EE, $29, $D0, $A2 // $1C21
+	.byte $14, $A0, $FF, $88, $D0, $FD, $CA, $D0 // $1C29
+	.byte $F8, $EE, $01, $D0, $EE, $03, $D0, $EE // $1C31
+	.byte $05, $D0, $EE, $07, $D0, $AD, $01, $D0 // $1C39
+	.byte $C5, $55, $90, $C1, $A9, $BC, $8D, $F8 // $1C41
+	.byte $07, $A9, $BD, $8D, $FA, $07, $AD, $F8 // $1C49
+	.byte $07, $C9, $BC, $D0, $0F, $EE, $F8, $07 // $1C51
+	.byte $EE, $27, $D0, $CE, $FA, $07, $CE, $29 // $1C59
+	.byte $D0, $4C, $71, $1C, $CE, $F8, $07, $CE // $1C61
+	.byte $27, $D0, $EE, $FA, $07, $EE, $29, $D0 // $1C69
+	.byte $A2, $1F, $A0, $FF, $88, $D0, $FD, $CA // $1C71
+	.byte $D0, $F8, $E6, $50, $D0, $D0, $A9, $00 // $1C79
+	.byte $85, $42, $85, $43, $E6, $41, $A9, $21 // $1C81
+	.byte $8D, $04, $D4, $8D, $0B, $D4, $A9, $41 // $1C89
+	.byte $8D, $12, $D4, $4C, $1F, $1D, $C9, $10 // $1C91
+	.byte $F0, $03, $4C, $43, $1D, $A9, $00, $85 // $1C99
+	.byte $33, $A9, $80, $85, $30, $A9, $5B, $85 // $1CA1
+	.byte $31, $EA, $A9, $81, $8D, $12, $D4, $A9 // $1CA9
+	.byte $00, $85, $50, $85, $53, $A9, $3F, $85 // $1CB1
+	.byte $51, $20, $D0, $6C, $A5, $53, $C9, $FF // $1CB9
+	.byte $F0, $22, $AD, $04, $DC, $29, $03, $C9 // $1CC1
+	.byte $02, $D0, $0C, $AD, $04, $DC, $29, $1E // $1CC9
+	.byte $4A, $8D, $29, $D0, $8D, $2A, $D0, $A2 // $1CD1
+	.byte $08, $A0, $FF, $88, $D0, $FD, $CA, $D0 // $1CD9
+	.byte $F8, $4C, $BA, $1C, $A9, $F0, $8D, $15 // $1CE1
+	.byte $D0, $A2, $7F, $BD, $80, $2F, $9D, $C0 // $1CE9
+	.byte $2D, $CA, $10, $F7, $A9, $41, $8D, $12 // $1CF1
+	.byte $D4, $E6, $41, $A9, $00, $85, $42, $85 // $1CF9
+	.byte $43, $EA, $EA, $AD, $15, $D0, $29, $F0 // $1D01
+	.byte $8D, $15, $D0, $A9, $00, $85, $33, $A9 // $1D09
+	.byte $C0, $85, $30, $85, $34, $A9, $5B, $85 // $1D11
+	.byte $31, $85, $35, $4C, $20, $10, $A9, $00 // $1D19
+	.byte $85, $33, $A9, $90, $85, $30, $85, $34 // $1D21
+	.byte $A9, $55, $85, $31, $85, $35, $AD, $15 // $1D29
+	.byte $D0, $29, $F0, $8D, $15, $D0, $4C, $20 // $1D31
+	.byte $10, $A9, $99, $85, $28, $85, $29, $4C // $1D39
+	.byte $20, $10, $C9, $20, $F0, $03, $4C, $10 // $1D41
+	.byte $1E, $A9, $00, $85, $33, $A9, $40, $85 // $1D49
+	.byte $30, $85, $34, $A9, $5C, $85, $31, $85 // $1D51
+	.byte $35, $A2, $07, $A9, $DD, $9D, $F8, $07 // $1D59
+	.byte $A9, $07, $9D, $27, $D0, $CA, $10, $F3 // $1D61
+	.byte $A9, $00, $85, $50, $8D, $1B, $D0, $8D // $1D69
+	.byte $1C, $D0, $8D, $17, $D0, $8D, $1D, $D0 // $1D71
+	.byte $A9, $FF, $8D, $15, $D0, $A9, $06, $85 // $1D79
+	.byte $51, $AD, $00, $D0, $85, $52, $AD, $01 // $1D81
+	.byte $D0, $85, $53, $A2, $0E, $A5, $52, $9D // $1D89
+	.byte $00, $D0, $A5, $53, $9D, $01, $D0, $CA // $1D91
+	.byte $CA, $10, $F2, $AD, $21, $D0, $29, $0F // $1D99
+	.byte $C9, $01, $D0, $08, $A9, $08, $8D, $21 // $1DA1
+	.byte $D0, $4C, $B2, $1D, $A9, $01, $8D, $21 // $1DA9
+	.byte $D0, $CE, $01, $D0, $EE, $02, $D0, $CE // $1DB1
+	.byte $03, $D0, $EE, $04, $D0, $EE, $06, $D0 // $1DB9
+	.byte $EE, $07, $D0, $EE, $09, $D0, $CE, $0A // $1DC1
+	.byte $D0, $EE, $0B, $D0, $CE, $0C, $D0, $CE // $1DC9
+	.byte $0E, $D0, $CE, $0F, $D0, $A2, $04, $A0 // $1DD1
+	.byte $FF, $88, $D0, $FD, $CA, $D0, $F8, $A9 // $1DD9
+	.byte $00, $85, $33, $AD, $09, $D0, $D0, $03 // $1DE1
+	.byte $4C, $8C, $1D, $C6, $50, $D0, $AC, $C6 // $1DE9
+	.byte $51, $D0, $A8, $A9, $00, $8D, $21, $D0 // $1DF1
+	.byte $A9, $21, $8D, $04, $D4, $8D, $0B, $D4 // $1DF9
+	.byte $A9, $41, $8D, $12, $D4, $A9, $00, $8D // $1E01
+	.byte $15, $D0, $E6, $41, $4C, $20, $10, $4C // $1E09
+	.byte $20, $10, $EA, $EA, $EA, $EA, $EA, $EA // $1E11
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E19
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E21
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E29
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E31
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E39
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E41
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E49
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E51
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E59
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E61
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E69
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E71
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E79
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E81
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E89
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E91
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1E99
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1EA1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1EA9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1EB1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1EB9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1EC1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1EC9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1ED1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1ED9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1EE1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1EE9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1EF1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1EF9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F01
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F09
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F11
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F19
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F21
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F29
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F31
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F39
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F41
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F49
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F51
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F59
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F61
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F69
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F71
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F79
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F81
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F89
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F91
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1F99
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1FA1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1FA9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1FB1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1FB9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1FC1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1FC9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1FD1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1FD9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1FE1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1FE9
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA, $EA // $1FF1
+	.byte $EA, $EA, $EA, $EA, $EA, $EA, $EA      // $1FF9
+
+	// --- Code region ($2000+) ---
 	lda #$93                                     // $2000
 	jsr $ffd2                                    // $2002
 	lda #$05                                     // $2005

@@ -196,14 +196,28 @@ STUB
 }
 
 # -------------------------------------------------------------
-# _disassemble_prg PRG_PATH ASM_PATH SAFE_NAME
+# _parse_sys_address BAS_PATH
+# Extracts the SYS entry address from a BASIC listing file.
+# Prints the address as a 4-digit uppercase hex string.
+# Returns 1 if no SYS statement is found.
+# -------------------------------------------------------------
+_parse_sys_address() {
+    [ -f "$1" ] || return 1
+    local sys_dec
+    sys_dec=$(grep -oi 'sys *[0-9]\+' "$1" | head -1 | grep -o '[0-9]\+$')
+    [ -n "$sys_dec" ] || return 1
+    python3 -c "print(f'{int($sys_dec):04X}')"
+}
+
+# -------------------------------------------------------------
+# _disassemble_prg PRG_PATH ASM_PATH SAFE_NAME [--sys HEX]
 # Runs disasm.py (--asm mode) then format_asm.py on PRG_PATH,
 # writes output to ASM_PATH, then prints the line count and
 # load address.  Prepends a BASIC SYS stub for ML programs that
-# load above $0801.
+# load above $0801.  Optional --sys flag is forwarded to disasm.
 # -------------------------------------------------------------
 _disassemble_prg() {
-    python3 "$DISASM" "$1" --asm > "$2" 2>/dev/null || true
+    python3 "$DISASM" "$1" --asm $4 $5 > "$2" 2>/dev/null || true
     # Prepend a BASIC SYS stub for ML programs loading above $0801
     if [ "$LOAD_HEX" != "0801" ]; then
         local tmp_stub; tmp_stub=$(mktemp)
@@ -232,13 +246,21 @@ _register_ml_file() {
 # _classify_and_process
 # Determines PRG type by load address, decompiles BASIC if
 # present, then disassembles and registers the ML entry.
+# When load is $0801 and a SYS address is found in the BASIC
+# listing, passes --sys to the disassembler so the BASIC data
+# region is emitted as .byte instead of fake mnemonics.
 # Uses globals: FILE_NAME, SAFE_NAME, PRG_PATH, ASM_PATH,
 # BAS_PATH (set by _parse_entry_name).
 # -------------------------------------------------------------
 _classify_and_process() {
     _get_load_address "$PRG_PATH"
-    if [ "$LOAD_HEX" = "0801" ]; then _decompile_basic "$PRG_PATH" "$BAS_PATH" "$SAFE_NAME"; fi
-    _disassemble_prg "$PRG_PATH" "$ASM_PATH" "$SAFE_NAME"
+    local sys_flag=""
+    if [ "$LOAD_HEX" = "0801" ]; then
+        _decompile_basic "$PRG_PATH" "$BAS_PATH" "$SAFE_NAME"
+        local sys_hex
+        sys_hex=$(_parse_sys_address "$BAS_PATH") && sys_flag="--sys $sys_hex"
+    fi
+    _disassemble_prg "$PRG_PATH" "$ASM_PATH" "$SAFE_NAME" $sys_flag
     _register_ml_file "${SAFE_NAME}.asm" "$FILE_NAME" "$PRG_PATH"
 }
 

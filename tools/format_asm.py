@@ -390,10 +390,17 @@ def format_file(filepath: str) -> None:
     lines = _read_source_lines(filepath)
     result = []
     prev_was_indented = False
+    prev_was_origin = False
     for line in lines:
         raw = line.rstrip("\n").rstrip("\r")
         stripped = raw.strip()
-        result.append(_format_line(raw, int(prev_was_indented)))
+        # Remove blank lines immediately after an origin directive
+        if prev_was_origin and not stripped:
+            prev_was_origin = False
+            continue
+        formatted = _format_line(raw, int(prev_was_indented))
+        result.append(formatted)
+        prev_was_origin = _is_origin_directive(stripped) if stripped else False
         if stripped:
             prev_was_indented = _compute_indent_tracking(stripped)
     _write_formatted_output(filepath, result)

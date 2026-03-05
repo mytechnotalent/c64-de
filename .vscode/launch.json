@@ -2,12 +2,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "6502",
-            "request": "launch",
-            "name": "Debug: built-in 6502 emulator",
-            "preLaunchTask": "Set Active Project"
-        },
-        {
             "type": "vice",
             "request": "launch",
             "name": "Debug: VICE (full C64)",

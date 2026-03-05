@@ -440,10 +440,6 @@
 		<data>
 		bM/enw16V5jDtOnmPRtatualWxE=
 		</data>
-		<key>Resources/share/vice/C64/c64mem.sym</key>
-		<data>
-		qoBYYt1MB/ILfOkQ7OJq7ORq+ps=
-		</data>
 		<key>Resources/share/vice/C64/c64s.vpl</key>
 		<data>
 		WrnhJwURottln7uDT1Y4AicFY5o=
@@ -711,10 +707,6 @@
 		<key>Resources/share/vice/C64DTV/basic-901226-01.bin</key>
 		<data>
 		eQFTIxKGUMdCo2lMlCmqkfNVkF4=
-		</data>
-		<key>Resources/share/vice/C64DTV/c64mem.sym</key>
-		<data>
-		qoBYYt1MB/ILfOkQ7OJq7ORq+ps=
 		</data>
 		<key>Resources/share/vice/C64DTV/chargen-901225-01.bin</key>
 		<data>
@@ -1511,10 +1503,6 @@
 		<key>Resources/share/vice/SCPU64/scpu64</key>
 		<data>
 		9bbaF+6CBv8NIljh1ui3mBR8JlA=
-		</data>
-		<key>Resources/share/vice/SCPU64/scpu64mem.sym</key>
-		<data>
-		qoBYYt1MB/ILfOkQ7OJq7ORq+ps=
 		</data>
 		<key>Resources/share/vice/SCPU64/sdl_c64p.vkm</key>
 		<data>
@@ -2555,13 +2543,6 @@
 			p+mW7X+K2SrZLoFfpc5yAjAoWaEIDCyYal2q6CSQs+A=
 			</data>
 		</dict>
-		<key>Resources/share/vice/C64/c64mem.sym</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			boznjxpaHy+eBOmQtIrmV8LdEn8ad0XpQgQbFPKH/sM=
-			</data>
-		</dict>
 		<key>Resources/share/vice/C64/c64s.vpl</key>
 		<dict>
 			<key>hash2</key>
@@ -3029,13 +3010,6 @@
 			<key>hash2</key>
 			<data>
 			iYeM6gomhzRpbeEcS65ZPqqlBkZdICnWGcDgy8zfpi0=
-			</data>
-		</dict>
-		<key>Resources/share/vice/C64DTV/c64mem.sym</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			boznjxpaHy+eBOmQtIrmV8LdEn8ad0XpQgQbFPKH/sM=
 			</data>
 		</dict>
 		<key>Resources/share/vice/C64DTV/chargen-901225-01.bin</key>
@@ -4429,13 +4403,6 @@
 			<key>hash2</key>
 			<data>
 			HKdzLX1h0eZGPhQAaMMvNNFLjMOvmPOvBSak7ggbWAM=
-			</data>
-		</dict>
-		<key>Resources/share/vice/SCPU64/scpu64mem.sym</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			boznjxpaHy+eBOmQtIrmV8LdEn8ad0XpQgQbFPKH/sM=
 			</data>
 		</dict>
 		<key>Resources/share/vice/SCPU64/sdl_c64p.vkm</key>

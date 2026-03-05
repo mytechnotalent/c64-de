@@ -292,8 +292,8 @@ _resolve_debug_sym() {
 # -------------------------------------------------------------
 _resolve_build_targets() {
     MAIN_BUILD_PRG="${MAIN_PRG:-$(cd "$PROJECT_DIR" && ls *.prg 2>/dev/null | head -1)}"
-    MAIN_OUTPUT="\$BUILD_DIR/$MAIN_BUILD_PRG"
-    D64_AUTOSTART="\$BUILD_DIR/$MAIN_BUILD_PRG"
+    MAIN_OUTPUT="\$BUILD_DIR/main.prg"
+    D64_AUTOSTART="\$BUILD_DIR/main.prg"
     _resolve_debug_sym
 }
 
@@ -306,7 +306,7 @@ _ml_asm_entry() {
     local base="${1%.asm}"
     ASM_BUILD_LINES+="
     echo -e \"\${CYAN}  Assembling $1...\${NC}\"
-    if ! java -jar \"\$KICKASS\" \"\$SCRIPT_DIR/$1\" -o \"\$BUILD_DIR/$base.prg\"; then
+    if ! java -jar \"\$KICKASS\" \"\$SCRIPT_DIR/$1\" -debugdump -debug -symbolfile -o \"\$BUILD_DIR/main.prg\"; then
         echo -e \"\${RED}FAILED: $1\${NC}\"
         exit 1
     fi"
@@ -340,8 +340,8 @@ _build_inject_cmds() {
     for idx in "${!ML_FILES[@]}"; do
         base="${ML_FILES[$idx]%.asm}"
         disk_name="${ML_DISK_NAMES[$idx]}"
-        printf '    "$C1541" -attach "$TEST_D64" -delete "%s" -write "$BUILD_DIR/%s.prg" "%s" > /dev/null 2>&1\n' \
-            "$disk_name" "$base" "$disk_name"
+        printf '    "$C1541" -attach "$TEST_D64" -delete "%s" -write "$BUILD_DIR/main.prg" "%s" > /dev/null 2>&1\n' \
+            "$disk_name" "$disk_name"
     done
 }
 
@@ -402,7 +402,7 @@ set -e
 SCRIPT_DIR="\$(cd "\$(dirname "\$0")" && pwd)"
 C64_ROOT="\$(cd "\$SCRIPT_DIR/../.." && pwd)"
 KICKASS="\$C64_ROOT/KickAssembler/KickAss.jar"
-BUILD_DIR="\$SCRIPT_DIR/build"
+BUILD_DIR="\$C64_ROOT/build"
 
 if [[ "\$(uname -m)" == "arm64" ]]; then
     VICE_DIR="\$C64_ROOT/vice-arm64-sdl2-3.10"
@@ -491,10 +491,52 @@ print_summary() {
     ls -lh "$PROJECT_DIR"
 }
 
+# -------------------------------------------------------------
+# set_active_project
+# Updates project-config.json so VS64 targets the new project,
+# clears stale build artifacts if the project changed.
+# -------------------------------------------------------------
+set_active_project() {
+    local main_asm="${ML_FILES[0]:-}"
+    [ -n "$main_asm" ] || main_asm="$(cd "$PROJECT_DIR" && ls *.asm 2>/dev/null | head -1)"
+    [ -n "$main_asm" ] || { echo -e "${RED}No .asm file to register${NC}"; return 1; }
+    local rel_path="projects/$PROJECT_NAME/$main_asm"
+    echo -e "${CYAN}[4/5] Setting active project...${NC}"
+    python3 "$SCRIPT_DIR/set_active_project.py" "$C64_ROOT" "$rel_path"
+}
+
+# -------------------------------------------------------------
+# build_for_debug
+# Runs KickAssembler to produce build/main.prg and
+# build/main.dbg so F5 debug works immediately.
+# -------------------------------------------------------------
+build_for_debug() {
+    local main_asm="${ML_FILES[0]:-}"
+    [ -n "$main_asm" ] || main_asm="$(cd "$PROJECT_DIR" && ls *.asm 2>/dev/null | head -1)"
+    [ -n "$main_asm" ] || { echo -e "${RED}No .asm file to build${NC}"; return 1; }
+    local asm_path="$PROJECT_DIR/$main_asm"
+    local build_dir="$C64_ROOT/build"
+    local kickass="$C64_ROOT/KickAssembler/KickAss.jar"
+    local java_exe="/opt/homebrew/opt/openjdk@21/bin/java"
+    mkdir -p "$build_dir"
+    echo -e "${CYAN}[5/5] Building for VS64 debug...${NC}"
+    if "$java_exe" -jar "$kickass" "$asm_path" \
+        -debugdump -debug -symbolfile \
+        -odir "$build_dir" \
+        -o "$build_dir/main.prg" 2>&1; then
+        echo -e "${GREEN}Build OK${NC} -> build/main.prg + build/main.dbg"
+    else
+        echo -e "${RED}Build failed — debug files not generated.${NC}"
+        echo -e "${YELLOW}You can still assemble via the project's build.sh${NC}"
+    fi
+}
+
 # ---- Execute the pipeline in order ----
 parse_args "$@"
 print_header
 list_image_files
 extract_files
 generate_build_sh
+set_active_project
+build_for_debug
 print_summary

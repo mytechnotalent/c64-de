@@ -4,17 +4,9 @@
 
 <br>
 
-# Today's Tutorial [March 4, 2026]
-## Lesson 123: x64 Course (Part 3 - Logic Gates)
-This tutorial will discuss logic gates.
-
--> Click [HERE](https://0xinfection.github.io/reversing) to read the FREE ebook.
-
-<br>
-
 # C64 Development Environment
 
-A hardcore macOS development environment to forge and reverse engineer C-64 legends with and develop new ones with pure 6502 Assembler!
+A hardcore macOS development environment to forge and reverse engineer C-64 legends and develop new ones with pure 6502 Assembler.
 
 ## Quick Setup
 
@@ -26,7 +18,7 @@ VICE and KickAssembler are bundled in the repo. All you need is Java and the VS6
 brew install openjdk@21
 ```
 
-> **Apple Silicon path:** `/opt/homebrew/opt/openjdk@21/bin/java`  
+> **Apple Silicon path:** `/opt/homebrew/opt/openjdk@21/bin/java`
 > **Intel path:** `/usr/local/opt/openjdk@21/bin/java`
 
 ### 2 — Install the VS64 extension
@@ -40,9 +32,10 @@ Open `.vscode/settings.json` and confirm the paths match your Mac:
 **Apple Silicon:**
 ```json
 {
-    "vs64.kickInstallDir": "/path/to/C64/KickAssembler",
+    "vs64.kickInstallDir": "${workspaceFolder}/KickAssembler",
     "vs64.javaExecutable": "/opt/homebrew/opt/openjdk@21/bin/java",
-    "vs64.viceExecutable": "/path/to/C64/vice-arm64-sdl2-3.10/bin/x64sc-debug",
+    "vs64.viceExecutable": "${workspaceFolder}/vice-arm64-sdl2-3.10/bin/x64sc-debug",
+    "vs64.viceArgs": "-config ${HOME}/.config/vice/sdl-vicerc",
     "vs64.autoBuild": true,
     "vs64.loglevel": 0
 }
@@ -51,38 +44,72 @@ Open `.vscode/settings.json` and confirm the paths match your Mac:
 **Intel:**
 ```json
 {
-    "vs64.kickInstallDir": "/path/to/C64/KickAssembler",
+    "vs64.kickInstallDir": "${workspaceFolder}/KickAssembler",
     "vs64.javaExecutable": "/usr/local/opt/openjdk@21/bin/java",
-    "vs64.viceExecutable": "/path/to/C64/vice-x86-64-sdl2-3.10/bin/x64sc-debug",
+    "vs64.viceExecutable": "${workspaceFolder}/vice-x86-64-sdl2-3.10/bin/x64sc-debug",
+    "vs64.viceArgs": "-config ${HOME}/.config/vice/sdl-vicerc",
     "vs64.autoBuild": true,
     "vs64.loglevel": 0
 }
 ```
 
+> **Important:** The correct setting key is `vs64.viceArgs` (not `vs64.viceArguments`).
+
 ### 4 — Open the workspace and press F5
 
-Open the `C64` folder in VS Code, open any `.asm` file, set a breakpoint, and press **F5** to build and debug.
+Open the `c64-de` folder in VS Code, open any `.asm` file, and press **F5** to build and debug.
+
+## Workflow
+
+There are two ways to create a project:
+
+### New project from scratch
+
+```sh
+./tools/new_project.sh my_game
+```
+
+Creates `projects/my_game/` from the TEMPLATE skeleton with a starter `main.asm`, generates `build.sh`, sets it as the active VS64 target, and runs an initial build so **F5 works immediately**.
+
+### Reverse engineer a D64 disk image
+
+```sh
+./tools/d64toasm.sh game.d64
+```
+
+Extracts all PRG files from the disk, disassembles machine language to KickAssembler source, decompiles BASIC loaders, generates `build.sh`, sets the active VS64 target, and builds — all in one command.
+
+Both tools output to the same unified `build/` directory at the workspace root, which is where VS64 expects `main.prg` and `main.dbg` for F5 debugging.
 
 ## Tools
 
-| Tool                    | Description                                                             |
-| ----------------------- | ----------------------------------------------------------------------- |
-| **KickAssembler v5.25** | 6502 cross-assembler (`KickAssembler/KickAss.jar`)                      |
-| **VICE v3.10**          | C64 emulator (`vice-arm64-sdl2-3.10/x64sc.app`)                         |
-| **format_asm.py**       | ASM formatter (`tools/format_asm.py`)                                   |
-| **d64toasm.sh**         | D64 disk image → KickAssembler project (`tools/d64toasm.sh`)            |
-| **disasm.py**           | 6502 disassembler — listing or KickAssembler format (`tools/disasm.py`) |
+| Tool                      | Description                                                             |
+| ------------------------- | ----------------------------------------------------------------------- |
+| **KickAssembler v5.25**   | 6502 cross-assembler (`KickAssembler/KickAss.jar`)                      |
+| **VICE v3.10**            | C64 emulator — arm64 and x86-64 builds bundled                          |
+| **new_project.sh**        | Create a new project from TEMPLATE (`tools/new_project.sh`)             |
+| **d64toasm.sh**           | D64 disk image → KickAssembler project (`tools/d64toasm.sh`)            |
+| **disasm.py**             | 6502 disassembler — listing or KickAssembler format (`tools/disasm.py`) |
+| **format_asm.py**         | ASM formatter (`tools/format_asm.py`)                                   |
+| **set_active_project.py** | Switch the active VS64 debug target (`tools/set_active_project.py`)     |
 
-## Projects
+## Project Structure
 
-| Project                                 | Description                                                        |
-| --------------------------------------- | ------------------------------------------------------------------ |
-| `projects/chapter6/`                    | Chapter 6 — multi-file project using shared library                |
-| `projects/sprites/`                     | Sprite demo                                                        |
-| `projects/forbidden_forest/`            | Forbidden Forest — single-file reverse engineered from D64         |
-| `projects/forbidden_forest_1983_cosmi/` | Forbidden Forest (1983, Cosmi) — loader + game, full D64 inject    |
-| `projects/content/`                     | Content assets                                                     |
-| `projects/library/`                     | Shared KickAssembler library (libMemory, libMath, libScreen, etc.) |
+```
+c64-de/
+├── build/                  Compiled output (main.prg, main.dbg) — shared by all projects
+├── projects/
+│   ├── TEMPLATE/           Skeleton for new projects (main.asm)
+│   └── <your_project>/     Your project source (.asm, .prg, build.sh)
+├── tools/                  All tooling scripts
+├── KickAssembler/          KickAssembler v5.25 (bundled)
+├── vice-arm64-sdl2-3.10/  VICE for Apple Silicon (bundled)
+├── vice-x86-64-sdl2-3.10/ VICE for Intel Mac (bundled)
+├── project-config.json     VS64 active project pointer (auto-managed)
+└── .vscode/                VS Code settings, tasks, and launch configs
+```
+
+> **`build/` is always at the workspace root.** Both the per-project `build.sh` and VS64's F5 debug write to the same directory. There are no per-project `build/` folders.
 
 ## D64 Reverse Engineering
 
@@ -92,33 +119,39 @@ The Internet Archive hosts the largest freely accessible collection of Commodore
 
 **https://archive.org/details/softwarelibrary_c64**
 
-> The Commodore 64 is listed in the Guinness World Records as the highest-selling single computer model of all time, with an estimated 10–17 million units sold. The archive preserves thousands of D64 disk images from that era.
+> The Commodore 64 is listed in the Guinness World Records as the highest-selling single computer model of all time, with an estimated 10–17 million units sold.
 
-Search by game title, publisher, or year. Download the `.d64` file and drop it in the repo root, then run:
+Search by game title, publisher, or year. Download the `.d64` file, drop it in the repo root, then run:
 
 ```sh
-tools/d64toasm.sh  GameName.d64
+./tools/d64toasm.sh GameName.d64
 ```
 
 ### d64toasm.sh — Full Pipeline
 
-Converts a `.d64` disk image into a ready-to-edit KickAssembler project with a working `build.sh`:
+Converts a `.d64` disk image into a ready-to-edit KickAssembler project:
 
 ```sh
 # Auto-name the project from the disk filename
-tools/d64toasm.sh  game.d64
+./tools/d64toasm.sh game.d64
 
 # Use a custom project name
-tools/d64toasm.sh  game.d64  my_project
+./tools/d64toasm.sh game.d64 my_project
 ```
+
+**Pipeline steps:**
+1. Read D64 directory and list PRG files
+2. Extract each PRG, disassemble ML to `.asm`, decompile BASIC to `.bas`
+3. Generate `build.sh` for the project
+4. Set the project as the active VS64 target (`project-config.json`)
+5. Run KickAssembler to produce `build/main.prg` and `build/main.dbg`
 
 **Creates `projects/<name>/`:**
 ```
 <name>.asm        KickAssembler source (reassemblable, byte-for-byte identical)
 <name>.prg        Original extracted binary
-<loader>.bas      BASIC loader (petcat decompile), if present
+<name>.bas        BASIC listing (petcat decompile), if present
 build.sh          ./build.sh / ./build.sh run / ./build.sh debug
-build/            Output directory (created on first build)
 ```
 
 Disassembled output uses real 6502 mnemonics with hardware register annotations:
@@ -134,50 +167,48 @@ Disassembled output uses real 6502 mnemonics with hardware register annotations:
 
 ### BASIC SYS Stub (auto-generated)
 
-For ML programs loading above `$0801`, `d64toasm.sh` automatically prepends a BASIC SYS stub so VICE can autostart the program. Without this, VICE loads the bytes into memory but drops to `READY.` because there's no `RUN` entry point.
+For ML programs loading above `$0801`, `d64toasm.sh` automatically prepends a BASIC SYS stub so VICE can autostart the program.
 
 ### Multi-file D64 Projects (loader + game)
 
-When a disk has 2 or more ML files (e.g. a BASIC loader that `LOAD`s a separate game file), `d64toasm.sh` automatically:
+When a disk has 2+ ML files (e.g. a BASIC loader that `LOAD`s a separate game file), `d64toasm.sh` automatically:
 
-1. Copies the original D64 into the project as `<name>.d64`
-2. Generates a `_build_test_d64()` function in `build.sh` that injects the freshly assembled PRGs back into a copy of the disk
-3. Launches VICE with the disk image, so the BASIC loader runs first and finds the game file on disk
+1. Copies the original D64 into the project
+2. Generates a `_build_test_d64()` function in `build.sh` that injects rebuilt PRGs back into the disk
+3. Launches VICE with the disk image so the loader runs first
 
-No manual steps required — `./build.sh run` handles everything.
+No manual steps — `./build.sh run` handles everything.
+
+### D64 Compatibility
+
+| Situation                        | Works? | Notes                                                                |
+| -------------------------------- | ------ | -------------------------------------------------------------------- |
+| Single PRG (most games)          | ✅      | Full pipeline                                                        |
+| Multiple PRGs per disk           | ✅      | Each file extracted and disassembled separately                      |
+| BASIC loader + ML game           | ✅      | BASIC → `.bas`, machine code → `.asm`, disk inject pattern for `run` |
+| SEQ / USR files on disk          | ⚠️      | Skipped — only PRG files are processed                               |
+| Copy-protected disks             | ❌      | Non-standard sector layout; `c1541` can't read them                  |
+| Compressed/packed executables    | ⚠️      | Extracts the packer stub, not the depacked game                      |
+| Multi-disk games                 | ⚠️      | Run the script once per disk                                         |
+| ML loaded dynamically at runtime | ⚠️      | Only the initial PRG is disassembled                                 |
+
+**Spotting a packed executable:** If the disassembly is very short (< 200 bytes) and ends with `jmp` into a large block of `.byte` data, it's almost certainly a packed binary. You'll need to run it in VICE and dump RAM after it decompresses.
 
 ### disasm.py — Standalone Disassembler
 
 ```sh
 # Annotated listing (address + hex bytes + mnemonic)
-python3 tools/disasm.py  game.prg
+python3 tools/disasm.py game.prg
 
-# Real mnemonics — KickAssembler format, byte-for-byte identical output
-python3 tools/disasm.py  game.prg  --asm  > game.asm
+# KickAssembler format, byte-for-byte identical output
+python3 tools/disasm.py game.prg --asm > game.asm
 
-# Raw .byte format — KickAssembler format (legacy, maximum safety)
-python3 tools/disasm.py  game.prg  --kickass  > game.asm
+# Raw .byte format (legacy, maximum safety)
+python3 tools/disasm.py game.prg --kickass > game.asm
 
 # Override load address
-python3 tools/disasm.py  game.prg  2000  --asm
+python3 tools/disasm.py game.prg 2000 --asm
 ```
-
-### D64 Compatibility
-
-`d64toasm.sh` accepts `.d64` images only and works with the vast majority of standard disk images, but there are real-world limitations:
-
-| Situation                        | Works? | Notes                                                                                    |
-| -------------------------------- | ------ | ---------------------------------------------------------------------------------------- |
-| Single PRG (most games)          | ✅      | Full pipeline                                                                            |
-| Multiple PRGs per disk           | ✅      | Each file extracted and disassembled separately                                          |
-| BASIC loader + ML game           | ✅      | BASIC → `.bas`, machine code → `.asm`, disk inject pattern for `run`                     |
-| SEQ / USR files on disk          | ⚠️      | Skipped — only PRG files are processed                                                   |
-| Copy-protected disks             | ❌      | Non-standard sector layout; `c1541` can't read them                                      |
-| Compressed/packed executables    | ⚠️      | Extracts the packer stub, not the depacked game (common with Exomizer, ByteBoozer, etc.) |
-| Multi-disk games                 | ⚠️      | Run the script once per disk; disk 2+ may be pure data with no entry point               |
-| ML loaded dynamically at runtime | ⚠️      | Only the initial PRG is disassembled; code loaded via custom loaders won't appear        |
-
-**Spotting a packed executable:** If the disassembly is very short (< 200 bytes) and ends with `jmp` into a large block of `.byte` data, it's almost certainly a packed binary. You'll need to run it in VICE and dump RAM after it decompresses.
 
 ## VS Code Debugging
 
@@ -188,108 +219,60 @@ The workspace includes two debug configurations in `.vscode/launch.json`:
 | **Debug: built-in 6502 emulator** | VS64 headless 6502  | Fast, no VICE required — breakpoints always work |
 | **Debug: VICE (full C64)**        | VICE x64sc via VS64 | Full C64 emulation with SID, VIC, sprites, etc.  |
 
-### Quick Start
+### How it works
 
-1. Open a `.asm` file (e.g. `projects/forbidden_forest_1983_cosmi/forbidden_game.asm`)
+1. Open a `.asm` file
 2. Set a breakpoint (click the gutter)
-3. Press **F5** or select a configuration from the Run & Debug sidebar
+3. Press **F5** — the "Set Active Project" pre-launch task updates `project-config.json`, VS64 builds to `build/main.prg`, and VICE launches
 4. Step, inspect registers, view memory — all from VS Code
 
 ### Requirements
 
-- **VS64 extension** (`rosc.vs64`) installed in VS Code
-- **`project-config.json`** at the workspace root pointing to the `.asm` source:
+- **VS64 extension** (`rosc.vs64`) installed
+- **`project-config.json`** at the workspace root (auto-managed by `new_project.sh`, `d64toasm.sh`, and the "Set Active Project" task):
   ```json
   {
-      "name": "forbidden_game",
+      "name": "main",
       "toolkit": "kick",
-      "sources": ["projects/forbidden_forest_1983_cosmi/forbidden_game.asm"],
+      "sources": ["projects/my_game/main.asm"],
       "build": "debug"
   }
   ```
-- **BASIC SYS stub** in the `.asm` file (auto-generated by `d64toasm.sh` for ML programs loading above `$0801`) — required for VICE autostart:
-  ```asm
-  *=$0801
-  	.byte $0c, $08       // Pointer to next BASIC line
-  	.byte $0a, $00       // Line number 10
-  	.byte $9e            // BASIC token for SYS
-  	.text "4096"         // SYS 4096 ($1000)
-  	.byte $00            // End of BASIC line
-  	.byte $00, $00       // End of BASIC program
-  ```
+  > The `name` is always `"main"` so VS64 consistently outputs `build/main.prg` and `build/main.dbg`.
 
 ### VICE Dock Icon
 
-VS64 launches VICE via `bin/x64sc-debug`, a wrapper that uses `open -a VICE.app` so VICE shows with its proper icon in the macOS Dock instead of a generic executable icon.
+VS64 launches VICE via `bin/x64sc-debug`, a wrapper that uses `open -a VICE.app` so VICE shows with its proper icon in the macOS Dock.
 
 ## VS Code Tasks
 
 Run tasks from the menu: **Terminal → Run Task…**
 
-### Format ASM
-
-Formats the currently open `.asm` file with consistent indentation and comment alignment.
-
-1. Open a `.asm` file in the editor
-2. Click **Terminal** in the VS Code menu bar
-3. Click **Run Task…**
-4. Select **Format ASM** from the dropdown
-5. The file is reformatted in-place
-
-### Build C64 Project (default build)
-
-Assembles the current project with KickAssembler. This is the **default build task**, so you can also trigger it with **Cmd+Shift+B**.
-
-1. Open any file in a project folder (e.g. `projects/game/main.asm`)
-2. Click **Terminal → Run Task…**
-3. Select **Build C64 Project**
-4. The `.prg` file is written to the project's `build/` folder
-
-### Build & Run C64 Project
-
-Assembles the project and launches it in VICE (x64sc).
-
-1. Open any file in a project folder
-2. Click **Terminal → Run Task…**
-3. Select **Build & Run C64 Project**
-4. The project builds and VICE opens with the `.prg` loaded
-
-## Keyboard Shortcuts
-
-| Shortcut      | Action                                 |
-| ------------- | -------------------------------------- |
-| `Cmd+Shift+B` | Build C64 Project (default build task) |
+| Task                          | Shortcut      | Description                                     |
+| ----------------------------- | ------------- | ----------------------------------------------- |
+| **Set Active Project**        | (pre-launch)  | Updates `project-config.json` for the open file |
+| **Format ASM**                | —             | Formats the current `.asm` file in-place        |
+| **Build C64 Project**         | `Cmd+Shift+B` | Assembles with KickAssembler (default build)    |
+| **Build & Run C64 Project**   | —             | Build + launch in VICE                          |
+| **Build & Debug C64 Project** | —             | Build + launch VICE with debug symbols          |
+| **Build for VS64 Debug**      | —             | Build with `-debugdump` for F5 debugging        |
 
 ## Command Line Usage
 
-From a project directory:
-
 ```sh
-# Format
-python3 ../../tools/format_asm.py main.asm
+# Create a new project from scratch
+./tools/new_project.sh my_game
 
-# Build only
-./build.sh
+# Reverse engineer a D64 disk image
+./tools/d64toasm.sh game.d64
 
-# Build and run in VICE
-./build.sh run
+# Format an ASM file
+python3 tools/format_asm.py main.asm
 
-# Build and run with debug symbols loaded
-./build.sh debug
-```
-
-From the `tools/` directory (or using full path):
-
-```sh
-# Convert a D64 to a KickAssembler project
-tools/d64toasm.sh  path/to/game.d64
-tools/d64toasm.sh  path/to/game.d64  my_project_name
-
-# Disassemble a PRG to a listing
-python3 tools/disasm.py  game.prg
-
-# Disassemble to reassemblable KickAssembler source (real mnemonics)
-python3 tools/disasm.py  game.prg  --asm  > game.asm
+# From a project directory:
+./build.sh            # Build only
+./build.sh run        # Build + launch in VICE
+./build.sh debug      # Build + launch with debug symbols
 ```
 
 ## Debugging with VICE Monitor
@@ -365,33 +348,6 @@ d .readInput             disassemble readInput
 n                        step over the next JSR
 x                        continue running
 ```
-
-### Available Labels
-
-All labels from `main.sym` can be used with a `.` prefix:
-
-`.start`, `.gameLoop`, `.readInput`, `.moveLeft`, `.moveRight`,
-`.updateBlocks`, `.drawPlayer`, `.drawBlocks`, `.drawScore`,
-`.drawFrame`, `.drawTitle`, `.clearPlayfield`, `.initGame`,
-`.initBlocks`, `.sfxStart`, `.sfxTick`, `.sfxCrash`, `.sfxUpdate`,
-`.sidInit`, `.random`, `.randomColumn`, `.randomRow`,
-`.erasePlayer`, `.eraseBlock`, `.splitByte`, `.waitRaster`,
-`.scanSpace`, `.showGameOver`, `.drawGameOverMsg`
-
-### Zero-Page Game Variables
-
-| Address | Variable      | Description                 |
-| ------- | ------------- | --------------------------- |
-| `$02`   | zp_playerCol  | Player column position      |
-| `$03`   | zp_score_lo   | Score low byte              |
-| `$04`   | zp_score_hi   | Score high byte             |
-| `$05`   | zp_frameCount | Frame counter               |
-| `$06`   | zp_speed      | Drop speed (lower = faster) |
-| `$07`   | zp_gameOver   | Game over flag (0 or 1)     |
-| `$08`   | zp_rngState   | RNG state                   |
-| `$09`   | zp_temp1      | Temp variable 1             |
-| `$0a`   | zp_temp2      | Temp variable 2             |
-| `$0b`   | zp_sndTimer   | Sound effect countdown      |
 
 ## Formatting Rules
 

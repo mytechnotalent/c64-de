@@ -1,19 +1,1052 @@
-// BASIC SYS stub so VICE autostart can launch the program
+// Load address: $0801  (30463 bytes)
 *=$0801
-	.byte $0c, $08                               // Pointer to next BASIC line ($080C)
-	.byte $0a, $00                               // Line number 10
-	.byte $9e                                    // BASIC token for SYS
-	.text "4096"                                 // SYS 4096 ($1000)
-	.byte $00                                    // End of BASIC line
-	.byte $00, $00                               // End of BASIC program
-
-// Load address: $1000  (28666 bytes)
-*=$1000
+	ora $0a08,x                                  // $0801
+	brk                                          // $0804
+	sta $9322,y                                  // $0805
+	ora $22                                      // $0808
+	.byte $3A                                    // $080A  ???
+	.byte $97                                    // $080B  ???
+	and $33,x                                    // $080C
+	.byte $32                                    // $080E  ???
+	sec                                          // $080F
+	.byte $30, $2C                               // $0810  bmi $083E
+	.byte $30, $3A                               // $0812  bmi $084E
+	.byte $97                                    // $0814  ???
+	and $33,x                                    // $0815
+	.byte $32                                    // $0817  ???
+	sec                                          // $0818
+	and ($2c),y                                  // $0819
+	.byte $30, $00                               // $081B  bmi $081D
+	rol $1408,x                                  // $081D
+	brk                                          // $0820
+	sta $1122,y                                  // $0821
+	ora ($11),y                                  // $0824
+	ora ($1d),y                                  // $0826
+	ora $1d1d,x                                  // $0828
+	ora $1d1d,x                                  // $082B
+	ora $1d1d,x                                  // $082E
+	rol                                          // $0831
+	.byte $43                                    // $0832  ???
+	rol                                          // $0833
+	.byte $4F                                    // $0834  ???
+	rol                                          // $0835
+	.byte $53                                    // $0836  ???
+	rol                                          // $0837
+	eor $492a                                    // $0838
+	rol                                          // $083B
+	.byte $22                                    // $083C  ???
+	brk                                          // $083D
+	rts                                          // $083E
+	php                                          // $083F
+	asl $9900,x                                  // $0840
+	.byte $22                                    // $0843  ???
+	ora ($11),y                                  // $0844
+	ora $1d1d,x                                  // $0846
+	ora $1d1d,x                                  // $0849
+	ora $461d,x                                  // $084C
+	.byte $4F                                    // $084F  ???
+	.byte $52                                    // $0850  ???
+	.byte $42                                    // $0851  ???
+	eor #$44                                     // $0852
+	.byte $44                                    // $0854  ???
+	eor $4e                                      // $0855
+	jsr $4f46                                    // $0857
+	.byte $52                                    // $085A  ???
+	eor $53                                      // $085B
+	.byte $54                                    // $085D  ???
+	.byte $22                                    // $085E  ???
+	brk                                          // $085F
+	sta ($08,x)                                  // $0860
+	plp                                          // $0862
+	brk                                          // $0863
+	sta $1122,y                                  // $0864
+	ora ($1d),y                                  // $0867
+	ora $1d1d,x                                  // $0869
+	ora $1d1d,x                                  // $086C
+	ora $421d,x                                  // $086F
+	eor $5020,y                                  // $0872
+	eor ($55,x)                                  // $0875
+	jmp $4e20                                    // $0877
+	.byte $4F                                    // $087A  ???
+	.byte $52                                    // $087B  ???
+	eor $4e41                                    // $087C
+	.byte $22                                    // $087F  ???
+	brk                                          // $0880
+	ldx #$08                                     // $0881
+	.byte $32                                    // $0883  ???
+	brk                                          // $0884
+	sta $1122,y                                  // $0885
+	ora ($11),y                                  // $0888
+	ora $1d1d,x                                  // $088A
+	ora $1d1d,x                                  // $088D
+	ora $1d1d,x                                  // $0890
+	ora $4c9e,x                                  // $0893
+	.byte $4F                                    // $0896  ???
+	eor ($44,x)                                  // $0897
+	eor #$4e                                     // $0899
+	.byte $47                                    // $089B  ???
+	jsr $4f4e                                    // $089C
+	.byte $57                                    // $089F  ???
+	.byte $22                                    // $08A0  ???
+	brk                                          // $08A1
+	dec $08                                      // $08A2
+	.byte $3C                                    // $08A4  ???
+	brk                                          // $08A5
+	sta $0522,y                                  // $08A6
+	ora ($11),y                                  // $08A9
+	ora ($11),y                                  // $08AB
+	ora ($11),y                                  // $08AD
+	ora ($9f),y                                  // $08AF
+	.byte $43                                    // $08B1  ???
+	.byte $52                                    // $08B2  ???
+	eor ($43,x)                                  // $08B3
+	.byte $4B                                    // $08B5  ???
+	eor $44                                      // $08B6
+	jsr $5942                                    // $08B8
+	jsr $2054                                    // $08BB
+	.byte $50, $20                               // $08BE  bvc $08E0
+	.byte $44                                    // $08C0  ???
+	rol $2e2e                                    // $08C1
+	.byte $22                                    // $08C4  ???
+	brk                                          // $08C5
+	cpx #$08                                     // $08C6
+	lsr $00                                      // $08C8
+	sta $2722,y                                  // $08CA
+	lsr $4f                                      // $08CD
+	.byte $52                                    // $08CF  ???
+	.byte $42                                    // $08D0  ???
+	eor #$44                                     // $08D1
+	.byte $44                                    // $08D3  ???
+	eor $4e                                      // $08D4
+	jsr $4f46                                    // $08D6
+	.byte $52                                    // $08D9  ???
+	eor $53                                      // $08DA
+	.byte $54                                    // $08DC  ???
+	.byte $27                                    // $08DD  ???
+	.byte $22                                    // $08DE  ???
+	brk                                          // $08DF
+	ora ($09,x)                                  // $08E0
+	pha                                          // $08E2
+	brk                                          // $08E3
+	sta $4322,y                                  // $08E4
+	.byte $4F                                    // $08E7  ???
+	.byte $50, $59                               // $08E8  bvc $0943
+	.byte $52                                    // $08EA  ???
+	eor #$47                                     // $08EB
+	pha                                          // $08ED
+	.byte $54                                    // $08EE  ???
+	jsr $4328                                    // $08EF
+	and #$20                                     // $08F2
+	and ($39),y                                  // $08F4
+	sec                                          // $08F6
+	.byte $33                                    // $08F7  ???
+	bit $4320                                    // $08F8
+	.byte $4F                                    // $08FB  ???
+	.byte $53                                    // $08FC  ???
+	eor $2249                                    // $08FD
+	brk                                          // $0900
+	.byte $1C                                    // $0901  ???
+	ora #$4a                                     // $0902
+	brk                                          // $0904
+	sta $4122,y                                  // $0905
+	jmp $204c                                    // $0908
+	.byte $52                                    // $090B  ???
+	eor #$47                                     // $090C
+	pha                                          // $090E
+	.byte $54                                    // $090F  ???
+	.byte $53                                    // $0910  ???
+	jsr $4552                                    // $0911
+	.byte $53                                    // $0914  ???
+	eor $52                                      // $0915
+	lsr $45,x                                    // $0917
+	.byte $44                                    // $0919  ???
+	.byte $22                                    // $091A  ???
+	brk                                          // $091B
+	.byte $2F                                    // $091C  ???
+	ora #$50                                     // $091D
+	brk                                          // $091F
+	.byte $8B                                    // $0920  ???
+	.byte $C2                                    // $0921  ???
+	plp                                          // $0922
+	.byte $34                                    // $0923  ???
+	.byte $30, $39                               // $0924  bmi $095F
+	rol $29,x                                    // $0926
+	.byte $B2                                    // $0928  ???
+	.byte $33                                    // $0929  ???
+	.byte $32                                    // $092A  ???
+	.byte $A7                                    // $092B  ???
+	.byte $39, $30, $00                          // $092C  and $0030,y
+	and $5a09,y                                  // $092F
+	brk                                          // $0932
+	.byte $9E                                    // $0933  ???
+	sec                                          // $0934
+	and ($39),y                                  // $0935
+	.byte $32                                    // $0937  ???
+	brk                                          // $0938
+	.byte $3F                                    // $0939  ???
+	ora #$64                                     // $093A
+	brk                                          // $093C
+	.byte $80                                    // $093D  ???
+	brk                                          // $093E
+	brk                                          // $093F
+	brk                                          // $0940
+	.byte $4B                                    // $0941  ???
+	ora #$5a                                     // $0942
+	brk                                          // $0944
+	.byte $9E                                    // $0945  ???
+	sec                                          // $0946
+	and ($39),y                                  // $0947
+	.byte $32                                    // $0949  ???
+	brk                                          // $094A
+	eor ($09),y                                  // $094B
+	.byte $64                                    // $094D  ???
+	brk                                          // $094E
+	.byte $80                                    // $094F  ???
+	brk                                          // $0950
+	brk                                          // $0951
+	brk                                          // $0952
+	ora $1ef0                                    // $0953
+	cmp #$20                                     // $0956
+	.byte $F0, $F1                               // $0958  beq $094B
+	jsr $8144                                    // $095A
+	.byte $90, $0F                               // $095D  bcc $096E
+	jsr $8581                                    // $095F
+	ldy $c1                                      // $0962
+	sty $c2                                      // $0964
+	sta $c1                                      // $0966
+	lda #$30                                     // $0968
+	sta $0210,x                                  // $096A
+	inx                                          // $096D
+	sta $0210,x                                  // $096E
+	inx                                          // $0971
+	.byte $D0, $D7                               // $0972  bne $094B
+	stx $0129                                    // $0974
+	jsr $aad7                                    // $0977
+	ldx #$00                                     // $097A
+	stx $3b                                      // $097C
+	ldx #$00                                     // $097E
+	stx $3a                                      // $0980
+	lda $3b                                      // $0982
+	jsr $8643                                    // $0984
+	ldx $3d                                      // $0987
+	stx $012a                                    // $0989
+	tax                                          // $098C
+	lda $87c8,x                                  // $098D
+	jsr $8116                                    // $0990
+	lda $8788,x                                  // $0993
+	jsr $8116                                    // $0996
+	ldx #$06                                     // $0999
+	cpx #$03                                     // $099B
+	.byte $D0, $12                               // $099D  bne $09B1
+	ldy $3e                                      // $099F
+	.byte $F0, $0E                               // $09A1  beq $09B1
+	lda $3d                                      // $09A3
+	cmp #$e8                                     // $09A5
+	lda #$30                                     // $09A7
+	.byte $B0, $1D                               // $09A9  bcs $09C8
+	jsr $8113                                    // $09AB
+	dey                                          // $09AE
+	.byte $D0, $F2                               // $09AF  bne $09A3
+	asl $3d                                      // $09B1
+	.byte $90, $0E                               // $09B3  bcc $09C3
+	lda $877b,x                                  // $09B5
+	jsr $8127                                    // $09B8
+	lda $8781,x                                  // $09BB
+	.byte $F0, $03                               // $09BE  beq $09C3
+	jsr $8127                                    // $09C0
+	dex                                          // $09C3
+	.byte $D0, $D5                               // $09C4  bne $099B
+	.byte $F0, $06                               // $09C6  beq $09CE
+	jsr $8113                                    // $09C8
+	jsr $8113                                    // $09CB
+	lda $0129                                    // $09CE
+	cmp $3a                                      // $09D1
+	.byte $F0, $03                               // $09D3  beq $09D8
+	jmp $811d                                    // $09D5
+	jsr $8157                                    // $09D8
+	ldy $3e                                      // $09DB
+	.byte $F0, $2D                               // $09DD  beq $0A0C
+	lda $012a                                    // $09DF
+	cmp #$9d                                     // $09E2
+	.byte $D0, $1E                               // $09E4  bne $0A04
+	jsr $82bf                                    // $09E6
+	.byte $90, $0A                               // $09E9  bcc $09F5
+	tya                                          // $09EB
+	.byte $D0, $36                               // $09EC  bne $0A24
+	ldx $012d                                    // $09EE
+	.byte $30, $31                               // $09F1  bmi $0A24
+	.byte $10, $08                               // $09F3  bpl $09FD
+	iny                                          // $09F5
+	.byte $D0, $2C                               // $09F6  bne $0A24
+	ldx $012d                                    // $09F8
+	.byte $10, $27                               // $09FB  bpl $0A24
+	dex                                          // $09FD
+	dex                                          // $09FE
+	txa                                          // $09FF
+	ldy $3e                                      // $0A00
+	.byte $D0, $03                               // $0A02  bne $0A07
+	.byte $B9, $C2, $00                          // $0A04  lda $00C2,y
+	sta ($c1),y                                  // $0A07
+	dey                                          // $0A09
+	.byte $D0, $F8                               // $0A0A  bne $0A04
+	lda $3b                                      // $0A0C
+	sta ($c1),y                                  // $0A0E
+	jmp $8433                                    // $0A10
+	jsr $8116                                    // $0A13
+	jsr $813c                                    // $0A16
+	.byte $F0, $1C                               // $0A19  beq $0A37
+	pla                                          // $0A1B
+	pla                                          // $0A1C
+	inc $3b                                      // $0A1D
+	.byte $F0, $03                               // $0A1F  beq $0A24
+	jmp $807e                                    // $0A21
+	jmp $85c0                                    // $0A24
+	jsr $813c                                    // $0A27
+	.byte $F0, $0B                               // $0A2A  beq $0A37
+	cmp #$29                                     // $0A2C
+	.byte $F0, $09                               // $0A2E  beq $0A39
+	ora #$08                                     // $0A30
+	cmp #$2c                                     // $0A32
+	.byte $D0, $E5                               // $0A34  bne $0A1B
+	bit $3ae6                                    // $0A36
+	ldx $3c                                      // $0A39
+	rts                                          // $0A3B
+	stx $3c                                      // $0A3C
+	ldx $3a                                      // $0A3E
+	cmp $0210,x                                  // $0A40
+	rts                                          // $0A43
+	cmp #$30                                     // $0A44
+	.byte $90, $0E                               // $0A46  bcc $0A56
+	cmp #$3a                                     // $0A48
+	.byte $90, $09                               // $0A4A  bcc $0A55
+	cmp #$47                                     // $0A4C
+	.byte $B0, $03                               // $0A4E  bcs $0A53
+	cmp #$41                                     // $0A50
+	rts                                          // $0A52
+	clc                                          // $0A53
+	rts                                          // $0A54
+	sec                                          // $0A55
+	rts                                          // $0A56
+	ldx #$02                                     // $0A57
+	lda $c0,x                                    // $0A59
+	pha                                          // $0A5B
+	lda $c2,x                                    // $0A5C
+	sta $c0,x                                    // $0A5E
+	pla                                          // $0A60
+	sta $c2,x                                    // $0A61
+	dex                                          // $0A63
+	.byte $D0, $F3                               // $0A64  bne $0A59
+	rts                                          // $0A66
+	lda #$18                                     // $0A67
+	sta $012a                                    // $0A69
+	ldx #$00                                     // $0A6C
+	bit $39                                      // $0A6E
+	.byte $30, $01                               // $0A70  bmi $0A73
+	tax                                          // $0A72
+	stx $02a5                                    // $0A73
+	cpx $d6                                      // $0A76
+	.byte $F0, $01                               // $0A78  beq $0A7B
+	rts                                          // $0A7A
+	bit $39                                      // $0A7B
+	.byte $10, $03                               // $0A7D  bpl $0A82
+	jsr $8dab                                    // $0A7F
+	jsr $8d96                                    // $0A82
+	cmp #$2c                                     // $0A85
+	.byte $F0, $21                               // $0A87  beq $0AAA
+	cmp #$3a                                     // $0A89
+	.byte $F0, $1D                               // $0A8B  beq $0AAA
+	cmp #$27                                     // $0A8D
+	.byte $F0, $19                               // $0A8F  beq $0AAA
+	lda $39                                      // $0A91
+	eor #$80                                     // $0A93
+	jsr $ffd2                                    // $0A95
+	dec $012a                                    // $0A98
+	.byte $D0, $E5                               // $0A9B  bne $0A82
+	lda #$00                                     // $0A9D
+	sta $39                                      // $0A9F
+	ldx $02a5                                    // $0AA1
+	dex                                          // $0AA4
+	stx $d6                                      // $0AA5
+	jmp $8da8                                    // $0AA7
+	tay                                          // $0AAA
+	jsr $8301                                    // $0AAB
+	.byte $90, $E1                               // $0AAE  bcc $0A91
+	sta $c3                                      // $0AB0
+	stx $c4                                      // $0AB2
+	jsr $81a1                                    // $0AB4
+	bit $39                                      // $0AB7
+	.byte $30, $24                               // $0AB9  bmi $0ADF
+	jsr $8dae                                    // $0ABB
+	cpy #$2c                                     // $0ABE
+	.byte $F0, $0C                               // $0AC0  beq $0ACE
+	cpy #$27                                     // $0AC2
+	.byte $F0, $11                               // $0AC4  beq $0AD7
+	lda #$07                                     // $0AC6
+	jsr $8626                                    // $0AC8
+	jmp $83b2                                    // $0ACB
+	jsr $863f                                    // $0ACE
+	jsr $8620                                    // $0AD1
+	jmp $85cc                                    // $0AD4
+	lda #$1f                                     // $0AD7
+	jsr $8626                                    // $0AD9
+	jmp $83bd                                    // $0ADC
+	sty $39                                      // $0ADF
+	lda #$80                                     // $0AE1
+	sta $d8                                      // $0AE3
+	jsr $e981                                    // $0AE5
+	lda $d9                                      // $0AE8
+	ora #$80                                     // $0AEA
+	sta $d9                                      // $0AEC
+	lda #$00                                     // $0AEE
+	sta $d8                                      // $0AF0
+	jsr $8dab                                    // $0AF2
+	ldy $39                                      // $0AF5
+	lda #$f7                                     // $0AF7
+	cpy #$3a                                     // $0AF9
+	.byte $F0, $2D                               // $0AFB  beq $0B2A
+	lda #$df                                     // $0AFD
+	cpy #$27                                     // $0AFF
+	.byte $F0, $27                               // $0B01  beq $0B2A
+	sta $3a                                      // $0B03
+	jsr $8626                                    // $0B05
+	jsr $863f                                    // $0B08
+	jsr $8620                                    // $0B0B
+	cmp $c3                                      // $0B0E
+	.byte $F0, $12                               // $0B10  beq $0B24
+	.byte $30, $F4                               // $0B12  bmi $0B08
+	lda $c3                                      // $0B14
+	sta $c1                                      // $0B16
+	lda $c4                                      // $0B18
+	sta $c2                                      // $0B1A
+	inc $3a                                      // $0B1C
+	lda $3a                                      // $0B1E
+	.byte $D0, $E3                               // $0B20  bne $0B05
+	sta $3e                                      // $0B22
+	inc $3e                                      // $0B24
+	lda $3e                                      // $0B26
+	eor #$ff                                     // $0B28
+	jsr $8626                                    // $0B2A
+	jsr $832d                                    // $0B2D
+	jsr $8dab                                    // $0B30
+	.byte $D0, $03                               // $0B33  bne $0B38
+	jsr $8da8                                    // $0B35
+	jmp $9017                                    // $0B38
+	stx $9d                                      // $0B3B
+	stx $cc                                      // $0B3D
+	ldx #$00                                     // $0B3F
+	stx $3b                                      // $0B41
+	stx $99                                      // $0B43
+	lda #$03                                     // $0B45
+	sta $0287                                    // $0B47
+	jsr $8d63                                    // $0B4A
+	lda $d012                                    // $0B4D  ; VIC_RASTER
+	and #$0f                                     // $0B50
+	.byte $D0, $F9                               // $0B52  bne $0B4D
+	jsr $ffe4                                    // $0B54
+	.byte $F0, $F4                               // $0B57  beq $0B4D
+	sta $39                                      // $0B59
+	and #$7f                                     // $0B5B
+	cmp #$11                                     // $0B5D
+	.byte $D0, $0F                               // $0B5F  bne $0B70
+	lda #$03                                     // $0B61
+	cmp $9a                                      // $0B63
+	.byte $D0, $09                               // $0B65  bne $0B70
+	jsr $8d63                                    // $0B67
+	jsr $8167                                    // $0B6A
+	jsr $8d63                                    // $0B6D
+	lda $39                                      // $0B70
+	cmp #$0d                                     // $0B72
+	.byte $F0, $06                               // $0B74  beq $0B7C
+	jsr $8d5d                                    // $0B76
+	jmp $824d                                    // $0B79
+	jsr $8d63                                    // $0B7C
+	jsr $8d96                                    // $0B7F
+	.byte $D0, $03                               // $0B82  bne $0B87
+	jsr $85a9                                    // $0B84
+	cmp #$20                                     // $0B87
+	.byte $F0, $F9                               // $0B89  beq $0B84
+	ldx #$1c                                     // $0B8B
+	cmp $8822,x                                  // $0B8D
+	.byte $D0, $13                               // $0B90  bne $0BA5
+	sta $39                                      // $0B92
+	txa                                          // $0B94
+	asl                                          // $0B95
+	tax                                          // $0B96
+	lda $883f,x                                  // $0B97
+	sta $c1                                      // $0B9A
+	inx                                          // $0B9C
+	lda $883f,x                                  // $0B9D
+	sta $c2                                      // $0BA0
+	jmp ($00c1)                                  // $0BA2
+	dex                                          // $0BA5
+	.byte $10, $E5                               // $0BA6  bpl $0B8D
+	jmp $85c0                                    // $0BA8
+	lda $c1                                      // $0BAB
+	sta $0120                                    // $0BAD
+	lda $c2                                      // $0BB0
+	sta $0121                                    // $0BB2
+	rts                                          // $0BB5
+	lda $0129                                    // $0BB6
+	ldy $012a                                    // $0BB9
+	jmp $82c3                                    // $0BBC
+	lda $c3                                      // $0BBF
+	ldy $c4                                      // $0BC1
+	sec                                          // $0BC3
+	sbc $c1                                      // $0BC4
+	sta $012d                                    // $0BC6
+	tya                                          // $0BC9
+	.byte $10, $02                               // $0BCA  bpl $0BCE
+	eor $c2                                      // $0BCC
+	pha                                          // $0BCE
+	tya                                          // $0BCF
+	sbc $c2                                      // $0BD0
+	tay                                          // $0BD2
+	pla                                          // $0BD3
+	.byte $10, $01                               // $0BD4  bpl $0BD7
+	sec                                          // $0BD6
+	tya                                          // $0BD7
+	ora $012d                                    // $0BD8
+	rts                                          // $0BDB
+	sta $3a                                      // $0BDC
+	ldy #$00                                     // $0BDE
+	jsr $ab3f                                    // $0BE0
+	lda ($c1),y                                  // $0BE3
+	jsr $8502                                    // $0BE5
+	iny                                          // $0BE8
+	cpy $3a                                      // $0BE9
+	.byte $D0, $F3                               // $0BEB  bne $0BE0
+	jmp $ab3f                                    // $0BED
+	jsr $8309                                    // $0BF0
+	sta $c3                                      // $0BF3
+	stx $c4                                      // $0BF5
+	jsr $853f                                    // $0BF7
+	.byte $90, $04                               // $0BFA  bcc $0C00
+	sta $c3                                      // $0BFC
+	stx $c4                                      // $0BFE
+	rts                                          // $0C00
+	jsr $853f                                    // $0C01
+	sta $c1                                      // $0C04
+	stx $c2                                      // $0C06
+	rts                                          // $0C08
+	jsr $853f                                    // $0C09
+	.byte $B0, $F6                               // $0C0C  bcs $0C04
+	jmp $85c0                                    // $0C0E
+	sta $3a                                      // $0C11
+	jsr $85a9                                    // $0C13
+	jsr $8568                                    // $0C16
+	ldx #$00                                     // $0C19
+	.byte $90, $0D                               // $0C1B  bcc $0C2A
+	sta ($c1,x)                                  // $0C1D
+	sbc ($c1,x)                                  // $0C1F
+	.byte $D0, $EB                               // $0C21  bne $0C0E
+	jsr $8626                                    // $0C23
+	dec $3a                                      // $0C26
+	.byte $D0, $E9                               // $0C28  bne $0C13
+	jmp $aad7                                    // $0C2A
+	lda $39                                      // $0C2D
+	jsr $8528                                    // $0C2F
+	cmp #$3b                                     // $0C32
+	.byte $F0, $30                               // $0C34  beq $0C66
+	jsr $84ea                                    // $0C36
+	lda $39                                      // $0C39
+	cmp #$3a                                     // $0C3B
+	.byte $F0, $4F                               // $0C3D  beq $0C8E
+	cmp #$27                                     // $0C3F
+	.byte $F0, $03                               // $0C41  beq $0C46
+	jmp $85d6                                    // $0C43
+	jmp $83c7                                    // $0C46
+	lda #$22                                     // $0C49
+	sta $c1                                      // $0C4B
+	lda #$01                                     // $0C4D
+	sta $c2                                      // $0C4F
+	lda #$05                                     // $0C51
+	rts                                          // $0C53
+	ldx #$00                                     // $0C54
+	lda $8808,x                                  // $0C56
+	jsr $ffd2                                    // $0C59
+	inx                                          // $0C5C
+	cpx #$1a                                     // $0C5D
+	.byte $D0, $F5                               // $0C5F  bne $0C56
+	jmp $9030                                    // $0C61
+	nop                                          // $0C64
+	nop                                          // $0C65
+	lda $0121                                    // $0C66
+	jsr $8502                                    // $0C69
+	lda $0120                                    // $0C6C
+	jsr $8502                                    // $0C6F
+	jsr $ab3f                                    // $0C72
+	lda $0315                                    // $0C75
+	jsr $8502                                    // $0C78
+	lda $0314                                    // $0C7B
+	jsr $8502                                    // $0C7E
+	jsr $8349                                    // $0C81
+	jsr $82dc                                    // $0C84
+	.byte $D0, $20                               // $0C87  bne $0CA9
+	lda #$3a                                     // $0C89
+	jsr $84e3                                    // $0C8B
+	lda #$08                                     // $0C8E
+	jsr $82dc                                    // $0C90
+	lda #$07                                     // $0C93
+	.byte $D0, $35                               // $0C95  bne $0CCC
+	jsr $ffe1                                    // $0C97
+	.byte $F0, $0A                               // $0C9A  beq $0CA6
+	jsr $82bf                                    // $0C9C
+	.byte $90, $05                               // $0C9F  bcc $0CA6
+	lda $3b                                      // $0CA1
+	.byte $D0, $01                               // $0CA3  bne $0CA6
+	rts                                          // $0CA5
+	jsr $8dae                                    // $0CA6
+	jmp $8235                                    // $0CA9
+	jsr $82f0                                    // $0CAC
+	jsr $8397                                    // $0CAF
+	jsr $8389                                    // $0CB2
+	.byte $D0, $F8                               // $0CB5  bne $0CAF
+	jsr $82f0                                    // $0CB7
+	jsr $8397                                    // $0CBA
+	jsr $83c2                                    // $0CBD
+	.byte $D0, $F8                               // $0CC0  bne $0CBA
+	lda #$27                                     // $0CC2
+	jsr $84e3                                    // $0CC4
+	jsr $ab3f                                    // $0CC7
+	lda #$1f                                     // $0CCA
+	sta $3a                                      // $0CCC
+	ldy #$ff                                     // $0CCE
+	iny                                          // $0CD0
+	lda ($c1),y                                  // $0CD1
+	jsr $83de                                    // $0CD3
+	cpy $3a                                      // $0CD6
+	.byte $D0, $F6                               // $0CD8  bne $0CD0
+	tya                                          // $0CDA
+	jmp $8626                                    // $0CDB
+	pha                                          // $0CDE
+	and #$7f                                     // $0CDF
+	cmp #$20                                     // $0CE1
+	.byte $B0, $0C                               // $0CE3  bcs $0CF1
+	ldx #$12                                     // $0CE5
+	pla                                          // $0CE7
+	adc #$40                                     // $0CE8
+	jsr $8519                                    // $0CEA
+	lda #$92                                     // $0CED
+	.byte $D0, $07                               // $0CEF  bne $0CF8
+	cmp #$60                                     // $0CF1
+	pla                                          // $0CF3
+	.byte $90, $02                               // $0CF4  bcc $0CF8
+	lda #$2e                                     // $0CF6
+	jsr $ffd2                                    // $0CF8
+	lda #$00                                     // $0CFB
+	sta $d4                                      // $0CFD
+	rts                                          // $0CFF
+	jsr $8301                                    // $0D00
+	.byte $90, $03                               // $0D03  bcc $0D08
+	jsr $82ab                                    // $0D05
+	jsr $855f                                    // $0D08
+	.byte $90, $08                               // $0D0B  bcc $0D15
+	sei                                          // $0D0D
+	sta $0314                                    // $0D0E
+	stx $0315                                    // $0D11
+	cli                                          // $0D14
+	jsr $8349                                    // $0D15
+	.byte $D0, $0E                               // $0D18  bne $0D28
+	lda #$08                                     // $0D1A
+	bit $03a9                                    // $0D1C
+	pha                                          // $0D1F
+	jsr $8309                                    // $0D20
+	sta $c3                                      // $0D23
+	stx $c4                                      // $0D25
+	pla                                          // $0D27
+	jsr $8311                                    // $0D28
+	lda $c3                                      // $0D2B
+	sta $c1                                      // $0D2D
+	lda $c4                                      // $0D2F
+	sta $c2                                      // $0D31
+	jsr $8dae                                    // $0D33
+	jsr $832d                                    // $0D36
+	jsr $84e5                                    // $0D39
+	jsr $ab3f                                    // $0D3C
+	jmp $8238                                    // $0D3F
+	ldy #$00                                     // $0D42
+	sty $b7                                      // $0D44
+	lda #$02                                     // $0D46
+	sta $bc                                      // $0D48
+	lda #$00                                     // $0D4A
+	sta $bb                                      // $0D4C
+	jsr $ffcf                                    // $0D4E
+	cmp #$20                                     // $0D51
+	.byte $F0, $F9                               // $0D53  beq $0D4E
+	cmp #$0d                                     // $0D55
+	.byte $F0, $1B                               // $0D57  beq $0D74
+	cmp #$22                                     // $0D59
+	.byte $D0, $14                               // $0D5B  bne $0D71
+	jsr $ffcf                                    // $0D5D
+	cmp #$22                                     // $0D60
+	.byte $F0, $10                               // $0D62  beq $0D74
+	cmp #$0d                                     // $0D64
+	.byte $F0, $0C                               // $0D66  beq $0D74
+	sta ($bb),y                                  // $0D68
+	inc $b7                                      // $0D6A
+	iny                                          // $0D6C
+	cpy #$14                                     // $0D6D
+	.byte $D0, $EC                               // $0D6F  bne $0D5D
+	jmp $85c0                                    // $0D71
+	rts                                          // $0D74
+	ldy #$01                                     // $0D75
+	sty $b9                                      // $0D77
+	sty $ba                                      // $0D79
+	jsr $8442                                    // $0D7B
+	cmp #$0d                                     // $0D7E
+	.byte $D0, $17                               // $0D80  bne $0D99
+	lda $39                                      // $0D82
+	cmp #$4c                                     // $0D84
+	.byte $D0, $E9                               // $0D86  bne $0D71
+	jsr $8da8                                    // $0D88
+	lda #$00                                     // $0D8B
+	jsr $ffd5                                    // $0D8D
+	lda $90                                      // $0D90
+	and #$10                                     // $0D92
+	.byte $D0, $DB                               // $0D94  bne $0D71
+	jmp $8235                                    // $0D96
+	jsr $ffcf                                    // $0D99
+	cmp #$0d                                     // $0D9C
+	.byte $F0, $E2                               // $0D9E  beq $0D82
+	cmp #$20                                     // $0DA0
+	.byte $D0, $F0                               // $0DA2  bne $0D94
+	jsr $8568                                    // $0DA4
+	and #$0f                                     // $0DA7
+	.byte $F0, $C6                               // $0DA9  beq $0D71
+	cmp #$03                                     // $0DAB
+	.byte $F0, $FA                               // $0DAD  beq $0DA9
+	sta $ba                                      // $0DAF
+	jsr $ffcf                                    // $0DB1
+	cmp #$0d                                     // $0DB4
+	.byte $F0, $CA                               // $0DB6  beq $0D82
+	cmp #$20                                     // $0DB8
+	.byte $D0, $E6                               // $0DBA  bne $0DA2
+	jsr $82f0                                    // $0DBC
+	.byte $90, $C1                               // $0DBF  bcc $0D82
+	pha                                          // $0DC1
+	txa                                          // $0DC2
+	tay                                          // $0DC3
+	pla                                          // $0DC4
+	tax                                          // $0DC5
+	nop                                          // $0DC6
+	nop                                          // $0DC7
+	nop                                          // $0DC8
+	nop                                          // $0DC9
+	nop                                          // $0DCA
+	nop                                          // $0DCB
+	nop                                          // $0DCC
+	nop                                          // $0DCD
+	nop                                          // $0DCE
+	nop                                          // $0DCF
+	nop                                          // $0DD0
+	nop                                          // $0DD1
+	lda $39                                      // $0DD2
+	cmp #$53                                     // $0DD4
+	.byte $D0, $E2                               // $0DD6  bne $0DBA
+	jsr $8da8                                    // $0DD8
+	lda #$c1                                     // $0DDB
+	jsr $ffd8                                    // $0DDD
+	jmp $8235                                    // $0DE0
+	sta $39                                      // $0DE3
+	lda $39                                      // $0DE5
+	jsr $8522                                    // $0DE7
+	nop                                          // $0DEA
+	nop                                          // $0DEB
+	nop                                          // $0DEC
+	nop                                          // $0DED
+	nop                                          // $0DEE
+	nop                                          // $0DEF
+	nop                                          // $0DF0
+	nop                                          // $0DF1
+	nop                                          // $0DF2
+	nop                                          // $0DF3
+	nop                                          // $0DF4
+	nop                                          // $0DF5
+	nop                                          // $0DF6
+	nop                                          // $0DF7
+	nop                                          // $0DF8
+	nop                                          // $0DF9
+	nop                                          // $0DFA
+	lda $c2                                      // $0DFB
+	jsr $8502                                    // $0DFD
+	lda $c1                                      // $0E00
+	pha                                          // $0E02
+	lsr                                          // $0E03
+	lsr                                          // $0E04
+	lsr                                          // $0E05
+	lsr                                          // $0E06
+	jsr $850d                                    // $0E07
+	pla                                          // $0E0A
+	and #$0f                                     // $0E0B
+	clc                                          // $0E0D
+	adc #$f6                                     // $0E0E
+	.byte $90, $02                               // $0E10  bcc $0E14
+	adc #$06                                     // $0E12
+	adc #$3a                                     // $0E14
+	jmp $ffd2                                    // $0E16
+	pha                                          // $0E19
+	txa                                          // $0E1A
+	jsr $ffd2                                    // $0E1B
+	pla                                          // $0E1E
+	jmp $ffd2                                    // $0E1F
+	pha                                          // $0E22
+	jsr $aad7                                    // $0E23
+	.byte $D0, $F6                               // $0E26  bne $0E1E
+	pha                                          // $0E28
+	lda $9a                                      // $0E29
+	cmp #$03                                     // $0E2B
+	.byte $D0, $EF                               // $0E2D  bne $0E1E
+	txa                                          // $0E2F
+	pha                                          // $0E30
+	tya                                          // $0E31
+	pha                                          // $0E32
+	ldx $d6                                      // $0E33
+	jsr $e9ff                                    // $0E35
+	pla                                          // $0E38
+	tay                                          // $0E39
+	pla                                          // $0E3A
+	tax                                          // $0E3B
+	jmp $851e                                    // $0E3C
+	lda #$00                                     // $0E3F
+	sta $0100                                    // $0E41
+	jsr $ffcf                                    // $0E44
+	cmp #$20                                     // $0E47
+	.byte $F0, $F9                               // $0E49  beq $0E44
+	cmp #$24                                     // $0E4B
+	.byte $F0, $13                               // $0E4D  beq $0E62
+	cmp #$0d                                     // $0E4F
+	.byte $D0, $02                               // $0E51  bne $0E55
+	clc                                          // $0E53
+	rts                                          // $0E54
+	jsr $8144                                    // $0E55
+	.byte $90, $FA                               // $0E58  bcc $0E54
+	jsr $8581                                    // $0E5A
+	.byte $B0, $08                               // $0E5D  bcs $0E67
+	jsr $85a9                                    // $0E5F
+	jsr $8568                                    // $0E62
+	.byte $90, $19                               // $0E65  bcc $0E80
+	tax                                          // $0E67
+	lda #$00                                     // $0E68
+	sta $0100                                    // $0E6A
+	jsr $85a9                                    // $0E6D
+	cmp #$24                                     // $0E70
+	.byte $F0, $F4                               // $0E72  beq $0E68
+	cmp #$20                                     // $0E74
+	.byte $D0, $09                               // $0E76  bne $0E81
+	jsr $85a9                                    // $0E78
+	cmp #$20                                     // $0E7B
+	.byte $D0, $0F                               // $0E7D  bne $0E8E
+	clc                                          // $0E7F
+	rts                                          // $0E80
+	jsr $8596                                    // $0E81
+	asl                                          // $0E84
+	asl                                          // $0E85
+	asl                                          // $0E86
+	asl                                          // $0E87
+	sta $0100                                    // $0E88
+	jsr $85a9                                    // $0E8B
+	jsr $8596                                    // $0E8E
+	ora $0100                                    // $0E91
+	sec                                          // $0E94
+	rts                                          // $0E95
+	cmp #$30                                     // $0E96
+	.byte $90, $26                               // $0E98  bcc $0EC0
+	cmp #$3a                                     // $0E9A
+	php                                          // $0E9C
+	and #$0f                                     // $0E9D
+	plp                                          // $0E9F
+	.byte $90, $02                               // $0EA0  bcc $0EA4
+	adc #$08                                     // $0EA2
+	cmp #$10                                     // $0EA4
+	.byte $B0, $18                               // $0EA6  bcs $0EC0
+	rts                                          // $0EA8
+	nop                                          // $0EA9
+	nop                                          // $0EAA
+	nop                                          // $0EAB
+	nop                                          // $0EAC
+	nop                                          // $0EAD
+	nop                                          // $0EAE
+	nop                                          // $0EAF
+	nop                                          // $0EB0
+	nop                                          // $0EB1
+	nop                                          // $0EB2
+	nop                                          // $0EB3
+	nop                                          // $0EB4
+	nop                                          // $0EB5
+	nop                                          // $0EB6
+	nop                                          // $0EB7
+	jsr $ffcf                                    // $0EB8
+	cmp #$0d                                     // $0EBB
+	.byte $F0, $04                               // $0EBD  beq $0EC3
+	rts                                          // $0EBF
+	jsr $ab45                                    // $0EC0
+	jmp $8235                                    // $0EC3
+	jsr $82f0                                    // $0EC6
+	jsr $8397                                    // $0EC9
+	jsr $85d1                                    // $0ECC
+	.byte $D0, $F8                               // $0ECF  bne $0EC9
+	lda #$2c                                     // $0ED1
+	jsr $84e3                                    // $0ED3
+	jsr $863f                                    // $0ED6
+	pha                                          // $0ED9
+	jsr $8689                                    // $0EDA
+	pla                                          // $0EDD
+	jsr $86a4                                    // $0EDE
+	ldx #$06                                     // $0EE1
+	cpx #$03                                     // $0EE3
+	.byte $D0, $12                               // $0EE5  bne $0EF9
+	ldy $3e                                      // $0EE7
+	.byte $F0, $0E                               // $0EE9  beq $0EF9
+	lda $3d                                      // $0EEB
+	cmp #$e8                                     // $0EED
+	lda ($c1),y                                  // $0EEF
+	.byte $B0, $1D                               // $0EF1  bcs $0F10
+	jsr $8502                                    // $0EF3
+	dey                                          // $0EF6
+	.byte $D0, $F2                               // $0EF7  bne $0EEB
+	asl $3d                                      // $0EF9
+	.byte $90, $0E                               // $0EFB  bcc $0F0B
+	lda $877b,x                                  // $0EFD
+	jsr $ffd2                                    // $0F00
+	lda $8781,x                                  // $0F03
+	.byte $F0, $03                               // $0F06  beq $0F0B
+	jsr $ffd2                                    // $0F08
+	dex                                          // $0F0B
+	.byte $D0, $D5                               // $0F0C  bne $0EE3
+	.byte $F0, $10                               // $0F0E  beq $0F20
+	jsr $8633                                    // $0F10
+	tax                                          // $0F13
+	inx                                          // $0F14
+	.byte $D0, $01                               // $0F15  bne $0F18
+	iny                                          // $0F17
+	tya                                          // $0F18
+	jsr $8502                                    // $0F19
+	txa                                          // $0F1C
+	jsr $8502                                    // $0F1D
+	lda $3e                                      // $0F20
+	.byte $D0, $02                               // $0F22  bne $0F26
+	lda #$00                                     // $0F24
+	jsr $8632                                    // $0F26
+	sta $c1                                      // $0F29
+	sty $c2                                      // $0F2B
+	.byte $D0, $02                               // $0F2D  bne $0F31
+	inc $3b                                      // $0F2F
+	rts                                          // $0F31
+	sec                                          // $0F32
+	ldy $c2                                      // $0F33
+	tax                                          // $0F35
+	.byte $10, $01                               // $0F36  bpl $0F39
+	dey                                          // $0F38
+	adc $c1                                      // $0F39
+	.byte $90, $01                               // $0F3B  bcc $0F3E
+	iny                                          // $0F3D
+	rts                                          // $0F3E
+	ldx #$00                                     // $0F3F
+	lda ($c1,x)                                  // $0F41
+	tay                                          // $0F43
+	lsr                                          // $0F44
+	.byte $90, $0B                               // $0F45  bcc $0F52
+	lsr                                          // $0F47
+	.byte $B0, $17                               // $0F48  bcs $0F61
+	cmp #$22                                     // $0F4A
+	.byte $F0, $13                               // $0F4C  beq $0F61
+	and #$07                                     // $0F4E
+	ora #$80                                     // $0F50
+	lsr                                          // $0F52
+	tax                                          // $0F53
+	lda $872a,x                                  // $0F54
+	.byte $B0, $04                               // $0F57  bcs $0F5D
+	lsr                                          // $0F59
+	lsr                                          // $0F5A
+	lsr                                          // $0F5B
+	lsr                                          // $0F5C
+	and #$0f                                     // $0F5D
+	.byte $D0, $04                               // $0F5F  bne $0F65
+	ldy #$80                                     // $0F61
+	lda #$00                                     // $0F63
+	tax                                          // $0F65
+	lda $876e,x                                  // $0F66
+	sta $3d                                      // $0F69
+	and #$03                                     // $0F6B
+	sta $3e                                      // $0F6D
+	tya                                          // $0F6F
+	and #$8f                                     // $0F70
+	tax                                          // $0F72
+	tya                                          // $0F73
+	ldy #$03                                     // $0F74
+	cpx #$8a                                     // $0F76
+	.byte $F0, $0B                               // $0F78  beq $0F85
+	lsr                                          // $0F7A
+	.byte $90, $08                               // $0F7B  bcc $0F85
+	lsr                                          // $0F7D
+	lsr                                          // $0F7E
+	ora #$20                                     // $0F7F
+	dey                                          // $0F81
+	.byte $D0, $FA                               // $0F82  bne $0F7E
+	iny                                          // $0F84
+	dey                                          // $0F85
+	.byte $D0, $F2                               // $0F86  bne $0F7A
+	rts                                          // $0F88
+	ldy $3e                                      // $0F89
+	iny                                          // $0F8B
+	tya                                          // $0F8C
+	jsr $82dc                                    // $0F8D
+	sec                                          // $0F90
+	lda #$02                                     // $0F91
+	sbc $3e                                      // $0F93
+	.byte $F0, $0C                               // $0F95  beq $0FA3
+	asl                                          // $0F97
+	ora #$02                                     // $0F98
+	ora $3e                                      // $0F9A
+	tax                                          // $0F9C
+	jsr $ab3f                                    // $0F9D
+	dex                                          // $0FA0
+	.byte $D0, $FA                               // $0FA1  bne $0F9D
+	rts                                          // $0FA3
+	tay                                          // $0FA4
+	ldx #$03                                     // $0FA5
+	lda $8788,y                                  // $0FA7
+	sta $0129                                    // $0FAA
+	lda $87c8,y                                  // $0FAD
+	sta $012a                                    // $0FB0
+	lda #$00                                     // $0FB3
+	ldy #$05                                     // $0FB5
+	asl $012a                                    // $0FB7
+	rol $0129                                    // $0FBA
+	rol                                          // $0FBD
+	dey                                          // $0FBE
+	.byte $D0, $F6                               // $0FBF  bne $0FB7
+	adc #$3f                                     // $0FC1
+	jsr $ffd2                                    // $0FC3
+	dex                                          // $0FC6
+	.byte $D0, $EA                               // $0FC7  bne $0FB3
+	jmp $ab3f                                    // $0FC9
+	jsr $2020                                    // $0FCC
+	jsr $2020                                    // $0FCF
+	jsr $2020                                    // $0FD2
+	jsr $2020                                    // $0FD5
+	jsr $4820                                    // $0FD8
+	eor $53                                      // $0FDB
+	eor $4e4f                                    // $0FDD
+	jsr $3620                                    // $0FE0
+	.byte $34                                    // $0FE3  ???
+	ora $200d                                    // $0FE4
+	jsr $2020                                    // $0FE7
+	jsr $2020                                    // $0FEA
+	jsr $2020                                    // $0FED
+	jsr $5942                                    // $0FF0
+	jsr $2e54                                    // $0FF3
+	eor $202e                                    // $0FF6
+	.byte $50, $45                               // $0FF9  bvc $1040
+	.byte $54                                    // $0FFB  ???
+	eor $52                                      // $0FFC
+	.byte $53                                    // $0FFE  ???
+	.byte $4F                                    // $0FFF  ???
 	jsr $6000                                    // $1000
-	jsr $7f00                                    // $1003
+	jsr $6140                                    // $1003
 	jsr $6090                                    // $1006
-	jsr $71f5                                    // $1009
-	jsr $61ca                                    // $100C
+	jsr $7690                                    // $1009
+	jsr $61f0                                    // $100C
 	lda $dc00                                    // $100F  ; CIA1_PRA
 	and #$1f                                     // $1012
 	eor #$1f                                     // $1014
@@ -27,7 +1060,7 @@
 	.byte $D0, $07                               // $1026  bne $102F
 	lda #$0a                                     // $1028
 	sta $1d                                      // $102A
-	jsr $6310                                    // $102C
+	jsr $633b                                    // $102C
 	jmp $113b                                    // $102F
 	lda $25                                      // $1032
 	.byte $F0, $0E                               // $1034  beq $1044
@@ -35,31 +1068,31 @@
 	.byte $D0, $07                               // $1038  bne $1041
 	lda #$70                                     // $103A
 	sta $1d                                      // $103C
-	jsr $63b9                                    // $103E
+	jsr $63e4                                    // $103E
 	jmp $113b                                    // $1041
 	lda $18                                      // $1044
 	.byte $F0, $1A                               // $1046  beq $1062
 	lda $57                                      // $1048
 	cmp #$0f                                     // $104A
 	.byte $D0, $03                               // $104C  bne $1051
-	jsr $6e35                                    // $104E
+	jsr $7040                                    // $104E
 	lda #$02                                     // $1051
 	sta $44                                      // $1053
-	jsr $63e0                                    // $1055
+	jsr $640d                                    // $1055
 	lda $57                                      // $1058
 	.byte $F0, $03                               // $105A  beq $105F
-	jsr $6e2a                                    // $105C
+	jsr $7035                                    // $105C
 	jmp $113b                                    // $105F
 	lda $19                                      // $1062
 	.byte $F0, $14                               // $1064  beq $107A
 	lda $57                                      // $1066
 	cmp #$f0                                     // $1068
 	.byte $D0, $03                               // $106A  bne $106F
-	jsr $6e55                                    // $106C
-	jsr $6560                                    // $106F
+	jsr $7060                                    // $106C
+	jsr $6580                                    // $106F
 	lda $57                                      // $1072
 	.byte $F0, $04                               // $1074  beq $107A
-	jsr $6e2a                                    // $1076
+	jsr $7035                                    // $1076
 	nop                                          // $1079
 	lda $dc00                                    // $107A  ; CIA1_PRA
 	and #$1f                                     // $107D
@@ -74,7 +1107,7 @@
 	sta $1d                                      // $1090
 	lda #$00                                     // $1092
 	sta $0d                                      // $1094
-	jsr $624c                                    // $1096
+	jsr $6275                                    // $1096
 	jmp $113b                                    // $1099
 	cmp #$02                                     // $109C
 	.byte $D0, $12                               // $109E  bne $10B2
@@ -84,7 +1117,7 @@
 	sta $1d                                      // $10A6
 	lda #$01                                     // $10A8
 	sta $0d                                      // $10AA
-	jsr $6245                                    // $10AC
+	jsr $626e                                    // $10AC
 	jmp $113b                                    // $10AF
 	cmp #$10                                     // $10B2
 	.byte $D0, $1E                               // $10B4  bne $10D4
@@ -95,10 +1128,10 @@
 	sta $1d                                      // $10BE
 	nop                                          // $10C0
 	nop                                          // $10C1
-	jsr $63b5                                    // $10C2
+	jsr $63e0                                    // $10C2
 	jmp $113b                                    // $10C5
 	inc $24                                      // $10C8
-	jsr $62d5                                    // $10CA
+	jsr $6300                                    // $10CA
 	lda $23                                      // $10CD
 	sta $1d                                      // $10CF
 	jmp $113b                                    // $10D1
@@ -123,7 +1156,7 @@
 	lda $1b                                      // $10F8
 	sbc #$08                                     // $10FA
 	sta $1b                                      // $10FC
-	jsr $61ca                                    // $10FE
+	jsr $61f0                                    // $10FE
 	lda #$18                                     // $1101
 	sta $1d                                      // $1103
 	jmp $113b                                    // $1105
@@ -149,7 +1182,7 @@
 	lda $1b                                      // $112E
 	adc #$08                                     // $1130
 	sta $1b                                      // $1132
-	jsr $61ca                                    // $1134
+	jsr $61f0                                    // $1134
 	lda #$18                                     // $1137
 	sta $1d                                      // $1139
 	ldx #$02                                     // $113B
@@ -167,78 +1200,121 @@
 	.byte $D0, $07                               // $114E  bne $1157
 	lda #$18                                     // $1150
 	sta $4f                                      // $1152
-	jsr $7fc5                                    // $1154
-	jsr $6800                                    // $1157
+	jsr $6840                                    // $1154
+	jmp $686c                                    // $1157
 	jsr $ffea                                    // $115A
 	jsr $ffe1                                    // $115D
 	.byte $D0, $03                               // $1160  bne $1165
-	jmp $1a00                                    // $1162
+	jmp $2000                                    // $1162
 	lda $41                                      // $1165
 	cmp $69                                      // $1167
 	.byte $D0, $03                               // $1169  bne $116E
-	jmp $1380                                    // $116B
+	jmp $2400                                    // $116B
 	cmp $6a                                      // $116E
 	.byte $D0, $03                               // $1170  bne $1175
-	jmp $1380                                    // $1172
+	jmp $2400                                    // $1172
 	cmp $6b                                      // $1175
 	.byte $D0, $03                               // $1177  bne $117C
-	jmp $1380                                    // $1179
+	jmp $2400                                    // $1179
 	cmp $6c                                      // $117C
 	.byte $D0, $03                               // $117E  bne $1183
-	jmp $1380                                    // $1180
+	jmp $2400                                    // $1180
 	cmp $6d                                      // $1183
 	.byte $D0, $03                               // $1185  bne $118A
-	jmp $1380                                    // $1187
+	jmp $2400                                    // $1187
 	cmp $6e                                      // $118A
 	.byte $D0, $03                               // $118C  bne $1191
-	jmp $1380                                    // $118E
-	cmp $6f                                      // $1191
-	.byte $D0, $03                               // $1193  bne $1198
-	jmp $1380                                    // $1195
-	lda $d017                                    // $1198  ; VIC_SPYEXP
-	and #$fe                                     // $119B
-	sta $d017                                    // $119D  ; VIC_SPYEXP
-	lda $d01d                                    // $11A0  ; VIC_SPXEXP
-	and #$fe                                     // $11A3
-	sta $d01d                                    // $11A5  ; VIC_SPXEXP
-	lda #$01                                     // $11A8
-	sta $d027                                    // $11AA
-	lda $27                                      // $11AD
-	.byte $D0, $07                               // $11AF  bne $11B8
-	lda #$01                                     // $11B1
-	sta $5f                                      // $11B3
-	jmp $1660                                    // $11B5
-	cmp #$0a                                     // $11B8
-	.byte $D0, $07                               // $11BA  bne $11C3
-	lda #$b2                                     // $11BC
-	sta $2e                                      // $11BE
-	jsr $11e7                                    // $11C0
-	cmp #$14                                     // $11C3
-	.byte $D0, $07                               // $11C5  bne $11CE
-	lda #$b0                                     // $11C7
-	sta $2e                                      // $11C9
-	jsr $11e7                                    // $11CB
-	cmp #$1e                                     // $11CE
-	.byte $D0, $07                               // $11D0  bne $11D9
-	lda #$a7                                     // $11D2
-	sta $2e                                      // $11D4
-	jsr $11e7                                    // $11D6
-	cmp #$28                                     // $11D9
-	.byte $D0, $07                               // $11DB  bne $11E4
-	lda #$a5                                     // $11DD
-	sta $2e                                      // $11DF
-	jsr $11e7                                    // $11E1
-	jmp $1200                                    // $11E4
-	ldy #$00                                     // $11E7
-	lda #$01                                     // $11E9
-	sta ($2e),y                                  // $11EB
-	clc                                          // $11ED
-	lda $2e                                      // $11EE
-	adc #$28                                     // $11F0
-	sta $2e                                      // $11F2
-	lda #$01                                     // $11F4
-	sta ($2e),y                                  // $11F6
-	rts                                          // $11F8
+	jmp $2400                                    // $118E
+	jmp $11e0                                    // $1191
+	nop                                          // $1194
+	nop                                          // $1195
+	nop                                          // $1196
+	nop                                          // $1197
+	nop                                          // $1198
+	nop                                          // $1199
+	nop                                          // $119A
+	nop                                          // $119B
+	nop                                          // $119C
+	nop                                          // $119D
+	nop                                          // $119E
+	nop                                          // $119F
+	nop                                          // $11A0
+	nop                                          // $11A1
+	nop                                          // $11A2
+	nop                                          // $11A3
+	nop                                          // $11A4
+	nop                                          // $11A5
+	nop                                          // $11A6
+	nop                                          // $11A7
+	nop                                          // $11A8
+	nop                                          // $11A9
+	nop                                          // $11AA
+	nop                                          // $11AB
+	nop                                          // $11AC
+	nop                                          // $11AD
+	nop                                          // $11AE
+	nop                                          // $11AF
+	nop                                          // $11B0
+	nop                                          // $11B1
+	nop                                          // $11B2
+	nop                                          // $11B3
+	nop                                          // $11B4
+	nop                                          // $11B5
+	nop                                          // $11B6
+	nop                                          // $11B7
+	nop                                          // $11B8
+	nop                                          // $11B9
+	nop                                          // $11BA
+	nop                                          // $11BB
+	nop                                          // $11BC
+	nop                                          // $11BD
+	nop                                          // $11BE
+	nop                                          // $11BF
+	nop                                          // $11C0
+	nop                                          // $11C1
+	nop                                          // $11C2
+	nop                                          // $11C3
+	nop                                          // $11C4
+	nop                                          // $11C5
+	nop                                          // $11C6
+	nop                                          // $11C7
+	nop                                          // $11C8
+	nop                                          // $11C9
+	nop                                          // $11CA
+	nop                                          // $11CB
+	nop                                          // $11CC
+	nop                                          // $11CD
+	nop                                          // $11CE
+	nop                                          // $11CF
+	nop                                          // $11D0
+	nop                                          // $11D1
+	nop                                          // $11D2
+	nop                                          // $11D3
+	nop                                          // $11D4
+	nop                                          // $11D5
+	nop                                          // $11D6
+	nop                                          // $11D7
+	nop                                          // $11D8
+	nop                                          // $11D9
+	nop                                          // $11DA
+	nop                                          // $11DB
+	nop                                          // $11DC
+	nop                                          // $11DD
+	nop                                          // $11DE
+	nop                                          // $11DF
+	lda $d017                                    // $11E0  ; VIC_SPYEXP
+	and #$fe                                     // $11E3
+	sta $d017                                    // $11E5  ; VIC_SPYEXP
+	lda $d01d                                    // $11E8  ; VIC_SPXEXP
+	and #$fe                                     // $11EB
+	sta $d01d                                    // $11ED  ; VIC_SPXEXP
+	jmp $1200                                    // $11F0
+	nop                                          // $11F3
+	nop                                          // $11F4
+	nop                                          // $11F5
+	nop                                          // $11F6
+	nop                                          // $11F7
+	nop                                          // $11F8
 	nop                                          // $11F9
 	nop                                          // $11FA
 	nop                                          // $11FB
@@ -270,7 +1346,7 @@
 	jmp $1235                                    // $122E
 	lda #$f0                                     // $1231
 	sta $57                                      // $1233
-	jsr $6da5                                    // $1235
+	jsr $6fb0                                    // $1235
 	lda $42                                      // $1238
 	ora #$80                                     // $123A
 	sta $42                                      // $123C
@@ -279,7 +1355,7 @@
 	.byte $D0, $10                               // $1243  bne $1255
 	lda #$00                                     // $1245
 	sta $57                                      // $1247
-	jsr $6d45                                    // $1249
+	jsr $6edd                                    // $1249
 	lda $42                                      // $124C
 	ora #$80                                     // $124E
 	sta $42                                      // $1250
@@ -288,7 +1364,7 @@
 	.byte $D0, $10                               // $1257  bne $1269
 	lda #$00                                     // $1259
 	sta $52                                      // $125B
-	jsr $6950                                    // $125D
+	jsr $6a00                                    // $125D
 	lda $42                                      // $1260
 	ora #$80                                     // $1262
 	sta $42                                      // $1264
@@ -303,26 +1379,26 @@
 	sta $52                                      // $1279
 	cmp #$03                                     // $127B
 	.byte $D0, $06                               // $127D  bne $1285
-	jsr $6845                                    // $127F
+	jsr $68f0                                    // $127F
 	jmp $129e                                    // $1282
 	cmp #$07                                     // $1285
 	.byte $D0, $0A                               // $1287  bne $1293
 	lda #$00                                     // $1289
 	sta $50                                      // $128B
-	jsr $7495                                    // $128D
+	jsr $7870                                    // $128D
 	jmp $129e                                    // $1290
 	cmp #$0b                                     // $1293
 	.byte $D0, $DA                               // $1295  bne $1271
 	lda #$01                                     // $1297
 	sta $50                                      // $1299
-	jsr $7495                                    // $129B
-	lda #$88                                     // $129E
-	sta $42                                      // $12A0
-	ldx #$06                                     // $12A2
-	lda $5e40,x                                  // $12A4
-	sta $30,x                                    // $12A7
-	dex                                          // $12A9
-	.byte $10, $F8                               // $12AA  bpl $12A4
+	jsr $7870                                    // $129B
+	lda $42                                      // $129E
+	ora #$80                                     // $12A0
+	sta $42                                      // $12A2
+	lda #$90                                     // $12A4
+	sta $30                                      // $12A6
+	lda #$55                                     // $12A8
+	sta $31                                      // $12AA
 	jmp $1500                                    // $12AC
 	cmp #$10                                     // $12AF
 	.byte $D0, $53                               // $12B1  bne $1306
@@ -334,7 +1410,7 @@
 	jmp $12c5                                    // $12BE
 	lda #$f0                                     // $12C1
 	sta $57                                      // $12C3
-	jsr $78c0                                    // $12C5
+	jsr $7d20                                    // $12C5
 	lda #$00                                     // $12C8
 	sta $33                                      // $12CA
 	lda #$c0                                     // $12CC
@@ -353,7 +1429,7 @@
 	lda $dc04                                    // $12E6
 	sta $d004                                    // $12E9
 	sta $d006                                    // $12EC
-	jsr $7870                                    // $12EF
+	jsr $7cd0                                    // $12EF
 	lda $42                                      // $12F2
 	ora #$80                                     // $12F4
 	sta $42                                      // $12F6
@@ -363,7 +1439,7 @@
 	dex                                          // $1300
 	.byte $10, $F7                               // $1301  bpl $12FA
 	jmp $1020                                    // $1303
-	cmp #$40                                     // $1306
+	cmp #$20                                     // $1306
 	.byte $D0, $32                               // $1308  bne $133C
 	lda #$00                                     // $130A
 	sta $33                                      // $130C
@@ -373,7 +1449,7 @@
 	lda #$5c                                     // $1314
 	sta $31                                      // $1316
 	sta $35                                      // $1318
-	jsr $7b40                                    // $131A
+	jsr $1400                                    // $131A
 	lda $42                                      // $131D
 	ora #$80                                     // $131F
 	sta $42                                      // $1321
@@ -387,21 +1463,37 @@
 	lda #$ff                                     // $1335
 	sta $46                                      // $1337
 	jmp $1020                                    // $1339
-	cmp #$20                                     // $133C
-	.byte $D0, $1A                               // $133E  bne $135A
-	lda #$09                                     // $1340
-	sta $53                                      // $1342
-	lda #$04                                     // $1344
-	sta $54                                      // $1346
-	sta $52                                      // $1348
-	sta $51                                      // $134A
-	sta $55                                      // $134C
-	jsr $7d56                                    // $134E
-	lda $42                                      // $1351
-	ora #$80                                     // $1353
-	sta $42                                      // $1355
-	jmp $1020                                    // $1357
-	jmp $1020                                    // $135A
+	jmp $1020                                    // $133C
+	nop                                          // $133F
+	nop                                          // $1340
+	nop                                          // $1341
+	nop                                          // $1342
+	nop                                          // $1343
+	nop                                          // $1344
+	nop                                          // $1345
+	nop                                          // $1346
+	nop                                          // $1347
+	nop                                          // $1348
+	nop                                          // $1349
+	nop                                          // $134A
+	nop                                          // $134B
+	nop                                          // $134C
+	nop                                          // $134D
+	nop                                          // $134E
+	nop                                          // $134F
+	nop                                          // $1350
+	nop                                          // $1351
+	nop                                          // $1352
+	nop                                          // $1353
+	nop                                          // $1354
+	nop                                          // $1355
+	nop                                          // $1356
+	nop                                          // $1357
+	nop                                          // $1358
+	nop                                          // $1359
+	nop                                          // $135A
+	nop                                          // $135B
+	nop                                          // $135C
 	nop                                          // $135D
 	nop                                          // $135E
 	nop                                          // $135F
@@ -421,9 +1513,13 @@
 	nop                                          // $136D
 	nop                                          // $136E
 	nop                                          // $136F
-	lda #$03                                     // $1370
-	sta $46                                      // $1372
-	jmp $100c                                    // $1374
+	nop                                          // $1370
+	nop                                          // $1371
+	nop                                          // $1372
+	nop                                          // $1373
+	nop                                          // $1374
+	nop                                          // $1375
+	nop                                          // $1376
 	nop                                          // $1377
 	nop                                          // $1378
 	nop                                          // $1379
@@ -433,177 +1529,279 @@
 	nop                                          // $137D
 	nop                                          // $137E
 	nop                                          // $137F
-	lda $d01e                                    // $1380  ; VIC_SPCOL
-	lda $d015                                    // $1383  ; VIC_SPEN
-	and #$f0                                     // $1386
-	sta $d015                                    // $1388  ; VIC_SPEN
-	lda $d01c                                    // $138B  ; VIC_SPMCOL
-	and #$f0                                     // $138E
-	sta $d01c                                    // $1390  ; VIC_SPMCOL
-	lda $d01b                                    // $1393  ; VIC_SPPRI
-	and #$f0                                     // $1396
-	sta $d01b                                    // $1398  ; VIC_SPPRI
-	lda $d017                                    // $139B  ; VIC_SPYEXP
-	and #$f0                                     // $139E
-	sta $d017                                    // $13A0  ; VIC_SPYEXP
-	lda $d01d                                    // $13A3  ; VIC_SPXEXP
-	and #$f0                                     // $13A6
-	sta $d01d                                    // $13A8  ; VIC_SPXEXP
-	ldx $27                                      // $13AB
-	lda $5fc0,x                                  // $13AD
-	sta $29                                      // $13B0
-	jsr $6800                                    // $13B2
-	ldx #$07                                     // $13B5
-	lda #$00                                     // $13B7
-	sta $d000,x                                  // $13B9  ; VIC_SP0X
-	lda $5e38,x                                  // $13BC
-	sta $30,x                                    // $13BF
-	lda $07c3,x                                  // $13C1
-	sta $60,x                                    // $13C4
-	dex                                          // $13C6
-	.byte $10, $EE                               // $13C7  bpl $13B7
-	lda #$03                                     // $13C9
-	sta $5f                                      // $13CB
-	inc $41                                      // $13CD
-	lda $41                                      // $13CF
-	sta $5e                                      // $13D1
-	asl $4e                                      // $13D3
-	lda #$00                                     // $13D5
-	sta $42                                      // $13D7
-	sta $43                                      // $13D9
-	sta $21                                      // $13DB
-	sta $22                                      // $13DD
-	lda #$21                                     // $13DF
-	sta $d404                                    // $13E1  ; SID_CR1
-	sta $d40b                                    // $13E4
-	lda #$41                                     // $13E7
-	sta $d412                                    // $13E9
-	lda $16                                      // $13EC
-	cmp #$1c                                     // $13EE
-	.byte $B0, $04                               // $13F0  bcs $13F6
-	lda #$2a                                     // $13F2
-	sta $16                                      // $13F4
-	dec $16                                      // $13F6
-	dec $16                                      // $13F8
-	jsr $61ca                                    // $13FA
-	lda $d012                                    // $13FD  ; VIC_RASTER
-	.byte $D0, $FB                               // $1400  bne $13FD
-	inc $21                                      // $1402
-	.byte $D0, $F7                               // $1404  bne $13FD
-	inc $22                                      // $1406
-	lda $22                                      // $1408
-	cmp #$2c                                     // $140A
-	.byte $D0, $DE                               // $140C  bne $13EC
-	lda #$0a                                     // $140E
-	sta $16                                      // $1410
-	sta $36                                      // $1412
-	lda #$28                                     // $1414
-	sta $1b                                      // $1416
-	jsr $61ca                                    // $1418
-	lda $4e                                      // $141B
-	cmp #$80                                     // $141D
-	.byte $D0, $19                               // $141F  bne $143A
-	lda #$01                                     // $1421
-	sta $4e                                      // $1423
-	jsr $600a                                    // $1425
-	jsr $61ca                                    // $1428
-	lda #$00                                     // $142B
-	sta $41                                      // $142D
-	sta $48                                      // $142F
-	sta $49                                      // $1431
-	lda #$32                                     // $1433
-	sta $27                                      // $1435
-	jmp $1469                                    // $1437
-	lda $68                                      // $143A
-	cmp #$6a                                     // $143C
-	.byte $90, $07                               // $143E  bcc $1447
-	lda #$32                                     // $1440
-	sta $27                                      // $1442
-	jmp $14a0                                    // $1444
-	cmp #$54                                     // $1447
-	.byte $D0, $11                               // $1449  bne $145C
-	lda $4e                                      // $144B
-	cmp #$04                                     // $144D
-	.byte $F0, $04                               // $144F  beq $1455
-	cmp #$10                                     // $1451
-	.byte $D0, $04                               // $1453  bne $1459
-	lda #$32                                     // $1455
-	sta $27                                      // $1457
-	jmp $14a0                                    // $1459
-	lda $4e                                      // $145C
-	cmp #$08                                     // $145E
-	.byte $D0, $04                               // $1460  bne $1466
-	lda #$32                                     // $1462
-	sta $27                                      // $1464
-	jmp $14a0                                    // $1466
-	ldx #$07                                     // $1469
-	lda $60,x                                    // $146B
-	sta $07dd,x                                  // $146D
-	dex                                          // $1470
-	.byte $10, $F8                               // $1471  bpl $146B
-	lda $68                                      // $1473
-	cmp #$7f                                     // $1475
-	.byte $D0, $05                               // $1477  bne $147E
-	ldy #$08                                     // $1479
-	jmp $1493                                    // $147B
-	cmp #$6a                                     // $147E
-	.byte $D0, $05                               // $1480  bne $1487
-	ldy #$10                                     // $1482
-	jmp $1493                                    // $1484
-	cmp #$54                                     // $1487
-	.byte $D0, $05                               // $1489  bne $1490
-	ldy #$18                                     // $148B
-	jmp $1493                                    // $148D
-	jmp $1479                                    // $1490
-	ldx #$00                                     // $1493
-	lda $5b40,y                                  // $1495
-	sta $68,x                                    // $1498
-	iny                                          // $149A
-	inx                                          // $149B
-	cpx #$08                                     // $149C
-	.byte $D0, $F5                               // $149E  bne $1495
-	lda $27                                      // $14A0
-	cmp #$28                                     // $14A2
-	.byte $B0, $0F                               // $14A4  bcs $14B5
-	cmp #$1e                                     // $14A6
-	.byte $B0, $0E                               // $14A8  bcs $14B8
-	cmp #$14                                     // $14AA
-	.byte $B0, $0D                               // $14AC  bcs $14BB
-	cmp #$0a                                     // $14AE
-	.byte $B0, $0C                               // $14B0  bcs $14BE
-	jmp $14f0                                    // $14B2
-	jsr $14c4                                    // $14B5
-	jsr $14cf                                    // $14B8
-	jsr $14da                                    // $14BB
-	jsr $14e5                                    // $14BE
-	jmp $14f0                                    // $14C1
-	lda #$07                                     // $14C4
-	sta $07a5                                    // $14C6
-	lda #$08                                     // $14C9
-	sta $07cd                                    // $14CB
-	rts                                          // $14CE
-	lda #$07                                     // $14CF
-	sta $07a7                                    // $14D1
-	lda #$08                                     // $14D4
-	sta $07cf                                    // $14D6
-	rts                                          // $14D9
-	lda #$07                                     // $14DA
-	sta $07b0                                    // $14DC
-	lda #$08                                     // $14DF
-	sta $07d8                                    // $14E1
-	rts                                          // $14E4
-	lda #$07                                     // $14E5
-	sta $07b2                                    // $14E7
-	lda #$08                                     // $14EA
-	sta $07da                                    // $14EC
-	rts                                          // $14EF
-	ldx #$06                                     // $14F0
-	lda $5e48,x                                  // $14F2
-	sta $30,x                                    // $14F5
-	dex                                          // $14F7
-	.byte $10, $F8                               // $14F8  bpl $14F2
-	jsr $6090                                    // $14FA
-	jmp $1370                                    // $14FD
+	nop                                          // $1380
+	nop                                          // $1381
+	nop                                          // $1382
+	nop                                          // $1383
+	nop                                          // $1384
+	nop                                          // $1385
+	nop                                          // $1386
+	nop                                          // $1387
+	nop                                          // $1388
+	nop                                          // $1389
+	nop                                          // $138A
+	nop                                          // $138B
+	nop                                          // $138C
+	nop                                          // $138D
+	nop                                          // $138E
+	nop                                          // $138F
+	nop                                          // $1390
+	nop                                          // $1391
+	nop                                          // $1392
+	nop                                          // $1393
+	nop                                          // $1394
+	nop                                          // $1395
+	nop                                          // $1396
+	nop                                          // $1397
+	nop                                          // $1398
+	nop                                          // $1399
+	nop                                          // $139A
+	nop                                          // $139B
+	nop                                          // $139C
+	nop                                          // $139D
+	nop                                          // $139E
+	nop                                          // $139F
+	nop                                          // $13A0
+	nop                                          // $13A1
+	nop                                          // $13A2
+	nop                                          // $13A3
+	nop                                          // $13A4
+	nop                                          // $13A5
+	nop                                          // $13A6
+	nop                                          // $13A7
+	nop                                          // $13A8
+	nop                                          // $13A9
+	nop                                          // $13AA
+	nop                                          // $13AB
+	nop                                          // $13AC
+	nop                                          // $13AD
+	nop                                          // $13AE
+	nop                                          // $13AF
+	nop                                          // $13B0
+	nop                                          // $13B1
+	nop                                          // $13B2
+	nop                                          // $13B3
+	nop                                          // $13B4
+	nop                                          // $13B5
+	nop                                          // $13B6
+	nop                                          // $13B7
+	nop                                          // $13B8
+	nop                                          // $13B9
+	nop                                          // $13BA
+	nop                                          // $13BB
+	nop                                          // $13BC
+	nop                                          // $13BD
+	nop                                          // $13BE
+	nop                                          // $13BF
+	nop                                          // $13C0
+	nop                                          // $13C1
+	nop                                          // $13C2
+	nop                                          // $13C3
+	nop                                          // $13C4
+	nop                                          // $13C5
+	nop                                          // $13C6
+	nop                                          // $13C7
+	nop                                          // $13C8
+	nop                                          // $13C9
+	nop                                          // $13CA
+	nop                                          // $13CB
+	nop                                          // $13CC
+	nop                                          // $13CD
+	nop                                          // $13CE
+	nop                                          // $13CF
+	nop                                          // $13D0
+	nop                                          // $13D1
+	nop                                          // $13D2
+	nop                                          // $13D3
+	nop                                          // $13D4
+	nop                                          // $13D5
+	nop                                          // $13D6
+	nop                                          // $13D7
+	nop                                          // $13D8
+	nop                                          // $13D9
+	nop                                          // $13DA
+	nop                                          // $13DB
+	nop                                          // $13DC
+	nop                                          // $13DD
+	nop                                          // $13DE
+	nop                                          // $13DF
+	nop                                          // $13E0
+	nop                                          // $13E1
+	nop                                          // $13E2
+	nop                                          // $13E3
+	nop                                          // $13E4
+	nop                                          // $13E5
+	nop                                          // $13E6
+	nop                                          // $13E7
+	nop                                          // $13E8
+	nop                                          // $13E9
+	nop                                          // $13EA
+	nop                                          // $13EB
+	nop                                          // $13EC
+	nop                                          // $13ED
+	nop                                          // $13EE
+	nop                                          // $13EF
+	nop                                          // $13F0
+	nop                                          // $13F1
+	nop                                          // $13F2
+	nop                                          // $13F3
+	nop                                          // $13F4
+	nop                                          // $13F5
+	nop                                          // $13F6
+	nop                                          // $13F7
+	nop                                          // $13F8
+	nop                                          // $13F9
+	nop                                          // $13FA
+	nop                                          // $13FB
+	nop                                          // $13FC
+	nop                                          // $13FD
+	nop                                          // $13FE
+	nop                                          // $13FF
+	lda #$ce                                     // $1400
+	sta $07f9                                    // $1402
+	lda #$cf                                     // $1405
+	sta $07fa                                    // $1407
+	lda #$d0                                     // $140A
+	sta $07fb                                    // $140C
+	lda #$b1                                     // $140F
+	sta $07ff                                    // $1411
+	lda #$58                                     // $1414
+	sta $d003                                    // $1416  ; VIC_SP1Y
+	lda #$6c                                     // $1419
+	sta $d005                                    // $141B
+	lda #$80                                     // $141E
+	sta $d007                                    // $1420
+	lda #$30                                     // $1423
+	sta $d00f                                    // $1425
+	lda #$a0                                     // $1428
+	sta $d00e                                    // $142A
+	lda $d010                                    // $142D  ; VIC_SPXMSB
+	and #$00                                     // $1430
+	sta $d010                                    // $1432  ; VIC_SPXMSB
+	lda #$00                                     // $1435
+	sta $37                                      // $1437
+	lda #$00                                     // $1439
+	sta $d028                                    // $143B
+	sta $d029                                    // $143E
+	sta $d02a                                    // $1441
+	lda #$00                                     // $1444
+	sta $d02e                                    // $1446
+	lda $d017                                    // $1449  ; VIC_SPYEXP
+	and #$f0                                     // $144C
+	ora #$80                                     // $144E
+	sta $d017                                    // $1450  ; VIC_SPYEXP
+	lda $d01d                                    // $1453  ; VIC_SPXEXP
+	and #$f0                                     // $1456
+	ora #$80                                     // $1458
+	sta $d01d                                    // $145A  ; VIC_SPXEXP
+	lda $d01b                                    // $145D  ; VIC_SPPRI
+	ora #$8e                                     // $1460
+	sta $d01b                                    // $1462  ; VIC_SPPRI
+	lda $d01c                                    // $1465  ; VIC_SPMCOL
+	ora #$0e                                     // $1468
+	sta $d01c                                    // $146A  ; VIC_SPMCOL
+	lda $d015                                    // $146D  ; VIC_SPEN
+	ora #$8e                                     // $1470
+	sta $d015                                    // $1472  ; VIC_SPEN
+	lda #$50                                     // $1475
+	sta $d002                                    // $1477  ; VIC_SP1X
+	sta $d004                                    // $147A
+	sta $d006                                    // $147D
+	lda #$00                                     // $1480
+	sta $50                                      // $1482
+	sta $54                                      // $1484
+	sta $51                                      // $1486
+	lda #$05                                     // $1488
+	sta $56                                      // $148A
+	rts                                          // $148C
+	nop                                          // $148D
+	nop                                          // $148E
+	nop                                          // $148F
+	lda #$30                                     // $1490
+	sta $d003                                    // $1492  ; VIC_SP1Y
+	lda #$80                                     // $1495
+	sta $d007                                    // $1497
+	lda $d017                                    // $149A  ; VIC_SPYEXP
+	ora #$0e                                     // $149D
+	sta $d017                                    // $149F  ; VIC_SPYEXP
+	lda $d01d                                    // $14A2  ; VIC_SPXEXP
+	ora #$0e                                     // $14A5
+	sta $d017                                    // $14A7  ; VIC_SPYEXP
+	ora #$0e                                     // $14AA
+	sta $d01d                                    // $14AC  ; VIC_SPXEXP
+	lda $d01b                                    // $14AF  ; VIC_SPPRI
+	ora #$8e                                     // $14B2
+	sta $d01b                                    // $14B4  ; VIC_SPPRI
+	lda #$58                                     // $14B7
+	sta $d005                                    // $14B9
+	rts                                          // $14BC
+	nop                                          // $14BD
+	nop                                          // $14BE
+	nop                                          // $14BF
+	nop                                          // $14C0
+	nop                                          // $14C1
+	nop                                          // $14C2
+	nop                                          // $14C3
+	nop                                          // $14C4
+	nop                                          // $14C5
+	nop                                          // $14C6
+	nop                                          // $14C7
+	nop                                          // $14C8
+	nop                                          // $14C9
+	nop                                          // $14CA
+	nop                                          // $14CB
+	nop                                          // $14CC
+	nop                                          // $14CD
+	nop                                          // $14CE
+	nop                                          // $14CF
+	nop                                          // $14D0
+	nop                                          // $14D1
+	nop                                          // $14D2
+	nop                                          // $14D3
+	nop                                          // $14D4
+	nop                                          // $14D5
+	nop                                          // $14D6
+	nop                                          // $14D7
+	nop                                          // $14D8
+	nop                                          // $14D9
+	nop                                          // $14DA
+	nop                                          // $14DB
+	nop                                          // $14DC
+	nop                                          // $14DD
+	nop                                          // $14DE
+	nop                                          // $14DF
+	nop                                          // $14E0
+	nop                                          // $14E1
+	nop                                          // $14E2
+	nop                                          // $14E3
+	nop                                          // $14E4
+	nop                                          // $14E5
+	nop                                          // $14E6
+	nop                                          // $14E7
+	nop                                          // $14E8
+	nop                                          // $14E9
+	nop                                          // $14EA
+	nop                                          // $14EB
+	nop                                          // $14EC
+	nop                                          // $14ED
+	nop                                          // $14EE
+	nop                                          // $14EF
+	nop                                          // $14F0
+	nop                                          // $14F1
+	nop                                          // $14F2
+	nop                                          // $14F3
+	nop                                          // $14F4
+	nop                                          // $14F5
+	nop                                          // $14F6
+	nop                                          // $14F7
+	nop                                          // $14F8
+	nop                                          // $14F9
+	nop                                          // $14FA
+	nop                                          // $14FB
+	nop                                          // $14FC
+	nop                                          // $14FD
+	nop                                          // $14FE
+	nop                                          // $14FF
 	lda $42                                      // $1500
 	and #$7f                                     // $1502
 	cmp #$01                                     // $1504
@@ -612,9 +1810,9 @@
 	.byte $D0, $07                               // $150A  bne $1513
 	lda #$20                                     // $150C
 	sta $4d                                      // $150E
-	jsr $6135                                    // $1510
-	jsr $73da                                    // $1513
-	jsr $7a85                                    // $1516
+	jsr $615a                                    // $1510
+	jsr $75c0                                    // $1513
+	jsr $74c5                                    // $1516
 	jmp $1800                                    // $1519
 	cmp #$02                                     // $151C
 	.byte $D0, $1A                               // $151E  bne $153A
@@ -622,18 +1820,18 @@
 	.byte $D0, $0A                               // $1522  bne $152E
 	lda #$60                                     // $1524
 	sta $4d                                      // $1526
-	jsr $6b35                                    // $1528
-	jsr $7310                                    // $152B
-	jsr $73da                                    // $152E
-	jsr $7a85                                    // $1531
-	jsr $61a0                                    // $1534
+	jsr $6c20                                    // $1528
+	jsr $76f0                                    // $152B
+	jsr $75c0                                    // $152E
+	jsr $74c5                                    // $1531
+	jsr $61c5                                    // $1534
 	jmp $1800                                    // $1537
 	cmp #$04                                     // $153A
 	.byte $D0, $0D                               // $153C  bne $154B
 	lda #$05                                     // $153E
 	sta $44                                      // $1540
-	jsr $69ba                                    // $1542
-	jsr $7ce0                                    // $1545
+	jsr $6a90                                    // $1542
+	jsr $77f0                                    // $1545
 	jmp $1800                                    // $1548
 	cmp #$08                                     // $154B
 	.byte $D0, $4E                               // $154D  bne $159D
@@ -643,18 +1841,18 @@
 	lda $50                                      // $1555
 	cmp #$09                                     // $1557
 	.byte $F0, $03                               // $1559  beq $155E
-	jsr $76e0                                    // $155B
+	jsr $7ad0                                    // $155B
 	lda $51                                      // $155E
 	.byte $F0, $03                               // $1560  beq $1565
-	jsr $76a0                                    // $1562
+	jsr $7a90                                    // $1562
 	jmp $1594                                    // $1565
 	cmp #$07                                     // $1568
 	.byte $D0, $06                               // $156A  bne $1572
-	jsr $7567                                    // $156C
+	jsr $7947                                    // $156C
 	jmp $1579                                    // $156F
 	cmp #$0b                                     // $1572
 	.byte $D0, $15                               // $1574  bne $158B
-	jsr $75f4                                    // $1576
+	jsr $79d4                                    // $1576
 	lda $d002                                    // $1579  ; VIC_SP1X
 	cmp #$80                                     // $157C
 	.byte $90, $14                               // $157E  bcc $1594
@@ -667,8 +1865,8 @@
 	and #$7f                                     // $158D
 	sta $42                                      // $158F
 	jmp $1020                                    // $1591
-	jsr $7ac0                                    // $1594
-	jsr $68f9                                    // $1597
+	jsr $7c4a                                    // $1594
+	jsr $69a9                                    // $1597
 	jmp $1800                                    // $159A
 	cmp #$10                                     // $159D
 	.byte $D0, $29                               // $159F  bne $15CA
@@ -676,10 +1874,10 @@
 	.byte $D0, $10                               // $15A3  bne $15B5
 	lda #$20                                     // $15A5
 	sta $4d                                      // $15A7
-	jsr $6135                                    // $15A9
-	jsr $79a5                                    // $15AC
-	jsr $794a                                    // $15AF
-	jsr $79e0                                    // $15B2
+	jsr $615a                                    // $15A9
+	jsr $7e0f                                    // $15AC
+	jsr $7db0                                    // $15AF
+	jsr $7e4a                                    // $15B2
 	jmp $1800                                    // $15B5
 	jmp $1020                                    // $15B8
 	sta $d015                                    // $15BB  ; VIC_SPEN
@@ -688,47 +1886,72 @@
 	dec $54                                      // $15C2
 	jmp $1020                                    // $15C4
 	jmp $1800                                    // $15C7
-	cmp #$40                                     // $15CA
+	cmp #$20                                     // $15CA
 	.byte $D0, $35                               // $15CC  bne $1603
 	inc $52                                      // $15CE
 	.byte $D0, $20                               // $15D0  bne $15F2
 	lda #$00                                     // $15D2
 	sta $d02e                                    // $15D4
 	inc $53                                      // $15D7
-	lda $53                                      // $15D9
-	cmp #$80                                     // $15DB
-	.byte $D0, $03                               // $15DD  bne $15E2
-	jsr $7bd0                                    // $15DF
-	cmp #$00                                     // $15E2
+	.byte $D0, $17                               // $15D9  bne $15F2
+	jsr $1490                                    // $15DB
+	inc $54                                      // $15DE
+	lda $54                                      // $15E0
+	cmp #$02                                     // $15E2
 	.byte $D0, $0C                               // $15E4  bne $15F2
-	jsr $7c00                                    // $15E6
+	jsr $1700                                    // $15E6
 	lda $42                                      // $15E9
 	and #$7f                                     // $15EB
 	sta $43                                      // $15ED
 	jmp $1800                                    // $15EF
-	jsr $6cf5                                    // $15F2
+	jsr $6e88                                    // $15F2
 	lda #$81                                     // $15F5
 	sta $d404                                    // $15F7  ; SID_CR1
 	sta $d412                                    // $15FA
-	jsr $7a45                                    // $15FD
+	jsr $7eb0                                    // $15FD
 	jmp $1020                                    // $1600
-	cmp #$20                                     // $1603
-	.byte $D0, $25                               // $1605  bne $162C
-	lda $52                                      // $1607
-	.byte $F0, $06                               // $1609  beq $1611
-	jsr $7e10                                    // $160B
-	jmp $161e                                    // $160E
-	jsr $7dc0                                    // $1611
-	jsr $7ec5                                    // $1614
-	lda $55                                      // $1617
-	.byte $D0, $06                               // $1619  bne $1621
-	jsr $7e72                                    // $161B
-	jmp $1020                                    // $161E
-	lda $dc04                                    // $1621
-	.byte $D0, $03                               // $1624  bne $1629
-	jsr $7e2c                                    // $1626
-	jmp $1020                                    // $1629
-	jmp $1020                                    // $162C
+	jmp $1020                                    // $1603
+	nop                                          // $1606
+	nop                                          // $1607
+	nop                                          // $1608
+	nop                                          // $1609
+	nop                                          // $160A
+	nop                                          // $160B
+	nop                                          // $160C
+	nop                                          // $160D
+	nop                                          // $160E
+	nop                                          // $160F
+	nop                                          // $1610
+	nop                                          // $1611
+	nop                                          // $1612
+	nop                                          // $1613
+	nop                                          // $1614
+	nop                                          // $1615
+	nop                                          // $1616
+	nop                                          // $1617
+	nop                                          // $1618
+	nop                                          // $1619
+	nop                                          // $161A
+	nop                                          // $161B
+	nop                                          // $161C
+	nop                                          // $161D
+	nop                                          // $161E
+	nop                                          // $161F
+	nop                                          // $1620
+	nop                                          // $1621
+	nop                                          // $1622
+	nop                                          // $1623
+	nop                                          // $1624
+	nop                                          // $1625
+	nop                                          // $1626
+	nop                                          // $1627
+	nop                                          // $1628
+	nop                                          // $1629
+	nop                                          // $162A
+	nop                                          // $162B
+	nop                                          // $162C
+	nop                                          // $162D
+	nop                                          // $162E
 	nop                                          // $162F
 	nop                                          // $1630
 	nop                                          // $1631
@@ -778,17 +2001,31 @@
 	nop                                          // $165D
 	nop                                          // $165E
 	nop                                          // $165F
-	lda #$ff                                     // $1660
-	sta $46                                      // $1662
-	ldx #$0e                                     // $1664
-	lda $d020,x                                  // $1666  ; VIC_BORDER
-	sta $5fb0,x                                  // $1669
-	dex                                          // $166C
-	.byte $10, $F7                               // $166D  bpl $1666
-	lda $d010                                    // $166F  ; VIC_SPXMSB
-	sta $5fbf                                    // $1672
-	dec $5f                                      // $1675
-	.byte $F0, $0B                               // $1677  beq $1684
+	nop                                          // $1660
+	nop                                          // $1661
+	nop                                          // $1662
+	nop                                          // $1663
+	nop                                          // $1664
+	nop                                          // $1665
+	nop                                          // $1666
+	nop                                          // $1667
+	nop                                          // $1668
+	nop                                          // $1669
+	nop                                          // $166A
+	nop                                          // $166B
+	nop                                          // $166C
+	nop                                          // $166D
+	nop                                          // $166E
+	nop                                          // $166F
+	nop                                          // $1670
+	nop                                          // $1671
+	nop                                          // $1672
+	nop                                          // $1673
+	nop                                          // $1674
+	nop                                          // $1675
+	nop                                          // $1676
+	nop                                          // $1677
+	nop                                          // $1678
 	nop                                          // $1679
 	nop                                          // $167A
 	nop                                          // $167B
@@ -797,169 +2034,229 @@
 	nop                                          // $167E
 	nop                                          // $167F
 	nop                                          // $1680
-	jmp $1759                                    // $1681
-	ldx #$07                                     // $1684
-	lda #$00                                     // $1686
-	sta $50,x                                    // $1688
-	lda #$10                                     // $168A
-	sta $60,x                                    // $168C
-	dex                                          // $168E
-	.byte $10, $F5                               // $168F  bpl $1686
-	lda $5e                                      // $1691
-	sta $41                                      // $1693
-	lda #$93                                     // $1695
-	jsr $ffd2                                    // $1697
-	lda #$00                                     // $169A
-	sta $2a                                      // $169C
-	sta $2b                                      // $169E
-	sta $2c                                      // $16A0
-	sta $2d                                      // $16A2
-	sta $d015                                    // $16A4  ; VIC_SPEN
-	sta $d021                                    // $16A7  ; VIC_BG0
-	sta $d022                                    // $16AA
-	sta $d023                                    // $16AD
-	sta $33                                      // $16B0
-	lda #$21                                     // $16B2
-	sta $d404                                    // $16B4  ; SID_CR1
-	sta $d40b                                    // $16B7
-	lda #$41                                     // $16BA
-	sta $d412                                    // $16BC
-	lda #$e0                                     // $16BF
-	sta $34                                      // $16C1
-	lda #$50                                     // $16C3
-	sta $35                                      // $16C5
-	lda #$5a                                     // $16C7
-	sta $58                                      // $16C9
-	sta $5a                                      // $16CB
-	lda #$04                                     // $16CD
-	sta $59                                      // $16CF
-	lda #$d8                                     // $16D1
-	sta $5b                                      // $16D3
-	lda #$5f                                     // $16D5
-	sta $5c                                      // $16D7
-	lda #$13                                     // $16D9
-	sta $5d                                      // $16DB
-	lda #$09                                     // $16DD
-	sta $45                                      // $16DF
-	jsr $7110                                    // $16E1
-	lda #$08                                     // $16E4
-	sta $36                                      // $16E6
-	lda #$04                                     // $16E8
-	sta $50                                      // $16EA
-	dec $53                                      // $16EC
-	.byte $D0, $14                               // $16EE  bne $1704
-	dec $52                                      // $16F0
-	.byte $D0, $10                               // $16F2  bne $1704
-	lda #$12                                     // $16F4
-	sta $52                                      // $16F6
-	jsr $6f5c                                    // $16F8
-	lda $50                                      // $16FB
-	.byte $D0, $05                               // $16FD  bne $1704
-	lda #$f0                                     // $16FF
-	sta $d015                                    // $1701  ; VIC_SPEN
-	lda $33                                      // $1704
-	cmp #$64                                     // $1706
-	.byte $D0, $E2                               // $1708  bne $16EC
-	lda #$93                                     // $170A
-	jsr $ffd2                                    // $170C
-	lda #$00                                     // $170F
-	sta $d418                                    // $1711  ; SID_FMODE
-	lda $d018                                    // $1714  ; VIC_MEMCFG
-	and #$f0                                     // $1717
-	ora #$04                                     // $1719
-	sta $d018                                    // $171B  ; VIC_MEMCFG
-	ldx #$3f                                     // $171E
-	lda $5cf0,x                                  // $1720
-	jsr $ffd2                                    // $1723
-	dex                                          // $1726
-	.byte $10, $F7                               // $1727  bpl $1720
-	jsr $ffea                                    // $1729
-	jsr $ffe1                                    // $172C
-	.byte $D0, $03                               // $172F  bne $1734
-	jmp $1a00                                    // $1731
-	lda $dc00                                    // $1734  ; CIA1_PRA
-	and #$1f                                     // $1737
-	eor #$1f                                     // $1739
-	.byte $F0, $EC                               // $173B  beq $1729
-	ldx #$07                                     // $173D
-	lda #$00                                     // $173F
-	sta $50,x                                    // $1741
-	nop                                          // $1743
-	nop                                          // $1744
-	dex                                          // $1745
-	.byte $10, $F9                               // $1746  bpl $1741
-	lda #$32                                     // $1748
-	sta $27                                      // $174A
-	lda #$03                                     // $174C
-	sta $5f                                      // $174E
-	jsr $6020                                    // $1750
-	jsr $6090                                    // $1753
-	jmp $177a                                    // $1756
-	lda $27                                      // $1759
-	cmp #$28                                     // $175B
-	.byte $B0, $0F                               // $175D  bcs $176E
-	cmp #$1e                                     // $175F
-	.byte $B0, $0E                               // $1761  bcs $1771
-	cmp #$14                                     // $1763
-	.byte $B0, $0D                               // $1765  bcs $1774
-	cmp #$0a                                     // $1767
-	.byte $B0, $0C                               // $1769  bcs $1777
-	jmp $177a                                    // $176B
-	jsr $14c4                                    // $176E
-	jsr $14cf                                    // $1771
-	jsr $14da                                    // $1774
-	jsr $14e5                                    // $1777
-	lda #$0c                                     // $177A
-	sta $36                                      // $177C
-	lda #$00                                     // $177E
-	sta $33                                      // $1780
-	sta $30                                      // $1782
-	sta $34                                      // $1784
-	lda #$58                                     // $1786
-	sta $31                                      // $1788
-	sta $35                                      // $178A
-	lda #$00                                     // $178C
-	sta $42                                      // $178E
-	sta $43                                      // $1790
-	sta $24                                      // $1792
-	lda #$01                                     // $1794
-	sta $26                                      // $1796
-	ldx #$07                                     // $1798
-	lda #$00                                     // $179A
-	sta $50,x                                    // $179C
-	dex                                          // $179E
-	.byte $10, $FB                               // $179F  bpl $179C
-	lda #$0a                                     // $17A1
-	sta $16                                      // $17A3
-	lda #$28                                     // $17A5
-	sta $1b                                      // $17A7
-	lda #$f0                                     // $17A9
-	sta $d015                                    // $17AB  ; VIC_SPEN
-	lda #$41                                     // $17AE
-	sta $d412                                    // $17B0
-	lda #$0f                                     // $17B3
-	sta $d418                                    // $17B5  ; SID_FMODE
-	lda $4e                                      // $17B8
-	cmp #$40                                     // $17BA
-	.byte $D0, $03                               // $17BC  bne $17C1
-	jmp $1a00                                    // $17BE
-	lda #$04                                     // $17C1
-	sta $46                                      // $17C3
-	ldx #$0e                                     // $17C5
-	lda $5fb0,x                                  // $17C7
-	sta $d020,x                                  // $17CA  ; VIC_BORDER
-	dex                                          // $17CD
-	.byte $10, $F7                               // $17CE  bpl $17C7
-	lda $5fbf                                    // $17D0
-	sta $d010                                    // $17D3  ; VIC_SPXMSB
-	ldx #$ff                                     // $17D6
-	ldy #$ff                                     // $17D8
-	dey                                          // $17DA
-	.byte $D0, $FD                               // $17DB  bne $17DA
-	dey                                          // $17DD
-	.byte $D0, $FD                               // $17DE  bne $17DD
-	dex                                          // $17E0
-	.byte $D0, $F5                               // $17E1  bne $17D8
+	nop                                          // $1681
+	nop                                          // $1682
+	nop                                          // $1683
+	nop                                          // $1684
+	nop                                          // $1685
+	nop                                          // $1686
+	nop                                          // $1687
+	nop                                          // $1688
+	nop                                          // $1689
+	nop                                          // $168A
+	nop                                          // $168B
+	nop                                          // $168C
+	nop                                          // $168D
+	nop                                          // $168E
+	nop                                          // $168F
+	nop                                          // $1690
+	nop                                          // $1691
+	nop                                          // $1692
+	nop                                          // $1693
+	nop                                          // $1694
+	nop                                          // $1695
+	nop                                          // $1696
+	nop                                          // $1697
+	nop                                          // $1698
+	nop                                          // $1699
+	nop                                          // $169A
+	nop                                          // $169B
+	nop                                          // $169C
+	nop                                          // $169D
+	nop                                          // $169E
+	nop                                          // $169F
+	nop                                          // $16A0
+	nop                                          // $16A1
+	nop                                          // $16A2
+	nop                                          // $16A3
+	nop                                          // $16A4
+	nop                                          // $16A5
+	nop                                          // $16A6
+	nop                                          // $16A7
+	nop                                          // $16A8
+	nop                                          // $16A9
+	nop                                          // $16AA
+	nop                                          // $16AB
+	nop                                          // $16AC
+	nop                                          // $16AD
+	nop                                          // $16AE
+	nop                                          // $16AF
+	nop                                          // $16B0
+	nop                                          // $16B1
+	nop                                          // $16B2
+	nop                                          // $16B3
+	nop                                          // $16B4
+	nop                                          // $16B5
+	nop                                          // $16B6
+	nop                                          // $16B7
+	nop                                          // $16B8
+	nop                                          // $16B9
+	nop                                          // $16BA
+	nop                                          // $16BB
+	nop                                          // $16BC
+	nop                                          // $16BD
+	nop                                          // $16BE
+	nop                                          // $16BF
+	nop                                          // $16C0
+	nop                                          // $16C1
+	nop                                          // $16C2
+	nop                                          // $16C3
+	nop                                          // $16C4
+	nop                                          // $16C5
+	nop                                          // $16C6
+	nop                                          // $16C7
+	nop                                          // $16C8
+	nop                                          // $16C9
+	nop                                          // $16CA
+	nop                                          // $16CB
+	nop                                          // $16CC
+	nop                                          // $16CD
+	nop                                          // $16CE
+	nop                                          // $16CF
+	nop                                          // $16D0
+	nop                                          // $16D1
+	nop                                          // $16D2
+	nop                                          // $16D3
+	nop                                          // $16D4
+	nop                                          // $16D5
+	nop                                          // $16D6
+	nop                                          // $16D7
+	nop                                          // $16D8
+	nop                                          // $16D9
+	nop                                          // $16DA
+	nop                                          // $16DB
+	nop                                          // $16DC
+	nop                                          // $16DD
+	nop                                          // $16DE
+	nop                                          // $16DF
+	nop                                          // $16E0
+	nop                                          // $16E1
+	nop                                          // $16E2
+	nop                                          // $16E3
+	nop                                          // $16E4
+	nop                                          // $16E5
+	nop                                          // $16E6
+	nop                                          // $16E7
+	nop                                          // $16E8
+	nop                                          // $16E9
+	nop                                          // $16EA
+	nop                                          // $16EB
+	nop                                          // $16EC
+	nop                                          // $16ED
+	nop                                          // $16EE
+	nop                                          // $16EF
+	nop                                          // $16F0
+	nop                                          // $16F1
+	nop                                          // $16F2
+	nop                                          // $16F3
+	nop                                          // $16F4
+	nop                                          // $16F5
+	nop                                          // $16F6
+	nop                                          // $16F7
+	nop                                          // $16F8
+	nop                                          // $16F9
+	nop                                          // $16FA
+	nop                                          // $16FB
+	nop                                          // $16FC
+	nop                                          // $16FD
+	nop                                          // $16FE
+	nop                                          // $16FF
+	lda #$00                                     // $1700
+	sta $d015                                    // $1702  ; VIC_SPEN
+	sta $d01b                                    // $1705  ; VIC_SPPRI
+	sta $d001                                    // $1708  ; VIC_SP0Y
+	sta $d003                                    // $170B  ; VIC_SP1Y
+	sta $d005                                    // $170E
+	sta $d007                                    // $1711
+	sta $d009                                    // $1714
+	sta $d00b                                    // $1717
+	sta $d00d                                    // $171A
+	sta $d00f                                    // $171D
+	lda #$98                                     // $1720
+	sta $07f8                                    // $1722
+	lda #$99                                     // $1725
+	sta $07f9                                    // $1727
+	lda #$9a                                     // $172A
+	sta $07fa                                    // $172C
+	lda #$9b                                     // $172F
+	sta $07fb                                    // $1731
+	lda #$9c                                     // $1734
+	sta $07fc                                    // $1736
+	lda #$9d                                     // $1739
+	sta $07fd                                    // $173B
+	lda #$9e                                     // $173E
+	sta $07fe                                    // $1740
+	lda #$9f                                     // $1743
+	sta $07ff                                    // $1745
+	lda #$60                                     // $1748
+	sta $d000                                    // $174A  ; VIC_SP0X
+	sta $d006                                    // $174D
+	lda #$90                                     // $1750
+	sta $d002                                    // $1752  ; VIC_SP1X
+	sta $d008                                    // $1755
+	lda #$c0                                     // $1758
+	sta $d004                                    // $175A
+	sta $d00a                                    // $175D
+	lda #$78                                     // $1760
+	sta $d00c                                    // $1762
+	lda #$a8                                     // $1765
+	sta $d00e                                    // $1767
+	lda #$0b                                     // $176A
+	sta $d026                                    // $176C  ; VIC_SPMCOL1
+	lda #$07                                     // $176F
+	sta $d025                                    // $1771  ; VIC_SPMCOL0
+	ldx #$07                                     // $1774
+	lda #$02                                     // $1776
+	sta $d027,x                                  // $1778
+	dex                                          // $177B
+	.byte $10, $FA                               // $177C  bpl $1778
+	lda #$ff                                     // $177E
+	sta $d017                                    // $1780  ; VIC_SPYEXP
+	sta $d01d                                    // $1783  ; VIC_SPXEXP
+	sta $d01c                                    // $1786  ; VIC_SPMCOL
+	lda #$00                                     // $1789
+	sta $d010                                    // $178B  ; VIC_SPXMSB
+	rts                                          // $178E
+	nop                                          // $178F
+	lda #$c0                                     // $1790
+	sta $d015                                    // $1792  ; VIC_SPEN
+	inc $d00d                                    // $1795
+	inc $d00f                                    // $1798
+	lda $d00d                                    // $179B
+	cmp #$2b                                     // $179E
+	.byte $D0, $02                               // $17A0  bne $17A4
+	inc $50                                      // $17A2
+	lda $50                                      // $17A4
+	.byte $F0, $32                               // $17A6  beq $17DA
+	lda #$f8                                     // $17A8
+	sta $d015                                    // $17AA  ; VIC_SPEN
+	inc $d007                                    // $17AD
+	inc $d009                                    // $17B0
+	inc $d00b                                    // $17B3
+	lda $d007                                    // $17B6
+	cmp #$29                                     // $17B9
+	.byte $D0, $02                               // $17BB  bne $17BF
+	inc $51                                      // $17BD
+	lda $51                                      // $17BF
+	.byte $F0, $17                               // $17C1  beq $17DA
+	lda #$ff                                     // $17C3
+	sta $d015                                    // $17C5  ; VIC_SPEN
+	inc $d001                                    // $17C8  ; VIC_SP0Y
+	inc $d003                                    // $17CB  ; VIC_SP1Y
+	inc $d005                                    // $17CE
+	lda $d00d                                    // $17D1
+	cmp #$88                                     // $17D4
+	.byte $90, $02                               // $17D6  bcc $17DA
+	inc $52                                      // $17D8
+	rts                                          // $17DA
+	nop                                          // $17DB
+	nop                                          // $17DC
+	nop                                          // $17DD
+	nop                                          // $17DE
+	nop                                          // $17DF
+	nop                                          // $17E0
+	nop                                          // $17E1
+	nop                                          // $17E2
 	nop                                          // $17E3
 	nop                                          // $17E4
 	nop                                          // $17E5
@@ -968,10 +2265,17 @@
 	nop                                          // $17E8
 	nop                                          // $17E9
 	nop                                          // $17EA
-	lda #$01                                     // $17EB
-	sta $07d1                                    // $17ED
-	sta $07d6                                    // $17F0
-	jmp $100c                                    // $17F3
+	nop                                          // $17EB
+	nop                                          // $17EC
+	nop                                          // $17ED
+	nop                                          // $17EE
+	nop                                          // $17EF
+	nop                                          // $17F0
+	nop                                          // $17F1
+	nop                                          // $17F2
+	nop                                          // $17F3
+	nop                                          // $17F4
+	nop                                          // $17F5
 	nop                                          // $17F6
 	nop                                          // $17F7
 	nop                                          // $17F8
@@ -989,10 +2293,10 @@
 	jmp $1b00                                    // $1809
 	cmp #$01                                     // $180C
 	.byte $D0, $03                               // $180E  bne $1813
-	jmp $7075                                    // $1810
+	jmp $7380                                    // $1810
 	cmp #$02                                     // $1813
 	.byte $D0, $03                               // $1815  bne $181A
-	jmp $7075                                    // $1817
+	jmp $7380                                    // $1817
 	cmp #$08                                     // $181A
 	.byte $D0, $5B                               // $181C  bne $1879
 	lda #$81                                     // $181E
@@ -1008,20 +2312,20 @@
 	lda $d01c                                    // $1837  ; VIC_SPMCOL
 	and #$f6                                     // $183A
 	sta $d01c                                    // $183C  ; VIC_SPMCOL
-	jsr $6c40                                    // $183F
+	jsr $6d90                                    // $183F
 	ldx #$1f                                     // $1842
 	ldy #$ff                                     // $1844
 	dey                                          // $1846
 	.byte $D0, $FD                               // $1847  bne $1846
 	dex                                          // $1849
 	.byte $D0, $F8                               // $184A  bne $1844
-	jsr $7f85                                    // $184C
+	jsr $7190                                    // $184C
 	lda $51                                      // $184F
 	cmp #$08                                     // $1851
 	.byte $D0, $EA                               // $1853  bne $183F
-	jsr $6c2a                                    // $1855
-	jsr $61a0                                    // $1858
-	jsr $7f85                                    // $185B
+	jsr $6d50                                    // $1855
+	jsr $61c5                                    // $1858
+	jsr $7190                                    // $185B
 	ldx #$2f                                     // $185E
 	ldy #$ff                                     // $1860
 	dey                                          // $1862
@@ -1047,7 +2351,7 @@
 	sta $35                                      // $188B
 	sta $31                                      // $188D
 	jsr $6090                                    // $188F
-	jsr $7f60                                    // $1892
+	jsr $6f80                                    // $1892
 	lda $37                                      // $1895
 	asl                                          // $1897
 	tax                                          // $1898
@@ -1063,10 +2367,10 @@
 	jsr $18bd                                    // $18AF
 	inc $50                                      // $18B2
 	lda $50                                      // $18B4
-	cmp #$30                                     // $18B6
+	cmp #$50                                     // $18B6
 	.byte $D0, $DB                               // $18B8  bne $1895
-	jmp $70fe                                    // $18BA
-	ldx #$2f                                     // $18BD
+	jmp $740f                                    // $18BA
+	ldx #$0f                                     // $18BD
 	ldy #$ff                                     // $18BF
 	dey                                          // $18C1
 	.byte $D0, $FD                               // $18C2  bne $18C1
@@ -1081,7 +2385,7 @@
 	sta $d412                                    // $18D5
 	lda #$00                                     // $18D8
 	sta $d006                                    // $18DA
-	jmp $70fe                                    // $18DD
+	jmp $740f                                    // $18DD
 	cmp #$10                                     // $18E0
 	.byte $D0, $13                               // $18E2  bne $18F7
 	lda $d017                                    // $18E4  ; VIC_SPYEXP
@@ -1090,8 +2394,8 @@
 	lda $d01d                                    // $18EC  ; VIC_SPXEXP
 	and #$f3                                     // $18EF
 	sta $d01d                                    // $18F1  ; VIC_SPXEXP
-	jmp $7075                                    // $18F4
-	cmp #$40                                     // $18F7
+	jmp $7380                                    // $18F4
+	cmp #$20                                     // $18F7
 	.byte $D0, $5B                               // $18F9  bne $1956
 	lda #$00                                     // $18FB
 	sta $50                                      // $18FD
@@ -1108,7 +2412,7 @@
 	sta $d404                                    // $1913  ; SID_CR1
 	sta $d40b                                    // $1916
 	sta $d412                                    // $1919
-	jsr $7c90                                    // $191C
+	jsr $1790                                    // $191C
 	lda $52                                      // $191F
 	.byte $D0, $15                               // $1921  bne $1938
 	ldx #$10                                     // $1923
@@ -1134,85 +2438,164 @@
 	sta $d412                                    // $194C
 	lda #$01                                     // $194F
 	sta $5f                                      // $1951
-	jmp $1660                                    // $1953
-	cmp #$20                                     // $1956
-	.byte $F0, $03                               // $1958  beq $195D
-	jmp $1020                                    // $195A
-	lda #$81                                     // $195D
-	sta $d412                                    // $195F
-	ldx #$06                                     // $1962
-	lda $5e30,x                                  // $1964
-	sta $30,x                                    // $1967
-	dex                                          // $1969
-	.byte $10, $F8                               // $196A  bpl $1964
-	lda #$a2                                     // $196C
-	sta $d002                                    // $196E  ; VIC_SP1X
+	jmp $2200                                    // $1953
+	jmp $1020                                    // $1956
+	nop                                          // $1959
+	nop                                          // $195A
+	nop                                          // $195B
+	nop                                          // $195C
+	nop                                          // $195D
+	nop                                          // $195E
+	nop                                          // $195F
+	nop                                          // $1960
+	nop                                          // $1961
+	nop                                          // $1962
+	nop                                          // $1963
+	nop                                          // $1964
+	nop                                          // $1965
+	nop                                          // $1966
+	nop                                          // $1967
+	nop                                          // $1968
+	nop                                          // $1969
+	nop                                          // $196A
+	nop                                          // $196B
+	nop                                          // $196C
+	nop                                          // $196D
+	nop                                          // $196E
+	nop                                          // $196F
+	nop                                          // $1970
 	nop                                          // $1971
-	lda #$01                                     // $1972
-	ldx #$03                                     // $1974
-	sta $06ba,x                                  // $1976
-	dex                                          // $1979
-	.byte $10, $FA                               // $197A  bpl $1976
-	ldx #$03                                     // $197C
-	sta $06e2,x                                  // $197E
-	dex                                          // $1981
-	.byte $10, $FA                               // $1982  bpl $197E
-	ldx #$03                                     // $1984
-	sta $070a,x                                  // $1986
-	dex                                          // $1989
-	.byte $10, $FA                               // $198A  bpl $1986
-	inc $d003                                    // $198C  ; VIC_SP1Y
-	lda $d003                                    // $198F  ; VIC_SP1Y
-	cmp #$dc                                     // $1992
-	.byte $90, $0D                               // $1994  bcc $19A3
-	ldx #$03                                     // $1996
-	lda #$01                                     // $1998
-	sta $07aa,x                                  // $199A
-	dex                                          // $199D
-	.byte $10, $FA                               // $199E  bpl $199A
-	jmp $19e3                                    // $19A0
-	cmp #$d4                                     // $19A3
-	.byte $90, $0D                               // $19A5  bcc $19B4
-	ldx #$03                                     // $19A7
-	lda #$01                                     // $19A9
-	sta $0782,x                                  // $19AB
-	dex                                          // $19AE
-	.byte $10, $FA                               // $19AF  bpl $19AB
-	jmp $19d6                                    // $19B1
-	cmp #$cc                                     // $19B4
-	.byte $90, $0D                               // $19B6  bcc $19C5
-	ldx #$03                                     // $19B8
-	lda #$01                                     // $19BA
-	sta $075a,x                                  // $19BC
-	dex                                          // $19BF
-	.byte $10, $FA                               // $19C0  bpl $19BC
-	jmp $19d6                                    // $19C2
-	cmp #$c4                                     // $19C5
-	.byte $90, $0D                               // $19C7  bcc $19D6
-	ldx #$03                                     // $19C9
-	lda #$01                                     // $19CB
-	sta $0732,x                                  // $19CD
-	dex                                          // $19D0
-	.byte $10, $FA                               // $19D1  bpl $19CD
+	nop                                          // $1972
+	nop                                          // $1973
+	nop                                          // $1974
+	nop                                          // $1975
+	nop                                          // $1976
+	nop                                          // $1977
+	nop                                          // $1978
+	nop                                          // $1979
+	nop                                          // $197A
+	nop                                          // $197B
+	nop                                          // $197C
+	nop                                          // $197D
+	nop                                          // $197E
+	nop                                          // $197F
+	nop                                          // $1980
+	nop                                          // $1981
+	nop                                          // $1982
+	nop                                          // $1983
+	nop                                          // $1984
+	nop                                          // $1985
+	nop                                          // $1986
+	nop                                          // $1987
+	nop                                          // $1988
+	nop                                          // $1989
+	nop                                          // $198A
+	nop                                          // $198B
+	nop                                          // $198C
+	nop                                          // $198D
+	nop                                          // $198E
+	nop                                          // $198F
+	nop                                          // $1990
+	nop                                          // $1991
+	nop                                          // $1992
+	nop                                          // $1993
+	nop                                          // $1994
+	nop                                          // $1995
+	nop                                          // $1996
+	nop                                          // $1997
+	nop                                          // $1998
+	nop                                          // $1999
+	nop                                          // $199A
+	nop                                          // $199B
+	nop                                          // $199C
+	nop                                          // $199D
+	nop                                          // $199E
+	nop                                          // $199F
+	nop                                          // $19A0
+	nop                                          // $19A1
+	nop                                          // $19A2
+	nop                                          // $19A3
+	nop                                          // $19A4
+	nop                                          // $19A5
+	nop                                          // $19A6
+	nop                                          // $19A7
+	nop                                          // $19A8
+	nop                                          // $19A9
+	nop                                          // $19AA
+	nop                                          // $19AB
+	nop                                          // $19AC
+	nop                                          // $19AD
+	nop                                          // $19AE
+	nop                                          // $19AF
+	nop                                          // $19B0
+	nop                                          // $19B1
+	nop                                          // $19B2
+	nop                                          // $19B3
+	nop                                          // $19B4
+	nop                                          // $19B5
+	nop                                          // $19B6
+	nop                                          // $19B7
+	nop                                          // $19B8
+	nop                                          // $19B9
+	nop                                          // $19BA
+	nop                                          // $19BB
+	nop                                          // $19BC
+	nop                                          // $19BD
+	nop                                          // $19BE
+	nop                                          // $19BF
+	nop                                          // $19C0
+	nop                                          // $19C1
+	nop                                          // $19C2
+	nop                                          // $19C3
+	nop                                          // $19C4
+	nop                                          // $19C5
+	nop                                          // $19C6
+	nop                                          // $19C7
+	nop                                          // $19C8
+	nop                                          // $19C9
+	nop                                          // $19CA
+	nop                                          // $19CB
+	nop                                          // $19CC
+	nop                                          // $19CD
+	nop                                          // $19CE
+	nop                                          // $19CF
+	nop                                          // $19D0
+	nop                                          // $19D1
+	nop                                          // $19D2
 	nop                                          // $19D3
 	nop                                          // $19D4
 	nop                                          // $19D5
-	ldx #$4f                                     // $19D6
-	ldy #$ff                                     // $19D8
-	dey                                          // $19DA
-	.byte $D0, $FD                               // $19DB  bne $19DA
-	dex                                          // $19DD
-	.byte $D0, $F8                               // $19DE  bne $19D8
-	jmp $198c                                    // $19E0
-	ldx #$ff                                     // $19E3
-	ldy #$ff                                     // $19E5
-	dey                                          // $19E7
-	.byte $D0, $FD                               // $19E8  bne $19E7
-	dex                                          // $19EA
-	.byte $D0, $F8                               // $19EB  bne $19E5
-	lda #$70                                     // $19ED
-	sta $d003                                    // $19EF  ; VIC_SP1Y
-	jmp $1660                                    // $19F2
+	nop                                          // $19D6
+	nop                                          // $19D7
+	nop                                          // $19D8
+	nop                                          // $19D9
+	nop                                          // $19DA
+	nop                                          // $19DB
+	nop                                          // $19DC
+	nop                                          // $19DD
+	nop                                          // $19DE
+	nop                                          // $19DF
+	nop                                          // $19E0
+	nop                                          // $19E1
+	nop                                          // $19E2
+	nop                                          // $19E3
+	nop                                          // $19E4
+	nop                                          // $19E5
+	nop                                          // $19E6
+	nop                                          // $19E7
+	nop                                          // $19E8
+	nop                                          // $19E9
+	nop                                          // $19EA
+	nop                                          // $19EB
+	nop                                          // $19EC
+	nop                                          // $19ED
+	nop                                          // $19EE
+	nop                                          // $19EF
+	nop                                          // $19F0
+	nop                                          // $19F1
+	nop                                          // $19F2
+	nop                                          // $19F3
+	nop                                          // $19F4
 	nop                                          // $19F5
 	nop                                          // $19F6
 	nop                                          // $19F7
@@ -1224,85 +2607,189 @@
 	nop                                          // $19FD
 	nop                                          // $19FE
 	nop                                          // $19FF
-	lda #$93                                     // $1A00
-	jsr $ffd2                                    // $1A02
-	lda #$05                                     // $1A05
-	jsr $ffd2                                    // $1A07
-	lda #$00                                     // $1A0A
-	sta $d020                                    // $1A0C  ; VIC_BORDER
-	sta $d021                                    // $1A0F  ; VIC_BG0
-	lda $d018                                    // $1A12  ; VIC_MEMCFG
-	and #$f0                                     // $1A15
-	ora #$04                                     // $1A17
-	sta $d018                                    // $1A19  ; VIC_MEMCFG
-	lda #$00                                     // $1A1C
-	sta $d015                                    // $1A1E  ; VIC_SPEN
-	sta $d418                                    // $1A21  ; SID_FMODE
-	ldx #$28                                     // $1A24
-	lda #$00                                     // $1A26
-	sta $d400,x                                  // $1A28  ; SID_FR1LO
-	dex                                          // $1A2B
-	.byte $10, $FA                               // $1A2C  bpl $1A28
-	lda #$00                                     // $1A2E
-	sta $d010                                    // $1A30  ; VIC_SPXMSB
-	sta $d017                                    // $1A33  ; VIC_SPYEXP
-	sta $d01d                                    // $1A36  ; VIC_SPXEXP
-	sta $d01c                                    // $1A39  ; VIC_SPMCOL
-	sta $d01b                                    // $1A3C  ; VIC_SPPRI
-	lda #$00                                     // $1A3F
-	sta $d01a                                    // $1A41  ; VIC_IRQEN
-	lda #$31                                     // $1A44
-	sta $0314                                    // $1A46
-	lda #$ea                                     // $1A49
-	sta $0315                                    // $1A4B
-	ldx #$00                                     // $1A4E
-	lda $5a20,x                                  // $1A50
-	jsr $ffd2                                    // $1A53
-	inx                                          // $1A56
-	.byte $D0, $F7                               // $1A57  bne $1A50
-	lda $5b20,x                                  // $1A59
-	jsr $ffd2                                    // $1A5C
-	inx                                          // $1A5F
-	cpx #$20                                     // $1A60
-	.byte $D0, $F5                               // $1A62  bne $1A59
-	jsr $ffe4                                    // $1A64
-	cmp #$85                                     // $1A67
-	.byte $D0, $05                               // $1A69  bne $1A70
-	ldy #$00                                     // $1A6B
-	jmp $1a88                                    // $1A6D
-	cmp #$86                                     // $1A70
-	.byte $D0, $05                               // $1A72  bne $1A79
-	ldy #$08                                     // $1A74
-	jmp $1a88                                    // $1A76
-	cmp #$87                                     // $1A79
-	.byte $D0, $05                               // $1A7B  bne $1A82
-	ldy #$10                                     // $1A7D
-	jmp $1a88                                    // $1A7F
-	cmp #$88                                     // $1A82
-	.byte $D0, $DE                               // $1A84  bne $1A64
-	ldy #$18                                     // $1A86
-	ldx #$00                                     // $1A88
-	lda $5b40,y                                  // $1A8A
-	sta $68,x                                    // $1A8D
-	iny                                          // $1A8F
-	inx                                          // $1A90
-	cpx #$08                                     // $1A91
-	.byte $D0, $F5                               // $1A93  bne $1A8A
-	ldx #$00                                     // $1A95
-	lda $5b60,x                                  // $1A97
-	jsr $ffd2                                    // $1A9A
-	inx                                          // $1A9D
-	cpx #$12                                     // $1A9E
-	.byte $D0, $F5                               // $1AA0  bne $1A97
-	jsr $ffea                                    // $1AA2
-	jsr $ffe1                                    // $1AA5
-	.byte $D0, $01                               // $1AA8  bne $1AAB
-	brk                                          // $1AAA
-	lda $dc00                                    // $1AAB  ; CIA1_PRA
-	and #$1f                                     // $1AAE
-	eor #$1f                                     // $1AB0
-	.byte $F0, $EE                               // $1AB2  beq $1AA2
-	jmp $1000                                    // $1AB4
+	nop                                          // $1A00
+	nop                                          // $1A01
+	nop                                          // $1A02
+	nop                                          // $1A03
+	nop                                          // $1A04
+	nop                                          // $1A05
+	nop                                          // $1A06
+	nop                                          // $1A07
+	nop                                          // $1A08
+	nop                                          // $1A09
+	nop                                          // $1A0A
+	nop                                          // $1A0B
+	nop                                          // $1A0C
+	nop                                          // $1A0D
+	nop                                          // $1A0E
+	nop                                          // $1A0F
+	nop                                          // $1A10
+	nop                                          // $1A11
+	nop                                          // $1A12
+	nop                                          // $1A13
+	nop                                          // $1A14
+	nop                                          // $1A15
+	nop                                          // $1A16
+	nop                                          // $1A17
+	nop                                          // $1A18
+	nop                                          // $1A19
+	nop                                          // $1A1A
+	nop                                          // $1A1B
+	nop                                          // $1A1C
+	nop                                          // $1A1D
+	nop                                          // $1A1E
+	nop                                          // $1A1F
+	nop                                          // $1A20
+	nop                                          // $1A21
+	nop                                          // $1A22
+	nop                                          // $1A23
+	nop                                          // $1A24
+	nop                                          // $1A25
+	nop                                          // $1A26
+	nop                                          // $1A27
+	nop                                          // $1A28
+	nop                                          // $1A29
+	nop                                          // $1A2A
+	nop                                          // $1A2B
+	nop                                          // $1A2C
+	nop                                          // $1A2D
+	nop                                          // $1A2E
+	nop                                          // $1A2F
+	nop                                          // $1A30
+	nop                                          // $1A31
+	nop                                          // $1A32
+	nop                                          // $1A33
+	nop                                          // $1A34
+	nop                                          // $1A35
+	nop                                          // $1A36
+	nop                                          // $1A37
+	nop                                          // $1A38
+	nop                                          // $1A39
+	nop                                          // $1A3A
+	nop                                          // $1A3B
+	nop                                          // $1A3C
+	nop                                          // $1A3D
+	nop                                          // $1A3E
+	nop                                          // $1A3F
+	nop                                          // $1A40
+	nop                                          // $1A41
+	nop                                          // $1A42
+	nop                                          // $1A43
+	nop                                          // $1A44
+	nop                                          // $1A45
+	nop                                          // $1A46
+	nop                                          // $1A47
+	nop                                          // $1A48
+	nop                                          // $1A49
+	nop                                          // $1A4A
+	nop                                          // $1A4B
+	nop                                          // $1A4C
+	nop                                          // $1A4D
+	nop                                          // $1A4E
+	nop                                          // $1A4F
+	nop                                          // $1A50
+	nop                                          // $1A51
+	nop                                          // $1A52
+	nop                                          // $1A53
+	nop                                          // $1A54
+	nop                                          // $1A55
+	nop                                          // $1A56
+	nop                                          // $1A57
+	nop                                          // $1A58
+	nop                                          // $1A59
+	nop                                          // $1A5A
+	nop                                          // $1A5B
+	nop                                          // $1A5C
+	nop                                          // $1A5D
+	nop                                          // $1A5E
+	nop                                          // $1A5F
+	nop                                          // $1A60
+	nop                                          // $1A61
+	nop                                          // $1A62
+	nop                                          // $1A63
+	nop                                          // $1A64
+	nop                                          // $1A65
+	nop                                          // $1A66
+	nop                                          // $1A67
+	nop                                          // $1A68
+	nop                                          // $1A69
+	nop                                          // $1A6A
+	nop                                          // $1A6B
+	nop                                          // $1A6C
+	nop                                          // $1A6D
+	nop                                          // $1A6E
+	nop                                          // $1A6F
+	nop                                          // $1A70
+	nop                                          // $1A71
+	nop                                          // $1A72
+	nop                                          // $1A73
+	nop                                          // $1A74
+	nop                                          // $1A75
+	nop                                          // $1A76
+	nop                                          // $1A77
+	nop                                          // $1A78
+	nop                                          // $1A79
+	nop                                          // $1A7A
+	nop                                          // $1A7B
+	nop                                          // $1A7C
+	nop                                          // $1A7D
+	nop                                          // $1A7E
+	nop                                          // $1A7F
+	nop                                          // $1A80
+	nop                                          // $1A81
+	nop                                          // $1A82
+	nop                                          // $1A83
+	nop                                          // $1A84
+	nop                                          // $1A85
+	nop                                          // $1A86
+	nop                                          // $1A87
+	nop                                          // $1A88
+	nop                                          // $1A89
+	nop                                          // $1A8A
+	nop                                          // $1A8B
+	nop                                          // $1A8C
+	nop                                          // $1A8D
+	nop                                          // $1A8E
+	nop                                          // $1A8F
+	nop                                          // $1A90
+	nop                                          // $1A91
+	nop                                          // $1A92
+	nop                                          // $1A93
+	nop                                          // $1A94
+	nop                                          // $1A95
+	nop                                          // $1A96
+	nop                                          // $1A97
+	nop                                          // $1A98
+	nop                                          // $1A99
+	nop                                          // $1A9A
+	nop                                          // $1A9B
+	nop                                          // $1A9C
+	nop                                          // $1A9D
+	nop                                          // $1A9E
+	nop                                          // $1A9F
+	nop                                          // $1AA0
+	nop                                          // $1AA1
+	nop                                          // $1AA2
+	nop                                          // $1AA3
+	nop                                          // $1AA4
+	nop                                          // $1AA5
+	nop                                          // $1AA6
+	nop                                          // $1AA7
+	nop                                          // $1AA8
+	nop                                          // $1AA9
+	nop                                          // $1AAA
+	nop                                          // $1AAB
+	nop                                          // $1AAC
+	nop                                          // $1AAD
+	nop                                          // $1AAE
+	nop                                          // $1AAF
+	nop                                          // $1AB0
+	nop                                          // $1AB1
+	nop                                          // $1AB2
+	nop                                          // $1AB3
+	nop                                          // $1AB4
+	nop                                          // $1AB5
+	nop                                          // $1AB6
 	nop                                          // $1AB7
 	nop                                          // $1AB8
 	nop                                          // $1AB9
@@ -1380,7 +2867,7 @@
 	and #$7f                                     // $1B02
 	cmp #$01                                     // $1B04
 	.byte $D0, $0E                               // $1B06  bne $1B16
-	jsr $737a                                    // $1B08
+	jsr $7630                                    // $1B08
 	lda #$00                                     // $1B0B
 	sta $43                                      // $1B0D
 	sta $42                                      // $1B0F
@@ -1394,17 +2881,16 @@
 	lda #$00                                     // $1B22
 	sta $51                                      // $1B24
 	sta $52                                      // $1B26
-	nop                                          // $1B28
-	nop                                          // $1B29
+	sta $24                                      // $1B28
 	sta $28                                      // $1B2A
 	sta $42                                      // $1B2C
 	sta $43                                      // $1B2E
 	lda #$81                                     // $1B30
 	sta $d404                                    // $1B32  ; SID_CR1
 	sta $d40b                                    // $1B35
-	lda #$20                                     // $1B38
+	lda #$10                                     // $1B38
 	sta $29                                      // $1B3A
-	jsr $6c40                                    // $1B3C
+	jsr $6d90                                    // $1B3C
 	lda $51                                      // $1B3F
 	cmp #$06                                     // $1B41
 	.byte $F0, $0D                               // $1B43  beq $1B52
@@ -1548,13 +3034,12 @@
 	cmp #$10                                     // $1C97
 	.byte $F0, $03                               // $1C99  beq $1C9E
 	jmp $1d43                                    // $1C9B
-	ldx #$06                                     // $1C9E
-	lda $5e28,x                                  // $1CA0
-	sta $30,x                                    // $1CA3
-	dex                                          // $1CA5
-	.byte $10, $F8                               // $1CA6  bpl $1CA0
-	nop                                          // $1CA8
-	nop                                          // $1CA9
+	lda #$00                                     // $1C9E
+	sta $33                                      // $1CA0
+	lda #$80                                     // $1CA2
+	sta $30                                      // $1CA4
+	lda #$5b                                     // $1CA6
+	sta $31                                      // $1CA8
 	nop                                          // $1CAA
 	lda #$81                                     // $1CAB
 	sta $d412                                    // $1CAD
@@ -1563,7 +3048,7 @@
 	sta $53                                      // $1CB4
 	lda #$3f                                     // $1CB6
 	sta $51                                      // $1CB8
-	jsr $6bd5                                    // $1CBA
+	jsr $6cd0                                    // $1CBA
 	lda $53                                      // $1CBD
 	cmp #$ff                                     // $1CBF
 	.byte $F0, $22                               // $1CC1  beq $1CE5
@@ -1622,14 +3107,13 @@
 	and #$f0                                     // $1D32
 	sta $d015                                    // $1D34  ; VIC_SPEN
 	jmp $1020                                    // $1D37
-	nop                                          // $1D3A
-	nop                                          // $1D3B
-	lda #$60                                     // $1D3C
+	lda #$99                                     // $1D3A
+	sta $28                                      // $1D3C
 	sta $29                                      // $1D3E
 	jmp $1020                                    // $1D40
-	cmp #$40                                     // $1D43
+	cmp #$20                                     // $1D43
 	.byte $F0, $03                               // $1D45  beq $1D4A
-	jmp $1e02                                    // $1D47
+	jmp $1e10                                    // $1D47
 	lda #$00                                     // $1D4A
 	sta $33                                      // $1D4C
 	lda #$40                                     // $1D4E
@@ -1667,112 +3151,189 @@
 	dex                                          // $1D98
 	dex                                          // $1D99
 	.byte $10, $F2                               // $1D9A  bpl $1D8E
-	lda $d012                                    // $1D9C  ; VIC_RASTER
-	.byte $D0, $FB                               // $1D9F  bne $1D9C
-	inc $d021                                    // $1DA1  ; VIC_BG0
-	dec $d001                                    // $1DA4  ; VIC_SP0Y
-	inc $d002                                    // $1DA7  ; VIC_SP1X
-	dec $d003                                    // $1DAA  ; VIC_SP1Y
-	inc $d004                                    // $1DAD
-	inc $d006                                    // $1DB0
-	inc $d007                                    // $1DB3
-	inc $d009                                    // $1DB6
-	dec $d00a                                    // $1DB9
-	inc $d00b                                    // $1DBC
-	dec $d00c                                    // $1DBF
-	dec $d00e                                    // $1DC2
-	dec $d00f                                    // $1DC5
-	ldx #$01                                     // $1DC8
-	ldy #$2f                                     // $1DCA
-	dey                                          // $1DCC
-	.byte $D0, $FD                               // $1DCD  bne $1DCC
-	dex                                          // $1DCF
-	.byte $D0, $F8                               // $1DD0  bne $1DCA
-	lda #$00                                     // $1DD2
-	sta $33                                      // $1DD4
-	lda $d009                                    // $1DD6
-	.byte $D0, $03                               // $1DD9  bne $1DDE
-	jmp $1d8c                                    // $1DDB
-	dec $50                                      // $1DDE
-	.byte $D0, $BA                               // $1DE0  bne $1D9C
-	dec $51                                      // $1DE2
-	.byte $D0, $B6                               // $1DE4  bne $1D9C
-	lda #$00                                     // $1DE6
-	sta $d021                                    // $1DE8  ; VIC_BG0
-	lda #$21                                     // $1DEB
-	sta $d404                                    // $1DED  ; SID_CR1
-	sta $d40b                                    // $1DF0
-	lda #$41                                     // $1DF3
-	sta $d412                                    // $1DF5
-	lda #$00                                     // $1DF8
-	sta $d015                                    // $1DFA  ; VIC_SPEN
-	inc $41                                      // $1DFD
-	jmp $1020                                    // $1DFF
-	cmp #$20                                     // $1E02
-	.byte $D0, $F9                               // $1E04  bne $1DFF
-	ldx #$06                                     // $1E06
-	lda $5e08,x                                  // $1E08
-	sta $30,x                                    // $1E0B
-	dex                                          // $1E0D
-	.byte $10, $F8                               // $1E0E  bpl $1E08
-	lda #$96                                     // $1E10
-	sta $07fa                                    // $1E12
-	lda #$dd                                     // $1E15
-	sta $07f8                                    // $1E17
-	lda #$02                                     // $1E1A
-	sta $d027                                    // $1E1C
-	lda $d015                                    // $1E1F  ; VIC_SPEN
-	lda #$fd                                     // $1E22
-	sta $d015                                    // $1E24  ; VIC_SPEN
-	inc $d005                                    // $1E27
-	inc $d001                                    // $1E2A  ; VIC_SP0Y
-	lda $d005                                    // $1E2D
-	cmp #$84                                     // $1E30
-	.byte $90, $03                               // $1E32  bcc $1E37
-	jmp $1e50                                    // $1E34
-	cmp #$70                                     // $1E37
-	.byte $90, $08                               // $1E39  bcc $1E43
-	lda $d01b                                    // $1E3B  ; VIC_SPPRI
-	and #$fb                                     // $1E3E
-	sta $d01b                                    // $1E40  ; VIC_SPPRI
-	ldx #$0a                                     // $1E43
-	ldy #$ff                                     // $1E45
-	dey                                          // $1E47
-	.byte $D0, $FD                               // $1E48  bne $1E47
-	dex                                          // $1E4A
-	.byte $D0, $F8                               // $1E4B  bne $1E45
-	jmp $1e27                                    // $1E4D
-	lda #$91                                     // $1E50
-	sta $07fb                                    // $1E52
-	lda #$02                                     // $1E55
-	sta $d02a                                    // $1E57
-	lda $d01b                                    // $1E5A  ; VIC_SPPRI
-	and #$f3                                     // $1E5D
-	sta $d01b                                    // $1E5F  ; VIC_SPPRI
-	lda $d01c                                    // $1E62  ; VIC_SPMCOL
-	and #$f7                                     // $1E65
-	sta $d01c                                    // $1E67  ; VIC_SPMCOL
-	lda $d017                                    // $1E6A  ; VIC_SPYEXP
-	and #$ff                                     // $1E6D
-	sta $d017                                    // $1E6F  ; VIC_SPYEXP
-	lda $d01d                                    // $1E72  ; VIC_SPXEXP
-	and #$ff                                     // $1E75
-	sta $d01d                                    // $1E77  ; VIC_SPXEXP
-	inc $d007                                    // $1E7A
-	lda $d007                                    // $1E7D
-	cmp #$a0                                     // $1E80
-	.byte $B0, $0D                               // $1E82  bcs $1E91
-	ldx #$af                                     // $1E84
-	ldy #$ff                                     // $1E86
-	dey                                          // $1E88
-	.byte $D0, $FD                               // $1E89  bne $1E88
-	dex                                          // $1E8B
-	.byte $D0, $F8                               // $1E8C  bne $1E86
-	jmp $1e7a                                    // $1E8E
-	inc $41                                      // $1E91
-	lda #$00                                     // $1E93
-	sta $43                                      // $1E95
-	jmp $1020                                    // $1E97
+	lda $d021                                    // $1D9C  ; VIC_BG0
+	and #$0f                                     // $1D9F
+	cmp #$01                                     // $1DA1
+	.byte $D0, $08                               // $1DA3  bne $1DAD
+	lda #$08                                     // $1DA5
+	sta $d021                                    // $1DA7  ; VIC_BG0
+	jmp $1db2                                    // $1DAA
+	lda #$01                                     // $1DAD
+	sta $d021                                    // $1DAF  ; VIC_BG0
+	dec $d001                                    // $1DB2  ; VIC_SP0Y
+	inc $d002                                    // $1DB5  ; VIC_SP1X
+	dec $d003                                    // $1DB8  ; VIC_SP1Y
+	inc $d004                                    // $1DBB
+	inc $d006                                    // $1DBE
+	inc $d007                                    // $1DC1
+	inc $d009                                    // $1DC4
+	dec $d00a                                    // $1DC7
+	inc $d00b                                    // $1DCA
+	dec $d00c                                    // $1DCD
+	dec $d00e                                    // $1DD0
+	dec $d00f                                    // $1DD3
+	ldx #$04                                     // $1DD6
+	ldy #$ff                                     // $1DD8
+	dey                                          // $1DDA
+	.byte $D0, $FD                               // $1DDB  bne $1DDA
+	dex                                          // $1DDD
+	.byte $D0, $F8                               // $1DDE  bne $1DD8
+	lda #$00                                     // $1DE0
+	sta $33                                      // $1DE2
+	lda $d009                                    // $1DE4
+	.byte $D0, $03                               // $1DE7  bne $1DEC
+	jmp $1d8c                                    // $1DE9
+	dec $50                                      // $1DEC
+	.byte $D0, $AC                               // $1DEE  bne $1D9C
+	dec $51                                      // $1DF0
+	.byte $D0, $A8                               // $1DF2  bne $1D9C
+	lda #$00                                     // $1DF4
+	sta $d021                                    // $1DF6  ; VIC_BG0
+	lda #$21                                     // $1DF9
+	sta $d404                                    // $1DFB  ; SID_CR1
+	sta $d40b                                    // $1DFE
+	lda #$41                                     // $1E01
+	sta $d412                                    // $1E03
+	lda #$00                                     // $1E06
+	sta $d015                                    // $1E08  ; VIC_SPEN
+	inc $41                                      // $1E0B
+	jmp $1020                                    // $1E0D
+	jmp $1020                                    // $1E10
+	nop                                          // $1E13
+	nop                                          // $1E14
+	nop                                          // $1E15
+	nop                                          // $1E16
+	nop                                          // $1E17
+	nop                                          // $1E18
+	nop                                          // $1E19
+	nop                                          // $1E1A
+	nop                                          // $1E1B
+	nop                                          // $1E1C
+	nop                                          // $1E1D
+	nop                                          // $1E1E
+	nop                                          // $1E1F
+	nop                                          // $1E20
+	nop                                          // $1E21
+	nop                                          // $1E22
+	nop                                          // $1E23
+	nop                                          // $1E24
+	nop                                          // $1E25
+	nop                                          // $1E26
+	nop                                          // $1E27
+	nop                                          // $1E28
+	nop                                          // $1E29
+	nop                                          // $1E2A
+	nop                                          // $1E2B
+	nop                                          // $1E2C
+	nop                                          // $1E2D
+	nop                                          // $1E2E
+	nop                                          // $1E2F
+	nop                                          // $1E30
+	nop                                          // $1E31
+	nop                                          // $1E32
+	nop                                          // $1E33
+	nop                                          // $1E34
+	nop                                          // $1E35
+	nop                                          // $1E36
+	nop                                          // $1E37
+	nop                                          // $1E38
+	nop                                          // $1E39
+	nop                                          // $1E3A
+	nop                                          // $1E3B
+	nop                                          // $1E3C
+	nop                                          // $1E3D
+	nop                                          // $1E3E
+	nop                                          // $1E3F
+	nop                                          // $1E40
+	nop                                          // $1E41
+	nop                                          // $1E42
+	nop                                          // $1E43
+	nop                                          // $1E44
+	nop                                          // $1E45
+	nop                                          // $1E46
+	nop                                          // $1E47
+	nop                                          // $1E48
+	nop                                          // $1E49
+	nop                                          // $1E4A
+	nop                                          // $1E4B
+	nop                                          // $1E4C
+	nop                                          // $1E4D
+	nop                                          // $1E4E
+	nop                                          // $1E4F
+	nop                                          // $1E50
+	nop                                          // $1E51
+	nop                                          // $1E52
+	nop                                          // $1E53
+	nop                                          // $1E54
+	nop                                          // $1E55
+	nop                                          // $1E56
+	nop                                          // $1E57
+	nop                                          // $1E58
+	nop                                          // $1E59
+	nop                                          // $1E5A
+	nop                                          // $1E5B
+	nop                                          // $1E5C
+	nop                                          // $1E5D
+	nop                                          // $1E5E
+	nop                                          // $1E5F
+	nop                                          // $1E60
+	nop                                          // $1E61
+	nop                                          // $1E62
+	nop                                          // $1E63
+	nop                                          // $1E64
+	nop                                          // $1E65
+	nop                                          // $1E66
+	nop                                          // $1E67
+	nop                                          // $1E68
+	nop                                          // $1E69
+	nop                                          // $1E6A
+	nop                                          // $1E6B
+	nop                                          // $1E6C
+	nop                                          // $1E6D
+	nop                                          // $1E6E
+	nop                                          // $1E6F
+	nop                                          // $1E70
+	nop                                          // $1E71
+	nop                                          // $1E72
+	nop                                          // $1E73
+	nop                                          // $1E74
+	nop                                          // $1E75
+	nop                                          // $1E76
+	nop                                          // $1E77
+	nop                                          // $1E78
+	nop                                          // $1E79
+	nop                                          // $1E7A
+	nop                                          // $1E7B
+	nop                                          // $1E7C
+	nop                                          // $1E7D
+	nop                                          // $1E7E
+	nop                                          // $1E7F
+	nop                                          // $1E80
+	nop                                          // $1E81
+	nop                                          // $1E82
+	nop                                          // $1E83
+	nop                                          // $1E84
+	nop                                          // $1E85
+	nop                                          // $1E86
+	nop                                          // $1E87
+	nop                                          // $1E88
+	nop                                          // $1E89
+	nop                                          // $1E8A
+	nop                                          // $1E8B
+	nop                                          // $1E8C
+	nop                                          // $1E8D
+	nop                                          // $1E8E
+	nop                                          // $1E8F
+	nop                                          // $1E90
+	nop                                          // $1E91
+	nop                                          // $1E92
+	nop                                          // $1E93
+	nop                                          // $1E94
+	nop                                          // $1E95
+	nop                                          // $1E96
+	nop                                          // $1E97
+	nop                                          // $1E98
+	nop                                          // $1E99
 	nop                                          // $1E9A
 	nop                                          // $1E9B
 	nop                                          // $1E9C
@@ -2131,189 +3692,85 @@
 	nop                                          // $1FFD
 	nop                                          // $1FFE
 	nop                                          // $1FFF
-	nop                                          // $2000
-	nop                                          // $2001
-	nop                                          // $2002
-	nop                                          // $2003
-	nop                                          // $2004
-	nop                                          // $2005
-	nop                                          // $2006
-	nop                                          // $2007
-	nop                                          // $2008
-	nop                                          // $2009
-	nop                                          // $200A
-	nop                                          // $200B
-	nop                                          // $200C
-	nop                                          // $200D
-	nop                                          // $200E
-	nop                                          // $200F
-	nop                                          // $2010
-	nop                                          // $2011
-	nop                                          // $2012
-	nop                                          // $2013
-	nop                                          // $2014
-	nop                                          // $2015
-	nop                                          // $2016
-	nop                                          // $2017
-	nop                                          // $2018
-	nop                                          // $2019
-	nop                                          // $201A
-	nop                                          // $201B
-	nop                                          // $201C
-	nop                                          // $201D
-	nop                                          // $201E
-	nop                                          // $201F
-	nop                                          // $2020
-	nop                                          // $2021
-	nop                                          // $2022
-	nop                                          // $2023
-	nop                                          // $2024
-	nop                                          // $2025
-	nop                                          // $2026
-	nop                                          // $2027
-	nop                                          // $2028
-	nop                                          // $2029
-	nop                                          // $202A
-	nop                                          // $202B
-	nop                                          // $202C
-	nop                                          // $202D
-	nop                                          // $202E
-	nop                                          // $202F
-	nop                                          // $2030
-	nop                                          // $2031
-	nop                                          // $2032
-	nop                                          // $2033
-	nop                                          // $2034
-	nop                                          // $2035
-	nop                                          // $2036
-	nop                                          // $2037
-	nop                                          // $2038
-	nop                                          // $2039
-	nop                                          // $203A
-	nop                                          // $203B
-	nop                                          // $203C
-	nop                                          // $203D
-	nop                                          // $203E
-	nop                                          // $203F
-	nop                                          // $2040
-	nop                                          // $2041
-	nop                                          // $2042
-	nop                                          // $2043
-	nop                                          // $2044
-	nop                                          // $2045
-	nop                                          // $2046
-	nop                                          // $2047
-	nop                                          // $2048
-	nop                                          // $2049
-	nop                                          // $204A
-	nop                                          // $204B
-	nop                                          // $204C
-	nop                                          // $204D
-	nop                                          // $204E
-	nop                                          // $204F
-	nop                                          // $2050
-	nop                                          // $2051
-	nop                                          // $2052
-	nop                                          // $2053
-	nop                                          // $2054
-	nop                                          // $2055
-	nop                                          // $2056
-	nop                                          // $2057
-	nop                                          // $2058
-	nop                                          // $2059
-	nop                                          // $205A
-	nop                                          // $205B
-	nop                                          // $205C
-	nop                                          // $205D
-	nop                                          // $205E
-	nop                                          // $205F
-	nop                                          // $2060
-	nop                                          // $2061
-	nop                                          // $2062
-	nop                                          // $2063
-	nop                                          // $2064
-	nop                                          // $2065
-	nop                                          // $2066
-	nop                                          // $2067
-	nop                                          // $2068
-	nop                                          // $2069
-	nop                                          // $206A
-	nop                                          // $206B
-	nop                                          // $206C
-	nop                                          // $206D
-	nop                                          // $206E
-	nop                                          // $206F
-	nop                                          // $2070
-	nop                                          // $2071
-	nop                                          // $2072
-	nop                                          // $2073
-	nop                                          // $2074
-	nop                                          // $2075
-	nop                                          // $2076
-	nop                                          // $2077
-	nop                                          // $2078
-	nop                                          // $2079
-	nop                                          // $207A
-	nop                                          // $207B
-	nop                                          // $207C
-	nop                                          // $207D
-	nop                                          // $207E
-	nop                                          // $207F
-	nop                                          // $2080
-	nop                                          // $2081
-	nop                                          // $2082
-	nop                                          // $2083
-	nop                                          // $2084
-	nop                                          // $2085
-	nop                                          // $2086
-	nop                                          // $2087
-	nop                                          // $2088
-	nop                                          // $2089
-	nop                                          // $208A
-	nop                                          // $208B
-	nop                                          // $208C
-	nop                                          // $208D
-	nop                                          // $208E
-	nop                                          // $208F
-	nop                                          // $2090
-	nop                                          // $2091
-	nop                                          // $2092
-	nop                                          // $2093
-	nop                                          // $2094
-	nop                                          // $2095
-	nop                                          // $2096
-	nop                                          // $2097
-	nop                                          // $2098
-	nop                                          // $2099
-	nop                                          // $209A
-	nop                                          // $209B
-	nop                                          // $209C
-	nop                                          // $209D
-	nop                                          // $209E
-	nop                                          // $209F
-	nop                                          // $20A0
-	nop                                          // $20A1
-	nop                                          // $20A2
-	nop                                          // $20A3
-	nop                                          // $20A4
-	nop                                          // $20A5
-	nop                                          // $20A6
-	nop                                          // $20A7
-	nop                                          // $20A8
-	nop                                          // $20A9
-	nop                                          // $20AA
-	nop                                          // $20AB
-	nop                                          // $20AC
-	nop                                          // $20AD
-	nop                                          // $20AE
-	nop                                          // $20AF
-	nop                                          // $20B0
-	nop                                          // $20B1
-	nop                                          // $20B2
-	nop                                          // $20B3
-	nop                                          // $20B4
-	nop                                          // $20B5
-	nop                                          // $20B6
+	lda #$93                                     // $2000
+	jsr $ffd2                                    // $2002
+	lda #$05                                     // $2005
+	jsr $ffd2                                    // $2007
+	lda #$00                                     // $200A
+	sta $d020                                    // $200C  ; VIC_BORDER
+	sta $d021                                    // $200F  ; VIC_BG0
+	lda $d018                                    // $2012  ; VIC_MEMCFG
+	and #$f0                                     // $2015
+	ora #$04                                     // $2017
+	sta $d018                                    // $2019  ; VIC_MEMCFG
+	lda #$00                                     // $201C
+	sta $d015                                    // $201E  ; VIC_SPEN
+	sta $d418                                    // $2021  ; SID_FMODE
+	ldx #$28                                     // $2024
+	lda #$00                                     // $2026
+	sta $d400,x                                  // $2028  ; SID_FR1LO
+	dex                                          // $202B
+	.byte $10, $FA                               // $202C  bpl $2028
+	lda #$00                                     // $202E
+	sta $d010                                    // $2030  ; VIC_SPXMSB
+	sta $d017                                    // $2033  ; VIC_SPYEXP
+	sta $d01d                                    // $2036  ; VIC_SPXEXP
+	sta $d01c                                    // $2039  ; VIC_SPMCOL
+	sta $d01b                                    // $203C  ; VIC_SPPRI
+	lda #$00                                     // $203F
+	sta $d01a                                    // $2041  ; VIC_IRQEN
+	lda #$31                                     // $2044
+	sta $0314                                    // $2046
+	lda #$ea                                     // $2049
+	sta $0315                                    // $204B
+	ldx #$00                                     // $204E
+	lda $5a20,x                                  // $2050
+	jsr $ffd2                                    // $2053
+	inx                                          // $2056
+	.byte $D0, $F7                               // $2057  bne $2050
+	lda $5b20,x                                  // $2059
+	jsr $ffd2                                    // $205C
+	inx                                          // $205F
+	cpx #$20                                     // $2060
+	.byte $D0, $F5                               // $2062  bne $2059
+	jsr $ffe4                                    // $2064
+	cmp #$85                                     // $2067
+	.byte $D0, $05                               // $2069  bne $2070
+	ldy #$00                                     // $206B
+	jmp $2088                                    // $206D
+	cmp #$86                                     // $2070
+	.byte $D0, $05                               // $2072  bne $2079
+	ldy #$08                                     // $2074
+	jmp $2088                                    // $2076
+	cmp #$87                                     // $2079
+	.byte $D0, $05                               // $207B  bne $2082
+	ldy #$10                                     // $207D
+	jmp $2088                                    // $207F
+	cmp #$88                                     // $2082
+	.byte $D0, $DE                               // $2084  bne $2064
+	ldy #$18                                     // $2086
+	ldx #$00                                     // $2088
+	lda $5b40,y                                  // $208A
+	sta $68,x                                    // $208D
+	iny                                          // $208F
+	inx                                          // $2090
+	cpx #$08                                     // $2091
+	.byte $D0, $F5                               // $2093  bne $208A
+	ldx #$00                                     // $2095
+	lda $5b60,x                                  // $2097
+	jsr $ffd2                                    // $209A
+	inx                                          // $209D
+	cpx #$12                                     // $209E
+	.byte $D0, $F5                               // $20A0  bne $2097
+	jsr $ffea                                    // $20A2
+	jsr $ffe1                                    // $20A5
+	.byte $D0, $01                               // $20A8  bne $20AB
+	brk                                          // $20AA
+	lda $dc00                                    // $20AB  ; CIA1_PRA
+	and #$1f                                     // $20AE
+	eor #$1f                                     // $20B0
+	.byte $F0, $EE                               // $20B2  beq $20A2
+	jmp $1000                                    // $20B4
 	nop                                          // $20B7
 	nop                                          // $20B8
 	nop                                          // $20B9
@@ -2643,343 +4100,158 @@
 	nop                                          // $21FD
 	nop                                          // $21FE
 	nop                                          // $21FF
-	nop                                          // $2200
-	nop                                          // $2201
-	nop                                          // $2202
-	nop                                          // $2203
-	nop                                          // $2204
-	nop                                          // $2205
-	nop                                          // $2206
-	nop                                          // $2207
-	nop                                          // $2208
-	nop                                          // $2209
-	nop                                          // $220A
-	nop                                          // $220B
-	nop                                          // $220C
-	nop                                          // $220D
-	nop                                          // $220E
-	nop                                          // $220F
-	nop                                          // $2210
-	nop                                          // $2211
-	nop                                          // $2212
-	nop                                          // $2213
-	nop                                          // $2214
-	nop                                          // $2215
-	nop                                          // $2216
-	nop                                          // $2217
-	nop                                          // $2218
-	nop                                          // $2219
-	nop                                          // $221A
-	nop                                          // $221B
-	nop                                          // $221C
-	nop                                          // $221D
-	nop                                          // $221E
-	nop                                          // $221F
-	nop                                          // $2220
-	nop                                          // $2221
-	nop                                          // $2222
-	nop                                          // $2223
-	nop                                          // $2224
-	nop                                          // $2225
-	nop                                          // $2226
-	nop                                          // $2227
-	nop                                          // $2228
-	nop                                          // $2229
-	nop                                          // $222A
-	nop                                          // $222B
-	nop                                          // $222C
-	nop                                          // $222D
-	nop                                          // $222E
-	nop                                          // $222F
-	nop                                          // $2230
-	nop                                          // $2231
-	nop                                          // $2232
-	nop                                          // $2233
-	nop                                          // $2234
-	nop                                          // $2235
-	nop                                          // $2236
-	nop                                          // $2237
-	nop                                          // $2238
-	nop                                          // $2239
-	nop                                          // $223A
-	nop                                          // $223B
-	nop                                          // $223C
-	nop                                          // $223D
-	nop                                          // $223E
-	nop                                          // $223F
-	nop                                          // $2240
-	nop                                          // $2241
-	nop                                          // $2242
-	nop                                          // $2243
-	nop                                          // $2244
-	nop                                          // $2245
-	nop                                          // $2246
-	nop                                          // $2247
-	nop                                          // $2248
-	nop                                          // $2249
-	nop                                          // $224A
-	nop                                          // $224B
-	nop                                          // $224C
-	nop                                          // $224D
-	nop                                          // $224E
-	nop                                          // $224F
-	nop                                          // $2250
-	nop                                          // $2251
-	nop                                          // $2252
-	nop                                          // $2253
-	nop                                          // $2254
-	nop                                          // $2255
-	nop                                          // $2256
-	nop                                          // $2257
-	nop                                          // $2258
-	nop                                          // $2259
-	nop                                          // $225A
-	nop                                          // $225B
-	nop                                          // $225C
-	nop                                          // $225D
-	nop                                          // $225E
-	nop                                          // $225F
-	nop                                          // $2260
-	nop                                          // $2261
-	nop                                          // $2262
-	nop                                          // $2263
-	nop                                          // $2264
-	nop                                          // $2265
-	nop                                          // $2266
-	nop                                          // $2267
-	nop                                          // $2268
-	nop                                          // $2269
-	nop                                          // $226A
-	nop                                          // $226B
-	nop                                          // $226C
-	nop                                          // $226D
-	nop                                          // $226E
-	nop                                          // $226F
-	nop                                          // $2270
-	nop                                          // $2271
-	nop                                          // $2272
-	nop                                          // $2273
-	nop                                          // $2274
-	nop                                          // $2275
-	nop                                          // $2276
-	nop                                          // $2277
-	nop                                          // $2278
-	nop                                          // $2279
-	nop                                          // $227A
-	nop                                          // $227B
-	nop                                          // $227C
-	nop                                          // $227D
-	nop                                          // $227E
-	nop                                          // $227F
-	nop                                          // $2280
-	nop                                          // $2281
-	nop                                          // $2282
-	nop                                          // $2283
-	nop                                          // $2284
-	nop                                          // $2285
-	nop                                          // $2286
-	nop                                          // $2287
-	nop                                          // $2288
-	nop                                          // $2289
-	nop                                          // $228A
-	nop                                          // $228B
-	nop                                          // $228C
-	nop                                          // $228D
-	nop                                          // $228E
-	nop                                          // $228F
-	nop                                          // $2290
-	nop                                          // $2291
-	nop                                          // $2292
-	nop                                          // $2293
-	nop                                          // $2294
-	nop                                          // $2295
-	nop                                          // $2296
-	nop                                          // $2297
-	nop                                          // $2298
-	nop                                          // $2299
-	nop                                          // $229A
-	nop                                          // $229B
-	nop                                          // $229C
-	nop                                          // $229D
-	nop                                          // $229E
-	nop                                          // $229F
-	nop                                          // $22A0
-	nop                                          // $22A1
-	nop                                          // $22A2
-	nop                                          // $22A3
-	nop                                          // $22A4
-	nop                                          // $22A5
-	nop                                          // $22A6
-	nop                                          // $22A7
-	nop                                          // $22A8
-	nop                                          // $22A9
-	nop                                          // $22AA
-	nop                                          // $22AB
-	nop                                          // $22AC
-	nop                                          // $22AD
-	nop                                          // $22AE
-	nop                                          // $22AF
-	nop                                          // $22B0
-	nop                                          // $22B1
-	nop                                          // $22B2
-	nop                                          // $22B3
-	nop                                          // $22B4
-	nop                                          // $22B5
-	nop                                          // $22B6
-	nop                                          // $22B7
-	nop                                          // $22B8
-	nop                                          // $22B9
-	nop                                          // $22BA
-	nop                                          // $22BB
-	nop                                          // $22BC
-	nop                                          // $22BD
-	nop                                          // $22BE
-	nop                                          // $22BF
-	nop                                          // $22C0
-	nop                                          // $22C1
-	nop                                          // $22C2
-	nop                                          // $22C3
-	nop                                          // $22C4
-	nop                                          // $22C5
-	nop                                          // $22C6
-	nop                                          // $22C7
-	nop                                          // $22C8
-	nop                                          // $22C9
-	nop                                          // $22CA
-	nop                                          // $22CB
-	nop                                          // $22CC
-	nop                                          // $22CD
-	nop                                          // $22CE
-	nop                                          // $22CF
-	nop                                          // $22D0
-	nop                                          // $22D1
-	nop                                          // $22D2
-	nop                                          // $22D3
-	nop                                          // $22D4
-	nop                                          // $22D5
-	nop                                          // $22D6
-	nop                                          // $22D7
-	nop                                          // $22D8
-	nop                                          // $22D9
-	nop                                          // $22DA
-	nop                                          // $22DB
-	nop                                          // $22DC
-	nop                                          // $22DD
-	nop                                          // $22DE
-	nop                                          // $22DF
-	nop                                          // $22E0
-	nop                                          // $22E1
-	nop                                          // $22E2
-	nop                                          // $22E3
-	nop                                          // $22E4
-	nop                                          // $22E5
-	nop                                          // $22E6
-	nop                                          // $22E7
-	nop                                          // $22E8
-	nop                                          // $22E9
-	nop                                          // $22EA
-	nop                                          // $22EB
-	nop                                          // $22EC
-	nop                                          // $22ED
-	nop                                          // $22EE
-	nop                                          // $22EF
-	nop                                          // $22F0
-	nop                                          // $22F1
-	nop                                          // $22F2
-	nop                                          // $22F3
-	nop                                          // $22F4
-	nop                                          // $22F5
-	nop                                          // $22F6
-	nop                                          // $22F7
-	nop                                          // $22F8
-	nop                                          // $22F9
-	nop                                          // $22FA
-	nop                                          // $22FB
-	nop                                          // $22FC
-	nop                                          // $22FD
-	nop                                          // $22FE
-	nop                                          // $22FF
-	nop                                          // $2300
-	nop                                          // $2301
-	nop                                          // $2302
-	nop                                          // $2303
-	nop                                          // $2304
-	nop                                          // $2305
-	nop                                          // $2306
-	nop                                          // $2307
-	nop                                          // $2308
-	nop                                          // $2309
-	nop                                          // $230A
-	nop                                          // $230B
-	nop                                          // $230C
-	nop                                          // $230D
-	nop                                          // $230E
-	nop                                          // $230F
-	nop                                          // $2310
-	nop                                          // $2311
-	nop                                          // $2312
-	nop                                          // $2313
-	nop                                          // $2314
-	nop                                          // $2315
-	nop                                          // $2316
-	nop                                          // $2317
-	nop                                          // $2318
-	nop                                          // $2319
-	nop                                          // $231A
-	nop                                          // $231B
-	nop                                          // $231C
-	nop                                          // $231D
-	nop                                          // $231E
-	nop                                          // $231F
-	nop                                          // $2320
-	nop                                          // $2321
-	nop                                          // $2322
-	nop                                          // $2323
-	nop                                          // $2324
-	nop                                          // $2325
-	nop                                          // $2326
-	nop                                          // $2327
-	nop                                          // $2328
-	nop                                          // $2329
-	nop                                          // $232A
-	nop                                          // $232B
-	nop                                          // $232C
-	nop                                          // $232D
-	nop                                          // $232E
-	nop                                          // $232F
-	nop                                          // $2330
-	nop                                          // $2331
-	nop                                          // $2332
-	nop                                          // $2333
-	nop                                          // $2334
-	nop                                          // $2335
-	nop                                          // $2336
-	nop                                          // $2337
-	nop                                          // $2338
-	nop                                          // $2339
-	nop                                          // $233A
-	nop                                          // $233B
-	nop                                          // $233C
-	nop                                          // $233D
-	nop                                          // $233E
-	nop                                          // $233F
-	nop                                          // $2340
-	nop                                          // $2341
-	nop                                          // $2342
-	nop                                          // $2343
-	nop                                          // $2344
-	nop                                          // $2345
-	nop                                          // $2346
-	nop                                          // $2347
-	nop                                          // $2348
-	nop                                          // $2349
-	nop                                          // $234A
-	nop                                          // $234B
-	nop                                          // $234C
-	nop                                          // $234D
-	nop                                          // $234E
-	nop                                          // $234F
-	nop                                          // $2350
+	dec $5f                                      // $2200
+	.byte $F0, $03                               // $2202  beq $2207
+	jmp $22c3                                    // $2204
+	lda #$93                                     // $2207
+	jsr $ffd2                                    // $2209
+	lda #$00                                     // $220C
+	sta $d015                                    // $220E  ; VIC_SPEN
+	sta $d021                                    // $2211  ; VIC_BG0
+	sta $d022                                    // $2214
+	sta $d023                                    // $2217
+	sta $33                                      // $221A
+	lda #$21                                     // $221C
+	sta $d404                                    // $221E  ; SID_CR1
+	sta $d40b                                    // $2221
+	lda #$41                                     // $2224
+	sta $d412                                    // $2226
+	lda #$e0                                     // $2229
+	sta $34                                      // $222B
+	lda #$50                                     // $222D
+	sta $35                                      // $222F
+	lda #$5a                                     // $2231
+	sta $58                                      // $2233
+	sta $5a                                      // $2235
+	lda #$04                                     // $2237
+	sta $59                                      // $2239
+	lda #$d8                                     // $223B
+	sta $5b                                      // $223D
+	lda #$5f                                     // $223F
+	sta $5c                                      // $2241
+	lda #$13                                     // $2243
+	sta $5d                                      // $2245
+	lda #$09                                     // $2247
+	sta $45                                      // $2249
+	jsr $7420                                    // $224B
+	lda #$08                                     // $224E
+	sta $36                                      // $2250
+	lda #$04                                     // $2252
+	sta $50                                      // $2254
+	dec $53                                      // $2256
+	.byte $D0, $14                               // $2258  bne $226E
+	dec $52                                      // $225A
+	.byte $D0, $10                               // $225C  bne $226E
+	lda #$12                                     // $225E
+	sta $52                                      // $2260
+	jsr $7260                                    // $2262
+	lda $50                                      // $2265
+	.byte $D0, $05                               // $2267  bne $226E
+	lda #$f0                                     // $2269
+	sta $d015                                    // $226B  ; VIC_SPEN
+	lda $33                                      // $226E
+	cmp #$64                                     // $2270
+	.byte $D0, $E2                               // $2272  bne $2256
+	lda #$93                                     // $2274
+	jsr $ffd2                                    // $2276
+	lda #$00                                     // $2279
+	sta $d418                                    // $227B  ; SID_FMODE
+	lda $d018                                    // $227E  ; VIC_MEMCFG
+	and #$f0                                     // $2281
+	ora #$04                                     // $2283
+	sta $d018                                    // $2285  ; VIC_MEMCFG
+	ldx #$3f                                     // $2288
+	lda $5cf0,x                                  // $228A
+	jsr $ffd2                                    // $228D
+	dex                                          // $2290
+	.byte $10, $F7                               // $2291  bpl $228A
+	jsr $ffea                                    // $2293
+	jsr $ffe1                                    // $2296
+	.byte $D0, $03                               // $2299  bne $229E
+	jmp $2000                                    // $229B
+	lda $dc00                                    // $229E  ; CIA1_PRA
+	and #$1f                                     // $22A1
+	eor #$1f                                     // $22A3
+	.byte $F0, $EC                               // $22A5  beq $2293
+	ldx #$07                                     // $22A7
+	lda #$00                                     // $22A9
+	sta $50,x                                    // $22AB
+	sta $60,x                                    // $22AD
+	dex                                          // $22AF
+	.byte $10, $F9                               // $22B0  bpl $22AB
+	lda #$32                                     // $22B2
+	sta $27                                      // $22B4
+	lda #$03                                     // $22B6
+	sta $5f                                      // $22B8
+	jsr $600a                                    // $22BA
+	jsr $6090                                    // $22BD
+	jmp $22fd                                    // $22C0
+	jsr $6059                                    // $22C3
+	jsr $6090                                    // $22C6
+	lda $27                                      // $22C9
+	cmp #$29                                     // $22CB
+	.byte $B0, $2E                               // $22CD  bcs $22FD
+	lda #$a5                                     // $22CF
+	sta $2e                                      // $22D1
+	jsr $71aa                                    // $22D3
+	lda $27                                      // $22D6
+	cmp #$1f                                     // $22D8
+	.byte $B0, $21                               // $22DA  bcs $22FD
+	lda #$a7                                     // $22DC
+	sta $2e                                      // $22DE
+	jsr $71aa                                    // $22E0
+	lda $27                                      // $22E3
+	cmp #$15                                     // $22E5
+	.byte $B0, $14                               // $22E7  bcs $22FD
+	lda #$b0                                     // $22E9
+	sta $2e                                      // $22EB
+	jsr $71aa                                    // $22ED
+	lda $27                                      // $22F0
+	cmp #$0b                                     // $22F2
+	.byte $B0, $07                               // $22F4  bcs $22FD
+	lda #$b2                                     // $22F6
+	sta $2e                                      // $22F8
+	jsr $71aa                                    // $22FA
+	lda #$0c                                     // $22FD
+	sta $36                                      // $22FF
+	lda #$00                                     // $2301
+	sta $33                                      // $2303
+	sta $30                                      // $2305
+	sta $34                                      // $2307
+	lda #$58                                     // $2309
+	sta $31                                      // $230B
+	sta $35                                      // $230D
+	ldx #$07                                     // $230F
+	lda $60,x                                    // $2311
+	sta $07c3,x                                  // $2313
+	dex                                          // $2316
+	.byte $10, $F8                               // $2317  bpl $2311
+	lda #$00                                     // $2319
+	sta $42                                      // $231B
+	sta $43                                      // $231D
+	sta $24                                      // $231F
+	lda #$01                                     // $2321
+	sta $26                                      // $2323
+	ldx #$07                                     // $2325
+	lda #$00                                     // $2327
+	sta $50,x                                    // $2329
+	dex                                          // $232B
+	.byte $10, $FB                               // $232C  bpl $2329
+	lda #$0a                                     // $232E
+	sta $16                                      // $2330
+	lda #$28                                     // $2332
+	sta $1b                                      // $2334
+	lda #$f0                                     // $2336
+	sta $d015                                    // $2338  ; VIC_SPEN
+	lda #$41                                     // $233B
+	sta $d412                                    // $233D
+	lda #$0f                                     // $2340
+	sta $d418                                    // $2342  ; SID_FMODE
+	lda $4e                                      // $2345
+	cmp #$20                                     // $2347
+	.byte $D0, $03                               // $2349  bne $234E
+	jmp $2000                                    // $234B
+	jmp $100c                                    // $234E
 	nop                                          // $2351
 	nop                                          // $2352
 	nop                                          // $2353
@@ -3155,432 +4427,367 @@
 	nop                                          // $23FD
 	nop                                          // $23FE
 	nop                                          // $23FF
-	nop                                          // $2400
-	nop                                          // $2401
-	nop                                          // $2402
-	nop                                          // $2403
-	nop                                          // $2404
-	nop                                          // $2405
-	nop                                          // $2406
-	nop                                          // $2407
-	nop                                          // $2408
-	nop                                          // $2409
-	nop                                          // $240A
-	nop                                          // $240B
-	nop                                          // $240C
-	nop                                          // $240D
-	nop                                          // $240E
-	nop                                          // $240F
-	nop                                          // $2410
-	nop                                          // $2411
-	nop                                          // $2412
-	nop                                          // $2413
-	nop                                          // $2414
-	nop                                          // $2415
-	nop                                          // $2416
-	nop                                          // $2417
-	nop                                          // $2418
-	nop                                          // $2419
-	nop                                          // $241A
-	nop                                          // $241B
-	nop                                          // $241C
-	nop                                          // $241D
-	nop                                          // $241E
-	nop                                          // $241F
-	nop                                          // $2420
-	nop                                          // $2421
-	nop                                          // $2422
-	nop                                          // $2423
-	nop                                          // $2424
-	nop                                          // $2425
-	nop                                          // $2426
-	nop                                          // $2427
-	nop                                          // $2428
-	nop                                          // $2429
-	nop                                          // $242A
-	nop                                          // $242B
-	nop                                          // $242C
-	nop                                          // $242D
-	nop                                          // $242E
-	nop                                          // $242F
-	nop                                          // $2430
-	nop                                          // $2431
-	nop                                          // $2432
-	nop                                          // $2433
-	nop                                          // $2434
-	nop                                          // $2435
-	nop                                          // $2436
-	nop                                          // $2437
-	nop                                          // $2438
-	nop                                          // $2439
-	nop                                          // $243A
-	nop                                          // $243B
-	nop                                          // $243C
-	nop                                          // $243D
-	nop                                          // $243E
-	nop                                          // $243F
-	brk                                          // $2440
-	brk                                          // $2441
-	brk                                          // $2442
-	brk                                          // $2443
-	.byte $22                                    // $2444  ???
-	brk                                          // $2445
-	brk                                          // $2446
-	rol $00,x                                    // $2447
-	brk                                          // $2449
-	.byte $7C                                    // $244A  ???
-	brk                                          // $244B
-	ora ($fe,x)                                  // $244C
-	brk                                          // $244E
-	.byte $03                                    // $244F  ???
-	.byte $7F                                    // $2450  ???
-	brk                                          // $2451
-	asl $3f                                      // $2452
-	brk                                          // $2454
-	.byte $04                                    // $2455  ???
-	.byte $7B                                    // $2456  ???
-	.byte $80                                    // $2457  ???
-	brk                                          // $2458
-	adc $01c0,y                                  // $2459
-	.byte $F0, $F0                               // $245C  beq $244E
-	brk                                          // $245E
-	sbc ($60),y                                  // $245F
-	ora ($e2,x)                                  // $2461
-	.byte $70, $03                               // $2463  bvs $2468
-	cpy $78                                      // $2465
-	.byte $07                                    // $2467  ???
-	.byte $64                                    // $2468  ???
-	cpx $200e                                    // $2469
-	.byte $44                                    // $246C  ???
-	.byte $1A                                    // $246D  ???
-	rts                                          // $246E
-	cpx $c012                                    // $246F
-	ror $34                                      // $2472
-	.byte $80                                    // $2474  ???
-	.byte $22                                    // $2475  ???
-	pla                                          // $2476
-	brk                                          // $2477
-	.byte $54                                    // $2478  ???
-	rti                                          // $2479
-	brk                                          // $247A
-	.byte $10, $00                               // $247B  bpl $247D
-	brk                                          // $247D
-	brk                                          // $247E
-	brk                                          // $247F
-	brk                                          // $2480
-	brk                                          // $2481
-	brk                                          // $2482
-	brk                                          // $2483
-	.byte $10, $00                               // $2484  bpl $2486
-	brk                                          // $2486
-	.byte $30, $00                               // $2487  bmi $2489
-	brk                                          // $2489
-	sei                                          // $248A
-	brk                                          // $248B
-	brk                                          // $248C
-	.byte $7C                                    // $248D  ???
-	brk                                          // $248E
-	brk                                          // $248F
-	.byte $3C                                    // $2490  ???
-	brk                                          // $2491
-	brk                                          // $2492
-	.byte $7E, $00, $00                          // $2493  ror $0000,x
-	.byte $FE, $00, $00                          // $2496  inc $0000,x
-	.byte $FF                                    // $2499  ???
-	brk                                          // $249A
-	ora ($ff,x)                                  // $249B
-	brk                                          // $249D
-	.byte $03                                    // $249E  ???
-	.byte $FF                                    // $249F  ???
-	.byte $80                                    // $24A0  ???
-	.byte $03                                    // $24A1  ???
-	.byte $7C                                    // $24A2  ???
-	.byte $80                                    // $24A3  ???
-	.byte $02                                    // $24A4  ???
-	ror $00,x                                    // $24A5
-	brk                                          // $24A7
-	.byte $32                                    // $24A8  ???
-	brk                                          // $24A9
-	brk                                          // $24AA
-	.byte $30, $00                               // $24AB  bmi $24AD
-	brk                                          // $24AD
-	rts                                          // $24AE
-	brk                                          // $24AF
-	brk                                          // $24B0
-	rts                                          // $24B1
-	brk                                          // $24B2
-	brk                                          // $24B3
-	rti                                          // $24B4
-	brk                                          // $24B5
-	brk                                          // $24B6
-	brk                                          // $24B7
-	brk                                          // $24B8
-	brk                                          // $24B9
-	brk                                          // $24BA
-	brk                                          // $24BB
-	brk                                          // $24BC
-	brk                                          // $24BD
-	brk                                          // $24BE
-	brk                                          // $24BF
-	.byte $02                                    // $24C0  ???
-	tax                                          // $24C1
-	rti                                          // $24C2
-	brk                                          // $24C3
-	ror                                          // $24C4
-	ldy #$00                                     // $24C5
-	rol                                          // $24C7
-	ldy #$00                                     // $24C8
-	.byte $1A                                    // $24CA  ???
-	ldy $00                                      // $24CB
-	asl                                          // $24CD
-	tay                                          // $24CE
-	brk                                          // $24CF
-	asl $a8                                      // $24D0
-	brk                                          // $24D2
-	asl                                          // $24D3
-	ldy $00                                      // $24D4
-	asl $a8                                      // $24D6
-	brk                                          // $24D8
-	asl                                          // $24D9
-	tay                                          // $24DA
-	brk                                          // $24DB
-	.byte $1A                                    // $24DC  ???
-	ldy $00                                      // $24DD
-	rol                                          // $24DF
-	ldy #$00                                     // $24E0
-	ror                                          // $24E2
-	ldy #$00                                     // $24E3
-	tax                                          // $24E5
-	.byte $90, $01                               // $24E6  bcc $24E9
-	tax                                          // $24E8
-	rti                                          // $24E9
-	.byte $02                                    // $24EA  ???
-	tax                                          // $24EB
-	.byte $80                                    // $24EC  ???
-	.byte $02                                    // $24ED  ???
-	tax                                          // $24EE
-	rti                                          // $24EF
-	asl $aa                                      // $24F0
-	brk                                          // $24F2
-	asl                                          // $24F3
-	lda #$00                                     // $24F4
-	asl                                          // $24F6
-	tay                                          // $24F7
-	brk                                          // $24F8
-	.byte $1A                                    // $24F9  ???
-	ldy $00                                      // $24FA
-	brk                                          // $24FC
-	brk                                          // $24FD
-	brk                                          // $24FE
-	brk                                          // $24FF
-	brk                                          // $2500
-	brk                                          // $2501
-	brk                                          // $2502
-	brk                                          // $2503
-	brk                                          // $2504
-	brk                                          // $2505
-	asl                                          // $2506
-	.byte $80                                    // $2507  ???
-	brk                                          // $2508
-	rol                                          // $2509
-	.byte $90, $00                               // $250A  bcc $250C
-	and #$a4                                     // $250C
-	brk                                          // $250E
-	ldx $a8                                      // $250F
-	brk                                          // $2511
-	txs                                          // $2512
-	ror $00                                      // $2513
-	.byte $AE, $A9, $00                          // $2515  ldx $00A9
-	adc #$9a                                     // $2518
-	.byte $80                                    // $251A  ???
-	tax                                          // $251B
-	tax                                          // $251C
-	.byte $80                                    // $251D  ???
-	ror $66                                      // $251E
-	rts                                          // $2520
-	txa                                          // $2521
-	txs                                          // $2522
-	.byte $90, $62                               // $2523  bcc $2587
-	inc $a0                                      // $2525
-	tay                                          // $2527
-	tsx                                          // $2528
-	ldy #$6a                                     // $2529
-	.byte $2F                                    // $252B  ???
-	.byte $80                                    // $252C  ???
-	tax                                          // $252D
-	txa                                          // $252E
-	brk                                          // $252F
-	tax                                          // $2530
-	.byte $80                                    // $2531  ???
-	brk                                          // $2532
-	ror                                          // $2533
-	.byte $80                                    // $2534  ???
-	brk                                          // $2535
-	rol                                          // $2536
-	.byte $80                                    // $2537  ???
-	brk                                          // $2538
-	.byte $1A                                    // $2539  ???
-	ldy #$00                                     // $253A
-	brk                                          // $253C
-	brk                                          // $253D
-	brk                                          // $253E
-	brk                                          // $253F
-	rol                                          // $2540
-	tay                                          // $2541
-	brk                                          // $2542
-	asl                                          // $2543
-	tax                                          // $2544
-	brk                                          // $2545
-	asl $aa                                      // $2546
-	brk                                          // $2548
-	asl                                          // $2549
-	tax                                          // $254A
-	.byte $80                                    // $254B  ???
-	asl $aa                                      // $254C
-	ldy #$02                                     // $254E
-	tax                                          // $2550
-	ldy #$01                                     // $2551
-	tax                                          // $2553
-	tay                                          // $2554
-	brk                                          // $2555
-	tax                                          // $2556
-	tay                                          // $2557
-	brk                                          // $2558
-	ror                                          // $2559
-	tay                                          // $255A
-	brk                                          // $255B
-	rol                                          // $255C
-	tax                                          // $255D
-	brk                                          // $255E
-	.byte $1A                                    // $255F  ???
-	tax                                          // $2560
-	brk                                          // $2561
-	asl                                          // $2562
-	tax                                          // $2563
-	brk                                          // $2564
-	asl $aa                                      // $2565
-	brk                                          // $2567
-	.byte $02                                    // $2568  ???
-	tax                                          // $2569
-	brk                                          // $256A
-	ora ($aa,x)                                  // $256B
-	brk                                          // $256D
-	.byte $02                                    // $256E  ???
-	tax                                          // $256F
-	brk                                          // $2570
-	ora ($aa,x)                                  // $2571
-	brk                                          // $2573
-	.byte $02                                    // $2574  ???
-	tax                                          // $2575
-	brk                                          // $2576
-	ora ($aa,x)                                  // $2577
-	brk                                          // $2579
-	.byte $02                                    // $257A  ???
-	tax                                          // $257B
-	brk                                          // $257C
-	brk                                          // $257D
-	brk                                          // $257E
-	tax                                          // $257F
-	brk                                          // $2580
-	tax                                          // $2581
-	brk                                          // $2582
-	.byte $02                                    // $2583  ???
-	adc #$80                                     // $2584
-	ora #$aa                                     // $2586
-	rts                                          // $2588
-	rol $aa                                      // $2589
-	tya                                          // $258B
-	rol                                          // $258C
-	adc #$a8                                     // $258D
-	and #$aa                                     // $258F
-	pla                                          // $2591
-	rol $96,x                                    // $2592
-	.byte $9C                                    // $2594  ???
-	rol                                          // $2595
-	adc #$a8                                     // $2596
-	and #$aa                                     // $2598
-	pla                                          // $259A
-	rol $96                                      // $259B
-	tya                                          // $259D
-	rol                                          // $259E
-	adc #$a8                                     // $259F
-	ora #$aa                                     // $25A1
-	rts                                          // $25A3
-	asl                                          // $25A4
-	stx $a0,y                                    // $25A5
-	asl                                          // $25A7
-	adc #$a0                                     // $25A8
-	.byte $02                                    // $25AA  ???
-	stx $80,y                                    // $25AB
-	.byte $02                                    // $25AD  ???
-	adc #$80                                     // $25AE
-	.byte $02                                    // $25B0  ???
-	tax                                          // $25B1
-	.byte $80                                    // $25B2  ???
-	brk                                          // $25B3
-	tax                                          // $25B4
-	brk                                          // $25B5
-	brk                                          // $25B6
-	.byte $BE, $00, $00                          // $25B7  ldx $0000,y
-	plp                                          // $25BA
-	brk                                          // $25BB
-	brk                                          // $25BC
-	brk                                          // $25BD
-	brk                                          // $25BE
-	brk                                          // $25BF
-	asl $a9                                      // $25C0
-	brk                                          // $25C2
-	asl                                          // $25C3
-	tay                                          // $25C4
-	brk                                          // $25C5
-	asl $a4                                      // $25C6
-	brk                                          // $25C8
-	asl                                          // $25C9
-	tay                                          // $25CA
-	brk                                          // $25CB
-	asl $a4                                      // $25CC
-	brk                                          // $25CE
-	asl                                          // $25CF
-	tay                                          // $25D0
-	brk                                          // $25D1
-	asl $a4                                      // $25D2
-	brk                                          // $25D4
-	asl                                          // $25D5
-	tax                                          // $25D6
-	brk                                          // $25D7
-	ora ($a9,x)                                  // $25D8
-	brk                                          // $25DA
-	.byte $02                                    // $25DB  ???
-	tax                                          // $25DC
-	rti                                          // $25DD
-	ora ($aa,x)                                  // $25DE
-	.byte $80                                    // $25E0  ???
-	brk                                          // $25E1
-	tax                                          // $25E2
-	.byte $80                                    // $25E3  ???
-	brk                                          // $25E4
-	ror                                          // $25E5
-	.byte $90, $00                               // $25E6  bcc $25E8
-	rol                                          // $25E8
-	ldy #$00                                     // $25E9
-	.byte $1A                                    // $25EB  ???
-	ldy $00                                      // $25EC
-	asl                                          // $25EE
-	tay                                          // $25EF
-	brk                                          // $25F0
-	asl $a4                                      // $25F1
-	brk                                          // $25F3
-	asl                                          // $25F4
-	tay                                          // $25F5
-	brk                                          // $25F6
-	asl $a9                                      // $25F7
-	brk                                          // $25F9
-	asl                                          // $25FA
-	tax                                          // $25FB
-	brk                                          // $25FC
-	brk                                          // $25FD
-	brk                                          // $25FE
-	tax                                          // $25FF
+	lda #$21                                     // $2400
+	sta $d404                                    // $2402  ; SID_CR1
+	sta $d40b                                    // $2405
+	lda #$41                                     // $2408
+	sta $d412                                    // $240A
+	lda $d015                                    // $240D  ; VIC_SPEN
+	and #$f0                                     // $2410
+	sta $d015                                    // $2412  ; VIC_SPEN
+	lda $d017                                    // $2415  ; VIC_SPYEXP
+	and #$f0                                     // $2418
+	sta $d017                                    // $241A  ; VIC_SPYEXP
+	lda $d01d                                    // $241D  ; VIC_SPXEXP
+	and #$f0                                     // $2420
+	sta $d01d                                    // $2422  ; VIC_SPXEXP
+	lda $d01c                                    // $2425  ; VIC_SPMCOL
+	and #$f0                                     // $2428
+	sta $d01c                                    // $242A  ; VIC_SPMCOL
+	lda $d01b                                    // $242D  ; VIC_SPPRI
+	and #$f0                                     // $2430
+	sta $d01b                                    // $2432  ; VIC_SPPRI
+	ldx #$07                                     // $2435
+	lda #$00                                     // $2437
+	sta $d000,x                                  // $2439  ; VIC_SP0X
+	dex                                          // $243C
+	.byte $10, $FA                               // $243D  bpl $2439
+	lda #$00                                     // $243F
+	sta $33                                      // $2441
+	sta $42                                      // $2443
+	sta $43                                      // $2445
+	sta $21                                      // $2447
+	sta $22                                      // $2449
+	lda #$e0                                     // $244B
+	sta $34                                      // $244D
+	lda #$54                                     // $244F
+	sta $35                                      // $2451
+	lda #$c0                                     // $2453
+	sta $30                                      // $2455
+	lda #$53                                     // $2457
+	sta $31                                      // $2459
+	lda #$09                                     // $245B
+	sta $36                                      // $245D
+	ldx #$07                                     // $245F
+	lda $07c3,x                                  // $2461
+	sta $60,x                                    // $2464
+	dex                                          // $2466
+	.byte $10, $F8                               // $2467  bpl $2461
+	lda $16                                      // $2469
+	cmp #$1c                                     // $246B
+	.byte $B0, $04                               // $246D  bcs $2473
+	lda #$2a                                     // $246F
+	sta $16                                      // $2471
+	dec $16                                      // $2473
+	dec $16                                      // $2475
+	jsr $61f0                                    // $2477
+	lda $d012                                    // $247A  ; VIC_RASTER
+	.byte $D0, $FB                               // $247D  bne $247A
+	inc $21                                      // $247F
+	.byte $D0, $F7                               // $2481  bne $247A
+	inc $22                                      // $2483
+	lda $22                                      // $2485
+	cmp #$30                                     // $2487
+	.byte $D0, $DE                               // $2489  bne $2469
+	lda #$0a                                     // $248B
+	sta $16                                      // $248D
+	sta $36                                      // $248F
+	lda #$28                                     // $2491
+	sta $1b                                      // $2493
+	ldx #$4f                                     // $2495
+	lda $5000,x                                  // $2497
+	sta $0798,x                                  // $249A
+	cmp #$10                                     // $249D
+	.byte $F0, $0C                               // $249F  beq $24AD
+	cmp #$08                                     // $24A1
+	.byte $F0, $10                               // $24A3  beq $24B5
+	lda #$09                                     // $24A5
+	sta $db98,x                                  // $24A7
+	jmp $24ba                                    // $24AA
+	lda #$09                                     // $24AD
+	sta $db98,x                                  // $24AF
+	jmp $24ba                                    // $24B2
+	lda #$0a                                     // $24B5
+	sta $db98,x                                  // $24B7
+	dex                                          // $24BA
+	.byte $10, $DA                               // $24BB  bpl $2497
+	jsr $61f0                                    // $24BD
+	lda #$03                                     // $24C0
+	sta $5f                                      // $24C2
+	inc $41                                      // $24C4
+	lda $d01e                                    // $24C6  ; VIC_SPCOL
+	lda $27                                      // $24C9
+	sta $29                                      // $24CB
+	lda #$32                                     // $24CD
+	sta $27                                      // $24CF
+	ldx #$07                                     // $24D1
+	lda $60,x                                    // $24D3
+	sta $07c3,x                                  // $24D5
+	dex                                          // $24D8
+	.byte $10, $F8                               // $24D9  bpl $24D3
+	asl $4e                                      // $24DB
+	lda $4e                                      // $24DD
+	cmp #$40                                     // $24DF
+	.byte $D0, $03                               // $24E1  bne $24E6
+	jmp $2000                                    // $24E3
+	cmp #$08                                     // $24E6
+	.byte $D0, $10                               // $24E8  bne $24FA
+	lda #$00                                     // $24EA
+	sta $33                                      // $24EC
+	lda #$90                                     // $24EE
+	sta $30                                      // $24F0
+	sta $34                                      // $24F2
+	lda #$55                                     // $24F4
+	sta $31                                      // $24F6
+	sta $35                                      // $24F8
+	jmp $1020                                    // $24FA
+	nop                                          // $24FD
+	nop                                          // $24FE
+	nop                                          // $24FF
+	nop                                          // $2500
+	nop                                          // $2501
+	nop                                          // $2502
+	nop                                          // $2503
+	nop                                          // $2504
+	nop                                          // $2505
+	nop                                          // $2506
+	nop                                          // $2507
+	nop                                          // $2508
+	nop                                          // $2509
+	nop                                          // $250A
+	nop                                          // $250B
+	nop                                          // $250C
+	nop                                          // $250D
+	nop                                          // $250E
+	nop                                          // $250F
+	nop                                          // $2510
+	nop                                          // $2511
+	nop                                          // $2512
+	nop                                          // $2513
+	nop                                          // $2514
+	nop                                          // $2515
+	nop                                          // $2516
+	nop                                          // $2517
+	nop                                          // $2518
+	nop                                          // $2519
+	nop                                          // $251A
+	nop                                          // $251B
+	nop                                          // $251C
+	nop                                          // $251D
+	nop                                          // $251E
+	nop                                          // $251F
+	nop                                          // $2520
+	nop                                          // $2521
+	nop                                          // $2522
+	nop                                          // $2523
+	nop                                          // $2524
+	nop                                          // $2525
+	nop                                          // $2526
+	nop                                          // $2527
+	nop                                          // $2528
+	nop                                          // $2529
+	nop                                          // $252A
+	nop                                          // $252B
+	nop                                          // $252C
+	nop                                          // $252D
+	nop                                          // $252E
+	nop                                          // $252F
+	nop                                          // $2530
+	nop                                          // $2531
+	nop                                          // $2532
+	nop                                          // $2533
+	nop                                          // $2534
+	nop                                          // $2535
+	nop                                          // $2536
+	nop                                          // $2537
+	nop                                          // $2538
+	nop                                          // $2539
+	nop                                          // $253A
+	nop                                          // $253B
+	nop                                          // $253C
+	nop                                          // $253D
+	nop                                          // $253E
+	nop                                          // $253F
+	nop                                          // $2540
+	nop                                          // $2541
+	nop                                          // $2542
+	nop                                          // $2543
+	nop                                          // $2544
+	nop                                          // $2545
+	nop                                          // $2546
+	nop                                          // $2547
+	nop                                          // $2548
+	nop                                          // $2549
+	nop                                          // $254A
+	nop                                          // $254B
+	nop                                          // $254C
+	nop                                          // $254D
+	nop                                          // $254E
+	nop                                          // $254F
+	nop                                          // $2550
+	nop                                          // $2551
+	nop                                          // $2552
+	nop                                          // $2553
+	nop                                          // $2554
+	nop                                          // $2555
+	nop                                          // $2556
+	nop                                          // $2557
+	nop                                          // $2558
+	nop                                          // $2559
+	nop                                          // $255A
+	nop                                          // $255B
+	nop                                          // $255C
+	nop                                          // $255D
+	nop                                          // $255E
+	nop                                          // $255F
+	nop                                          // $2560
+	nop                                          // $2561
+	nop                                          // $2562
+	nop                                          // $2563
+	nop                                          // $2564
+	nop                                          // $2565
+	nop                                          // $2566
+	nop                                          // $2567
+	nop                                          // $2568
+	nop                                          // $2569
+	nop                                          // $256A
+	nop                                          // $256B
+	nop                                          // $256C
+	nop                                          // $256D
+	nop                                          // $256E
+	nop                                          // $256F
+	nop                                          // $2570
+	nop                                          // $2571
+	nop                                          // $2572
+	nop                                          // $2573
+	nop                                          // $2574
+	nop                                          // $2575
+	nop                                          // $2576
+	nop                                          // $2577
+	nop                                          // $2578
+	nop                                          // $2579
+	nop                                          // $257A
+	nop                                          // $257B
+	nop                                          // $257C
+	nop                                          // $257D
+	nop                                          // $257E
+	nop                                          // $257F
+	nop                                          // $2580
+	nop                                          // $2581
+	nop                                          // $2582
+	nop                                          // $2583
+	nop                                          // $2584
+	nop                                          // $2585
+	nop                                          // $2586
+	nop                                          // $2587
+	nop                                          // $2588
+	nop                                          // $2589
+	nop                                          // $258A
+	jsr $61f0                                    // $258B
+	lda #$03                                     // $258E
+	sta $5f                                      // $2590
+	inc $41                                      // $2592
+	lda $d01e                                    // $2594  ; VIC_SPCOL
+	lda $27                                      // $2597
+	sta $29                                      // $2599
+	lda #$32                                     // $259B
+	sta $27                                      // $259D
+	.byte $D0, $A9                               // $259F  bne $254A
+	brk                                          // $25A1
+	nop                                          // $25A2
+	nop                                          // $25A3
+	nop                                          // $25A4
+	nop                                          // $25A5
+	nop                                          // $25A6
+	nop                                          // $25A7
+	nop                                          // $25A8
+	nop                                          // $25A9
+	nop                                          // $25AA
+	nop                                          // $25AB
+	nop                                          // $25AC
+	nop                                          // $25AD
+	nop                                          // $25AE
+	nop                                          // $25AF
+	nop                                          // $25B0
+	nop                                          // $25B1
+	nop                                          // $25B2
+	nop                                          // $25B3
+	nop                                          // $25B4
+	nop                                          // $25B5
+	nop                                          // $25B6
+	nop                                          // $25B7
+	nop                                          // $25B8
+	nop                                          // $25B9
+	nop                                          // $25BA
+	nop                                          // $25BB
+	nop                                          // $25BC
+	nop                                          // $25BD
+	nop                                          // $25BE
+	nop                                          // $25BF
+	nop                                          // $25C0
+	nop                                          // $25C1
+	nop                                          // $25C2
+	nop                                          // $25C3
+	nop                                          // $25C4
+	nop                                          // $25C5
+	nop                                          // $25C6
+	nop                                          // $25C7
+	nop                                          // $25C8
+	nop                                          // $25C9
+	nop                                          // $25CA
+	nop                                          // $25CB
+	nop                                          // $25CC
+	nop                                          // $25CD
+	nop                                          // $25CE
+	nop                                          // $25CF
+	nop                                          // $25D0
+	nop                                          // $25D1
+	nop                                          // $25D2
+	nop                                          // $25D3
+	nop                                          // $25D4
+	nop                                          // $25D5
+	nop                                          // $25D6
+	nop                                          // $25D7
+	nop                                          // $25D8
+	nop                                          // $25D9
+	nop                                          // $25DA
+	nop                                          // $25DB
+	nop                                          // $25DC
+	nop                                          // $25DD
+	nop                                          // $25DE
+	nop                                          // $25DF
+	nop                                          // $25E0
+	nop                                          // $25E1
+	nop                                          // $25E2
+	nop                                          // $25E3
+	nop                                          // $25E4
+	nop                                          // $25E5
+	nop                                          // $25E6
+	nop                                          // $25E7
+	nop                                          // $25E8
+	nop                                          // $25E9
+	nop                                          // $25EA
+	nop                                          // $25EB
+	nop                                          // $25EC
+	nop                                          // $25ED
+	nop                                          // $25EE
+	nop                                          // $25EF
+	nop                                          // $25F0
+	nop                                          // $25F1
+	nop                                          // $25F2
+	nop                                          // $25F3
+	nop                                          // $25F4
+	nop                                          // $25F5
+	nop                                          // $25F6
+	nop                                          // $25F7
+	nop                                          // $25F8
+	nop                                          // $25F9
+	nop                                          // $25FA
+	nop                                          // $25FB
+	nop                                          // $25FC
+	nop                                          // $25FD
+	nop                                          // $25FE
+	nop                                          // $25FF
 	.byte $54                                    // $2600  ???
 	brk                                          // $2601
 	brk                                          // $2602
@@ -4765,100 +5972,111 @@
 	brk                                          // $2BC2
 	brk                                          // $2BC3
 	brk                                          // $2BC4
-	brk                                          // $2BC5
+	php                                          // $2BC5
 	brk                                          // $2BC6
-	.byte $02                                    // $2BC7  ???
-	ldy #$00                                     // $2BC8
-	asl $a8                                      // $2BCA
+	brk                                          // $2BC7
+	brk                                          // $2BC8
+	brk                                          // $2BC9
+	brk                                          // $2BCA
+	rti                                          // $2BCB
 	brk                                          // $2BCC
-	.byte $1A                                    // $2BCD  ???
-	pla                                          // $2BCE
+	brk                                          // $2BCD
+	brk                                          // $2BCE
 	brk                                          // $2BCF
-	rol                                          // $2BD0
-	txs                                          // $2BD1
+	ora ($00,x)                                  // $2BD0
 	brk                                          // $2BD2
-	.byte $99, $A6, $00                          // $2BD3  sta $00A6,y
-	ror                                          // $2BD6
-	tsx                                          // $2BD7
-	.byte $02                                    // $2BD8  ???
-	ldx $69                                      // $2BD9
-	.byte $02                                    // $2BDB  ???
-	tax                                          // $2BDC
-	tax                                          // $2BDD
-	ora #$99                                     // $2BDE
-	sta $a606,y                                  // $2BE0
-	ldx #$0a                                     // $2BE3
-	.byte $9B                                    // $2BE5  ???
-	.byte $89                                    // $2BE6  ???
-	asl                                          // $2BE7
-	ldx $022a                                    // $2BE8
-	sed                                          // $2BEB
-	lda #$00                                     // $2BEC
-	ldx #$aa                                     // $2BEE
+	.byte $04                                    // $2BD3  ???
+	brk                                          // $2BD4
+	brk                                          // $2BD5
+	clc                                          // $2BD6
+	brk                                          // $2BD7
+	brk                                          // $2BD8
+	.byte $20, $00, $00                          // $2BD9  jsr $0000
+	cpy #$00                                     // $2BDC
+	ora ($00,x)                                  // $2BDE
+	brk                                          // $2BE0
+	asl $00                                      // $2BE1
+	brk                                          // $2BE3
+	php                                          // $2BE4
+	brk                                          // $2BE5
+	brk                                          // $2BE6
+	.byte $30, $00                               // $2BE7  bmi $2BE9
+	brk                                          // $2BE9
+	cpx #$00                                     // $2BEA
+	brk                                          // $2BEC
+	cpy #$00                                     // $2BED
+	brk                                          // $2BEF
 	brk                                          // $2BF0
-	.byte $02                                    // $2BF1  ???
-	lda #$00                                     // $2BF2
-	.byte $02                                    // $2BF4  ???
-	tax                                          // $2BF5
+	brk                                          // $2BF1
+	brk                                          // $2BF2
+	brk                                          // $2BF3
+	brk                                          // $2BF4
+	brk                                          // $2BF5
 	brk                                          // $2BF6
-	asl                                          // $2BF7
-	lda #$00                                     // $2BF8
-	asl                                          // $2BFA
-	tay                                          // $2BFB
+	brk                                          // $2BF7
+	brk                                          // $2BF8
+	brk                                          // $2BF9
+	brk                                          // $2BFA
+	brk                                          // $2BFB
 	brk                                          // $2BFC
 	brk                                          // $2BFD
 	brk                                          // $2BFE
 	brk                                          // $2BFF
 	brk                                          // $2C00
-	rol                                          // $2C01
-	ldy $00                                      // $2C02
-	rol                                          // $2C04
-	tay                                          // $2C05
+	brk                                          // $2C01
+	brk                                          // $2C02
+	.byte $10, $00                               // $2C03  bpl $2C05
+	brk                                          // $2C05
 	brk                                          // $2C06
-	tax                                          // $2C07
-	ldy $02                                      // $2C08
-	tax                                          // $2C0A
-	ldy #$02                                     // $2C0B
-	tax                                          // $2C0D
-	.byte $90, $0A                               // $2C0E  bcc $2C1A
-	tax                                          // $2C10
-	.byte $80                                    // $2C11  ???
-	asl                                          // $2C12
-	tax                                          // $2C13
-	rti                                          // $2C14
-	rol                                          // $2C15
-	tax                                          // $2C16
+	brk                                          // $2C07
+	brk                                          // $2C08
+	.byte $02                                    // $2C09  ???
+	brk                                          // $2C0A
+	brk                                          // $2C0B
+	brk                                          // $2C0C
+	brk                                          // $2C0D
+	brk                                          // $2C0E
+	brk                                          // $2C0F
+	.byte $80                                    // $2C10  ???
+	brk                                          // $2C11
+	brk                                          // $2C12
+	.byte $20, $00, $00                          // $2C13  jsr $0000
+	clc                                          // $2C16
 	brk                                          // $2C17
-	rol                                          // $2C18
-	lda #$00                                     // $2C19
-	rol                                          // $2C1B
-	tay                                          // $2C1C
+	brk                                          // $2C18
+	.byte $04                                    // $2C19  ???
+	brk                                          // $2C1A
+	brk                                          // $2C1B
+	.byte $03                                    // $2C1C  ???
 	brk                                          // $2C1D
-	tax                                          // $2C1E
-	ldy $00                                      // $2C1F
-	tax                                          // $2C21
-	ldy #$00                                     // $2C22
-	tax                                          // $2C24
-	.byte $90, $00                               // $2C25  bcc $2C27
-	tax                                          // $2C27
-	.byte $80                                    // $2C28  ???
-	brk                                          // $2C29
-	tax                                          // $2C2A
-	rti                                          // $2C2B
-	brk                                          // $2C2C
-	tax                                          // $2C2D
-	.byte $80                                    // $2C2E  ???
-	brk                                          // $2C2F
-	tax                                          // $2C30
-	rti                                          // $2C31
+	brk                                          // $2C1E
+	brk                                          // $2C1F
+	.byte $80                                    // $2C20  ???
+	brk                                          // $2C21
+	brk                                          // $2C22
+	rts                                          // $2C23
+	brk                                          // $2C24
+	brk                                          // $2C25
+	.byte $10, $00                               // $2C26  bpl $2C28
+	brk                                          // $2C28
+	.byte $0C                                    // $2C29  ???
+	brk                                          // $2C2A
+	brk                                          // $2C2B
+	.byte $07                                    // $2C2C  ???
+	brk                                          // $2C2D
+	brk                                          // $2C2E
+	.byte $03                                    // $2C2F  ???
+	brk                                          // $2C30
+	brk                                          // $2C31
 	brk                                          // $2C32
-	tax                                          // $2C33
-	ldy #$00                                     // $2C34
-	tax                                          // $2C36
-	tay                                          // $2C37
+	brk                                          // $2C33
+	brk                                          // $2C34
+	brk                                          // $2C35
+	brk                                          // $2C36
+	brk                                          // $2C37
 	brk                                          // $2C38
-	tax                                          // $2C39
-	tax                                          // $2C3A
+	brk                                          // $2C39
+	brk                                          // $2C3A
 	brk                                          // $2C3B
 	brk                                          // $2C3C
 	brk                                          // $2C3D
@@ -4962,49 +6180,51 @@
 	brk                                          // $2CBE
 	brk                                          // $2CBF
 	brk                                          // $2CC0
-	brk                                          // $2CC1
-	brk                                          // $2CC2
-	brk                                          // $2CC3
-	brk                                          // $2CC4
-	brk                                          // $2CC5
+	.byte $10, $00                               // $2CC1  bpl $2CC3
+	.byte $04                                    // $2CC3  ???
+	ora ($04,x)                                  // $2CC4
 	brk                                          // $2CC6
-	brk                                          // $2CC7
-	brk                                          // $2CC8
-	brk                                          // $2CC9
-	rti                                          // $2CCA
-	brk                                          // $2CCB
-	ora ($51,x)                                  // $2CCC
-	brk                                          // $2CCE
-	and #$55                                     // $2CCF
-	pla                                          // $2CD1
-	and $7855                                    // $2CD2
-	and $7c55,x                                  // $2CD5
-	and $55,x                                    // $2CD8
-	.byte $5C                                    // $2CDA  ???
-	ora $65                                      // $2CDB
-	.byte $50, $15                               // $2CDD  bvc $2CF4
-	lda #$50                                     // $2CDF
-	asl $fe,x                                    // $2CE1
-	.byte $54                                    // $2CE3  ???
-	asl $76,x                                    // $2CE4
-	sty $15,x                                    // $2CE6
-	adc $94,x                                    // $2CE8
-	.byte $14                                    // $2CEA  ???
-	eor $55,x                                    // $2CEB
-	.byte $54                                    // $2CED  ???
-	ora $11,x                                    // $2CEE
-	.byte $44                                    // $2CF0  ???
-	.byte $04                                    // $2CF1  ???
-	.byte $14                                    // $2CF2  ???
-	.byte $44                                    // $2CF3  ???
+	rti                                          // $2CC7
+	rti                                          // $2CC8
+	.byte $10, $04                               // $2CC9  bpl $2CCF
+	.byte $04                                    // $2CCB  ???
+	.byte $04                                    // $2CCC  ???
+	rti                                          // $2CCD
+	rti                                          // $2CCE
+	brk                                          // $2CCF
+	brk                                          // $2CD0
+	.byte $10, $01                               // $2CD1  bpl $2CD4
+	.byte $04                                    // $2CD3  ???
+	brk                                          // $2CD4
+	brk                                          // $2CD5
+	.byte $10, $10                               // $2CD6  bpl $2CE8
+	.byte $10, $41                               // $2CD8  bpl $2D1B
+	.byte $04                                    // $2CDA  ???
+	brk                                          // $2CDB
+	.byte $10, $00                               // $2CDC  bpl $2CDE
+	.byte $10, $40                               // $2CDE  bpl $2D20
+	rti                                          // $2CE0
+	brk                                          // $2CE1
+	.byte $10, $04                               // $2CE2  bpl $2CE8
+	rti                                          // $2CE4
+	ora ($10,x)                                  // $2CE5
+	.byte $10, $40                               // $2CE7  bpl $2D29
+	.byte $44                                    // $2CE9  ???
+	.byte $44                                    // $2CEA  ???
+	.byte $04                                    // $2CEB  ???
+	.byte $10, $00                               // $2CEC  bpl $2CEE
+	brk                                          // $2CEE
+	brk                                          // $2CEF
+	.byte $04                                    // $2CF0  ???
+	brk                                          // $2CF1
+	.byte $10, $00                               // $2CF2  bpl $2CF4
 	brk                                          // $2CF4
-	.byte $04                                    // $2CF5  ???
-	.byte $14                                    // $2CF6  ???
-	brk                                          // $2CF7
+	brk                                          // $2CF5
+	.byte $10, $00                               // $2CF6  bpl $2CF8
 	.byte $04                                    // $2CF8  ???
-	brk                                          // $2CF9
+	rti                                          // $2CF9
 	brk                                          // $2CFA
-	brk                                          // $2CFB
+	rti                                          // $2CFB
 	brk                                          // $2CFC
 	brk                                          // $2CFD
 	brk                                          // $2CFE
@@ -7398,11 +8618,11 @@
 	.byte $BF                                    // $3874  ???
 	.byte $BB                                    // $3875  ???
 	.byte $BB                                    // $3876  ???
-	tax                                          // $3877
+	.byte $BB                                    // $3877  ???
 	.byte $BF                                    // $3878  ???
 	ldx $aeae                                    // $3879
-	ldx $bfae                                    // $387C
-	tax                                          // $387F
+	ldx $aeae                                    // $387C
+	.byte $BF                                    // $387F  ???
 	ldx $bbbf                                    // $3880
 	.byte $BB                                    // $3883  ???
 	.byte $BB                                    // $3884  ???
@@ -7464,7 +8684,7 @@
 	.byte $AB                                    // $38D4  ???
 	.byte $AB                                    // $38D5  ???
 	.byte $BF                                    // $38D6  ???
-	tax                                          // $38D7
+	.byte $BF                                    // $38D7  ???
 	.byte $BF                                    // $38D8  ???
 	.byte $BF                                    // $38D9  ???
 	tsx                                          // $38DA
@@ -7472,7 +8692,7 @@
 	tsx                                          // $38DC
 	tsx                                          // $38DD
 	.byte $BF                                    // $38DE  ???
-	tax                                          // $38DF
+	.byte $BF                                    // $38DF  ???
 	.byte $BF                                    // $38E0  ???
 	.byte $BF                                    // $38E1  ???
 	.byte $BB                                    // $38E2  ???
@@ -7480,19 +8700,19 @@
 	.byte $BB                                    // $38E4  ???
 	.byte $BB                                    // $38E5  ???
 	.byte $BF                                    // $38E6  ???
-	tax                                          // $38E7
+	.byte $BF                                    // $38E7  ???
 	.byte $BF                                    // $38E8  ???
 	.byte $BB                                    // $38E9  ???
 	.byte $BB                                    // $38EA  ???
 	.byte $BF                                    // $38EB  ???
 	ldx $bbbe,y                                  // $38EC
-	tax                                          // $38EF
+	.byte $BB                                    // $38EF  ???
 	.byte $BF                                    // $38F0  ???
 	.byte $BF                                    // $38F1  ???
 	tsx                                          // $38F2
 	ldx $babe,y                                  // $38F3
 	.byte $BF                                    // $38F6  ???
-	tax                                          // $38F7
+	.byte $BF                                    // $38F7  ???
 	eor $55,x                                    // $38F8
 	eor $55,x                                    // $38FA
 	eor $55,x                                    // $38FC
@@ -7505,42 +8725,47 @@
 	brk                                          // $3905
 	brk                                          // $3906
 	brk                                          // $3907
-	stx $55,y                                    // $3908
-	eor $ff,x                                    // $390A
+	ldx $f3fe,y                                  // $3908
+	.byte $FF                                    // $390B  ???
 	.byte $FF                                    // $390C  ???
-	.byte $FF                                    // $390D  ???
+	.byte $FC                                    // $390D  ???
 	.byte $FF                                    // $390E  ???
-	ldx $5559,y                                  // $390F
-	eor $5f,x                                    // $3912
+	ldx $5f5b,y                                  // $390F
+	.byte $5F                                    // $3912  ???
+	.byte $5F                                    // $3913  ???
 	.byte $5F                                    // $3914  ???
 	.byte $5F                                    // $3915  ???
 	.byte $57                                    // $3916  ???
 	.byte $57                                    // $3917  ???
-	ror                                          // $3918
-	ror                                          // $3919
-	.byte $5A                                    // $391A  ???
+	nop                                          // $3918
+	nop                                          // $3919
+	.byte $FA                                    // $391A  ???
 	.byte $FA                                    // $391B  ???
 	inc $f6,x                                    // $391C
 	cmp $d5,x                                    // $391E
-	lda $95                                      // $3920
-	sta $9f,x                                    // $3922
+	.byte $A7                                    // $3920  ???
+	.byte $9F                                    // $3921  ???
+	.byte $9F                                    // $3922  ???
+	.byte $9F                                    // $3923  ???
 	.byte $5F                                    // $3924  ???
 	.byte $5F                                    // $3925  ???
 	.byte $57                                    // $3926  ???
 	.byte $53                                    // $3927  ???
-	lda #$a5                                     // $3928
-	lda $9f                                      // $392A
+	.byte $AB                                    // $3928  ???
+	.byte $AF                                    // $3929  ???
+	.byte $AF                                    // $392A  ???
+	.byte $9F                                    // $392B  ???
 	.byte $9F                                    // $392C  ???
 	.byte $9F                                    // $392D  ???
 	.byte $97                                    // $392E  ???
 	.byte $97                                    // $392F  ???
-	ror                                          // $3930
-	ror                                          // $3931
-	.byte $5A                                    // $3932  ???
+	nop                                          // $3930
+	nop                                          // $3931
+	.byte $FA                                    // $3932  ???
 	sbc $f5f9,y                                  // $3933
 	cmp $d5,x                                    // $3936
-	adc #$69                                     // $3938
-	eor $f5,x                                    // $393A
+	sbc #$e9                                     // $3938
+	sbc $f5,x                                    // $393A
 	sbc $c5,x                                    // $393C
 	sbc $af3d,x                                  // $393E
 	.byte $AB                                    // $3941  ???
@@ -7854,10 +9079,10 @@
 	eor $15,x                                    // $3ACA
 	cmp $d5,x                                    // $3ACC
 	cmp $f5                                      // $3ACE
-	.byte $5A                                    // $3AD0  ???
-	lsr $56,x                                    // $3AD1
-	inc $fefe,x                                  // $3AD3
-	sbc $bff5,x                                  // $3AD6
+	.byte $FA                                    // $3AD0  ???
+	inc $fefe,x                                  // $3AD1
+	inc $fdfe,x                                  // $3AD4
+	sbc $bf,x                                    // $3AD7
 	.byte $BF                                    // $3AD9  ???
 	.byte $BF                                    // $3ADA  ???
 	.byte $BF                                    // $3ADB  ???
@@ -8600,7 +9825,7 @@
 	.byte $04                                    // $3F23  ???
 	brk                                          // $3F24
 	brk                                          // $3F25
-	ora ($32,x)                                  // $3F26
+	ora ($4f,x)                                  // $3F26
 	brk                                          // $3F28
 	brk                                          // $3F29
 	brk                                          // $3F2A
@@ -8698,7 +9923,7 @@
 	eor ($54,x)                                  // $3F9D
 	eor ($01,x)                                  // $3F9F
 	cmp ($d1),y                                  // $3FA1
-	ldx #$bc                                     // $3FA3
+	ldx #$ba                                     // $3FA3
 	asl $02                                      // $3FA5
 	brk                                          // $3FA7
 	ora ($d1,x)                                  // $3FA8
@@ -8757,7 +9982,8 @@
 	.byte $DC                                    // $3FF1  ???
 	.byte $DC                                    // $3FF2  ???
 	tsx                                          // $3FF3
-	ldx $0206,y                                  // $3FF4
+	.byte $BF                                    // $3FF4  ???
+	asl $02                                      // $3FF5
 	brk                                          // $3FF7
 	.byte $53                                    // $3FF8  ???
 	.byte $43                                    // $3FF9  ???
@@ -12070,9 +13296,9 @@
 	eor $5427                                    // $5792
 	ora ($21,x)                                  // $5795
 	eor $5927,x                                  // $5797
-	lsr $0154                                    // $579A
-	ora ($01,x)                                  // $579D
-	ora ($2a,x)                                  // $579F
+	lsr $2054                                    // $579A
+	jsr $2020                                    // $579D
+	rol                                          // $57A0
 	rol                                          // $57A1
 	rol                                          // $57A2
 	rol                                          // $57A3
@@ -12403,10 +13629,10 @@
 	rol                                          // $594F
 	ora $9e0d                                    // $5950
 	rol                                          // $5953
-	.byte $43                                    // $5954  ???
-	.byte $4F                                    // $5955  ???
-	.byte $53                                    // $5956  ???
-	eor $2a49                                    // $5957
+	.byte $54                                    // $5954  ???
+	jsr $2050                                    // $5955
+	.byte $44                                    // $5958  ???
+	rol                                          // $5959
 	ora $500d                                    // $595A
 	.byte $52                                    // $595D  ???
 	eor $53                                      // $595E
@@ -12634,13 +13860,12 @@
 	jsr $a36f                                    // $5A91
 	.byte $A3                                    // $5A94  ???
 	.byte $70, $0D                               // $5A95  bvs $5AA4
-	eor #$4e                                     // $5A97
-	lsr $434f                                    // $5A99
-	eor $4e                                      // $5A9C
-	.byte $54                                    // $5A9E  ???
-	jsr $a520                                    // $5A9F
-	lsr $31                                      // $5AA2
-	.byte $A7                                    // $5AA4  ???
+	lsr $564f                                    // $5A97
+	eor #$43                                     // $5A9A
+	eor $20                                      // $5A9C
+	jsr $2020                                    // $5A9E
+	lda $46                                      // $5AA1
+	and ($a7),y                                  // $5AA3
 	ora $2020                                    // $5AA5
 	jsr $2020                                    // $5AA8
 	jsr $2020                                    // $5AAB
@@ -12719,23 +13944,25 @@
 	asl $0d                                      // $5B42
 	.byte $0F                                    // $5B44  ???
 	ora ($13),y                                  // $5B45
-	ora $6a,x                                    // $5B47
+	ora $6f,x                                    // $5B47
 	php                                          // $5B49
 	.byte $0B                                    // $5B4A  ???
 	clc                                          // $5B4B
 	.byte $1A                                    // $5B4C  ???
 	.byte $1C                                    // $5B4D  ???
-	asl $5420,x                                  // $5B4E
+	asl $4f20,x                                  // $5B4E
 	.byte $0C                                    // $5B51  ???
-	.byte $10, $21                               // $5B52  bpl $5B75
-	bit $26                                      // $5B54
-	and #$2b                                     // $5B56
-	rti                                          // $5B58
+	.byte $10, $20                               // $5B52  bpl $5B74
+	.byte $23                                    // $5B54  ???
+	rol $28                                      // $5B55
+	.byte $2B                                    // $5B57  ???
+	.byte $2F                                    // $5B58  ???
 	.byte $10, $15                               // $5B59  bpl $5B70
-	rol                                          // $5B5B
-	rol $3531                                    // $5B5C
-	.byte $37                                    // $5B5F  ???
-	ora $5250                                    // $5B60
+	plp                                          // $5B5B
+	.byte $2B                                    // $5B5C  ???
+	.byte $30, $33                               // $5B5D  bmi $5B92
+	and $0d,x                                    // $5B5F
+	.byte $50, $52                               // $5B61  bvc $5BB5
 	eor $53                                      // $5B63
 	.byte $53                                    // $5B65  ???
 	jsr $4946                                    // $5B66
@@ -13091,197 +14318,277 @@
 	brk                                          // $5D3D
 	brk                                          // $5D3E
 	brk                                          // $5D3F
-	.byte $50, $57                               // $5D40  bvc $5D99
-	.byte $0F                                    // $5D42  ???
+	brk                                          // $5D40
+	brk                                          // $5D41
+	brk                                          // $5D42
 	brk                                          // $5D43
-	.byte $50, $57                               // $5D44  bvc $5D9D
-	.byte $0F                                    // $5D46  ???
-	ora ($b2,x)                                  // $5D47
-	ora #$b2                                     // $5D49
-	ora #$08                                     // $5D4B
-	asl $f0f1                                    // $5D4D
-	.byte $F0, $50                               // $5D50  beq $5DA2
-	.byte $53                                    // $5D52  ???
-	php                                          // $5D53
+	brk                                          // $5D44
+	brk                                          // $5D45
+	brk                                          // $5D46
+	brk                                          // $5D47
+	brk                                          // $5D48
+	brk                                          // $5D49
+	brk                                          // $5D4A
+	brk                                          // $5D4B
+	brk                                          // $5D4C
+	brk                                          // $5D4D
+	brk                                          // $5D4E
+	brk                                          // $5D4F
+	brk                                          // $5D50
+	brk                                          // $5D51
+	brk                                          // $5D52
+	brk                                          // $5D53
 	brk                                          // $5D54
-	.byte $50, $53                               // $5D55  bvc $5DAA
-	php                                          // $5D57
-	.byte $03                                    // $5D58  ???
-	ldy $bd07,x                                  // $5D59
-	php                                          // $5D5C
-	php                                          // $5D5D
-	php                                          // $5D5E
-	.byte $F7                                    // $5D5F  ???
-	ora ($01,x)                                  // $5D60
-	rti                                          // $5D62
-	eor $0a,x                                    // $5D63
+	brk                                          // $5D55
+	brk                                          // $5D56
+	brk                                          // $5D57
+	brk                                          // $5D58
+	brk                                          // $5D59
+	brk                                          // $5D5A
+	brk                                          // $5D5B
+	brk                                          // $5D5C
+	brk                                          // $5D5D
+	brk                                          // $5D5E
+	brk                                          // $5D5F
+	brk                                          // $5D60
+	brk                                          // $5D61
+	brk                                          // $5D62
+	brk                                          // $5D63
+	brk                                          // $5D64
 	brk                                          // $5D65
-	rti                                          // $5D66
-	eor $0a,x                                    // $5D67
-	.byte $02                                    // $5D69  ???
-	lda $07,x                                    // $5D6A
-	ldx $07,y                                    // $5D6C
-	.byte $04                                    // $5D6E  ???
-	asl $f9                                      // $5D6F
-	ora ($01,x)                                  // $5D71
+	brk                                          // $5D66
+	brk                                          // $5D67
+	brk                                          // $5D68
+	brk                                          // $5D69
+	brk                                          // $5D6A
+	brk                                          // $5D6B
+	brk                                          // $5D6C
+	brk                                          // $5D6D
+	brk                                          // $5D6E
+	brk                                          // $5D6F
+	brk                                          // $5D70
+	brk                                          // $5D71
+	brk                                          // $5D72
 	brk                                          // $5D73
-	.byte $5E, $0A, $00                          // $5D74  lsr $000A,x
+	brk                                          // $5D74
+	brk                                          // $5D75
+	brk                                          // $5D76
 	brk                                          // $5D77
-	lsr $020a,x                                  // $5D78
-	stx $05,y                                    // $5D7B
-	stx $05,y                                    // $5D7D
-	php                                          // $5D7F
-	php                                          // $5D80
-	.byte $F7                                    // $5D81  ???
-	.byte $02                                    // $5D82  ???
-	.byte $02                                    // $5D83  ???
-	cpy #$5d                                     // $5D84
-	asl                                          // $5D86
+	brk                                          // $5D78
+	brk                                          // $5D79
+	brk                                          // $5D7A
+	brk                                          // $5D7B
+	brk                                          // $5D7C
+	brk                                          // $5D7D
+	brk                                          // $5D7E
+	brk                                          // $5D7F
+	brk                                          // $5D80
+	brk                                          // $5D81
+	brk                                          // $5D82
+	brk                                          // $5D83
+	brk                                          // $5D84
+	brk                                          // $5D85
+	brk                                          // $5D86
 	brk                                          // $5D87
-	cpy #$5d                                     // $5D88
-	asl                                          // $5D8A
-	ora ($92,x)                                  // $5D8B
-	ora $0d92                                    // $5D8D
-	php                                          // $5D90
+	brk                                          // $5D88
+	brk                                          // $5D89
+	brk                                          // $5D8A
+	brk                                          // $5D8B
+	brk                                          // $5D8C
+	brk                                          // $5D8D
+	brk                                          // $5D8E
+	brk                                          // $5D8F
+	brk                                          // $5D90
 	brk                                          // $5D91
 	brk                                          // $5D92
-	.byte $FF                                    // $5D93  ???
-	.byte $FF                                    // $5D94  ???
+	brk                                          // $5D93
+	brk                                          // $5D94
 	brk                                          // $5D95
 	brk                                          // $5D96
 	brk                                          // $5D97
-	rol                                          // $5D98
-	rol                                          // $5D99
-	rol                                          // $5D9A
-	rol                                          // $5D9B
-	rol                                          // $5D9C
-	rol                                          // $5D9D
-	rol                                          // $5D9E
-	rol                                          // $5D9F
-	sty $94,x                                    // $5DA0
-	stx $96,y                                    // $5DA2
-	.byte $AF                                    // $5DA4  ???
-	.byte $AF                                    // $5DA5  ???
-	.byte $AF                                    // $5DA6  ???
-	stx $96,y                                    // $5DA7
-	sty $95,x                                    // $5DA9
-	sta $97,x                                    // $5DAB
-	.byte $93                                    // $5DAD  ???
-	.byte $B0, $B0                               // $5DAE  bcs $5D60
-	.byte $B0, $93                               // $5DB0  bcs $5D45
-	.byte $97                                    // $5DB2  ???
-	sta $82,x                                    // $5DB3
-	stx $a69a                                    // $5DB5
-	.byte $B2                                    // $5DB8  ???
-	ldx $a6b2,y                                  // $5DB9
-	txs                                          // $5DBC
-	.byte $8E, $00, $00                          // $5DBD  stx $0000
-	.byte $07                                    // $5DC0  ???
-	sbc #$05                                     // $5DC1
-	.byte $47                                    // $5DC3  ???
+	brk                                          // $5D98
+	brk                                          // $5D99
+	brk                                          // $5D9A
+	brk                                          // $5D9B
+	brk                                          // $5D9C
+	brk                                          // $5D9D
+	brk                                          // $5D9E
+	brk                                          // $5D9F
+	brk                                          // $5DA0
+	brk                                          // $5DA1
+	brk                                          // $5DA2
+	brk                                          // $5DA3
+	brk                                          // $5DA4
+	brk                                          // $5DA5
+	brk                                          // $5DA6
+	brk                                          // $5DA7
+	brk                                          // $5DA8
+	brk                                          // $5DA9
+	brk                                          // $5DAA
+	brk                                          // $5DAB
+	brk                                          // $5DAC
+	brk                                          // $5DAD
+	brk                                          // $5DAE
+	brk                                          // $5DAF
+	brk                                          // $5DB0
+	brk                                          // $5DB1
+	brk                                          // $5DB2
+	brk                                          // $5DB3
+	brk                                          // $5DB4
+	brk                                          // $5DB5
+	brk                                          // $5DB6
+	brk                                          // $5DB7
+	brk                                          // $5DB8
+	brk                                          // $5DB9
+	brk                                          // $5DBA
+	brk                                          // $5DBB
+	brk                                          // $5DBC
+	brk                                          // $5DBD
+	brk                                          // $5DBE
+	brk                                          // $5DBF
+	brk                                          // $5DC0
+	brk                                          // $5DC1
+	brk                                          // $5DC2
+	brk                                          // $5DC3
 	brk                                          // $5DC4
 	brk                                          // $5DC5
-	.byte $07                                    // $5DC6  ???
-	.byte $0C                                    // $5DC7  ???
-	.byte $04                                    // $5DC8  ???
-	ldy $00,x                                    // $5DC9
+	brk                                          // $5DC6
+	brk                                          // $5DC7
+	brk                                          // $5DC8
+	brk                                          // $5DC9
+	brk                                          // $5DCA
 	brk                                          // $5DCB
-	.byte $07                                    // $5DCC  ???
-	sbc #$05                                     // $5DCD
-	.byte $47                                    // $5DCF  ???
-	rts                                          // $5DD0
-	rts                                          // $5DD1
-	php                                          // $5DD2
-	adc ($05,x)                                  // $5DD3
-	tya                                          // $5DD5
-	rts                                          // $5DD6
-	rts                                          // $5DD7
-	.byte $07                                    // $5DD8  ???
-	sbc #$06                                     // $5DD9
-	.byte $A7                                    // $5DDB  ???
+	brk                                          // $5DCC
+	brk                                          // $5DCD
+	brk                                          // $5DCE
+	brk                                          // $5DCF
+	brk                                          // $5DD0
+	brk                                          // $5DD1
+	brk                                          // $5DD2
+	brk                                          // $5DD3
+	brk                                          // $5DD4
+	brk                                          // $5DD5
+	brk                                          // $5DD6
+	brk                                          // $5DD7
+	brk                                          // $5DD8
+	brk                                          // $5DD9
+	brk                                          // $5DDA
+	brk                                          // $5DDB
 	brk                                          // $5DDC
 	brk                                          // $5DDD
-	php                                          // $5DDE
-	adc ($07,x)                                  // $5DDF
-	.byte $0C                                    // $5DE1  ???
+	brk                                          // $5DDE
+	brk                                          // $5DDF
+	brk                                          // $5DE0
+	brk                                          // $5DE1
 	brk                                          // $5DE2
 	brk                                          // $5DE3
-	ora #$6a                                     // $5DE4
-	asl $a7                                      // $5DE6
+	brk                                          // $5DE4
+	brk                                          // $5DE5
+	brk                                          // $5DE6
+	brk                                          // $5DE7
 	brk                                          // $5DE8
 	brk                                          // $5DE9
-	php                                          // $5DEA
-	adc ($05,x)                                  // $5DEB
-	tya                                          // $5DED
+	brk                                          // $5DEA
+	brk                                          // $5DEB
+	brk                                          // $5DEC
+	brk                                          // $5DED
 	brk                                          // $5DEE
-	.byte $FF                                    // $5DEF  ???
-	and ($87,x)                                  // $5DF0
-	ora $1f,x                                    // $5DF2
-	.byte $07                                    // $5DF4  ???
-	.byte $0C                                    // $5DF5  ???
-	and ($87,x)                                  // $5DF6
-	ora $1f,x                                    // $5DF8
-	.byte $07                                    // $5DFA  ???
-	.byte $0C                                    // $5DFB  ???
-	and ($87,x)                                  // $5DFC
-	ora $1f,x                                    // $5DFE
-	ora $47                                      // $5E00
-	and ($87,x)                                  // $5E02
-	ora $1f,x                                    // $5E04
-	ora $ff                                      // $5E06
-	.byte $F0, $5D                               // $5E08  beq $5E67
-	php                                          // $5E0A
+	brk                                          // $5DEF
+	brk                                          // $5DF0
+	brk                                          // $5DF1
+	brk                                          // $5DF2
+	brk                                          // $5DF3
+	brk                                          // $5DF4
+	brk                                          // $5DF5
+	brk                                          // $5DF6
+	brk                                          // $5DF7
+	brk                                          // $5DF8
+	brk                                          // $5DF9
+	brk                                          // $5DFA
+	brk                                          // $5DFB
+	brk                                          // $5DFC
+	brk                                          // $5DFD
+	brk                                          // $5DFE
+	brk                                          // $5DFF
+	brk                                          // $5E00
+	brk                                          // $5E01
+	brk                                          // $5E02
+	brk                                          // $5E03
+	brk                                          // $5E04
+	brk                                          // $5E05
+	brk                                          // $5E06
+	brk                                          // $5E07
+	brk                                          // $5E08
+	brk                                          // $5E09
+	brk                                          // $5E0A
 	brk                                          // $5E0B
-	.byte $F0, $5D                               // $5E0C  beq $5E6B
-	php                                          // $5E0E
+	brk                                          // $5E0C
+	brk                                          // $5E0D
+	brk                                          // $5E0E
 	brk                                          // $5E0F
-	.byte $07                                    // $5E10  ???
-	.byte $0C                                    // $5E11  ???
-	.byte $03                                    // $5E12  ???
-	stx $80                                      // $5E13
-	.byte $80                                    // $5E15  ???
-	asl $a7                                      // $5E16
-	.byte $03                                    // $5E18  ???
-	.byte $F4                                    // $5E19  ???
-	.byte $80                                    // $5E1A  ???
-	.byte $80                                    // $5E1B  ???
-	asl $47                                      // $5E1C
-	.byte $04                                    // $5E1E  ???
-	.byte $30, $80                               // $5E1F  bmi $5DA1
-	.byte $80                                    // $5E21  ???
-	ora $ed                                      // $5E22
-	.byte $04                                    // $5E24  ???
-	ldy $80,x                                    // $5E25
-	.byte $FF                                    // $5E27  ???
-	.byte $80                                    // $5E28  ???
-	.byte $5B                                    // $5E29  ???
-	asl                                          // $5E2A
+	brk                                          // $5E10
+	brk                                          // $5E11
+	brk                                          // $5E12
+	brk                                          // $5E13
+	brk                                          // $5E14
+	brk                                          // $5E15
+	brk                                          // $5E16
+	brk                                          // $5E17
+	brk                                          // $5E18
+	brk                                          // $5E19
+	brk                                          // $5E1A
+	brk                                          // $5E1B
+	brk                                          // $5E1C
+	brk                                          // $5E1D
+	brk                                          // $5E1E
+	brk                                          // $5E1F
+	brk                                          // $5E20
+	brk                                          // $5E21
+	brk                                          // $5E22
+	brk                                          // $5E23
+	brk                                          // $5E24
+	brk                                          // $5E25
+	brk                                          // $5E26
+	brk                                          // $5E27
+	brk                                          // $5E28
+	brk                                          // $5E29
+	brk                                          // $5E2A
 	brk                                          // $5E2B
-	.byte $80                                    // $5E2C  ???
-	.byte $5B                                    // $5E2D  ???
-	asl                                          // $5E2E
+	brk                                          // $5E2C
+	brk                                          // $5E2D
+	brk                                          // $5E2E
 	brk                                          // $5E2F
-	.byte $10, $5E                               // $5E30  bpl $5E90
-	.byte $0C                                    // $5E32  ???
+	brk                                          // $5E30
+	brk                                          // $5E31
+	brk                                          // $5E32
 	brk                                          // $5E33
-	.byte $10, $5E                               // $5E34  bpl $5E94
-	.byte $0C                                    // $5E36  ???
+	brk                                          // $5E34
+	brk                                          // $5E35
+	brk                                          // $5E36
 	brk                                          // $5E37
-	cpy #$53                                     // $5E38
-	ora #$00                                     // $5E3A
-	cpx #$54                                     // $5E3C
-	ora #$00                                     // $5E3E
-	.byte $90, $55                               // $5E40  bcc $5E97
-	asl                                          // $5E42
+	brk                                          // $5E38
+	brk                                          // $5E39
+	brk                                          // $5E3A
+	brk                                          // $5E3B
+	brk                                          // $5E3C
+	brk                                          // $5E3D
+	brk                                          // $5E3E
+	brk                                          // $5E3F
+	brk                                          // $5E40
+	brk                                          // $5E41
+	brk                                          // $5E42
 	brk                                          // $5E43
-	.byte $90, $55                               // $5E44  bcc $5E9B
-	asl                                          // $5E46
+	brk                                          // $5E44
+	brk                                          // $5E45
+	brk                                          // $5E46
 	brk                                          // $5E47
-	cpx #$50                                     // $5E48
-	asl                                          // $5E4A
+	brk                                          // $5E48
+	brk                                          // $5E49
+	brk                                          // $5E4A
 	brk                                          // $5E4B
-	cpx #$50                                     // $5E4C
-	asl                                          // $5E4E
+	brk                                          // $5E4C
+	brk                                          // $5E4D
+	brk                                          // $5E4E
 	brk                                          // $5E4F
 	brk                                          // $5E50
 	brk                                          // $5E51
@@ -13635,54 +14942,73 @@
 	brk                                          // $5FAD
 	brk                                          // $5FAE
 	brk                                          // $5FAF
-	.byte $F0, $F0                               // $5FB0  beq $5FA2
-	.byte $F0, $F6                               // $5FB2  beq $5FAA
-	.byte $F0, $F7                               // $5FB4  beq $5FAD
-	.byte $FB                                    // $5FB6  ???
-	.byte $F2                                    // $5FB7  ???
-	.byte $F2                                    // $5FB8  ???
-	.byte $F2                                    // $5FB9  ???
-	.byte $F2                                    // $5FBA  ???
-	.byte $F2                                    // $5FBB  ???
-	.byte $F2                                    // $5FBC  ???
-	.byte $F2                                    // $5FBD  ???
-	.byte $F2                                    // $5FBE  ???
+	brk                                          // $5FB0
+	brk                                          // $5FB1
+	brk                                          // $5FB2
+	brk                                          // $5FB3
+	brk                                          // $5FB4
+	brk                                          // $5FB5
+	brk                                          // $5FB6
+	brk                                          // $5FB7
+	brk                                          // $5FB8
+	brk                                          // $5FB9
+	brk                                          // $5FBA
+	brk                                          // $5FBB
+	brk                                          // $5FBC
+	brk                                          // $5FBD
+	brk                                          // $5FBE
 	brk                                          // $5FBF
 	brk                                          // $5FC0
-	ora ($02,x)                                  // $5FC1
-	.byte $03                                    // $5FC3  ???
-	.byte $04                                    // $5FC4  ???
-	ora $06                                      // $5FC5
-	.byte $07                                    // $5FC7  ???
-	php                                          // $5FC8
-	ora #$10                                     // $5FC9
-	ora ($12),y                                  // $5FCB
-	.byte $13                                    // $5FCD  ???
-	.byte $14                                    // $5FCE  ???
-	ora $16,x                                    // $5FCF
-	.byte $17                                    // $5FD1  ???
-	clc                                          // $5FD2
-	ora $2120,y                                  // $5FD3
-	.byte $22                                    // $5FD6  ???
-	.byte $23                                    // $5FD7  ???
-	bit $25                                      // $5FD8
-	rol $27                                      // $5FDA
-	plp                                          // $5FDC
-	and #$30                                     // $5FDD
-	and ($32),y                                  // $5FDF
-	.byte $33                                    // $5FE1  ???
-	.byte $34                                    // $5FE2  ???
-	and $36,x                                    // $5FE3
-	.byte $37                                    // $5FE5  ???
-	sec                                          // $5FE6
-	and $4140,y                                  // $5FE7
-	.byte $42                                    // $5FEA  ???
-	.byte $43                                    // $5FEB  ???
-	.byte $44                                    // $5FEC  ???
-	eor $46                                      // $5FED
-	.byte $47                                    // $5FEF  ???
-	pha                                          // $5FF0
-	eor #$50                                     // $5FF1
+	brk                                          // $5FC1
+	brk                                          // $5FC2
+	brk                                          // $5FC3
+	brk                                          // $5FC4
+	brk                                          // $5FC5
+	brk                                          // $5FC6
+	brk                                          // $5FC7
+	brk                                          // $5FC8
+	brk                                          // $5FC9
+	brk                                          // $5FCA
+	brk                                          // $5FCB
+	brk                                          // $5FCC
+	brk                                          // $5FCD
+	brk                                          // $5FCE
+	brk                                          // $5FCF
+	brk                                          // $5FD0
+	brk                                          // $5FD1
+	brk                                          // $5FD2
+	brk                                          // $5FD3
+	brk                                          // $5FD4
+	brk                                          // $5FD5
+	brk                                          // $5FD6
+	brk                                          // $5FD7
+	brk                                          // $5FD8
+	brk                                          // $5FD9
+	brk                                          // $5FDA
+	brk                                          // $5FDB
+	brk                                          // $5FDC
+	brk                                          // $5FDD
+	brk                                          // $5FDE
+	brk                                          // $5FDF
+	brk                                          // $5FE0
+	brk                                          // $5FE1
+	brk                                          // $5FE2
+	brk                                          // $5FE3
+	brk                                          // $5FE4
+	brk                                          // $5FE5
+	brk                                          // $5FE6
+	brk                                          // $5FE7
+	brk                                          // $5FE8
+	brk                                          // $5FE9
+	brk                                          // $5FEA
+	brk                                          // $5FEB
+	brk                                          // $5FEC
+	brk                                          // $5FED
+	brk                                          // $5FEE
+	brk                                          // $5FEF
+	brk                                          // $5FF0
+	brk                                          // $5FF1
+	brk                                          // $5FF2
 	brk                                          // $5FF3
 	brk                                          // $5FF4
 	brk                                          // $5FF5
@@ -13752,9 +15078,9 @@
 	.byte $10, $DA                               // $607F  bpl $605B
 	lda #$00                                     // $6081
 	sta $d010                                    // $6083  ; VIC_SPXMSB
-	nop                                          // $6086
-	nop                                          // $6087
-	jmp $72fa                                    // $6088
+	jmp $75a0                                    // $6086
+	nop                                          // $6089
+	nop                                          // $608A
 	nop                                          // $608B
 	nop                                          // $608C
 	nop                                          // $608D
@@ -13845,2667 +15171,2813 @@
 	cpy #$5a                                     // $6130
 	.byte $D0, $E7                               // $6132  bne $611B
 	rts                                          // $6134
-	ldx #$05                                     // $6135
-	lda $57                                      // $6137
-	.byte $30, $06                               // $6139  bmi $6141
-	inc $d002                                    // $613B  ; VIC_SP1X
-	jmp $6144                                    // $613E
-	dec $d002                                    // $6141  ; VIC_SP1X
-	.byte $D0, $27                               // $6144  bne $616D
-	lda $d010                                    // $6146  ; VIC_SPXMSB
-	and #$02                                     // $6149
-	.byte $F0, $0B                               // $614B  beq $6158
-	lda $d010                                    // $614D  ; VIC_SPXMSB
-	and #$fd                                     // $6150
-	sta $d010                                    // $6152  ; VIC_SPXMSB
-	jmp $6160                                    // $6155
-	lda $d010                                    // $6158  ; VIC_SPXMSB
-	ora #$02                                     // $615B
-	sta $d010                                    // $615D  ; VIC_SPXMSB
-	lda $57                                      // $6160
-	.byte $30, $06                               // $6162  bmi $616A
-	inc $d002                                    // $6164  ; VIC_SP1X
-	jmp $616d                                    // $6167
-	dec $d002                                    // $616A  ; VIC_SP1X
-	dex                                          // $616D
-	.byte $10, $C7                               // $616E  bpl $6137
-	lda $d003                                    // $6170  ; VIC_SP1Y
-	cmp #$c0                                     // $6173
-	.byte $B0, $06                               // $6175  bcs $617D
-	inc $d003                                    // $6177  ; VIC_SP1Y
-	inc $d003                                    // $617A  ; VIC_SP1Y
-	jsr $61a0                                    // $617D
-	lda $d010                                    // $6180  ; VIC_SPXMSB
-	and #$02                                     // $6183
-	.byte $F0, $17                               // $6185  beq $619E
-	lda $d002                                    // $6187  ; VIC_SP1X
-	cmp #$60                                     // $618A
-	.byte $90, $10                               // $618C  bcc $619E
-	cmp #$d0                                     // $618E
-	.byte $B0, $0C                               // $6190  bcs $619E
-	lda $d015                                    // $6192  ; VIC_SPEN
-	and #$fd                                     // $6195
-	sta $d015                                    // $6197  ; VIC_SPEN
-	lda $4e                                      // $619A
-	sta $42                                      // $619C
-	rts                                          // $619E
-	nop                                          // $619F
-	dec $40                                      // $61A0
-	.byte $F0, $01                               // $61A2  beq $61A5
-	rts                                          // $61A4
-	lda $3f                                      // $61A5
-	sta $40                                      // $61A7
-	ldy $37                                      // $61A9
-	lda $07f8,y                                  // $61AB
-	cmp $38                                      // $61AE
-	.byte $F0, $0B                               // $61B0  beq $61BD
-	lda $38                                      // $61B2
-	sta $07f8,y                                  // $61B4
-	lda $39                                      // $61B7
-	sta $d027,y                                  // $61B9
-	rts                                          // $61BC
-	lda $3a                                      // $61BD
-	sta $07f8,y                                  // $61BF
-	lda $3b                                      // $61C2
-	sta $d027,y                                  // $61C4
-	rts                                          // $61C7
-	nop                                          // $61C8
-	nop                                          // $61C9
-	lda $16                                      // $61CA
-	cmp #$2b                                     // $61CC
-	.byte $90, $04                               // $61CE  bcc $61D4
-	lda #$0a                                     // $61D0
-	sta $16                                      // $61D2
-	ldx $16                                      // $61D4
-	lda $3ec0,x                                  // $61D6
-	sta $14                                      // $61D9
-	inx                                          // $61DB
-	lda $3ec0,x                                  // $61DC
-	sta $15                                      // $61DF
-	ldx #$20                                     // $61E1
-	ldy #$00                                     // $61E3
-	lda ($14),y                                  // $61E5
-	cmp #$01                                     // $61E7
-	.byte $D0, $06                               // $61E9  bne $61F1
-	lda ($10),y                                  // $61EB
-	cmp #$0a                                     // $61ED
-	.byte $90, $22                               // $61EF  bcc $6213
-	lda ($14),y                                  // $61F1
-	.byte $30, $16                               // $61F3  bmi $620B
-	cpx #$0d                                     // $61F5
-	.byte $90, $09                               // $61F7  bcc $6202
-	sta ($10),y                                  // $61F9
-	lda #$09                                     // $61FB
-	sta ($12),y                                  // $61FD
-	jmp $6213                                    // $61FF
-	sta ($10),y                                  // $6202
-	lda $4a                                      // $6204
-	sta ($12),y                                  // $6206
-	jmp $6213                                    // $6208
-	and #$7f                                     // $620B
-	sta ($10),y                                  // $620D
-	lda #$0f                                     // $620F
-	sta ($12),y                                  // $6211
-	dex                                          // $6213
-	.byte $F0, $1E                               // $6214  beq $6234
-	iny                                          // $6216
-	cpy #$04                                     // $6217
-	.byte $90, $CA                               // $6219  bcc $61E5
-	clc                                          // $621B
-	lda $10                                      // $621C
-	adc #$28                                     // $621E
-	sta $10                                      // $6220
-	sta $12                                      // $6222
-	.byte $90, $04                               // $6224  bcc $622A
-	inc $11                                      // $6226
-	inc $13                                      // $6228
-	clc                                          // $622A
-	lda $14                                      // $622B
-	adc #$04                                     // $622D
-	sta $14                                      // $622F
-	jmp $61e3                                    // $6231
-	lda #$ba                                     // $6234
-	sta $10                                      // $6236
-	sta $12                                      // $6238
-	lda #$06                                     // $623A
-	sta $11                                      // $623C
-	lda #$da                                     // $623E
-	sta $13                                      // $6240
-	rts                                          // $6242
-	nop                                          // $6243
-	nop                                          // $6244
-	lda $0e                                      // $6245
-	cmp #$3e                                     // $6247
-	.byte $B0, $08                               // $6249  bcs $6253
-	rts                                          // $624B
-	lda $0e                                      // $624C
-	cmp #$96                                     // $624E
-	.byte $90, $01                               // $6250  bcc $6253
-	rts                                          // $6252
-	sec                                          // $6253
-	lda $09                                      // $6254
-	sbc #$26                                     // $6256
-	sta $09                                      // $6258
-	.byte $B0, $02                               // $625A  bcs $625E
-	dec $0a                                      // $625C
-	ldy #$00                                     // $625E
-	lda ($09),y                                  // $6260
-	pha                                          // $6262
-	ldy #$25                                     // $6263
-	lda ($09),y                                  // $6265
-	pha                                          // $6267
-	clc                                          // $6268
-	lda $09                                      // $6269
-	adc #$26                                     // $626B
-	sta $09                                      // $626D
-	.byte $90, $02                               // $626F  bcc $6273
-	inc $0a                                      // $6271
-	ldy #$00                                     // $6273
-	pla                                          // $6275
-	sta ($09),y                                  // $6276
-	sec                                          // $6278
-	lda $09                                      // $6279
-	sbc #$27                                     // $627B
-	sta $09                                      // $627D
-	sta $0b                                      // $627F
-	.byte $B0, $04                               // $6281  bcs $6287
-	dec $0a                                      // $6283
-	dec $0c                                      // $6285
-	pla                                          // $6287
-	sta ($09),y                                  // $6288
-	lda $0d                                      // $628A
-	.byte $D0, $19                               // $628C  bne $62A7
-	clc                                          // $628E
-	lda $09                                      // $628F
-	adc #$28                                     // $6291
-	sta $09                                      // $6293
-	sta $0b                                      // $6295
-	.byte $90, $04                               // $6297  bcc $629D
-	inc $0a                                      // $6299
-	inc $0c                                      // $629B
-	clc                                          // $629D
-	lda $0e                                      // $629E
-	adc #$08                                     // $62A0
-	sta $0e                                      // $62A2
-	jmp $62bd                                    // $62A4
-	sec                                          // $62A7
-	lda $09                                      // $62A8
-	sbc #$28                                     // $62AA
-	sta $09                                      // $62AC
-	sta $0b                                      // $62AE
-	.byte $B0, $04                               // $62B0  bcs $62B6
-	dec $0a                                      // $62B2
-	dec $0c                                      // $62B4
-	sec                                          // $62B6
-	lda $0e                                      // $62B7
-	sbc #$08                                     // $62B9
-	sta $0e                                      // $62BB
-	lda #$7a                                     // $62BD
-	sta ($09),y                                  // $62BF
-	clc                                          // $62C1
-	lda $09                                      // $62C2
-	adc #$27                                     // $62C4
-	sta $09                                      // $62C6
-	sta $0b                                      // $62C8
-	.byte $90, $04                               // $62CA  bcc $62D0
-	inc $0a                                      // $62CC
-	inc $0c                                      // $62CE
-	lda #$7a                                     // $62D0
-	sta ($09),y                                  // $62D2
-	rts                                          // $62D4
-	lda #$81                                     // $62D5
-	sta $d412                                    // $62D7
-	ldy $1b                                      // $62DA
-	ldx #$00                                     // $62DC
-	lda $3fa0,y                                  // $62DE
-	sta $1c,x                                    // $62E1
-	inx                                          // $62E3
-	iny                                          // $62E4
-	cpx #$08                                     // $62E5
-	.byte $D0, $F5                               // $62E7  bne $62DE
-	lda $1d                                      // $62E9
-	sta $07f8                                    // $62EB
-	lda $1f                                      // $62EE
-	sta $d000                                    // $62F0  ; VIC_SP0X
-	lda $20                                      // $62F3
-	sta $d001                                    // $62F5  ; VIC_SP0Y
-	lda $d010                                    // $62F8  ; VIC_SPXMSB
-	and #$fe                                     // $62FB
-	sta $d010                                    // $62FD  ; VIC_SPXMSB
-	lda $d01b                                    // $6300  ; VIC_SPPRI
-	and #$fe                                     // $6303
-	sta $d01b                                    // $6305  ; VIC_SPPRI
-	lda $d015                                    // $6308  ; VIC_SPEN
-	ora #$01                                     // $630B
-	sta $d015                                    // $630D  ; VIC_SPEN
-	lda $1a                                      // $6310
-	sta $d40f                                    // $6312  ; SID_FLTHI
-	ldx $21                                      // $6315
-	.byte $F0, $30                               // $6317  beq $6349
-	lda $1c                                      // $6319
-	.byte $D0, $24                               // $631B  bne $6341
-	inc $d000                                    // $631D  ; VIC_SP0X
-	.byte $D0, $0B                               // $6320  bne $632D
-	lda $d010                                    // $6322  ; VIC_SPXMSB
-	ora #$01                                     // $6325
-	sta $d010                                    // $6327  ; VIC_SPXMSB
-	inc $d000                                    // $632A  ; VIC_SP0X
-	lda $d000                                    // $632D  ; VIC_SP0X
-	cmp #$60                                     // $6330
-	.byte $90, $07                               // $6332  bcc $633B
-	lda $d010                                    // $6334  ; VIC_SPXMSB
-	and #$01                                     // $6337
-	.byte $D0, $4C                               // $6339  bne $6387
-	dex                                          // $633B
-	.byte $D0, $DF                               // $633C  bne $631D
-	jmp $6349                                    // $633E
-	dec $d000                                    // $6341  ; VIC_SP0X
-	.byte $F0, $41                               // $6344  beq $6387
-	dex                                          // $6346
-	.byte $D0, $F8                               // $6347  bne $6341
-	ldy $22                                      // $6349
-	lda $0e                                      // $634B
-	sbc #$30                                     // $634D
-	cmp $d001                                    // $634F  ; VIC_SP0Y
-	.byte $90, $03                               // $6352  bcc $6357
-	jmp $6387                                    // $6354
-	lda $d001                                    // $6357  ; VIC_SP0Y
-	cmp $0e                                      // $635A
-	.byte $B0, $0F                               // $635C  bcs $636D
-	jmp $6368                                    // $635E
-	and #$01                                     // $6361
-	.byte $D0, $03                               // $6363  bne $6368
-	jmp $6387                                    // $6365
-	lda $1e                                      // $6368
-	sta $07f8                                    // $636A
-	lda $d001                                    // $636D  ; VIC_SP0Y
-	cmp #$8a                                     // $6370
-	.byte $B0, $08                               // $6372  bcs $637C
-	lda $d01b                                    // $6374  ; VIC_SPPRI
-	ora #$01                                     // $6377
-	sta $d01b                                    // $6379  ; VIC_SPPRI
-	dec $d001                                    // $637C  ; VIC_SP0Y
-	dey                                          // $637F
-	.byte $D0, $C9                               // $6380  bne $634B
-	dec $1a                                      // $6382
-	inc $23                                      // $6384
-	rts                                          // $6386
-	lda $d015                                    // $6387  ; VIC_SPEN
-	and #$fe                                     // $638A
-	sta $d015                                    // $638C  ; VIC_SPEN
-	lda #$01                                     // $638F
-	sta $d027                                    // $6391
-	lda $d010                                    // $6394  ; VIC_SPXMSB
-	and #$fe                                     // $6397
-	sta $d010                                    // $6399  ; VIC_SPXMSB
-	inc $26                                      // $639C
-	dec $27                                      // $639E
-	lda #$41                                     // $63A0
-	sta $d412                                    // $63A2
-	lda #$50                                     // $63A5
-	sta $1a                                      // $63A7
-	lda #$00                                     // $63A9
-	sta $24                                      // $63AB
-	sta $d40f                                    // $63AD  ; SID_FLTHI
-	rts                                          // $63B0
-	nop                                          // $63B1
-	nop                                          // $63B2
-	nop                                          // $63B3
-	nop                                          // $63B4
-	lda #$16                                     // $63B5
-	sta $16                                      // $63B7
-	jsr $61ca                                    // $63B9
-	lda $16                                      // $63BC
-	cmp #$0a                                     // $63BE
-	.byte $F0, $10                               // $63C0  beq $63D2
-	inc $16                                      // $63C2
-	inc $16                                      // $63C4
-	lda $16                                      // $63C6
-	cmp #$1c                                     // $63C8
-	.byte $F0, $01                               // $63CA  beq $63CD
-	rts                                          // $63CC
-	lda #$0a                                     // $63CD
-	sta $16                                      // $63CF
-	rts                                          // $63D1
-	lda #$28                                     // $63D2
-	sta $1b                                      // $63D4
-	lda #$00                                     // $63D6
-	sta $25                                      // $63D8
-	sta $26                                      // $63DA
-	rts                                          // $63DC
+	nop                                          // $6135
+	nop                                          // $6136
+	nop                                          // $6137
+	nop                                          // $6138
+	nop                                          // $6139
+	nop                                          // $613A
+	nop                                          // $613B
+	nop                                          // $613C
+	nop                                          // $613D
+	nop                                          // $613E
+	nop                                          // $613F
+	ldx #$28                                     // $6140
+	lda #$00                                     // $6142
+	sta $d400,x                                  // $6144  ; SID_FR1LO
+	dex                                          // $6147
+	.byte $10, $F8                               // $6148  bpl $6142
+	ldx #$18                                     // $614A
+	lda $50c0,x                                  // $614C
+	sta $d400,x                                  // $614F  ; SID_FR1LO
+	dex                                          // $6152
+	.byte $10, $F7                               // $6153  bpl $614C
+	rts                                          // $6155
+	nop                                          // $6156
+	nop                                          // $6157
+	nop                                          // $6158
+	nop                                          // $6159
+	ldx #$05                                     // $615A
+	lda $57                                      // $615C
+	.byte $30, $06                               // $615E  bmi $6166
+	inc $d002                                    // $6160  ; VIC_SP1X
+	jmp $6169                                    // $6163
+	dec $d002                                    // $6166  ; VIC_SP1X
+	.byte $D0, $27                               // $6169  bne $6192
+	lda $d010                                    // $616B  ; VIC_SPXMSB
+	and #$02                                     // $616E
+	.byte $F0, $0B                               // $6170  beq $617D
+	lda $d010                                    // $6172  ; VIC_SPXMSB
+	and #$fd                                     // $6175
+	sta $d010                                    // $6177  ; VIC_SPXMSB
+	jmp $6185                                    // $617A
+	lda $d010                                    // $617D  ; VIC_SPXMSB
+	ora #$02                                     // $6180
+	sta $d010                                    // $6182  ; VIC_SPXMSB
+	lda $57                                      // $6185
+	.byte $30, $06                               // $6187  bmi $618F
+	inc $d002                                    // $6189  ; VIC_SP1X
+	jmp $6192                                    // $618C
+	dec $d002                                    // $618F  ; VIC_SP1X
+	dex                                          // $6192
+	.byte $10, $C7                               // $6193  bpl $615C
+	lda $d003                                    // $6195  ; VIC_SP1Y
+	cmp #$c0                                     // $6198
+	.byte $B0, $06                               // $619A  bcs $61A2
+	inc $d003                                    // $619C  ; VIC_SP1Y
+	inc $d003                                    // $619F  ; VIC_SP1Y
+	jsr $61c5                                    // $61A2
+	lda $d010                                    // $61A5  ; VIC_SPXMSB
+	and #$02                                     // $61A8
+	.byte $F0, $17                               // $61AA  beq $61C3
+	lda $d002                                    // $61AC  ; VIC_SP1X
+	cmp #$60                                     // $61AF
+	.byte $90, $10                               // $61B1  bcc $61C3
+	cmp #$d0                                     // $61B3
+	.byte $B0, $0C                               // $61B5  bcs $61C3
+	lda $d015                                    // $61B7  ; VIC_SPEN
+	and #$fd                                     // $61BA
+	sta $d015                                    // $61BC  ; VIC_SPEN
+	lda $4e                                      // $61BF
+	sta $42                                      // $61C1
+	rts                                          // $61C3
+	nop                                          // $61C4
+	dec $40                                      // $61C5
+	.byte $F0, $01                               // $61C7  beq $61CA
+	rts                                          // $61C9
+	lda $3f                                      // $61CA
+	sta $40                                      // $61CC
+	ldy $37                                      // $61CE
+	lda $07f8,y                                  // $61D0
+	cmp $38                                      // $61D3
+	.byte $F0, $0B                               // $61D5  beq $61E2
+	lda $38                                      // $61D7
+	sta $07f8,y                                  // $61D9
+	lda $39                                      // $61DC
+	sta $d027,y                                  // $61DE
+	rts                                          // $61E1
+	lda $3a                                      // $61E2
+	sta $07f8,y                                  // $61E4
+	lda $3b                                      // $61E7
+	sta $d027,y                                  // $61E9
+	rts                                          // $61EC
+	nop                                          // $61ED
+	nop                                          // $61EE
+	nop                                          // $61EF
+	lda $16                                      // $61F0
+	cmp #$2b                                     // $61F2
+	.byte $90, $04                               // $61F4  bcc $61FA
+	lda #$0a                                     // $61F6
+	sta $16                                      // $61F8
+	ldx $16                                      // $61FA
+	lda $3ec0,x                                  // $61FC
+	sta $14                                      // $61FF
+	inx                                          // $6201
+	lda $3ec0,x                                  // $6202
+	sta $15                                      // $6205
+	ldx #$20                                     // $6207
+	ldy #$00                                     // $6209
+	lda ($14),y                                  // $620B
+	cmp #$01                                     // $620D
+	.byte $D0, $06                               // $620F  bne $6217
+	lda ($10),y                                  // $6211
+	cmp #$0a                                     // $6213
+	.byte $90, $22                               // $6215  bcc $6239
+	lda ($14),y                                  // $6217
+	.byte $30, $16                               // $6219  bmi $6231
+	cpx #$0d                                     // $621B
+	.byte $90, $09                               // $621D  bcc $6228
+	sta ($10),y                                  // $621F
+	lda #$09                                     // $6221
+	sta ($12),y                                  // $6223
+	jmp $6239                                    // $6225
+	sta ($10),y                                  // $6228
+	lda $4a                                      // $622A
+	sta ($12),y                                  // $622C
+	jmp $6239                                    // $622E
+	and #$7f                                     // $6231
+	sta ($10),y                                  // $6233
+	lda #$0f                                     // $6235
+	sta ($12),y                                  // $6237
+	dex                                          // $6239
+	.byte $F0, $1E                               // $623A  beq $625A
+	iny                                          // $623C
+	cpy #$04                                     // $623D
+	.byte $90, $CA                               // $623F  bcc $620B
+	clc                                          // $6241
+	lda $10                                      // $6242
+	adc #$28                                     // $6244
+	sta $10                                      // $6246
+	sta $12                                      // $6248
+	.byte $90, $04                               // $624A  bcc $6250
+	inc $11                                      // $624C
+	inc $13                                      // $624E
+	clc                                          // $6250
+	lda $14                                      // $6251
+	adc #$04                                     // $6253
+	sta $14                                      // $6255
+	jmp $6209                                    // $6257
+	lda #$ba                                     // $625A
+	sta $10                                      // $625C
+	sta $12                                      // $625E
+	lda #$06                                     // $6260
+	sta $11                                      // $6262
+	lda #$da                                     // $6264
+	sta $13                                      // $6266
+	rts                                          // $6268
+	nop                                          // $6269
+	nop                                          // $626A
+	nop                                          // $626B
+	nop                                          // $626C
+	nop                                          // $626D
+	lda $0e                                      // $626E
+	cmp #$3e                                     // $6270
+	.byte $B0, $08                               // $6272  bcs $627C
+	rts                                          // $6274
+	lda $0e                                      // $6275
+	cmp #$96                                     // $6277
+	.byte $90, $01                               // $6279  bcc $627C
+	rts                                          // $627B
+	sec                                          // $627C
+	lda $09                                      // $627D
+	sbc #$26                                     // $627F
+	sta $09                                      // $6281
+	.byte $B0, $02                               // $6283  bcs $6287
+	dec $0a                                      // $6285
+	ldy #$00                                     // $6287
+	lda ($09),y                                  // $6289
+	pha                                          // $628B
+	ldy #$25                                     // $628C
+	lda ($09),y                                  // $628E
+	pha                                          // $6290
+	clc                                          // $6291
+	lda $09                                      // $6292
+	adc #$26                                     // $6294
+	sta $09                                      // $6296
+	.byte $90, $02                               // $6298  bcc $629C
+	inc $0a                                      // $629A
+	ldy #$00                                     // $629C
+	pla                                          // $629E
+	sta ($09),y                                  // $629F
+	sec                                          // $62A1
+	lda $09                                      // $62A2
+	sbc #$27                                     // $62A4
+	sta $09                                      // $62A6
+	sta $0b                                      // $62A8
+	.byte $B0, $04                               // $62AA  bcs $62B0
+	dec $0a                                      // $62AC
+	dec $0c                                      // $62AE
+	pla                                          // $62B0
+	sta ($09),y                                  // $62B1
+	lda $0d                                      // $62B3
+	.byte $D0, $19                               // $62B5  bne $62D0
+	clc                                          // $62B7
+	lda $09                                      // $62B8
+	adc #$28                                     // $62BA
+	sta $09                                      // $62BC
+	sta $0b                                      // $62BE
+	.byte $90, $04                               // $62C0  bcc $62C6
+	inc $0a                                      // $62C2
+	inc $0c                                      // $62C4
+	clc                                          // $62C6
+	lda $0e                                      // $62C7
+	adc #$08                                     // $62C9
+	sta $0e                                      // $62CB
+	jmp $62e6                                    // $62CD
+	sec                                          // $62D0
+	lda $09                                      // $62D1
+	sbc #$28                                     // $62D3
+	sta $09                                      // $62D5
+	sta $0b                                      // $62D7
+	.byte $B0, $04                               // $62D9  bcs $62DF
+	dec $0a                                      // $62DB
+	dec $0c                                      // $62DD
+	sec                                          // $62DF
+	lda $0e                                      // $62E0
+	sbc #$08                                     // $62E2
+	sta $0e                                      // $62E4
+	lda #$7a                                     // $62E6
+	sta ($09),y                                  // $62E8
+	clc                                          // $62EA
+	lda $09                                      // $62EB
+	adc #$27                                     // $62ED
+	sta $09                                      // $62EF
+	sta $0b                                      // $62F1
+	.byte $90, $04                               // $62F3  bcc $62F9
+	inc $0a                                      // $62F5
+	inc $0c                                      // $62F7
+	lda #$7a                                     // $62F9
+	sta ($09),y                                  // $62FB
+	rts                                          // $62FD
+	nop                                          // $62FE
+	nop                                          // $62FF
+	lda #$81                                     // $6300
+	sta $d412                                    // $6302
+	ldy $1b                                      // $6305
+	ldx #$00                                     // $6307
+	lda $3fa0,y                                  // $6309
+	sta $1c,x                                    // $630C
+	inx                                          // $630E
+	iny                                          // $630F
+	cpx #$08                                     // $6310
+	.byte $D0, $F5                               // $6312  bne $6309
+	lda $1d                                      // $6314
+	sta $07f8                                    // $6316
+	lda $1f                                      // $6319
+	sta $d000                                    // $631B  ; VIC_SP0X
+	lda $20                                      // $631E
+	sta $d001                                    // $6320  ; VIC_SP0Y
+	lda $d010                                    // $6323  ; VIC_SPXMSB
+	and #$fe                                     // $6326
+	sta $d010                                    // $6328  ; VIC_SPXMSB
+	lda $d01b                                    // $632B  ; VIC_SPPRI
+	and #$fe                                     // $632E
+	sta $d01b                                    // $6330  ; VIC_SPPRI
+	lda $d015                                    // $6333  ; VIC_SPEN
+	ora #$01                                     // $6336
+	sta $d015                                    // $6338  ; VIC_SPEN
+	lda $1a                                      // $633B
+	sta $d40f                                    // $633D  ; SID_FLTHI
+	ldx $21                                      // $6340
+	.byte $F0, $30                               // $6342  beq $6374
+	lda $1c                                      // $6344
+	.byte $D0, $24                               // $6346  bne $636C
+	inc $d000                                    // $6348  ; VIC_SP0X
+	.byte $D0, $0B                               // $634B  bne $6358
+	lda $d010                                    // $634D  ; VIC_SPXMSB
+	ora #$01                                     // $6350
+	sta $d010                                    // $6352  ; VIC_SPXMSB
+	inc $d000                                    // $6355  ; VIC_SP0X
+	lda $d000                                    // $6358  ; VIC_SP0X
+	cmp #$60                                     // $635B
+	.byte $90, $07                               // $635D  bcc $6366
+	lda $d010                                    // $635F  ; VIC_SPXMSB
+	and #$01                                     // $6362
+	.byte $D0, $4C                               // $6364  bne $63B2
+	dex                                          // $6366
+	.byte $D0, $DF                               // $6367  bne $6348
+	jmp $6374                                    // $6369
+	dec $d000                                    // $636C  ; VIC_SP0X
+	.byte $F0, $41                               // $636F  beq $63B2
+	dex                                          // $6371
+	.byte $D0, $F8                               // $6372  bne $636C
+	ldy $22                                      // $6374
+	lda $0e                                      // $6376
+	sbc #$30                                     // $6378
+	cmp $d001                                    // $637A  ; VIC_SP0Y
+	.byte $90, $03                               // $637D  bcc $6382
+	jmp $63b2                                    // $637F
+	lda $d001                                    // $6382  ; VIC_SP0Y
+	cmp $0e                                      // $6385
+	.byte $B0, $0F                               // $6387  bcs $6398
+	jmp $6393                                    // $6389
+	and #$01                                     // $638C
+	.byte $D0, $03                               // $638E  bne $6393
+	jmp $63b2                                    // $6390
+	lda $1e                                      // $6393
+	sta $07f8                                    // $6395
+	lda $d001                                    // $6398  ; VIC_SP0Y
+	cmp #$8a                                     // $639B
+	.byte $B0, $08                               // $639D  bcs $63A7
+	lda $d01b                                    // $639F  ; VIC_SPPRI
+	ora #$01                                     // $63A2
+	sta $d01b                                    // $63A4  ; VIC_SPPRI
+	dec $d001                                    // $63A7  ; VIC_SP0Y
+	dey                                          // $63AA
+	.byte $D0, $C9                               // $63AB  bne $6376
+	dec $1a                                      // $63AD
+	inc $23                                      // $63AF
+	rts                                          // $63B1
+	lda $d015                                    // $63B2  ; VIC_SPEN
+	and #$fe                                     // $63B5
+	sta $d015                                    // $63B7  ; VIC_SPEN
+	lda $1e                                      // $63BA
+	sta $07f8                                    // $63BC
+	lda $d010                                    // $63BF  ; VIC_SPXMSB
+	and #$fe                                     // $63C2
+	sta $d010                                    // $63C4  ; VIC_SPXMSB
+	inc $26                                      // $63C7
+	dec $27                                      // $63C9
+	lda #$41                                     // $63CB
+	sta $d412                                    // $63CD
+	lda #$50                                     // $63D0
+	sta $1a                                      // $63D2
+	lda #$00                                     // $63D4
+	sta $24                                      // $63D6
+	sta $d40f                                    // $63D8  ; SID_FLTHI
+	rts                                          // $63DB
+	nop                                          // $63DC
 	nop                                          // $63DD
 	nop                                          // $63DE
 	nop                                          // $63DF
-	lda #$1c                                     // $63E0
+	lda #$16                                     // $63E0
 	sta $16                                      // $63E2
-	lda $08                                      // $63E4
-	.byte $D0, $04                               // $63E6  bne $63EC
-	lda #$8a                                     // $63E8
-	sta $08                                      // $63EA
-	dec $08                                      // $63EC
-	lda $08                                      // $63EE
-	sta $06                                      // $63F0
-	dec $0f                                      // $63F2
-	.byte $D0, $12                               // $63F4  bne $6408
-	lda #$02                                     // $63F6
-	sta $0f                                      // $63F8
-	lda $16                                      // $63FA
-	cmp #$22                                     // $63FC
-	.byte $D0, $04                               // $63FE  bne $6404
-	lda #$1a                                     // $6400
-	sta $16                                      // $6402
-	inc $16                                      // $6404
-	inc $16                                      // $6406
-	jsr $6090                                    // $6408
-	jsr $61ca                                    // $640B
-	ldx #$03                                     // $640E
-	inc $d00c                                    // $6410
-	.byte $D0, $08                               // $6413  bne $641D
-	lda $d010                                    // $6415  ; VIC_SPXMSB
-	ora #$40                                     // $6418
-	sta $d010                                    // $641A  ; VIC_SPXMSB
-	lda $d00c                                    // $641D
-	cmp #$68                                     // $6420
-	.byte $90, $24                               // $6422  bcc $6448
-	lda $d010                                    // $6424  ; VIC_SPXMSB
-	and #$40                                     // $6427
-	.byte $F0, $1D                               // $6429  beq $6448
-	lda $d010                                    // $642B  ; VIC_SPXMSB
-	and #$bf                                     // $642E
-	sta $d010                                    // $6430  ; VIC_SPXMSB
-	lda #$00                                     // $6433
-	sta $d00c                                    // $6435
-	lda $07fe                                    // $6438
-	cmp #$a9                                     // $643B
-	.byte $F0, $06                               // $643D  beq $6445
-	dec $07fe                                    // $643F
-	jmp $6448                                    // $6442
-	inc $07fe                                    // $6445
-	dex                                          // $6448
-	.byte $D0, $C5                               // $6449  bne $6410
-	ldx #$05                                     // $644B
-	inc $d008                                    // $644D
-	inc $d00a                                    // $6450
-	.byte $D0, $08                               // $6453  bne $645D
-	lda $d010                                    // $6455  ; VIC_SPXMSB
-	ora #$30                                     // $6458
-	sta $d010                                    // $645A  ; VIC_SPXMSB
-	lda $d008                                    // $645D
-	cmp #$68                                     // $6460
-	.byte $90, $2D                               // $6462  bcc $6491
-	lda $d010                                    // $6464  ; VIC_SPXMSB
-	and #$30                                     // $6467
-	.byte $F0, $26                               // $6469  beq $6491
-	lda $d010                                    // $646B  ; VIC_SPXMSB
-	and #$cf                                     // $646E
-	sta $d010                                    // $6470  ; VIC_SPXMSB
-	lda #$00                                     // $6473
-	sta $d008                                    // $6475
-	sta $d00a                                    // $6478
-	lda $07fd                                    // $647B
-	cmp #$ab                                     // $647E
-	.byte $F0, $09                               // $6480  beq $648B
-	dec $07fd                                    // $6482
-	dec $07fc                                    // $6485
-	jmp $6491                                    // $6488
-	inc $07fd                                    // $648B
-	inc $07fc                                    // $648E
-	dex                                          // $6491
-	.byte $D0, $B9                               // $6492  bne $644D
-	lda $37                                      // $6494
-	.byte $D0, $03                               // $6496  bne $649B
-	jmp $6527                                    // $6498
-	ldx $3c                                      // $649B
-	lda $d010                                    // $649D  ; VIC_SPXMSB
-	and #$02                                     // $64A0
-	.byte $F0, $0F                               // $64A2  beq $64B3
-	lda $d002                                    // $64A4  ; VIC_SP1X
-	cmp #$60                                     // $64A7
-	.byte $90, $08                               // $64A9  bcc $64B3
-	lda $d015                                    // $64AB  ; VIC_SPEN
-	and #$fd                                     // $64AE
-	sta $d015                                    // $64B0  ; VIC_SPEN
-	inc $d002                                    // $64B3  ; VIC_SP1X
-	.byte $D0, $0B                               // $64B6  bne $64C3
-	lda $d010                                    // $64B8  ; VIC_SPXMSB
-	ora #$02                                     // $64BB
-	sta $d010                                    // $64BD  ; VIC_SPXMSB
-	inc $d002                                    // $64C0  ; VIC_SP1X
-	lda $d010                                    // $64C3  ; VIC_SPXMSB
-	and #$04                                     // $64C6
-	.byte $F0, $0F                               // $64C8  beq $64D9
-	lda $d004                                    // $64CA
-	cmp #$60                                     // $64CD
-	.byte $90, $08                               // $64CF  bcc $64D9
-	lda $d015                                    // $64D1  ; VIC_SPEN
-	and #$fb                                     // $64D4
-	sta $d015                                    // $64D6  ; VIC_SPEN
-	inc $d004                                    // $64D9
-	.byte $D0, $0B                               // $64DC  bne $64E9
-	lda $d010                                    // $64DE  ; VIC_SPXMSB
-	ora #$04                                     // $64E1
-	sta $d010                                    // $64E3  ; VIC_SPXMSB
-	inc $d004                                    // $64E6
-	lda $d010                                    // $64E9  ; VIC_SPXMSB
-	and #$08                                     // $64EC
-	.byte $F0, $0F                               // $64EE  beq $64FF
-	lda $d006                                    // $64F0
-	cmp #$60                                     // $64F3
-	.byte $90, $08                               // $64F5  bcc $64FF
-	lda $d015                                    // $64F7  ; VIC_SPEN
-	and #$f7                                     // $64FA
-	sta $d015                                    // $64FC  ; VIC_SPEN
-	inc $d006                                    // $64FF
-	.byte $D0, $0B                               // $6502  bne $650F
-	lda $d010                                    // $6504  ; VIC_SPXMSB
-	ora #$08                                     // $6507
-	sta $d010                                    // $6509  ; VIC_SPXMSB
-	inc $d006                                    // $650C
-	lda $42                                      // $650F
-	cmp #$82                                     // $6511
-	.byte $D0, $03                               // $6513  bne $6518
-	jsr $61a0                                    // $6515
-	lda $42                                      // $6518
-	cmp #$84                                     // $651A
-	.byte $D0, $03                               // $651C  bne $6521
-	jsr $69ba                                    // $651E
-	dex                                          // $6521
-	.byte $F0, $03                               // $6522  beq $6527
-	jmp $649d                                    // $6524
-	lda $dc00                                    // $6527  ; CIA1_PRA
-	and #$1f                                     // $652A
-	eor #$1f                                     // $652C
-	cmp #$04                                     // $652E
-	.byte $90, $14                               // $6530  bcc $6546
-	cmp #$07                                     // $6532
-	.byte $B0, $10                               // $6534  bcs $6546
-	jsr $61a0                                    // $6536
-	jsr $73da                                    // $6539
-	lda $43                                      // $653C
-	.byte $D0, $06                               // $653E  bne $6546
-	jsr $68b0                                    // $6540
-	jmp $63e4                                    // $6543
-	lda #$00                                     // $6546
-	sta $18                                      // $6548
-	sta $16                                      // $654A
-	jsr $61ca                                    // $654C
-	rts                                          // $654F
-	nop                                          // $6550
-	nop                                          // $6551
-	nop                                          // $6552
-	nop                                          // $6553
-	nop                                          // $6554
-	nop                                          // $6555
-	nop                                          // $6556
-	nop                                          // $6557
-	nop                                          // $6558
-	nop                                          // $6559
-	nop                                          // $655A
-	nop                                          // $655B
-	nop                                          // $655C
-	nop                                          // $655D
-	nop                                          // $655E
-	nop                                          // $655F
-	lda #$24                                     // $6560
-	sta $16                                      // $6562
-	lda $08                                      // $6564
-	cmp #$8a                                     // $6566
-	.byte $90, $04                               // $6568  bcc $656E
-	lda #$00                                     // $656A
-	sta $08                                      // $656C
-	inc $08                                      // $656E
-	lda $08                                      // $6570
-	sta $06                                      // $6572
-	dec $0f                                      // $6574
-	.byte $D0, $12                               // $6576  bne $658A
-	lda #$02                                     // $6578
-	sta $0f                                      // $657A
-	lda $16                                      // $657C
-	cmp #$2a                                     // $657E
-	.byte $D0, $04                               // $6580  bne $6586
-	lda #$22                                     // $6582
-	sta $16                                      // $6584
-	inc $16                                      // $6586
-	inc $16                                      // $6588
-	jsr $6090                                    // $658A
-	jsr $61ca                                    // $658D
-	ldx #$03                                     // $6590
-	dec $d00c                                    // $6592
-	.byte $D0, $32                               // $6595  bne $65C9
-	lda $d010                                    // $6597  ; VIC_SPXMSB
-	and #$40                                     // $659A
-	.byte $F0, $0E                               // $659C  beq $65AC
-	lda $d010                                    // $659E  ; VIC_SPXMSB
-	and #$bf                                     // $65A1
-	sta $d010                                    // $65A3  ; VIC_SPXMSB
-	dec $d00c                                    // $65A6
-	jmp $65c9                                    // $65A9
-	lda $d010                                    // $65AC  ; VIC_SPXMSB
-	ora #$40                                     // $65AF
-	sta $d010                                    // $65B1  ; VIC_SPXMSB
-	lda #$68                                     // $65B4
-	sta $d00c                                    // $65B6
-	lda $07fe                                    // $65B9
-	cmp #$a9                                     // $65BC
-	.byte $F0, $06                               // $65BE  beq $65C6
-	dec $07fe                                    // $65C0
-	jmp $65c9                                    // $65C3
-	inc $07fe                                    // $65C6
-	dex                                          // $65C9
-	.byte $D0, $C6                               // $65CA  bne $6592
-	ldx #$05                                     // $65CC
-	dec $d008                                    // $65CE
-	dec $d00a                                    // $65D1
-	.byte $D0, $3E                               // $65D4  bne $6614
-	lda $d010                                    // $65D6  ; VIC_SPXMSB
-	and #$30                                     // $65D9
-	.byte $F0, $11                               // $65DB  beq $65EE
-	lda $d210                                    // $65DD
-	and #$cf                                     // $65E0
-	sta $d010                                    // $65E2  ; VIC_SPXMSB
-	dec $d008                                    // $65E5
-	dec $d00a                                    // $65E8
-	jmp $6614                                    // $65EB
-	lda $d010                                    // $65EE  ; VIC_SPXMSB
-	ora #$30                                     // $65F1
-	sta $d010                                    // $65F3  ; VIC_SPXMSB
-	lda #$68                                     // $65F6
-	sta $d008                                    // $65F8
-	sta $d00a                                    // $65FB
-	lda $07fd                                    // $65FE
-	cmp #$ab                                     // $6601
-	.byte $F0, $09                               // $6603  beq $660E
-	dec $07fd                                    // $6605
-	dec $07fc                                    // $6608
-	jmp $6614                                    // $660B
-	inc $07fd                                    // $660E
-	inc $07fc                                    // $6611
-	dex                                          // $6614
-	.byte $D0, $B7                               // $6615  bne $65CE
-	lda $37                                      // $6617
-	.byte $D0, $03                               // $6619  bne $661E
-	jmp $66e1                                    // $661B
-	ldx $3c                                      // $661E
-	lda $d010                                    // $6620  ; VIC_SPXMSB
-	and #$02                                     // $6623
-	.byte $F0, $20                               // $6625  beq $6647
-	lda $d002                                    // $6627  ; VIC_SP1X
-	cmp #$60                                     // $662A
-	.byte $90, $0C                               // $662C  bcc $663A
-	cmp #$d0                                     // $662E
-	.byte $B0, $08                               // $6630  bcs $663A
-	lda $d015                                    // $6632  ; VIC_SPEN
-	and #$fd                                     // $6635
-	sta $d015                                    // $6637  ; VIC_SPEN
-	dec $d002                                    // $663A  ; VIC_SP1X
-	.byte $D0, $18                               // $663D  bne $6657
-	lda $d010                                    // $663F  ; VIC_SPXMSB
-	and #$fd                                     // $6642
-	sta $d010                                    // $6644  ; VIC_SPXMSB
-	dec $d002                                    // $6647  ; VIC_SP1X
-	.byte $D0, $0B                               // $664A  bne $6657
-	lda $d010                                    // $664C  ; VIC_SPXMSB
-	ora #$02                                     // $664F
-	sta $d010                                    // $6651  ; VIC_SPXMSB
-	dec $d002                                    // $6654  ; VIC_SP1X
-	lda $d010                                    // $6657  ; VIC_SPXMSB
-	and #$04                                     // $665A
-	.byte $F0, $20                               // $665C  beq $667E
-	lda $d004                                    // $665E
-	cmp #$60                                     // $6661
-	.byte $90, $0C                               // $6663  bcc $6671
-	cmp #$d0                                     // $6665
-	.byte $B0, $08                               // $6667  bcs $6671
-	lda $d015                                    // $6669  ; VIC_SPEN
-	and #$fb                                     // $666C
-	sta $d015                                    // $666E  ; VIC_SPEN
-	dec $d004                                    // $6671
-	.byte $D0, $18                               // $6674  bne $668E
-	lda $d010                                    // $6676  ; VIC_SPXMSB
-	and #$fb                                     // $6679
-	sta $d010                                    // $667B  ; VIC_SPXMSB
-	dec $d004                                    // $667E
-	.byte $D0, $0B                               // $6681  bne $668E
-	lda $d010                                    // $6683  ; VIC_SPXMSB
-	ora #$04                                     // $6686
-	sta $d010                                    // $6688  ; VIC_SPXMSB
-	dec $d004                                    // $668B
-	lda $d010                                    // $668E  ; VIC_SPXMSB
-	and #$08                                     // $6691
-	.byte $F0, $20                               // $6693  beq $66B5
-	lda $d006                                    // $6695
-	cmp #$60                                     // $6698
-	.byte $90, $0C                               // $669A  bcc $66A8
-	cmp #$d0                                     // $669C
-	.byte $B0, $08                               // $669E  bcs $66A8
-	lda $d015                                    // $66A0  ; VIC_SPEN
-	and #$f7                                     // $66A3
-	sta $d015                                    // $66A5  ; VIC_SPEN
-	dec $d006                                    // $66A8
-	.byte $D0, $18                               // $66AB  bne $66C5
-	lda $d010                                    // $66AD  ; VIC_SPXMSB
-	and #$f7                                     // $66B0
-	sta $d010                                    // $66B2  ; VIC_SPXMSB
-	dec $d006                                    // $66B5
-	.byte $D0, $0B                               // $66B8  bne $66C5
-	lda $d010                                    // $66BA  ; VIC_SPXMSB
-	ora #$08                                     // $66BD
-	sta $d010                                    // $66BF  ; VIC_SPXMSB
-	dec $d006                                    // $66C2
-	lda $42                                      // $66C5
-	cmp #$82                                     // $66C7
-	.byte $D0, $03                               // $66C9  bne $66CE
-	jsr $61a0                                    // $66CB
-	lda $42                                      // $66CE
-	cmp #$84                                     // $66D0
-	.byte $D0, $07                               // $66D2  bne $66DB
-	lda #$02                                     // $66D4
-	sta $44                                      // $66D6
-	jsr $69ba                                    // $66D8
-	dex                                          // $66DB
-	.byte $F0, $03                               // $66DC  beq $66E1
-	jmp $6620                                    // $66DE
-	lda $dc00                                    // $66E1  ; CIA1_PRA
-	and #$1f                                     // $66E4
-	eor #$1f                                     // $66E6
-	cmp #$08                                     // $66E8
-	.byte $90, $14                               // $66EA  bcc $6700
-	cmp #$0b                                     // $66EC
-	.byte $B0, $10                               // $66EE  bcs $6700
-	jsr $61a0                                    // $66F0
-	jsr $73da                                    // $66F3
-	lda $43                                      // $66F6
-	.byte $D0, $06                               // $66F8  bne $6700
-	jsr $68b0                                    // $66FA
-	jmp $6564                                    // $66FD
-	lda #$00                                     // $6700
-	sta $19                                      // $6702
-	lda #$14                                     // $6704
-	sta $16                                      // $6706
-	jsr $61ca                                    // $6708
-	rts                                          // $670B
-	nop                                          // $670C
-	nop                                          // $670D
-	nop                                          // $670E
-	nop                                          // $670F
-	lda $46                                      // $6710
-	cmp #$ff                                     // $6712
-	.byte $D0, $01                               // $6714  bne $6717
-	rts                                          // $6716
-	dec $47                                      // $6717
-	.byte $D0, $FB                               // $6719  bne $6716
-	lda #$98                                     // $671B
-	sta $47                                      // $671D
-	inc $d00e                                    // $671F
-	.byte $D0, $08                               // $6722  bne $672C
-	lda $d010                                    // $6724  ; VIC_SPXMSB
-	ora #$80                                     // $6727
-	sta $d010                                    // $6729  ; VIC_SPXMSB
-	dec $46                                      // $672C
-	.byte $D0, $07                               // $672E  bne $6737
-	lda #$04                                     // $6730
-	sta $46                                      // $6732
-	inc $d00f                                    // $6734
-	lda $d00e                                    // $6737
-	cmp #$54                                     // $673A
-	.byte $D0, $06                               // $673C  bne $6744
-	inc $48                                      // $673E
-	jsr $6100                                    // $6740
-	rts                                          // $6743
-	cmp #$88                                     // $6744
-	.byte $D0, $06                               // $6746  bne $674E
-	lda #$0b                                     // $6748
-	sta $d021                                    // $674A  ; VIC_BG0
-	rts                                          // $674D
-	cmp #$c0                                     // $674E
-	.byte $D0, $30                               // $6750  bne $6782
-	lda #$00                                     // $6752
-	sta $d022                                    // $6754
-	lda #$06                                     // $6757
-	sta $d023                                    // $6759
-	sta $d02b                                    // $675C
-	sta $d02c                                    // $675F
-	sta $d02d                                    // $6762
-	sta $d025                                    // $6765  ; VIC_SPMCOL0
-	lda #$08                                     // $6768
-	sta $4a                                      // $676A
-	jsr $61ca                                    // $676C
-	ldx #$0b                                     // $676F
-	lda #$09                                     // $6771
-	sta $dbc0,x                                  // $6773
-	dex                                          // $6776
-	.byte $10, $FA                               // $6777  bpl $6773
-	ldx #$0a                                     // $6779
-	sta $dbdc,x                                  // $677B
-	dex                                          // $677E
-	.byte $10, $FA                               // $677F  bpl $677B
-	rts                                          // $6781
-	cmp #$f0                                     // $6782
-	.byte $D0, $1E                               // $6784  bne $67A4
-	lda #$09                                     // $6786
-	sta $d02e                                    // $6788
-	lda #$00                                     // $678B
-	sta $d022                                    // $678D
-	lda #$0b                                     // $6790
-	sta $d023                                    // $6792
-	sta $d02b                                    // $6795
-	sta $d02c                                    // $6798
-	sta $d02d                                    // $679B
-	lda #$00                                     // $679E
-	sta $d021                                    // $67A0  ; VIC_BG0
-	rts                                          // $67A3
-	cmp #$24                                     // $67A4
-	.byte $D0, $32                               // $67A6  bne $67DA
-	ldx #$00                                     // $67A8
-	lda #$08                                     // $67AA
-	sta $d800,x                                  // $67AC
-	inx                                          // $67AF
-	.byte $D0, $FA                               // $67B0  bne $67AC
-	sta $d900,x                                  // $67B2
-	inx                                          // $67B5
-	.byte $D0, $FA                               // $67B6  bne $67B2
-	sta $da00,x                                  // $67B8
-	inx                                          // $67BB
-	.byte $D0, $FA                               // $67BC  bne $67B8
-	sta $db00,x                                  // $67BE
-	inx                                          // $67C1
-	cpx #$98                                     // $67C2
-	.byte $D0, $F8                               // $67C4  bne $67BE
-	inc $49                                      // $67C6
-	jsr $6100                                    // $67C8
-	jsr $61ca                                    // $67CB
-	lda #$00                                     // $67CE
-	sta $d02b                                    // $67D0
-	sta $d02c                                    // $67D3
-	sta $d025                                    // $67D6  ; VIC_SPMCOL0
-	rts                                          // $67D9
-	cmp #$58                                     // $67DA
-	.byte $D0, $07                               // $67DC  bne $67E5
-	lda $d010                                    // $67DE  ; VIC_SPXMSB
-	and #$80                                     // $67E1
-	.byte $D0, $01                               // $67E3  bne $67E6
-	rts                                          // $67E5
-	lda $d015                                    // $67E6  ; VIC_SPEN
-	and #$0f                                     // $67E9
-	sta $d015                                    // $67EB  ; VIC_SPEN
-	lda #$ff                                     // $67EE
-	sta $46                                      // $67F0
-	lda #$00                                     // $67F2
-	sta $d022                                    // $67F4
-	rts                                          // $67F7
-	nop                                          // $67F8
-	nop                                          // $67F9
-	nop                                          // $67FA
-	nop                                          // $67FB
-	nop                                          // $67FC
-	nop                                          // $67FD
-	nop                                          // $67FE
-	nop                                          // $67FF
-	clc                                          // $6800
-	sed                                          // $6801
-	lda $2a                                      // $6802
-	adc $28                                      // $6804
-	sta $2a                                      // $6806
-	lda $2b                                      // $6808
-	adc $29                                      // $680A
-	sta $2b                                      // $680C
-	lda $2c                                      // $680E
-	adc #$00                                     // $6810
-	sta $2c                                      // $6812
-	.byte $90, $02                               // $6814  bcc $6818
-	inc $2d                                      // $6816
-	cld                                          // $6818
-	lda #$00                                     // $6819
-	sta $28                                      // $681B
-	sta $29                                      // $681D
-	clc                                          // $681F
-	ldy #$07                                     // $6820
-	ldx #$00                                     // $6822
-	lda $2a,x                                    // $6824
-	and #$0f                                     // $6826
-	adc #$10                                     // $6828
-	sta $07c3,y                                  // $682A
-	dey                                          // $682D
-	lda $2a,x                                    // $682E
-	and #$f0                                     // $6830
-	lsr                                          // $6832
-	lsr                                          // $6833
-	lsr                                          // $6834
-	lsr                                          // $6835
-	adc #$10                                     // $6836
-	sta $07c3,y                                  // $6838
-	dey                                          // $683B
-	inx                                          // $683C
-	cpx #$03                                     // $683D
-	.byte $D0, $E3                               // $683F  bne $6824
-	rts                                          // $6841
-	nop                                          // $6842
-	nop                                          // $6843
-	nop                                          // $6844
-	lda #$26                                     // $6845
-	sta $d003                                    // $6847  ; VIC_SP1Y
-	sta $d005                                    // $684A
-	lda #$02                                     // $684D
-	sta $d028                                    // $684F
-	sta $d029                                    // $6852
-	lda #$90                                     // $6855
-	sta $d002                                    // $6857  ; VIC_SP1X
-	lda #$a8                                     // $685A
-	sta $d004                                    // $685C
-	lda $d010                                    // $685F  ; VIC_SPXMSB
-	and #$f0                                     // $6862
-	sta $d010                                    // $6864  ; VIC_SPXMSB
-	lda $d017                                    // $6867  ; VIC_SPYEXP
-	and #$f9                                     // $686A
-	sta $d017                                    // $686C  ; VIC_SPYEXP
-	lda $d01d                                    // $686F  ; VIC_SPXEXP
-	and #$f9                                     // $6872
-	sta $d01d                                    // $6874  ; VIC_SPXEXP
-	lda $d01b                                    // $6877  ; VIC_SPPRI
-	ora #$06                                     // $687A
-	sta $d01b                                    // $687C  ; VIC_SPPRI
-	lda $d01c                                    // $687F  ; VIC_SPMCOL
-	ora #$06                                     // $6882
-	sta $d01c                                    // $6884  ; VIC_SPMCOL
-	lda #$cc                                     // $6887
-	sta $07f9                                    // $6889
-	lda #$cd                                     // $688C
-	sta $07fa                                    // $688E
-	lda #$24                                     // $6891
-	sta $53                                      // $6893
-	sta $54                                      // $6895
-	lda #$00                                     // $6897
-	sta $50                                      // $6899
-	sta $51                                      // $689B
-	lda $d015                                    // $689D  ; VIC_SPEN
-	ora #$06                                     // $68A0
-	sta $d015                                    // $68A2  ; VIC_SPEN
-	lda #$00                                     // $68A5
-	sta $37                                      // $68A7
-	lda #$06                                     // $68A9
-	sta $3c                                      // $68AB
-	rts                                          // $68AD
-	nop                                          // $68AE
-	nop                                          // $68AF
-	lda $42                                      // $68B0
-	cmp #$88                                     // $68B2
-	.byte $F0, $01                               // $68B4  beq $68B7
-	rts                                          // $68B6
-	lda $52                                      // $68B7
-	.byte $F0, $FB                               // $68B9  beq $68B6
-	cmp #$03                                     // $68BB
-	.byte $D0, $11                               // $68BD  bne $68D0
-	jsr $76e9                                    // $68BF
-	inc $d007                                    // $68C2
-	inc $d007                                    // $68C5
-	inc $d007                                    // $68C8
-	nop                                          // $68CB
-	nop                                          // $68CC
-	jmp $68f9                                    // $68CD
-	cmp #$07                                     // $68D0
-	.byte $D0, $12                               // $68D2  bne $68E6
-	jsr $756f                                    // $68D4
-	inc $d006                                    // $68D7
-	inc $d007                                    // $68DA
-	inc $d006                                    // $68DD
-	inc $d007                                    // $68E0
-	jmp $68f9                                    // $68E3
-	cmp #$0b                                     // $68E6
-	.byte $D0, $0F                               // $68E8  bne $68F9
-	jsr $75fc                                    // $68EA
-	inc $d007                                    // $68ED
-	dec $d006                                    // $68F0
-	inc $d007                                    // $68F3
-	dec $d006                                    // $68F6
-	lda $d015                                    // $68F9  ; VIC_SPEN
-	ora #$06                                     // $68FC
-	sta $d015                                    // $68FE  ; VIC_SPEN
-	lda $d010                                    // $6901  ; VIC_SPXMSB
-	and #$06                                     // $6904
-	.byte $D0, $03                               // $6906  bne $690B
-	jmp $691d                                    // $6908
-	lda $d002                                    // $690B  ; VIC_SP1X
-	cmp #$60                                     // $690E
-	.byte $90, $0B                               // $6910  bcc $691D
-	cmp #$a0                                     // $6912
-	.byte $B0, $07                               // $6914  bcs $691D
-	lda $4e                                      // $6916
-	sta $42                                      // $6918
-	jmp $6939                                    // $691A
-	lda $d010                                    // $691D  ; VIC_SPXMSB
-	lda $d002                                    // $6920  ; VIC_SP1X
-	.byte $10, $15                               // $6923  bpl $693A
-	lda $d004                                    // $6925
-	.byte $30, $0F                               // $6928  bmi $6939
-	lda $d010                                    // $692A  ; VIC_SPXMSB
-	and #$04                                     // $692D
-	.byte $D0, $08                               // $692F  bne $6939
-	lda $d010                                    // $6931  ; VIC_SPXMSB
-	ora #$02                                     // $6934
-	sta $d010                                    // $6936  ; VIC_SPXMSB
-	rts                                          // $6939
-	lda $d004                                    // $693A
-	.byte $30, $FA                               // $693D  bmi $6939
-	lda $d010                                    // $693F  ; VIC_SPXMSB
-	and #$04                                     // $6942
-	.byte $D0, $F3                               // $6944  bne $6939
-	lda $d010                                    // $6946  ; VIC_SPXMSB
-	and #$f9                                     // $6949
-	sta $d010                                    // $694B  ; VIC_SPXMSB
-	rts                                          // $694E
-	nop                                          // $694F
-	lda #$b2                                     // $6950
-	sta $07f9                                    // $6952
-	sta $07fa                                    // $6955
-	sta $07fb                                    // $6958
-	lda #$09                                     // $695B
-	sta $d028                                    // $695D
-	sta $d029                                    // $6960
-	sta $d02a                                    // $6963
-	lda $d01c                                    // $6966  ; VIC_SPMCOL
-	ora #$0e                                     // $6969
-	sta $d01c                                    // $696B  ; VIC_SPMCOL
-	lda $d01b                                    // $696E  ; VIC_SPPRI
-	ora #$0e                                     // $6971
-	sta $d01b                                    // $6973  ; VIC_SPPRI
-	lda $d017                                    // $6976  ; VIC_SPYEXP
-	and #$f1                                     // $6979
-	sta $d017                                    // $697B  ; VIC_SPYEXP
-	lda $d01d                                    // $697E  ; VIC_SPXEXP
-	and #$f1                                     // $6981
-	sta $d01d                                    // $6983  ; VIC_SPXEXP
-	lda $d010                                    // $6986  ; VIC_SPXMSB
-	and #$f1                                     // $6989
-	sta $d010                                    // $698B  ; VIC_SPXMSB
-	lda $dc04                                    // $698E
-	sta $d002                                    // $6991  ; VIC_SP1X
-	sta $d004                                    // $6994
-	sta $d006                                    // $6997
-	lda #$80                                     // $699A
-	sta $d003                                    // $699C  ; VIC_SP1Y
-	sta $d005                                    // $699F
-	sta $d007                                    // $69A2
-	lda $d015                                    // $69A5  ; VIC_SPEN
-	ora #$0e                                     // $69A8
-	sta $d015                                    // $69AA  ; VIC_SPEN
-	ldx #$10                                     // $69AD
-	lda $5d40,x                                  // $69AF
-	sta $30,x                                    // $69B2
-	dex                                          // $69B4
-	.byte $10, $F8                               // $69B5  bpl $69AF
-	rts                                          // $69B7
-	nop                                          // $69B8
-	nop                                          // $69B9
-	dec $4d                                      // $69BA
-	.byte $F0, $01                               // $69BC  beq $69BF
-	rts                                          // $69BE
-	lda $44                                      // $69BF
-	sta $4d                                      // $69C1
-	lda $52                                      // $69C3
-	and #$01                                     // $69C5
-	.byte $D0, $2F                               // $69C7  bne $69F8
-	dec $d003                                    // $69C9  ; VIC_SP1Y
-	lda $d003                                    // $69CC  ; VIC_SP1Y
-	.byte $D0, $24                               // $69CF  bne $69F5
-	lda $d017                                    // $69D1  ; VIC_SPYEXP
-	ora #$02                                     // $69D4
-	sta $d017                                    // $69D6  ; VIC_SPYEXP
-	lda $d01d                                    // $69D9  ; VIC_SPXEXP
-	ora #$02                                     // $69DC
-	sta $d01d                                    // $69DE  ; VIC_SPXEXP
-	lda $d01b                                    // $69E1  ; VIC_SPPRI
-	and #$fd                                     // $69E4
-	sta $d01b                                    // $69E6  ; VIC_SPPRI
-	lda $dc04                                    // $69E9
-	sta $d002                                    // $69EC  ; VIC_SP1X
-	lda $52                                      // $69EF
-	ora #$01                                     // $69F1
-	sta $52                                      // $69F3
-	jmp $6a33                                    // $69F5
-	inc $d003                                    // $69F8  ; VIC_SP1Y
-	inc $d003                                    // $69FB  ; VIC_SP1Y
-	lda $d003                                    // $69FE  ; VIC_SP1Y
-	cmp #$f0                                     // $6A01
-	.byte $90, $2E                               // $6A03  bcc $6A33
-	lda $d017                                    // $6A05  ; VIC_SPYEXP
-	and #$fd                                     // $6A08
-	sta $d017                                    // $6A0A  ; VIC_SPYEXP
-	lda $d01d                                    // $6A0D  ; VIC_SPXEXP
-	and #$fd                                     // $6A10
-	sta $d01d                                    // $6A12  ; VIC_SPXEXP
-	lda $d01b                                    // $6A15  ; VIC_SPPRI
-	ora #$02                                     // $6A18
-	sta $d01b                                    // $6A1A  ; VIC_SPPRI
-	lda #$90                                     // $6A1D
-	sta $d003                                    // $6A1F  ; VIC_SP1Y
-	lda $dc04                                    // $6A22
-	sta $d002                                    // $6A25  ; VIC_SP1X
-	lda #$b2                                     // $6A28
-	sta $07f9                                    // $6A2A
-	lda $52                                      // $6A2D
-	and #$fe                                     // $6A2F
-	sta $52                                      // $6A31
-	lda $52                                      // $6A33
-	and #$02                                     // $6A35
-	.byte $D0, $34                               // $6A37  bne $6A6D
-	dec $d005                                    // $6A39
-	dec $d005                                    // $6A3C
-	lda $d005                                    // $6A3F
-	cmp #$06                                     // $6A42
-	.byte $B0, $24                               // $6A44  bcs $6A6A
-	lda $d017                                    // $6A46  ; VIC_SPYEXP
-	ora #$04                                     // $6A49
-	sta $d017                                    // $6A4B  ; VIC_SPYEXP
-	lda $d01d                                    // $6A4E  ; VIC_SPXEXP
-	ora #$04                                     // $6A51
-	sta $d01d                                    // $6A53  ; VIC_SPXEXP
-	lda $d01b                                    // $6A56  ; VIC_SPPRI
-	and #$fb                                     // $6A59
-	sta $d01b                                    // $6A5B  ; VIC_SPPRI
-	lda $dc04                                    // $6A5E
-	sta $d004                                    // $6A61
-	lda $52                                      // $6A64
-	ora #$02                                     // $6A66
-	sta $52                                      // $6A68
-	jmp $6aa8                                    // $6A6A
-	inc $d005                                    // $6A6D
-	inc $d005                                    // $6A70
-	lda $d005                                    // $6A73
-	cmp #$f0                                     // $6A76
-	.byte $90, $2E                               // $6A78  bcc $6AA8
-	lda $d017                                    // $6A7A  ; VIC_SPYEXP
-	and #$fb                                     // $6A7D
-	sta $d017                                    // $6A7F  ; VIC_SPYEXP
-	lda $d01d                                    // $6A82  ; VIC_SPXEXP
-	and #$fb                                     // $6A85
-	sta $d01d                                    // $6A87  ; VIC_SPXEXP
-	lda $d01b                                    // $6A8A  ; VIC_SPPRI
-	ora #$04                                     // $6A8D
-	sta $d01b                                    // $6A8F  ; VIC_SPPRI
-	lda #$90                                     // $6A92
-	sta $d005                                    // $6A94
-	lda $dc04                                    // $6A97
-	sta $d004                                    // $6A9A
-	lda #$b2                                     // $6A9D
-	sta $07fa                                    // $6A9F
-	lda $52                                      // $6AA2
-	and #$fd                                     // $6AA4
-	sta $52                                      // $6AA6
-	lda $52                                      // $6AA8
-	and #$04                                     // $6AAA
-	.byte $D0, $37                               // $6AAC  bne $6AE5
-	dec $d007                                    // $6AAE
-	dec $d007                                    // $6AB1
-	dec $d007                                    // $6AB4
-	lda $d007                                    // $6AB7
-	cmp #$08                                     // $6ABA
-	.byte $B0, $24                               // $6ABC  bcs $6AE2
-	lda $d017                                    // $6ABE  ; VIC_SPYEXP
-	ora #$08                                     // $6AC1
-	sta $d017                                    // $6AC3  ; VIC_SPYEXP
-	lda $d01d                                    // $6AC6  ; VIC_SPXEXP
-	ora #$08                                     // $6AC9
-	sta $d01d                                    // $6ACB  ; VIC_SPXEXP
-	lda $d01b                                    // $6ACE  ; VIC_SPPRI
-	and #$f7                                     // $6AD1
-	sta $d01b                                    // $6AD3  ; VIC_SPPRI
-	lda $dc04                                    // $6AD6
-	sta $d006                                    // $6AD9
-	lda $52                                      // $6ADC
-	ora #$04                                     // $6ADE
-	sta $52                                      // $6AE0
-	jmp $6b20                                    // $6AE2
-	inc $d007                                    // $6AE5
-	inc $d007                                    // $6AE8
-	lda $d007                                    // $6AEB
-	cmp #$f0                                     // $6AEE
-	.byte $90, $2E                               // $6AF0  bcc $6B20
-	lda $d017                                    // $6AF2  ; VIC_SPYEXP
-	and #$f7                                     // $6AF5
-	sta $d017                                    // $6AF7  ; VIC_SPYEXP
-	lda $d01d                                    // $6AFA  ; VIC_SPXEXP
-	and #$f7                                     // $6AFD
-	sta $d01d                                    // $6AFF  ; VIC_SPXEXP
-	lda $d01b                                    // $6B02  ; VIC_SPPRI
-	ora #$08                                     // $6B05
-	sta $d01b                                    // $6B07  ; VIC_SPPRI
-	lda #$90                                     // $6B0A
-	sta $d007                                    // $6B0C
-	lda $dc04                                    // $6B0F
-	sta $d006                                    // $6B12
-	lda #$b2                                     // $6B15
-	sta $07fb                                    // $6B17
-	lda $52                                      // $6B1A
-	and #$fb                                     // $6B1C
-	sta $52                                      // $6B1E
-	lda $d015                                    // $6B20  ; VIC_SPEN
-	ora #$0e                                     // $6B23
-	sta $d015                                    // $6B25  ; VIC_SPEN
-	lda $d010                                    // $6B28  ; VIC_SPXMSB
-	and #$f1                                     // $6B2B
-	sta $d010                                    // $6B2D  ; VIC_SPXMSB
-	jmp $740a                                    // $6B30
-	nop                                          // $6B33
-	nop                                          // $6B34
-	lda $dc04                                    // $6B35
-	cmp #$30                                     // $6B38
-	.byte $B0, $03                               // $6B3A  bcs $6B3F
-	jmp $6b50                                    // $6B3C
-	cmp #$80                                     // $6B3F
-	.byte $B0, $03                               // $6B41  bcs $6B46
-	jmp $6b71                                    // $6B43
-	cmp #$d0                                     // $6B46
-	.byte $B0, $03                               // $6B48  bcs $6B4D
-	jmp $6b92                                    // $6B4A
-	jmp $6bb3                                    // $6B4D
-	ldx #$0f                                     // $6B50
-	dec $d003                                    // $6B52  ; VIC_SP1Y
-	dec $d005                                    // $6B55
-	inc $d002                                    // $6B58  ; VIC_SP1X
-	inc $d004                                    // $6B5B
-	.byte $D0, $03                               // $6B5E  bne $6B63
-	jmp $6b92                                    // $6B60
-	lda $d003                                    // $6B63  ; VIC_SP1Y
-	cmp #$30                                     // $6B66
-	.byte $B0, $03                               // $6B68  bcs $6B6D
-	jmp $6b71                                    // $6B6A
-	dex                                          // $6B6D
-	.byte $10, $E2                               // $6B6E  bpl $6B52
-	rts                                          // $6B70
-	ldx #$0f                                     // $6B71
-	inc $d003                                    // $6B73  ; VIC_SP1Y
-	inc $d005                                    // $6B76
-	inc $d002                                    // $6B79  ; VIC_SP1X
-	inc $d004                                    // $6B7C
-	.byte $D0, $03                               // $6B7F  bne $6B84
-	jmp $6bb3                                    // $6B81
-	lda $d003                                    // $6B84  ; VIC_SP1Y
-	cmp #$c0                                     // $6B87
-	.byte $90, $03                               // $6B89  bcc $6B8E
-	jmp $6b50                                    // $6B8B
-	dex                                          // $6B8E
-	.byte $10, $E2                               // $6B8F  bpl $6B73
-	rts                                          // $6B91
-	ldx #$0f                                     // $6B92
-	dec $d003                                    // $6B94  ; VIC_SP1Y
-	dec $d005                                    // $6B97
-	dec $d002                                    // $6B9A  ; VIC_SP1X
-	dec $d004                                    // $6B9D
-	.byte $D0, $03                               // $6BA0  bne $6BA5
-	jmp $6b50                                    // $6BA2
-	lda $d003                                    // $6BA5  ; VIC_SP1Y
-	cmp #$30                                     // $6BA8
-	.byte $B0, $03                               // $6BAA  bcs $6BAF
-	jmp $6bb3                                    // $6BAC
-	dex                                          // $6BAF
-	.byte $10, $E2                               // $6BB0  bpl $6B94
-	rts                                          // $6BB2
-	ldx #$0f                                     // $6BB3
-	inc $d003                                    // $6BB5  ; VIC_SP1Y
-	inc $d005                                    // $6BB8
-	dec $d002                                    // $6BBB  ; VIC_SP1X
-	dec $d004                                    // $6BBE
-	.byte $D0, $03                               // $6BC1  bne $6BC6
-	jmp $6b71                                    // $6BC3
-	lda $d003                                    // $6BC6  ; VIC_SP1Y
-	cmp #$c0                                     // $6BC9
-	.byte $90, $03                               // $6BCB  bcc $6BD0
-	jmp $6b92                                    // $6BCD
-	dex                                          // $6BD0
-	.byte $10, $E2                               // $6BD1  bpl $6BB5
-	rts                                          // $6BD3
-	nop                                          // $6BD4
-	lda $dc05                                    // $6BD5
-	and #$07                                     // $6BD8
-	tay                                          // $6BDA
-	clc                                          // $6BDB
-	lda #$ff                                     // $6BDC
-	ror                                          // $6BDE
-	dey                                          // $6BDF
-	.byte $10, $FC                               // $6BE0  bpl $6BDE
-	sta $52                                      // $6BE2
-	ldx $51                                      // $6BE4
-	lda $2dc0,x                                  // $6BE6
-	and $52                                      // $6BE9
-	sta $2dc0,x                                  // $6BEB
-	lda $2e00,x                                  // $6BEE
-	and $52                                      // $6BF1
-	sta $2e00,x                                  // $6BF3
-	dec $51                                      // $6BF6
-	.byte $10, $2B                               // $6BF8  bpl $6C25
-	lda #$3f                                     // $6BFA
-	sta $51                                      // $6BFC
-	lda #$00                                     // $6BFE
-	sta $52                                      // $6C00
-	ldx #$3f                                     // $6C02
-	lda $2dc0,x                                  // $6C04
-	.byte $F0, $02                               // $6C07  beq $6C0B
-	inc $52                                      // $6C09
-	dex                                          // $6C0B
-	.byte $10, $F6                               // $6C0C  bpl $6C04
-	lda $52                                      // $6C0E
-	cmp #$10                                     // $6C10
-	.byte $B0, $11                               // $6C12  bcs $6C25
-	lda #$ff                                     // $6C14
-	sta $53                                      // $6C16
-	ldx #$3f                                     // $6C18
-	lda #$00                                     // $6C1A
-	sta $2dc0,x                                  // $6C1C
-	sta $2e00,x                                  // $6C1F
-	dex                                          // $6C22
-	.byte $10, $F7                               // $6C23  bpl $6C1C
-	rts                                          // $6C25
-	nop                                          // $6C26
-	nop                                          // $6C27
-	nop                                          // $6C28
-	nop                                          // $6C29
-	lda #$40                                     // $6C2A
-	sta $51                                      // $6C2C
-	lda #$d2                                     // $6C2E
-	sta $d007                                    // $6C30
-	ldx #$10                                     // $6C33
-	lda $5d51,x                                  // $6C35
-	sta $30,x                                    // $6C38
-	dex                                          // $6C3A
-	.byte $10, $F8                               // $6C3B  bpl $6C35
-	rts                                          // $6C3D
-	nop                                          // $6C3E
-	nop                                          // $6C3F
-	lda $51                                      // $6C40
-	cmp #$08                                     // $6C42
-	.byte $90, $03                               // $6C44  bcc $6C49
-	jmp $6cf1                                    // $6C46
-	lda $52                                      // $6C49
-	cmp #$01                                     // $6C4B
-	.byte $D0, $03                               // $6C4D  bne $6C52
-	jmp $6c63                                    // $6C4F
-	cmp #$02                                     // $6C52
-	.byte $D0, $03                               // $6C54  bne $6C59
-	jmp $6c9b                                    // $6C56
-	cmp #$03                                     // $6C59
-	.byte $D0, $03                               // $6C5B  bne $6C60
-	jmp $6caa                                    // $6C5D
-	jmp $6cdf                                    // $6C60
-	lda $51                                      // $6C63
-	.byte $F0, $15                               // $6C65  beq $6C7C
-	lda $37                                      // $6C67
-	clc                                          // $6C69
-	asl                                          // $6C6A
-	tay                                          // $6C6B
-	lda $d000,y                                  // $6C6C  ; VIC_SP0X
-	adc #$0c                                     // $6C6F
-	sta $d000,y                                  // $6C71  ; VIC_SP0X
-	lda $d001,y                                  // $6C74  ; VIC_SP0Y
-	adc #$0a                                     // $6C77
-	sta $d001,y                                  // $6C79  ; VIC_SP0Y
-	lda $d017                                    // $6C7C  ; VIC_SPYEXP
-	and $3e                                      // $6C7F
-	sta $d017                                    // $6C81  ; VIC_SPYEXP
-	lda $d01d                                    // $6C84  ; VIC_SPXEXP
-	and $3e                                      // $6C87
-	sta $d01d                                    // $6C89  ; VIC_SPXEXP
-	ldy $37                                      // $6C8C
-	lda #$dd                                     // $6C8E
-	sta $07f8,y                                  // $6C90
-	lda #$01                                     // $6C93
-	sta $d027,y                                  // $6C95
-	inc $52                                      // $6C98
-	rts                                          // $6C9A
-	ldy $37                                      // $6C9B
-	lda #$de                                     // $6C9D
-	sta $07f8,y                                  // $6C9F
-	lda #$03                                     // $6CA2
-	sta $d027,y                                  // $6CA4
-	inc $52                                      // $6CA7
-	rts                                          // $6CA9
-	lda $d017                                    // $6CAA  ; VIC_SPYEXP
-	ora $3d                                      // $6CAD
-	sta $d017                                    // $6CAF  ; VIC_SPYEXP
-	lda $d01d                                    // $6CB2  ; VIC_SPXEXP
-	ora $3d                                      // $6CB5
-	sta $d01d                                    // $6CB7  ; VIC_SPXEXP
-	lda $37                                      // $6CBA
-	clc                                          // $6CBC
-	asl                                          // $6CBD
-	tay                                          // $6CBE
-	sec                                          // $6CBF
-	lda $d000,y                                  // $6CC0  ; VIC_SP0X
-	sbc #$0c                                     // $6CC3
-	sta $d000,y                                  // $6CC5  ; VIC_SP0X
-	lda $d001,y                                  // $6CC8  ; VIC_SP0Y
-	sbc #$0a                                     // $6CCB
-	sta $d001,y                                  // $6CCD  ; VIC_SP0Y
-	ldy $37                                      // $6CD0
-	lda #$dd                                     // $6CD2
-	sta $07f8,y                                  // $6CD4
-	lda #$07                                     // $6CD7
-	sta $d027,y                                  // $6CD9
-	inc $52                                      // $6CDC
-	rts                                          // $6CDE
-	ldy $37                                      // $6CDF
-	lda #$de                                     // $6CE1
-	sta $07f8,y                                  // $6CE3
-	lda #$0a                                     // $6CE6
-	sta $d027,y                                  // $6CE8
-	lda #$01                                     // $6CEB
-	sta $52                                      // $6CED
-	inc $51                                      // $6CEF
-	rts                                          // $6CF1
-	nop                                          // $6CF2
-	nop                                          // $6CF3
-	nop                                          // $6CF4
-	lda $d012                                    // $6CF5  ; VIC_RASTER
-	.byte $D0, $2D                               // $6CF8  bne $6D27
-	lda $dc04                                    // $6CFA
-	and #$0f                                     // $6CFD
-	cmp #$04                                     // $6CFF
-	.byte $D0, $25                               // $6D01  bne $6D28
-	jsr $7f1a                                    // $6D03
-	lda #$01                                     // $6D06
-	sta $d021                                    // $6D08  ; VIC_BG0
-	lda #$01                                     // $6D0B
-	sta $d02e                                    // $6D0D
-	lda #$07                                     // $6D10
-	sta $d025                                    // $6D12  ; VIC_SPMCOL0
+	jsr $61f0                                    // $63E4
+	lda $16                                      // $63E7
+	cmp #$0a                                     // $63E9
+	.byte $F0, $10                               // $63EB  beq $63FD
+	inc $16                                      // $63ED
+	inc $16                                      // $63EF
+	lda $16                                      // $63F1
+	cmp #$1c                                     // $63F3
+	.byte $F0, $01                               // $63F5  beq $63F8
+	rts                                          // $63F7
+	lda #$0a                                     // $63F8
+	sta $16                                      // $63FA
+	rts                                          // $63FC
+	lda #$28                                     // $63FD
+	sta $1b                                      // $63FF
+	lda #$00                                     // $6401
+	sta $25                                      // $6403
+	sta $26                                      // $6405
+	rts                                          // $6407
+	nop                                          // $6408
+	nop                                          // $6409
+	nop                                          // $640A
+	nop                                          // $640B
+	nop                                          // $640C
+	lda #$1c                                     // $640D
+	sta $16                                      // $640F
+	lda $08                                      // $6411
+	.byte $D0, $04                               // $6413  bne $6419
+	lda #$8a                                     // $6415
+	sta $08                                      // $6417
+	dec $08                                      // $6419
+	lda $08                                      // $641B
+	sta $06                                      // $641D
+	dec $0f                                      // $641F
+	.byte $D0, $12                               // $6421  bne $6435
+	lda #$02                                     // $6423
+	sta $0f                                      // $6425
+	lda $16                                      // $6427
+	cmp #$22                                     // $6429
+	.byte $D0, $04                               // $642B  bne $6431
+	lda #$1a                                     // $642D
+	sta $16                                      // $642F
+	inc $16                                      // $6431
+	inc $16                                      // $6433
+	jsr $6090                                    // $6435
+	jsr $61f0                                    // $6438
+	ldx #$03                                     // $643B
+	inc $d00c                                    // $643D
+	.byte $D0, $08                               // $6440  bne $644A
+	lda $d010                                    // $6442  ; VIC_SPXMSB
+	ora #$40                                     // $6445
+	sta $d010                                    // $6447  ; VIC_SPXMSB
+	lda $d00c                                    // $644A
+	cmp #$68                                     // $644D
+	.byte $90, $24                               // $644F  bcc $6475
+	lda $d010                                    // $6451  ; VIC_SPXMSB
+	and #$40                                     // $6454
+	.byte $F0, $1D                               // $6456  beq $6475
+	lda $d010                                    // $6458  ; VIC_SPXMSB
+	and #$bf                                     // $645B
+	sta $d010                                    // $645D  ; VIC_SPXMSB
+	lda #$00                                     // $6460
+	sta $d00c                                    // $6462
+	lda $07fe                                    // $6465
+	cmp #$a9                                     // $6468
+	.byte $F0, $06                               // $646A  beq $6472
+	dec $07fe                                    // $646C
+	jmp $6475                                    // $646F
+	inc $07fe                                    // $6472
+	dex                                          // $6475
+	.byte $D0, $C5                               // $6476  bne $643D
+	ldx #$05                                     // $6478
+	inc $d008                                    // $647A
+	inc $d00a                                    // $647D
+	.byte $D0, $08                               // $6480  bne $648A
+	lda $d010                                    // $6482  ; VIC_SPXMSB
+	ora #$30                                     // $6485
+	sta $d010                                    // $6487  ; VIC_SPXMSB
+	lda $d008                                    // $648A
+	cmp #$68                                     // $648D
+	.byte $90, $2D                               // $648F  bcc $64BE
+	lda $d010                                    // $6491  ; VIC_SPXMSB
+	and #$30                                     // $6494
+	.byte $F0, $26                               // $6496  beq $64BE
+	lda $d010                                    // $6498  ; VIC_SPXMSB
+	and #$cf                                     // $649B
+	sta $d010                                    // $649D  ; VIC_SPXMSB
+	lda #$00                                     // $64A0
+	sta $d008                                    // $64A2
+	sta $d00a                                    // $64A5
+	lda $07fd                                    // $64A8
+	cmp #$ab                                     // $64AB
+	.byte $F0, $09                               // $64AD  beq $64B8
+	dec $07fd                                    // $64AF
+	dec $07fc                                    // $64B2
+	jmp $64be                                    // $64B5
+	inc $07fd                                    // $64B8
+	inc $07fc                                    // $64BB
+	dex                                          // $64BE
+	.byte $D0, $B9                               // $64BF  bne $647A
+	lda $37                                      // $64C1
+	.byte $D0, $03                               // $64C3  bne $64C8
+	jmp $6554                                    // $64C5
+	ldx $3c                                      // $64C8
+	lda $d010                                    // $64CA  ; VIC_SPXMSB
+	and #$02                                     // $64CD
+	.byte $F0, $0F                               // $64CF  beq $64E0
+	lda $d002                                    // $64D1  ; VIC_SP1X
+	cmp #$60                                     // $64D4
+	.byte $90, $08                               // $64D6  bcc $64E0
+	lda $d015                                    // $64D8  ; VIC_SPEN
+	and #$fd                                     // $64DB
+	sta $d015                                    // $64DD  ; VIC_SPEN
+	inc $d002                                    // $64E0  ; VIC_SP1X
+	.byte $D0, $0B                               // $64E3  bne $64F0
+	lda $d010                                    // $64E5  ; VIC_SPXMSB
+	ora #$02                                     // $64E8
+	sta $d010                                    // $64EA  ; VIC_SPXMSB
+	inc $d002                                    // $64ED  ; VIC_SP1X
+	lda $d010                                    // $64F0  ; VIC_SPXMSB
+	and #$04                                     // $64F3
+	.byte $F0, $0F                               // $64F5  beq $6506
+	lda $d004                                    // $64F7
+	cmp #$60                                     // $64FA
+	.byte $90, $08                               // $64FC  bcc $6506
+	lda $d015                                    // $64FE  ; VIC_SPEN
+	and #$fb                                     // $6501
+	sta $d015                                    // $6503  ; VIC_SPEN
+	inc $d004                                    // $6506
+	.byte $D0, $0B                               // $6509  bne $6516
+	lda $d010                                    // $650B  ; VIC_SPXMSB
+	ora #$04                                     // $650E
+	sta $d010                                    // $6510  ; VIC_SPXMSB
+	inc $d004                                    // $6513
+	lda $d010                                    // $6516  ; VIC_SPXMSB
+	and #$08                                     // $6519
+	.byte $F0, $0F                               // $651B  beq $652C
+	lda $d006                                    // $651D
+	cmp #$60                                     // $6520
+	.byte $90, $08                               // $6522  bcc $652C
+	lda $d015                                    // $6524  ; VIC_SPEN
+	and #$f7                                     // $6527
+	sta $d015                                    // $6529  ; VIC_SPEN
+	inc $d006                                    // $652C
+	.byte $D0, $0B                               // $652F  bne $653C
+	lda $d010                                    // $6531  ; VIC_SPXMSB
+	ora #$08                                     // $6534
+	sta $d010                                    // $6536  ; VIC_SPXMSB
+	inc $d006                                    // $6539
+	lda $42                                      // $653C
+	cmp #$82                                     // $653E
+	.byte $D0, $03                               // $6540  bne $6545
+	jsr $61c5                                    // $6542
+	lda $42                                      // $6545
+	cmp #$84                                     // $6547
+	.byte $D0, $03                               // $6549  bne $654E
+	jsr $6a90                                    // $654B
+	dex                                          // $654E
+	.byte $F0, $03                               // $654F  beq $6554
+	jmp $64ca                                    // $6551
+	lda $dc00                                    // $6554  ; CIA1_PRA
+	and #$1f                                     // $6557
+	eor #$1f                                     // $6559
+	cmp #$04                                     // $655B
+	.byte $90, $14                               // $655D  bcc $6573
+	cmp #$07                                     // $655F
+	.byte $B0, $10                               // $6561  bcs $6573
+	jsr $61c5                                    // $6563
+	jsr $75c0                                    // $6566
+	lda $43                                      // $6569
+	.byte $D0, $06                               // $656B  bne $6573
+	jsr $6960                                    // $656D
+	jmp $6411                                    // $6570
+	lda #$00                                     // $6573
+	sta $18                                      // $6575
+	sta $16                                      // $6577
+	jsr $61f0                                    // $6579
+	rts                                          // $657C
+	nop                                          // $657D
+	nop                                          // $657E
+	nop                                          // $657F
+	nop                                          // $6580
+	nop                                          // $6581
+	nop                                          // $6582
+	nop                                          // $6583
+	nop                                          // $6584
+	nop                                          // $6585
+	nop                                          // $6586
+	nop                                          // $6587
+	nop                                          // $6588
+	nop                                          // $6589
+	nop                                          // $658A
+	nop                                          // $658B
+	nop                                          // $658C
+	nop                                          // $658D
+	nop                                          // $658E
+	nop                                          // $658F
+	lda #$24                                     // $6590
+	sta $16                                      // $6592
+	lda $08                                      // $6594
+	cmp #$8a                                     // $6596
+	.byte $90, $04                               // $6598  bcc $659E
+	lda #$00                                     // $659A
+	sta $08                                      // $659C
+	inc $08                                      // $659E
+	lda $08                                      // $65A0
+	sta $06                                      // $65A2
+	dec $0f                                      // $65A4
+	.byte $D0, $12                               // $65A6  bne $65BA
+	lda #$02                                     // $65A8
+	sta $0f                                      // $65AA
+	lda $16                                      // $65AC
+	cmp #$2a                                     // $65AE
+	.byte $D0, $04                               // $65B0  bne $65B6
+	lda #$22                                     // $65B2
+	sta $16                                      // $65B4
+	inc $16                                      // $65B6
+	inc $16                                      // $65B8
+	jsr $6090                                    // $65BA
+	jsr $61f0                                    // $65BD
+	ldx #$03                                     // $65C0
+	dec $d00c                                    // $65C2
+	.byte $D0, $32                               // $65C5  bne $65F9
+	lda $d010                                    // $65C7  ; VIC_SPXMSB
+	and #$40                                     // $65CA
+	.byte $F0, $0E                               // $65CC  beq $65DC
+	lda $d010                                    // $65CE  ; VIC_SPXMSB
+	and #$bf                                     // $65D1
+	sta $d010                                    // $65D3  ; VIC_SPXMSB
+	dec $d00c                                    // $65D6
+	jmp $65f9                                    // $65D9
+	lda $d010                                    // $65DC  ; VIC_SPXMSB
+	ora #$40                                     // $65DF
+	sta $d010                                    // $65E1  ; VIC_SPXMSB
+	lda #$68                                     // $65E4
+	sta $d00c                                    // $65E6
+	lda $07fe                                    // $65E9
+	cmp #$a9                                     // $65EC
+	.byte $F0, $06                               // $65EE  beq $65F6
+	dec $07fe                                    // $65F0
+	jmp $65f9                                    // $65F3
+	inc $07fe                                    // $65F6
+	dex                                          // $65F9
+	.byte $D0, $C6                               // $65FA  bne $65C2
+	ldx #$05                                     // $65FC
+	dec $d008                                    // $65FE
+	dec $d00a                                    // $6601
+	.byte $D0, $3E                               // $6604  bne $6644
+	lda $d010                                    // $6606  ; VIC_SPXMSB
+	and #$30                                     // $6609
+	.byte $F0, $11                               // $660B  beq $661E
+	lda $d210                                    // $660D
+	and #$cf                                     // $6610
+	sta $d010                                    // $6612  ; VIC_SPXMSB
+	dec $d008                                    // $6615
+	dec $d00a                                    // $6618
+	jmp $6644                                    // $661B
+	lda $d010                                    // $661E  ; VIC_SPXMSB
+	ora #$30                                     // $6621
+	sta $d010                                    // $6623  ; VIC_SPXMSB
+	lda #$68                                     // $6626
+	sta $d008                                    // $6628
+	sta $d00a                                    // $662B
+	lda $07fd                                    // $662E
+	cmp #$ab                                     // $6631
+	.byte $F0, $09                               // $6633  beq $663E
+	dec $07fd                                    // $6635
+	dec $07fc                                    // $6638
+	jmp $6644                                    // $663B
+	inc $07fd                                    // $663E
+	inc $07fc                                    // $6641
+	dex                                          // $6644
+	.byte $D0, $B7                               // $6645  bne $65FE
+	lda $37                                      // $6647
+	.byte $D0, $03                               // $6649  bne $664E
+	jmp $6711                                    // $664B
+	ldx $3c                                      // $664E
+	lda $d010                                    // $6650  ; VIC_SPXMSB
+	and #$02                                     // $6653
+	.byte $F0, $20                               // $6655  beq $6677
+	lda $d002                                    // $6657  ; VIC_SP1X
+	cmp #$60                                     // $665A
+	.byte $90, $0C                               // $665C  bcc $666A
+	cmp #$d0                                     // $665E
+	.byte $B0, $08                               // $6660  bcs $666A
+	lda $d015                                    // $6662  ; VIC_SPEN
+	and #$fd                                     // $6665
+	sta $d015                                    // $6667  ; VIC_SPEN
+	dec $d002                                    // $666A  ; VIC_SP1X
+	.byte $D0, $18                               // $666D  bne $6687
+	lda $d010                                    // $666F  ; VIC_SPXMSB
+	and #$fd                                     // $6672
+	sta $d010                                    // $6674  ; VIC_SPXMSB
+	dec $d002                                    // $6677  ; VIC_SP1X
+	.byte $D0, $0B                               // $667A  bne $6687
+	lda $d010                                    // $667C  ; VIC_SPXMSB
+	ora #$02                                     // $667F
+	sta $d010                                    // $6681  ; VIC_SPXMSB
+	dec $d002                                    // $6684  ; VIC_SP1X
+	lda $d010                                    // $6687  ; VIC_SPXMSB
+	and #$04                                     // $668A
+	.byte $F0, $20                               // $668C  beq $66AE
+	lda $d004                                    // $668E
+	cmp #$60                                     // $6691
+	.byte $90, $0C                               // $6693  bcc $66A1
+	cmp #$d0                                     // $6695
+	.byte $B0, $08                               // $6697  bcs $66A1
+	lda $d015                                    // $6699  ; VIC_SPEN
+	and #$fb                                     // $669C
+	sta $d015                                    // $669E  ; VIC_SPEN
+	dec $d004                                    // $66A1
+	.byte $D0, $18                               // $66A4  bne $66BE
+	lda $d010                                    // $66A6  ; VIC_SPXMSB
+	and #$fb                                     // $66A9
+	sta $d010                                    // $66AB  ; VIC_SPXMSB
+	dec $d004                                    // $66AE
+	.byte $D0, $0B                               // $66B1  bne $66BE
+	lda $d010                                    // $66B3  ; VIC_SPXMSB
+	ora #$04                                     // $66B6
+	sta $d010                                    // $66B8  ; VIC_SPXMSB
+	dec $d004                                    // $66BB
+	lda $d010                                    // $66BE  ; VIC_SPXMSB
+	and #$08                                     // $66C1
+	.byte $F0, $20                               // $66C3  beq $66E5
+	lda $d006                                    // $66C5
+	cmp #$60                                     // $66C8
+	.byte $90, $0C                               // $66CA  bcc $66D8
+	cmp #$d0                                     // $66CC
+	.byte $B0, $08                               // $66CE  bcs $66D8
+	lda $d015                                    // $66D0  ; VIC_SPEN
+	and #$f7                                     // $66D3
+	sta $d015                                    // $66D5  ; VIC_SPEN
+	dec $d006                                    // $66D8
+	.byte $D0, $18                               // $66DB  bne $66F5
+	lda $d010                                    // $66DD  ; VIC_SPXMSB
+	and #$f7                                     // $66E0
+	sta $d010                                    // $66E2  ; VIC_SPXMSB
+	dec $d006                                    // $66E5
+	.byte $D0, $0B                               // $66E8  bne $66F5
+	lda $d010                                    // $66EA  ; VIC_SPXMSB
+	ora #$08                                     // $66ED
+	sta $d010                                    // $66EF  ; VIC_SPXMSB
+	dec $d006                                    // $66F2
+	lda $42                                      // $66F5
+	cmp #$82                                     // $66F7
+	.byte $D0, $03                               // $66F9  bne $66FE
+	jsr $61c5                                    // $66FB
+	lda $42                                      // $66FE
+	cmp #$84                                     // $6700
+	.byte $D0, $07                               // $6702  bne $670B
+	lda #$02                                     // $6704
+	sta $44                                      // $6706
+	jsr $6a90                                    // $6708
+	dex                                          // $670B
+	.byte $F0, $03                               // $670C  beq $6711
+	jmp $6650                                    // $670E
+	lda $dc00                                    // $6711  ; CIA1_PRA
+	and #$1f                                     // $6714
+	eor #$1f                                     // $6716
+	cmp #$08                                     // $6718
+	.byte $90, $14                               // $671A  bcc $6730
+	cmp #$0b                                     // $671C
+	.byte $B0, $10                               // $671E  bcs $6730
+	jsr $61c5                                    // $6720
+	jsr $75c0                                    // $6723
+	lda $43                                      // $6726
+	.byte $D0, $06                               // $6728  bne $6730
+	jsr $6960                                    // $672A
+	jmp $6594                                    // $672D
+	lda #$00                                     // $6730
+	sta $19                                      // $6732
+	lda #$14                                     // $6734
+	sta $16                                      // $6736
+	jsr $61f0                                    // $6738
+	rts                                          // $673B
+	nop                                          // $673C
+	nop                                          // $673D
+	nop                                          // $673E
+	nop                                          // $673F
+	nop                                          // $6740
+	nop                                          // $6741
+	nop                                          // $6742
+	nop                                          // $6743
+	nop                                          // $6744
+	nop                                          // $6745
+	nop                                          // $6746
+	nop                                          // $6747
+	nop                                          // $6748
+	nop                                          // $6749
+	nop                                          // $674A
+	nop                                          // $674B
+	lda $46                                      // $674C
+	cmp #$ff                                     // $674E
+	.byte $D0, $01                               // $6750  bne $6753
+	rts                                          // $6752
+	dec $47                                      // $6753
+	.byte $D0, $FB                               // $6755  bne $6752
+	lda #$a0                                     // $6757
+	sta $47                                      // $6759
+	nop                                          // $675B
+	nop                                          // $675C
+	nop                                          // $675D
+	nop                                          // $675E
+	inc $d00e                                    // $675F
+	.byte $D0, $08                               // $6762  bne $676C
+	lda $d010                                    // $6764  ; VIC_SPXMSB
+	ora #$80                                     // $6767
+	sta $d010                                    // $6769  ; VIC_SPXMSB
+	dec $46                                      // $676C
+	.byte $D0, $07                               // $676E  bne $6777
+	lda #$04                                     // $6770
+	sta $46                                      // $6772
+	inc $d00f                                    // $6774
+	lda $d00e                                    // $6777
+	cmp #$54                                     // $677A
+	.byte $D0, $06                               // $677C  bne $6784
+	inc $48                                      // $677E
+	jsr $6100                                    // $6780
+	rts                                          // $6783
+	cmp #$88                                     // $6784
+	.byte $D0, $06                               // $6786  bne $678E
+	lda #$0b                                     // $6788
+	sta $d021                                    // $678A  ; VIC_BG0
+	rts                                          // $678D
+	cmp #$c0                                     // $678E
+	.byte $D0, $30                               // $6790  bne $67C2
+	lda #$00                                     // $6792
+	sta $d022                                    // $6794
+	lda #$06                                     // $6797
+	sta $d023                                    // $6799
+	sta $d02b                                    // $679C
+	sta $d02c                                    // $679F
+	sta $d02d                                    // $67A2
+	sta $d025                                    // $67A5  ; VIC_SPMCOL0
+	lda #$08                                     // $67A8
+	sta $4a                                      // $67AA
+	jsr $61f0                                    // $67AC
+	ldx #$0b                                     // $67AF
+	lda #$09                                     // $67B1
+	sta $dbc0,x                                  // $67B3
+	dex                                          // $67B6
+	.byte $10, $FA                               // $67B7  bpl $67B3
+	ldx #$0a                                     // $67B9
+	sta $dbdc,x                                  // $67BB
+	dex                                          // $67BE
+	.byte $10, $FA                               // $67BF  bpl $67BB
+	rts                                          // $67C1
+	cmp #$f0                                     // $67C2
+	.byte $D0, $1E                               // $67C4  bne $67E4
+	lda #$09                                     // $67C6
+	sta $d02e                                    // $67C8
+	lda #$00                                     // $67CB
+	sta $d022                                    // $67CD
+	lda #$0b                                     // $67D0
+	sta $d023                                    // $67D2
+	sta $d02b                                    // $67D5
+	sta $d02c                                    // $67D8
+	sta $d02d                                    // $67DB
+	lda #$00                                     // $67DE
+	sta $d021                                    // $67E0  ; VIC_BG0
+	rts                                          // $67E3
+	cmp #$24                                     // $67E4
+	.byte $D0, $32                               // $67E6  bne $681A
+	ldx #$00                                     // $67E8
+	lda #$08                                     // $67EA
+	sta $d800,x                                  // $67EC
+	inx                                          // $67EF
+	.byte $D0, $FA                               // $67F0  bne $67EC
+	sta $d900,x                                  // $67F2
+	inx                                          // $67F5
+	.byte $D0, $FA                               // $67F6  bne $67F2
+	sta $da00,x                                  // $67F8
+	inx                                          // $67FB
+	.byte $D0, $FA                               // $67FC  bne $67F8
+	sta $db00,x                                  // $67FE
+	inx                                          // $6801
+	cpx #$98                                     // $6802
+	.byte $D0, $F8                               // $6804  bne $67FE
+	inc $49                                      // $6806
+	jsr $6100                                    // $6808
+	jsr $61f0                                    // $680B
+	lda #$00                                     // $680E
+	sta $d02b                                    // $6810
+	sta $d02c                                    // $6813
+	sta $d025                                    // $6816  ; VIC_SPMCOL0
+	rts                                          // $6819
+	cmp #$58                                     // $681A
+	.byte $D0, $07                               // $681C  bne $6825
+	lda $d010                                    // $681E  ; VIC_SPXMSB
+	and #$80                                     // $6821
+	.byte $D0, $01                               // $6823  bne $6826
+	rts                                          // $6825
+	lda $d015                                    // $6826  ; VIC_SPEN
+	and #$0f                                     // $6829
+	sta $d015                                    // $682B  ; VIC_SPEN
+	lda #$ff                                     // $682E
+	sta $46                                      // $6830
+	lda #$00                                     // $6832
+	sta $d022                                    // $6834
+	rts                                          // $6837
+	nop                                          // $6838
+	nop                                          // $6839
+	nop                                          // $683A
+	nop                                          // $683B
+	nop                                          // $683C
+	nop                                          // $683D
+	nop                                          // $683E
+	nop                                          // $683F
+	ldy $dc05                                    // $6840
+	ldx $5050,y                                  // $6843
+	lda $0400,x                                  // $6846
+	cmp #$7b                                     // $6849
+	.byte $F0, $01                               // $684B  beq $684E
+	rts                                          // $684D
+	lda #$7c                                     // $684E
+	sta $0400,x                                  // $6850
+	lda #$01                                     // $6853
+	sta $d800,x                                  // $6855
+	ldy #$00                                     // $6858
+	dey                                          // $685A
+	.byte $D0, $FD                               // $685B  bne $685A
+	lda #$7b                                     // $685D
+	sta $0400,x                                  // $685F
+	rts                                          // $6862
+	nop                                          // $6863
+	nop                                          // $6864
+	nop                                          // $6865
+	nop                                          // $6866
+	nop                                          // $6867
+	nop                                          // $6868
+	nop                                          // $6869
+	nop                                          // $686A
+	nop                                          // $686B
+	lda $27                                      // $686C
+	.byte $D0, $07                               // $686E  bne $6877
+	lda #$01                                     // $6870
+	sta $5f                                      // $6872
+	jmp $2200                                    // $6874
+	cmp #$0b                                     // $6877
+	.byte $B0, $07                               // $6879  bcs $6882
+	lda #$b2                                     // $687B
+	sta $2e                                      // $687D
+	jsr $71aa                                    // $687F
+	cmp #$15                                     // $6882
+	.byte $B0, $07                               // $6884  bcs $688D
+	lda #$b0                                     // $6886
+	sta $2e                                      // $6888
+	jsr $71aa                                    // $688A
+	cmp #$1f                                     // $688D
+	.byte $B0, $07                               // $688F  bcs $6898
+	lda #$a7                                     // $6891
+	sta $2e                                      // $6893
+	jsr $71aa                                    // $6895
+	cmp #$29                                     // $6898
+	.byte $B0, $07                               // $689A  bcs $68A3
+	lda #$a5                                     // $689C
+	sta $2e                                      // $689E
+	jsr $71aa                                    // $68A0
+	clc                                          // $68A3
+	sed                                          // $68A4
+	lda $2a                                      // $68A5
+	adc $28                                      // $68A7
+	sta $2a                                      // $68A9
+	lda $2b                                      // $68AB
+	adc $29                                      // $68AD
+	sta $2b                                      // $68AF
+	lda $2c                                      // $68B1
+	adc #$00                                     // $68B3
+	sta $2c                                      // $68B5
+	.byte $90, $02                               // $68B7  bcc $68BB
+	inc $2d                                      // $68B9
+	cld                                          // $68BB
+	lda #$00                                     // $68BC
+	sta $28                                      // $68BE
+	sta $29                                      // $68C0
+	clc                                          // $68C2
+	ldy #$07                                     // $68C3
+	ldx #$00                                     // $68C5
+	lda $2a,x                                    // $68C7
+	and #$0f                                     // $68C9
+	adc #$10                                     // $68CB
+	sta $07c3,y                                  // $68CD
+	dey                                          // $68D0
+	lda $2a,x                                    // $68D1
+	and #$f0                                     // $68D3
+	lsr                                          // $68D5
+	lsr                                          // $68D6
+	lsr                                          // $68D7
+	lsr                                          // $68D8
+	adc #$10                                     // $68D9
+	sta $07c3,y                                  // $68DB
+	dey                                          // $68DE
+	inx                                          // $68DF
+	cpx #$03                                     // $68E0
+	.byte $D0, $E3                               // $68E2  bne $68C7
+	jmp $115a                                    // $68E4
+	nop                                          // $68E7
+	nop                                          // $68E8
+	nop                                          // $68E9
+	nop                                          // $68EA
+	nop                                          // $68EB
+	nop                                          // $68EC
+	nop                                          // $68ED
+	nop                                          // $68EE
+	nop                                          // $68EF
+	lda #$26                                     // $68F0
+	sta $d003                                    // $68F2  ; VIC_SP1Y
+	sta $d005                                    // $68F5
+	lda #$02                                     // $68F8
+	sta $d028                                    // $68FA
+	sta $d029                                    // $68FD
+	lda #$90                                     // $6900
+	sta $d002                                    // $6902  ; VIC_SP1X
+	lda #$a8                                     // $6905
+	sta $d004                                    // $6907
+	lda $d010                                    // $690A  ; VIC_SPXMSB
+	and #$f0                                     // $690D
+	sta $d010                                    // $690F  ; VIC_SPXMSB
+	lda $d017                                    // $6912  ; VIC_SPYEXP
+	and #$f9                                     // $6915
+	sta $d017                                    // $6917  ; VIC_SPYEXP
+	lda $d01d                                    // $691A  ; VIC_SPXEXP
+	and #$f9                                     // $691D
+	sta $d01d                                    // $691F  ; VIC_SPXEXP
+	lda $d01b                                    // $6922  ; VIC_SPPRI
+	ora #$06                                     // $6925
+	sta $d01b                                    // $6927  ; VIC_SPPRI
+	lda $d01c                                    // $692A  ; VIC_SPMCOL
+	ora #$06                                     // $692D
+	sta $d01c                                    // $692F  ; VIC_SPMCOL
+	lda #$cc                                     // $6932
+	sta $07f9                                    // $6934
+	lda #$cd                                     // $6937
+	sta $07fa                                    // $6939
+	lda #$24                                     // $693C
+	sta $53                                      // $693E
+	sta $54                                      // $6940
+	lda #$00                                     // $6942
+	sta $50                                      // $6944
+	sta $51                                      // $6946
+	lda $d015                                    // $6948  ; VIC_SPEN
+	ora #$06                                     // $694B
+	sta $d015                                    // $694D  ; VIC_SPEN
+	lda #$00                                     // $6950
+	sta $37                                      // $6952
+	lda #$06                                     // $6954
+	sta $3c                                      // $6956
+	rts                                          // $6958
+	nop                                          // $6959
+	nop                                          // $695A
+	nop                                          // $695B
+	nop                                          // $695C
+	nop                                          // $695D
+	nop                                          // $695E
+	nop                                          // $695F
+	lda $42                                      // $6960
+	cmp #$88                                     // $6962
+	.byte $F0, $01                               // $6964  beq $6967
+	rts                                          // $6966
+	lda $52                                      // $6967
+	.byte $F0, $FB                               // $6969  beq $6966
+	cmp #$03                                     // $696B
+	.byte $D0, $11                               // $696D  bne $6980
+	jsr $7ad9                                    // $696F
+	inc $d007                                    // $6972
+	inc $d007                                    // $6975
+	inc $d007                                    // $6978
+	nop                                          // $697B
+	nop                                          // $697C
+	jmp $69a9                                    // $697D
+	cmp #$07                                     // $6980
+	.byte $D0, $12                               // $6982  bne $6996
+	jsr $794f                                    // $6984
+	inc $d006                                    // $6987
+	inc $d007                                    // $698A
+	inc $d006                                    // $698D
+	inc $d007                                    // $6990
+	jmp $69a9                                    // $6993
+	cmp #$0b                                     // $6996
+	.byte $D0, $0F                               // $6998  bne $69A9
+	jsr $79dc                                    // $699A
+	inc $d007                                    // $699D
+	dec $d006                                    // $69A0
+	inc $d007                                    // $69A3
+	dec $d006                                    // $69A6
+	lda $d015                                    // $69A9  ; VIC_SPEN
+	ora #$06                                     // $69AC
+	sta $d015                                    // $69AE  ; VIC_SPEN
+	lda $d010                                    // $69B1  ; VIC_SPXMSB
+	and #$06                                     // $69B4
+	.byte $D0, $03                               // $69B6  bne $69BB
+	jmp $69cd                                    // $69B8
+	lda $d002                                    // $69BB  ; VIC_SP1X
+	cmp #$60                                     // $69BE
+	.byte $90, $0B                               // $69C0  bcc $69CD
+	cmp #$a0                                     // $69C2
+	.byte $B0, $07                               // $69C4  bcs $69CD
+	lda $4e                                      // $69C6
+	sta $42                                      // $69C8
+	jmp $69e9                                    // $69CA
+	lda $d010                                    // $69CD  ; VIC_SPXMSB
+	lda $d002                                    // $69D0  ; VIC_SP1X
+	.byte $10, $15                               // $69D3  bpl $69EA
+	lda $d004                                    // $69D5
+	.byte $30, $0F                               // $69D8  bmi $69E9
+	lda $d010                                    // $69DA  ; VIC_SPXMSB
+	and #$04                                     // $69DD
+	.byte $D0, $08                               // $69DF  bne $69E9
+	lda $d010                                    // $69E1  ; VIC_SPXMSB
+	ora #$02                                     // $69E4
+	sta $d010                                    // $69E6  ; VIC_SPXMSB
+	rts                                          // $69E9
+	lda $d004                                    // $69EA
+	.byte $30, $FA                               // $69ED  bmi $69E9
+	lda $d010                                    // $69EF  ; VIC_SPXMSB
+	and #$04                                     // $69F2
+	.byte $D0, $F3                               // $69F4  bne $69E9
+	lda $d010                                    // $69F6  ; VIC_SPXMSB
+	and #$f9                                     // $69F9
+	sta $d010                                    // $69FB  ; VIC_SPXMSB
+	rts                                          // $69FE
+	nop                                          // $69FF
+	lda #$b2                                     // $6A00
+	sta $07f9                                    // $6A02
+	sta $07fa                                    // $6A05
+	sta $07fb                                    // $6A08
+	sta $38                                      // $6A0B
+	sta $3a                                      // $6A0D
+	lda #$09                                     // $6A0F
+	sta $d028                                    // $6A11
+	sta $d029                                    // $6A14
+	sta $d02a                                    // $6A17
+	sta $39                                      // $6A1A
+	sta $3b                                      // $6A1C
+	lda $d01c                                    // $6A1E  ; VIC_SPMCOL
+	ora #$0e                                     // $6A21
+	sta $d01c                                    // $6A23  ; VIC_SPMCOL
+	lda $d01b                                    // $6A26  ; VIC_SPPRI
+	ora #$0e                                     // $6A29
+	sta $d01b                                    // $6A2B  ; VIC_SPPRI
+	lda $d017                                    // $6A2E  ; VIC_SPYEXP
+	and #$f1                                     // $6A31
+	sta $d017                                    // $6A33  ; VIC_SPYEXP
+	lda $d01d                                    // $6A36  ; VIC_SPXEXP
+	and #$f1                                     // $6A39
+	sta $d01d                                    // $6A3B  ; VIC_SPXEXP
+	lda $d010                                    // $6A3E  ; VIC_SPXMSB
+	and #$f1                                     // $6A41
+	sta $d010                                    // $6A43  ; VIC_SPXMSB
+	lda $dc04                                    // $6A46
+	sta $d002                                    // $6A49  ; VIC_SP1X
+	sta $d004                                    // $6A4C
+	sta $d006                                    // $6A4F
+	lda #$80                                     // $6A52
+	sta $d003                                    // $6A54  ; VIC_SP1Y
+	sta $d005                                    // $6A57
+	sta $d007                                    // $6A5A
+	lda #$08                                     // $6A5D
+	sta $3c                                      // $6A5F
+	lda #$f0                                     // $6A61
+	sta $3f                                      // $6A63
+	sta $40                                      // $6A65
+	lda #$01                                     // $6A67
+	sta $37                                      // $6A69
+	lda #$00                                     // $6A6B
+	sta $33                                      // $6A6D
+	lda #$50                                     // $6A6F
+	sta $30                                      // $6A71
+	sta $34                                      // $6A73
+	lda #$57                                     // $6A75
+	sta $31                                      // $6A77
+	sta $35                                      // $6A79
+	lda #$0f                                     // $6A7B
+	sta $36                                      // $6A7D
+	lda $d015                                    // $6A7F  ; VIC_SPEN
+	ora #$0e                                     // $6A82
+	sta $d015                                    // $6A84  ; VIC_SPEN
+	rts                                          // $6A87
+	nop                                          // $6A88
+	nop                                          // $6A89
+	nop                                          // $6A8A
+	nop                                          // $6A8B
+	nop                                          // $6A8C
+	nop                                          // $6A8D
+	nop                                          // $6A8E
+	nop                                          // $6A8F
+	dec $4d                                      // $6A90
+	.byte $F0, $01                               // $6A92  beq $6A95
+	rts                                          // $6A94
+	lda $44                                      // $6A95
+	sta $4d                                      // $6A97
+	lda $52                                      // $6A99
+	and #$01                                     // $6A9B
+	.byte $D0, $2F                               // $6A9D  bne $6ACE
+	dec $d003                                    // $6A9F  ; VIC_SP1Y
+	lda $d003                                    // $6AA2  ; VIC_SP1Y
+	.byte $D0, $24                               // $6AA5  bne $6ACB
+	lda $d017                                    // $6AA7  ; VIC_SPYEXP
+	ora #$02                                     // $6AAA
+	sta $d017                                    // $6AAC  ; VIC_SPYEXP
+	lda $d01d                                    // $6AAF  ; VIC_SPXEXP
+	ora #$02                                     // $6AB2
+	sta $d01d                                    // $6AB4  ; VIC_SPXEXP
+	lda $d01b                                    // $6AB7  ; VIC_SPPRI
+	and #$fd                                     // $6ABA
+	sta $d01b                                    // $6ABC  ; VIC_SPPRI
+	lda $dc04                                    // $6ABF
+	sta $d002                                    // $6AC2  ; VIC_SP1X
+	lda $52                                      // $6AC5
+	ora #$01                                     // $6AC7
+	sta $52                                      // $6AC9
+	jmp $6b09                                    // $6ACB
+	inc $d003                                    // $6ACE  ; VIC_SP1Y
+	inc $d003                                    // $6AD1  ; VIC_SP1Y
+	lda $d003                                    // $6AD4  ; VIC_SP1Y
+	cmp #$f0                                     // $6AD7
+	.byte $90, $2E                               // $6AD9  bcc $6B09
+	lda $d017                                    // $6ADB  ; VIC_SPYEXP
+	and #$fd                                     // $6ADE
+	sta $d017                                    // $6AE0  ; VIC_SPYEXP
+	lda $d01d                                    // $6AE3  ; VIC_SPXEXP
+	and #$fd                                     // $6AE6
+	sta $d01d                                    // $6AE8  ; VIC_SPXEXP
+	lda $d01b                                    // $6AEB  ; VIC_SPPRI
+	ora #$02                                     // $6AEE
+	sta $d01b                                    // $6AF0  ; VIC_SPPRI
+	lda #$90                                     // $6AF3
+	sta $d003                                    // $6AF5  ; VIC_SP1Y
+	lda $dc04                                    // $6AF8
+	sta $d002                                    // $6AFB  ; VIC_SP1X
+	lda #$b2                                     // $6AFE
+	sta $07f9                                    // $6B00
+	lda $52                                      // $6B03
+	and #$fe                                     // $6B05
+	sta $52                                      // $6B07
+	lda $52                                      // $6B09
+	and #$02                                     // $6B0B
+	.byte $D0, $34                               // $6B0D  bne $6B43
+	dec $d005                                    // $6B0F
+	dec $d005                                    // $6B12
+	lda $d005                                    // $6B15
+	cmp #$06                                     // $6B18
+	.byte $B0, $24                               // $6B1A  bcs $6B40
+	lda $d017                                    // $6B1C  ; VIC_SPYEXP
+	ora #$04                                     // $6B1F
+	sta $d017                                    // $6B21  ; VIC_SPYEXP
+	lda $d01d                                    // $6B24  ; VIC_SPXEXP
+	ora #$04                                     // $6B27
+	sta $d01d                                    // $6B29  ; VIC_SPXEXP
+	lda $d01b                                    // $6B2C  ; VIC_SPPRI
+	and #$fb                                     // $6B2F
+	sta $d01b                                    // $6B31  ; VIC_SPPRI
+	lda $dc04                                    // $6B34
+	sta $d004                                    // $6B37
+	lda $52                                      // $6B3A
+	ora #$02                                     // $6B3C
+	sta $52                                      // $6B3E
+	jmp $6b7e                                    // $6B40
+	inc $d005                                    // $6B43
+	inc $d005                                    // $6B46
+	lda $d005                                    // $6B49
+	cmp #$f0                                     // $6B4C
+	.byte $90, $2E                               // $6B4E  bcc $6B7E
+	lda $d017                                    // $6B50  ; VIC_SPYEXP
+	and #$fb                                     // $6B53
+	sta $d017                                    // $6B55  ; VIC_SPYEXP
+	lda $d01d                                    // $6B58  ; VIC_SPXEXP
+	and #$fb                                     // $6B5B
+	sta $d01d                                    // $6B5D  ; VIC_SPXEXP
+	lda $d01b                                    // $6B60  ; VIC_SPPRI
+	ora #$04                                     // $6B63
+	sta $d01b                                    // $6B65  ; VIC_SPPRI
+	lda #$90                                     // $6B68
+	sta $d005                                    // $6B6A
+	lda $dc04                                    // $6B6D
+	sta $d004                                    // $6B70
+	lda #$b2                                     // $6B73
+	sta $07fa                                    // $6B75
+	lda $52                                      // $6B78
+	and #$fd                                     // $6B7A
+	sta $52                                      // $6B7C
+	lda $52                                      // $6B7E
+	and #$04                                     // $6B80
+	.byte $D0, $37                               // $6B82  bne $6BBB
+	dec $d007                                    // $6B84
+	dec $d007                                    // $6B87
+	dec $d007                                    // $6B8A
+	lda $d007                                    // $6B8D
+	cmp #$08                                     // $6B90
+	.byte $B0, $24                               // $6B92  bcs $6BB8
+	lda $d017                                    // $6B94  ; VIC_SPYEXP
+	ora #$08                                     // $6B97
+	sta $d017                                    // $6B99  ; VIC_SPYEXP
+	lda $d01d                                    // $6B9C  ; VIC_SPXEXP
+	ora #$08                                     // $6B9F
+	sta $d01d                                    // $6BA1  ; VIC_SPXEXP
+	lda $d01b                                    // $6BA4  ; VIC_SPPRI
+	and #$f7                                     // $6BA7
+	sta $d01b                                    // $6BA9  ; VIC_SPPRI
+	lda $dc04                                    // $6BAC
+	sta $d006                                    // $6BAF
+	lda $52                                      // $6BB2
+	ora #$04                                     // $6BB4
+	sta $52                                      // $6BB6
+	jmp $6bf6                                    // $6BB8
+	inc $d007                                    // $6BBB
+	inc $d007                                    // $6BBE
+	lda $d007                                    // $6BC1
+	cmp #$f0                                     // $6BC4
+	.byte $90, $2E                               // $6BC6  bcc $6BF6
+	lda $d017                                    // $6BC8  ; VIC_SPYEXP
+	and #$f7                                     // $6BCB
+	sta $d017                                    // $6BCD  ; VIC_SPYEXP
+	lda $d01d                                    // $6BD0  ; VIC_SPXEXP
+	and #$f7                                     // $6BD3
+	sta $d01d                                    // $6BD5  ; VIC_SPXEXP
+	lda $d01b                                    // $6BD8  ; VIC_SPPRI
+	ora #$08                                     // $6BDB
+	sta $d01b                                    // $6BDD  ; VIC_SPPRI
+	lda #$90                                     // $6BE0
+	sta $d007                                    // $6BE2
+	lda $dc04                                    // $6BE5
+	sta $d006                                    // $6BE8
+	lda #$b2                                     // $6BEB
+	sta $07fb                                    // $6BED
+	lda $52                                      // $6BF0
+	and #$fb                                     // $6BF2
+	sta $52                                      // $6BF4
+	lda $d015                                    // $6BF6  ; VIC_SPEN
+	ora #$0e                                     // $6BF9
+	sta $d015                                    // $6BFB  ; VIC_SPEN
+	lda $d010                                    // $6BFE  ; VIC_SPXMSB
+	and #$f1                                     // $6C01
+	sta $d010                                    // $6C03  ; VIC_SPXMSB
+	jmp $7760                                    // $6C06
+	nop                                          // $6C09
+	nop                                          // $6C0A
+	nop                                          // $6C0B
+	nop                                          // $6C0C
+	nop                                          // $6C0D
+	nop                                          // $6C0E
+	nop                                          // $6C0F
+	jsr $6090                                    // $6C10
+	jmp $7420                                    // $6C13
+	nop                                          // $6C16
+	nop                                          // $6C17
+	nop                                          // $6C18
+	nop                                          // $6C19
+	nop                                          // $6C1A
+	nop                                          // $6C1B
+	nop                                          // $6C1C
+	nop                                          // $6C1D
+	nop                                          // $6C1E
+	nop                                          // $6C1F
+	lda $dc04                                    // $6C20
+	cmp #$30                                     // $6C23
+	.byte $B0, $03                               // $6C25  bcs $6C2A
+	jmp $6c3b                                    // $6C27
+	cmp #$80                                     // $6C2A
+	.byte $B0, $03                               // $6C2C  bcs $6C31
+	jmp $6c5c                                    // $6C2E
+	cmp #$d0                                     // $6C31
+	.byte $B0, $03                               // $6C33  bcs $6C38
+	jmp $6c7d                                    // $6C35
+	jmp $6c9e                                    // $6C38
+	ldx #$0f                                     // $6C3B
+	dec $d003                                    // $6C3D  ; VIC_SP1Y
+	dec $d005                                    // $6C40
+	inc $d002                                    // $6C43  ; VIC_SP1X
+	inc $d004                                    // $6C46
+	.byte $D0, $03                               // $6C49  bne $6C4E
+	jmp $6c7d                                    // $6C4B
+	lda $d003                                    // $6C4E  ; VIC_SP1Y
+	cmp #$30                                     // $6C51
+	.byte $B0, $03                               // $6C53  bcs $6C58
+	jmp $6c5c                                    // $6C55
+	dex                                          // $6C58
+	.byte $10, $E2                               // $6C59  bpl $6C3D
+	rts                                          // $6C5B
+	ldx #$0f                                     // $6C5C
+	inc $d003                                    // $6C5E  ; VIC_SP1Y
+	inc $d005                                    // $6C61
+	inc $d002                                    // $6C64  ; VIC_SP1X
+	inc $d004                                    // $6C67
+	.byte $D0, $03                               // $6C6A  bne $6C6F
+	jmp $6c9e                                    // $6C6C
+	lda $d003                                    // $6C6F  ; VIC_SP1Y
+	cmp #$c0                                     // $6C72
+	.byte $90, $03                               // $6C74  bcc $6C79
+	jmp $6c3b                                    // $6C76
+	dex                                          // $6C79
+	.byte $10, $E2                               // $6C7A  bpl $6C5E
+	rts                                          // $6C7C
+	ldx #$0f                                     // $6C7D
+	dec $d003                                    // $6C7F  ; VIC_SP1Y
+	dec $d005                                    // $6C82
+	dec $d002                                    // $6C85  ; VIC_SP1X
+	dec $d004                                    // $6C88
+	.byte $D0, $03                               // $6C8B  bne $6C90
+	jmp $6c3b                                    // $6C8D
+	lda $d003                                    // $6C90  ; VIC_SP1Y
+	cmp #$30                                     // $6C93
+	.byte $B0, $03                               // $6C95  bcs $6C9A
+	jmp $6c9e                                    // $6C97
+	dex                                          // $6C9A
+	.byte $10, $E2                               // $6C9B  bpl $6C7F
+	rts                                          // $6C9D
+	ldx #$0f                                     // $6C9E
+	inc $d003                                    // $6CA0  ; VIC_SP1Y
+	inc $d005                                    // $6CA3
+	dec $d002                                    // $6CA6  ; VIC_SP1X
+	dec $d004                                    // $6CA9
+	.byte $D0, $03                               // $6CAC  bne $6CB1
+	jmp $6c5c                                    // $6CAE
+	lda $d003                                    // $6CB1  ; VIC_SP1Y
+	cmp #$c0                                     // $6CB4
+	.byte $90, $03                               // $6CB6  bcc $6CBB
+	jmp $6c7d                                    // $6CB8
+	dex                                          // $6CBB
+	.byte $10, $E2                               // $6CBC  bpl $6CA0
+	rts                                          // $6CBE
+	nop                                          // $6CBF
+	nop                                          // $6CC0
+	nop                                          // $6CC1
+	nop                                          // $6CC2
+	nop                                          // $6CC3
+	nop                                          // $6CC4
+	nop                                          // $6CC5
+	nop                                          // $6CC6
+	dec $56                                      // $6CC7
+	.byte $F0, $01                               // $6CC9  beq $6CCC
+	rts                                          // $6CCB
+	lda #$01                                     // $6CCC
+	sta $56                                      // $6CCE
+	lda $dc05                                    // $6CD0
+	and #$07                                     // $6CD3
+	tay                                          // $6CD5
+	clc                                          // $6CD6
+	lda #$ff                                     // $6CD7
+	ror                                          // $6CD9
+	dey                                          // $6CDA
+	.byte $10, $FC                               // $6CDB  bpl $6CD9
+	sta $52                                      // $6CDD
+	ldx $51                                      // $6CDF
+	lda $2dc0,x                                  // $6CE1
+	and $52                                      // $6CE4
+	sta $2dc0,x                                  // $6CE6
+	lda $2e00,x                                  // $6CE9
+	and $52                                      // $6CEC
+	sta $2e00,x                                  // $6CEE
+	dec $51                                      // $6CF1
+	.byte $10, $2B                               // $6CF3  bpl $6D20
+	lda #$3f                                     // $6CF5
+	sta $51                                      // $6CF7
+	lda #$00                                     // $6CF9
+	sta $52                                      // $6CFB
+	ldx #$3f                                     // $6CFD
+	lda $2dc0,x                                  // $6CFF
+	.byte $F0, $02                               // $6D02  beq $6D06
+	inc $52                                      // $6D04
+	dex                                          // $6D06
+	.byte $10, $F6                               // $6D07  bpl $6CFF
+	lda $52                                      // $6D09
+	cmp #$10                                     // $6D0B
+	.byte $B0, $11                               // $6D0D  bcs $6D20
+	lda #$ff                                     // $6D0F
+	sta $53                                      // $6D11
+	ldx #$3f                                     // $6D13
 	lda #$00                                     // $6D15
-	sta $d026                                    // $6D17  ; VIC_SPMCOL1
-	lda #$02                                     // $6D1A
-	sta $d028                                    // $6D1C
-	sta $d029                                    // $6D1F
-	lda #$02                                     // $6D22
-	sta $d02a                                    // $6D24
-	rts                                          // $6D27
-	lda $d012                                    // $6D28  ; VIC_RASTER
-	.byte $D0, $FB                               // $6D2B  bne $6D28
-	lda #$00                                     // $6D2D
-	sta $d021                                    // $6D2F  ; VIC_BG0
-	sta $d025                                    // $6D32  ; VIC_SPMCOL0
-	sta $d026                                    // $6D35  ; VIC_SPMCOL1
-	sta $d028                                    // $6D38
-	sta $d029                                    // $6D3B
-	sta $d02a                                    // $6D3E
-	jmp $7f2f                                    // $6D41
-	nop                                          // $6D44
-	lda #$b4                                     // $6D45
-	sta $07f9                                    // $6D47
-	lda #$00                                     // $6D4A
-	sta $d028                                    // $6D4C
-	lda #$b5                                     // $6D4F
-	sta $07fa                                    // $6D51
-	lda #$07                                     // $6D54
-	sta $d029                                    // $6D56
-	lda $d017                                    // $6D59  ; VIC_SPYEXP
-	ora #$06                                     // $6D5C
-	sta $d017                                    // $6D5E  ; VIC_SPYEXP
-	lda $d01d                                    // $6D61  ; VIC_SPXEXP
-	ora #$06                                     // $6D64
-	sta $d01d                                    // $6D66  ; VIC_SPXEXP
-	lda $d01b                                    // $6D69  ; VIC_SPPRI
-	and #$f9                                     // $6D6C
-	sta $d01b                                    // $6D6E  ; VIC_SPPRI
-	lda #$20                                     // $6D71
-	sta $d003                                    // $6D73  ; VIC_SP1Y
-	sta $d005                                    // $6D76
-	lda #$a0                                     // $6D79
-	sta $d002                                    // $6D7B  ; VIC_SP1X
-	sta $d004                                    // $6D7E
-	lda $d010                                    // $6D81  ; VIC_SPXMSB
-	and #$f9                                     // $6D84
-	sta $d010                                    // $6D86  ; VIC_SPXMSB
-	lda $d015                                    // $6D89  ; VIC_SPEN
-	ora #$06                                     // $6D8C
-	sta $d015                                    // $6D8E  ; VIC_SPEN
-	lda $d01c                                    // $6D91  ; VIC_SPMCOL
-	and #$f9                                     // $6D94
-	sta $d01c                                    // $6D96  ; VIC_SPMCOL
-	ldx #$10                                     // $6D99
-	lda $5d62,x                                  // $6D9B
-	sta $30,x                                    // $6D9E
-	dex                                          // $6DA0
-	.byte $10, $F8                               // $6DA1  bpl $6D9B
-	rts                                          // $6DA3
-	nop                                          // $6DA4
-	lda $57                                      // $6DA5
-	and #$0f                                     // $6DA7
-	.byte $D0, $1B                               // $6DA9  bne $6DC6
-	lda #$c2                                     // $6DAB
-	sta $07f9                                    // $6DAD
-	sta $38                                      // $6DB0
-	lda #$c3                                     // $6DB2
-	sta $3a                                      // $6DB4
-	lda $d010                                    // $6DB6  ; VIC_SPXMSB
-	ora #$02                                     // $6DB9
-	sta $d010                                    // $6DBB  ; VIC_SPXMSB
-	lda #$60                                     // $6DBE
-	sta $d002                                    // $6DC0  ; VIC_SP1X
-	jmp $6dde                                    // $6DC3
-	lda #$c4                                     // $6DC6
-	sta $07f9                                    // $6DC8
-	sta $38                                      // $6DCB
-	lda #$c5                                     // $6DCD
-	sta $3a                                      // $6DCF
-	lda $d010                                    // $6DD1  ; VIC_SPXMSB
-	and #$fd                                     // $6DD4
-	sta $d010                                    // $6DD6  ; VIC_SPXMSB
-	lda #$00                                     // $6DD9
-	sta $d002                                    // $6DDB  ; VIC_SP1X
-	lda #$00                                     // $6DDE
-	sta $d028                                    // $6DE0
-	sta $39                                      // $6DE3
-	sta $3b                                      // $6DE5
-	lda #$01                                     // $6DE7
-	sta $37                                      // $6DE9
-	sta $3f                                      // $6DEB
-	sta $40                                      // $6DED
-	lda #$02                                     // $6DEF
-	sta $3c                                      // $6DF1
-	sta $3d                                      // $6DF3
-	lda #$fd                                     // $6DF5
-	sta $3e                                      // $6DF7
-	lda #$80                                     // $6DF9
-	sta $d003                                    // $6DFB  ; VIC_SP1Y
-	lda $d017                                    // $6DFE  ; VIC_SPYEXP
-	ora #$02                                     // $6E01
-	sta $d017                                    // $6E03  ; VIC_SPYEXP
-	lda $d01d                                    // $6E06  ; VIC_SPXEXP
-	ora #$02                                     // $6E09
-	sta $d01d                                    // $6E0B  ; VIC_SPXEXP
-	lda $d01b                                    // $6E0E  ; VIC_SPPRI
-	and #$fd                                     // $6E11
-	sta $d01b                                    // $6E13  ; VIC_SPPRI
-	lda $d01c                                    // $6E16  ; VIC_SPMCOL
-	and #$fd                                     // $6E19
-	sta $d01c                                    // $6E1B  ; VIC_SPMCOL
-	lda $d015                                    // $6E1E  ; VIC_SPEN
-	ora #$02                                     // $6E21
-	sta $d015                                    // $6E23  ; VIC_SPEN
-	rts                                          // $6E26
-	nop                                          // $6E27
-	nop                                          // $6E28
-	nop                                          // $6E29
-	lda $dc04                                    // $6E2A
-	and #$01                                     // $6E2D
-	.byte $F0, $04                               // $6E2F  beq $6E35
-	jmp $6e55                                    // $6E31
-	nop                                          // $6E34
-	lda $4e                                      // $6E35
-	cmp #$10                                     // $6E37
-	.byte $D0, $0B                               // $6E39  bne $6E46
-	lda #$b9                                     // $6E3B
-	sta $38                                      // $6E3D
-	lda #$ba                                     // $6E3F
-	sta $3a                                      // $6E41
-	jmp $6e4e                                    // $6E43
-	lda #$c2                                     // $6E46
-	sta $38                                      // $6E48
-	lda #$c3                                     // $6E4A
-	sta $3a                                      // $6E4C
-	lda #$f0                                     // $6E4E
-	sta $57                                      // $6E50
-	rts                                          // $6E52
-	nop                                          // $6E53
-	nop                                          // $6E54
-	lda $4e                                      // $6E55
-	cmp #$10                                     // $6E57
-	.byte $D0, $0B                               // $6E59  bne $6E66
-	lda #$c0                                     // $6E5B
-	sta $38                                      // $6E5D
-	lda #$c1                                     // $6E5F
-	sta $3a                                      // $6E61
-	jmp $6e6e                                    // $6E63
-	lda #$c4                                     // $6E66
-	sta $38                                      // $6E68
-	lda #$c5                                     // $6E6A
-	sta $3a                                      // $6E6C
-	lda #$0f                                     // $6E6E
-	sta $57                                      // $6E70
-	rts                                          // $6E72
-	nop                                          // $6E73
-	nop                                          // $6E74
-	lda $50                                      // $6E75
-	and #$01                                     // $6E77
-	.byte $F0, $1B                               // $6E79  beq $6E96
-	lda #$c8                                     // $6E7B
-	sta $07f9                                    // $6E7D
-	sta $38                                      // $6E80
-	lda #$c9                                     // $6E82
-	sta $3a                                      // $6E84
-	lda $d010                                    // $6E86  ; VIC_SPXMSB
-	ora #$02                                     // $6E89
-	sta $d010                                    // $6E8B  ; VIC_SPXMSB
-	lda #$70                                     // $6E8E
-	sta $d002                                    // $6E90  ; VIC_SP1X
-	jmp $6eae                                    // $6E93
-	lda #$c6                                     // $6E96
-	sta $07f9                                    // $6E98
-	sta $38                                      // $6E9B
-	lda #$c7                                     // $6E9D
-	sta $3a                                      // $6E9F
-	lda $d010                                    // $6EA1  ; VIC_SPXMSB
-	and #$fd                                     // $6EA4
-	sta $d010                                    // $6EA6  ; VIC_SPXMSB
-	lda #$00                                     // $6EA9
-	sta $d002                                    // $6EAB  ; VIC_SP1X
-	lda #$02                                     // $6EAE
-	sta $d028                                    // $6EB0
-	sta $3c                                      // $6EB3
-	sta $3d                                      // $6EB5
-	sta $39                                      // $6EB7
-	sta $3b                                      // $6EB9
-	lda #$01                                     // $6EBB
-	sta $37                                      // $6EBD
-	lda #$fd                                     // $6EBF
-	sta $3e                                      // $6EC1
-	lda #$08                                     // $6EC3
-	sta $3f                                      // $6EC5
-	sta $40                                      // $6EC7
-	lda $d017                                    // $6EC9  ; VIC_SPYEXP
-	ora #$02                                     // $6ECC
-	sta $d017                                    // $6ECE  ; VIC_SPYEXP
-	lda $d01d                                    // $6ED1  ; VIC_SPXEXP
-	ora #$02                                     // $6ED4
-	sta $d01d                                    // $6ED6  ; VIC_SPXEXP
-	lda $d01c                                    // $6ED9  ; VIC_SPMCOL
-	and #$fd                                     // $6EDC
-	sta $d01c                                    // $6EDE  ; VIC_SPMCOL
-	lda $d01b                                    // $6EE1  ; VIC_SPPRI
-	ora #$02                                     // $6EE4
-	sta $d01b                                    // $6EE6  ; VIC_SPPRI
-	lda #$10                                     // $6EE9
-	sta $d003                                    // $6EEB  ; VIC_SP1Y
-	lda $d015                                    // $6EEE  ; VIC_SPEN
-	ora #$02                                     // $6EF1
-	sta $d015                                    // $6EF3  ; VIC_SPEN
-	rts                                          // $6EF6
-	nop                                          // $6EF7
-	nop                                          // $6EF8
-	nop                                          // $6EF9
-	lda #$03                                     // $6EFA
-	sta $37                                      // $6EFC
-	lda #$ca                                     // $6EFE
-	sta $07f9                                    // $6F00
-	sta $38                                      // $6F03
-	sta $3a                                      // $6F05
-	lda #$cb                                     // $6F07
-	sta $07fa                                    // $6F09
-	lda #$02                                     // $6F0C
-	sta $d028                                    // $6F0E
-	sta $d029                                    // $6F11
-	sta $39                                      // $6F14
-	sta $3b                                      // $6F16
-	lda $d01c                                    // $6F18  ; VIC_SPMCOL
-	ora #$06                                     // $6F1B
-	sta $d01c                                    // $6F1D  ; VIC_SPMCOL
-	lda $d017                                    // $6F20  ; VIC_SPYEXP
-	and #$f9                                     // $6F23
-	sta $d017                                    // $6F25  ; VIC_SPYEXP
-	lda $d01d                                    // $6F28  ; VIC_SPXEXP
-	and #$f9                                     // $6F2B
-	sta $d01d                                    // $6F2D  ; VIC_SPXEXP
-	lda $d010                                    // $6F30  ; VIC_SPXMSB
-	ora #$06                                     // $6F33
-	sta $d010                                    // $6F35  ; VIC_SPXMSB
-	lda $d01b                                    // $6F38  ; VIC_SPPRI
-	ora #$06                                     // $6F3B
-	sta $d01b                                    // $6F3D  ; VIC_SPPRI
-	lda #$30                                     // $6F40
-	sta $d003                                    // $6F42  ; VIC_SP1Y
-	sta $d005                                    // $6F45
-	lda #$60                                     // $6F48
-	sta $d002                                    // $6F4A  ; VIC_SP1X
-	lda #$78                                     // $6F4D
-	sta $d004                                    // $6F4F
-	lda $d015                                    // $6F52  ; VIC_SPEN
-	ora #$06                                     // $6F55
-	sta $d015                                    // $6F57  ; VIC_SPEN
-	rts                                          // $6F5A
-	nop                                          // $6F5B
-	lda $50                                      // $6F5C
-	cmp #$07                                     // $6F5E
-	.byte $D0, $03                               // $6F60  bne $6F65
-	jmp $7054                                    // $6F62
-	cmp #$06                                     // $6F65
-	.byte $D0, $03                               // $6F67  bne $6F6C
-	jmp $703c                                    // $6F69
-	cmp #$05                                     // $6F6C
-	.byte $D0, $03                               // $6F6E  bne $6F73
-	jmp $6feb                                    // $6F70
-	and #$01                                     // $6F73
-	.byte $F0, $34                               // $6F75  beq $6FAB
-	ldx #$02                                     // $6F77
-	dec $d002                                    // $6F79  ; VIC_SP1X
-	.byte $D0, $03                               // $6F7C  bne $6F81
-	jsr $6f87                                    // $6F7E
-	dex                                          // $6F81
-	.byte $10, $F5                               // $6F82  bpl $6F79
-	jmp $6f93                                    // $6F84
-	lda $d010                                    // $6F87  ; VIC_SPXMSB
-	and #$fd                                     // $6F8A
-	sta $d010                                    // $6F8C  ; VIC_SPXMSB
-	dec $d002                                    // $6F8F  ; VIC_SP1X
-	rts                                          // $6F92
-	lda $d002                                    // $6F93  ; VIC_SP1X
-	cmp #$05                                     // $6F96
-	.byte $B0, $0D                               // $6F98  bcs $6FA7
-	lda $d010                                    // $6F9A  ; VIC_SPXMSB
-	and #$02                                     // $6F9D
-	.byte $D0, $06                               // $6F9F  bne $6FA7
-	inc $50                                      // $6FA1
-	jsr $6e75                                    // $6FA3
-	rts                                          // $6FA6
-	inc $d003                                    // $6FA7  ; VIC_SP1Y
-	rts                                          // $6FAA
-	ldx #$02                                     // $6FAB
-	inc $d002                                    // $6FAD  ; VIC_SP1X
-	.byte $D0, $03                               // $6FB0  bne $6FB5
-	jsr $6fbb                                    // $6FB2
-	dex                                          // $6FB5
-	.byte $10, $F5                               // $6FB6  bpl $6FAD
-	jmp $6fc7                                    // $6FB8
-	lda $d010                                    // $6FBB  ; VIC_SPXMSB
-	ora #$02                                     // $6FBE
-	sta $d010                                    // $6FC0  ; VIC_SPXMSB
-	inc $d002                                    // $6FC3  ; VIC_SP1X
-	rts                                          // $6FC6
-	lda $d002                                    // $6FC7  ; VIC_SP1X
-	cmp #$60                                     // $6FCA
-	.byte $90, $19                               // $6FCC  bcc $6FE7
-	lda $d010                                    // $6FCE  ; VIC_SPXMSB
-	and #$02                                     // $6FD1
-	.byte $F0, $12                               // $6FD3  beq $6FE7
-	inc $50                                      // $6FD5
-	lda $50                                      // $6FD7
-	cmp #$05                                     // $6FD9
-	.byte $D0, $06                               // $6FDB  bne $6FE3
-	jsr $6efe                                    // $6FDD
-	jmp $6fe6                                    // $6FE0
-	jsr $6e75                                    // $6FE3
-	rts                                          // $6FE6
-	inc $d003                                    // $6FE7  ; VIC_SP1Y
-	rts                                          // $6FEA
-	ldx #$04                                     // $6FEB
-	dec $d002                                    // $6FED  ; VIC_SP1X
-	.byte $D0, $03                               // $6FF0  bne $6FF5
-	jsr $7003                                    // $6FF2
-	dec $d004                                    // $6FF5
-	.byte $D0, $03                               // $6FF8  bne $6FFD
-	jsr $7012                                    // $6FFA
-	dex                                          // $6FFD
-	.byte $10, $ED                               // $6FFE  bpl $6FED
-	jmp $7021                                    // $7000
-	lda $d010                                    // $7003  ; VIC_SPXMSB
-	and #$fd                                     // $7006
-	sta $d010                                    // $7008  ; VIC_SPXMSB
-	dec $d002                                    // $700B  ; VIC_SP1X
-	dec $d004                                    // $700E
-	rts                                          // $7011
-	lda $d010                                    // $7012  ; VIC_SPXMSB
-	and #$fb                                     // $7015
-	sta $d010                                    // $7017  ; VIC_SPXMSB
-	dec $d002                                    // $701A  ; VIC_SP1X
-	dec $d004                                    // $701D
-	rts                                          // $7020
-	lda $d002                                    // $7021  ; VIC_SP1X
-	cmp #$40                                     // $7024
-	.byte $B0, $0D                               // $7026  bcs $7035
-	lda $d010                                    // $7028  ; VIC_SPXMSB
-	and #$02                                     // $702B
-	.byte $D0, $06                               // $702D  bne $7035
-	inc $50                                      // $702F
-	jsr $7fa0                                    // $7031
-	rts                                          // $7034
-	inc $d003                                    // $7035  ; VIC_SP1Y
-	inc $d005                                    // $7038
-	rts                                          // $703B
-	ldx #$03                                     // $703C
-	inc $d002                                    // $703E  ; VIC_SP1X
-	inc $d004                                    // $7041
-	dex                                          // $7044
-	.byte $10, $F7                               // $7045  bpl $703E
-	lda $d002                                    // $7047  ; VIC_SP1X
-	cmp #$c8                                     // $704A
-	.byte $90, $05                               // $704C  bcc $7053
-	inc $50                                      // $704E
-	jsr $7fba                                    // $7050
-	rts                                          // $7053
-	ldx #$03                                     // $7054
-	dec $d002                                    // $7056  ; VIC_SP1X
-	dec $d003                                    // $7059  ; VIC_SP1Y
-	dec $d004                                    // $705C
-	dec $d005                                    // $705F
-	dex                                          // $7062
-	.byte $10, $F1                               // $7063  bpl $7056
-	lda $d003                                    // $7065  ; VIC_SP1Y
-	cmp #$0a                                     // $7068
-	.byte $B0, $04                               // $706A  bcs $7070
-	lda #$00                                     // $706C
-	sta $50                                      // $706E
-	rts                                          // $7070
-	nop                                          // $7071
-	nop                                          // $7072
-	nop                                          // $7073
-	nop                                          // $7074
-	lda #$00                                     // $7075
-	sta $33                                      // $7077
-	lda #$50                                     // $7079
-	sta $30                                      // $707B
-	sta $34                                      // $707D
-	lda #$53                                     // $707F
-	sta $31                                      // $7081
-	sta $35                                      // $7083
-	lda #$08                                     // $7085
-	sta $36                                      // $7087
-	sta $32                                      // $7089
-	lda #$38                                     // $708B
-	sta $50                                      // $708D
-	lda #$dd                                     // $708F
-	sta $07fb                                    // $7091
-	lda #$02                                     // $7094
-	sta $d02a                                    // $7096
-	lda $d010                                    // $7099  ; VIC_SPXMSB
-	and #$f7                                     // $709C
-	sta $d010                                    // $709E  ; VIC_SPXMSB
-	lda #$a8                                     // $70A1
-	sta $d006                                    // $70A3
-	lda #$c4                                     // $70A6
-	sta $d007                                    // $70A8
-	lda $d015                                    // $70AB  ; VIC_SPEN
-	and #$fe                                     // $70AE
-	ora #$08                                     // $70B0
-	sta $d015                                    // $70B2  ; VIC_SPEN
-	lda #$21                                     // $70B5
-	sta $d404                                    // $70B7  ; SID_CR1
-	lda $16                                      // $70BA
-	cmp #$28                                     // $70BC
-	.byte $90, $04                               // $70BE  bcc $70C4
-	lda #$00                                     // $70C0
-	sta $16                                      // $70C2
-	inc $16                                      // $70C4
-	inc $16                                      // $70C6
-	jsr $61ca                                    // $70C8
-	jsr $61a0                                    // $70CB
-	lda $07fb                                    // $70CE
-	cmp #$dd                                     // $70D1
-	.byte $D0, $08                               // $70D3  bne $70DD
-	lda #$de                                     // $70D5
-	sta $07fb                                    // $70D7
-	jmp $70e2                                    // $70DA
-	lda #$dd                                     // $70DD
-	sta $07fb                                    // $70DF
-	ldx #$48                                     // $70E2
-	ldy #$ff                                     // $70E4
-	dey                                          // $70E6
-	.byte $D0, $FD                               // $70E7  bne $70E6
-	dex                                          // $70E9
-	.byte $D0, $F8                               // $70EA  bne $70E4
-	lda $50                                      // $70EC
-	cmp #$20                                     // $70EE
-	.byte $D0, $08                               // $70F0  bne $70FA
-	lda $d017                                    // $70F2  ; VIC_SPYEXP
-	ora #$08                                     // $70F5
-	sta $d017                                    // $70F7  ; VIC_SPYEXP
-	dec $50                                      // $70FA
-	.byte $D0, $BC                               // $70FC  bne $70BA
-	ldx #$00                                     // $70FE
-	lda $07c3,x                                  // $7100
-	sta $60,x                                    // $7103
-	inx                                          // $7105
-	cpx #$08                                     // $7106
-	.byte $D0, $F6                               // $7108  bne $7100
-	jmp $1660                                    // $710A
-	nop                                          // $710D
-	nop                                          // $710E
-	nop                                          // $710F
-	ldx #$00                                     // $7110
-	ldy #$00                                     // $7112
-	lda $5860,x                                  // $7114
-	.byte $F0, $06                               // $7117  beq $711F
-	sta ($58),y                                  // $7119
-	lda #$0a                                     // $711B
-	sta ($5a),y                                  // $711D
-	inx                                          // $711F
-	cpx $5c                                      // $7120
-	.byte $F0, $0B                               // $7122  beq $712F
-	iny                                          // $7124
-	cpy $5d                                      // $7125
-	.byte $D0, $EB                               // $7127  bne $7114
-	jsr $714d                                    // $7129
-	jmp $7112                                    // $712C
-	cpx #$a8                                     // $712F
-	.byte $F0, $2D                               // $7131  beq $7160
-	lda #$4c                                     // $7133
-	sta $58                                      // $7135
-	sta $5a                                      // $7137
-	lda #$05                                     // $7139
-	sta $59                                      // $713B
-	lda #$d9                                     // $713D
-	sta $5b                                      // $713F
-	lda #$a8                                     // $7141
-	sta $5c                                      // $7143
-	lda #$0f                                     // $7145
-	sta $5d                                      // $7147
-	jmp $7112                                    // $7149
-	rts                                          // $714C
-	clc                                          // $714D
-	lda $58                                      // $714E
-	adc #$28                                     // $7150
-	sta $58                                      // $7152
-	sta $5a                                      // $7154
-	.byte $90, $04                               // $7156  bcc $715C
-	inc $59                                      // $7158
-	inc $5b                                      // $715A
-	rts                                          // $715C
-	nop                                          // $715D
-	nop                                          // $715E
-	nop                                          // $715F
-	lda #$91                                     // $7160
-	sta $58                                      // $7162
-	sta $5a                                      // $7164
-	lda #$06                                     // $7166
-	sta $59                                      // $7168
-	lda #$da                                     // $716A
-	sta $5b                                      // $716C
-	lda #$0c                                     // $716E
-	sta $5c                                      // $7170
-	lda #$04                                     // $7172
-	sta $5d                                      // $7174
-	ldx #$00                                     // $7176
-	ldy #$00                                     // $7178
-	lda $5908,x                                  // $717A
-	.byte $F0, $06                               // $717D  beq $7185
-	sta ($58),y                                  // $717F
-	lda $45                                      // $7181
-	sta ($5a),y                                  // $7183
-	inx                                          // $7185
-	cpx $5c                                      // $7186
-	.byte $F0, $0B                               // $7188  beq $7195
-	iny                                          // $718A
-	cpy $5d                                      // $718B
-	.byte $D0, $EB                               // $718D  bne $717A
-	jsr $714d                                    // $718F
-	jmp $7178                                    // $7192
-	cpx #$40                                     // $7195
-	.byte $F0, $19                               // $7197  beq $71B2
-	lda #$28                                     // $7199
-	sta $58                                      // $719B
-	sta $5a                                      // $719D
-	lda #$07                                     // $719F
-	sta $59                                      // $71A1
-	lda #$db                                     // $71A3
-	sta $5b                                      // $71A5
-	lda #$40                                     // $71A7
-	sta $5c                                      // $71A9
-	lda #$17                                     // $71AB
-	sta $5d                                      // $71AD
-	jmp $7178                                    // $71AF
-	rts                                          // $71B2
-	nop                                          // $71B3
-	nop                                          // $71B4
-	ldx #$00                                     // $71B5
-	ldy #$00                                     // $71B7
-	lda $59b0,x                                  // $71B9
-	cmp #$ff                                     // $71BC
-	.byte $F0, $06                               // $71BE  beq $71C6
-	sta ($58),y                                  // $71C0
-	lda #$0a                                     // $71C2
-	sta ($5a),y                                  // $71C4
-	inx                                          // $71C6
-	cpx #$69                                     // $71C7
-	.byte $F0, $17                               // $71C9  beq $71E2
-	iny                                          // $71CB
-	cpy #$15                                     // $71CC
-	.byte $D0, $E9                               // $71CE  bne $71B9
-	clc                                          // $71D0
-	lda $58                                      // $71D1
-	adc #$28                                     // $71D3
-	sta $58                                      // $71D5
-	sta $5a                                      // $71D7
-	.byte $90, $04                               // $71D9  bcc $71DF
-	inc $59                                      // $71DB
-	inc $5b                                      // $71DD
-	jmp $71b7                                    // $71DF
-	lda #$5a                                     // $71E2
-	sta $58                                      // $71E4
-	sta $5a                                      // $71E6
-	lda #$04                                     // $71E8
-	sta $59                                      // $71EA
-	lda #$d8                                     // $71EC
-	sta $5b                                      // $71EE
-	rts                                          // $71F0
-	nop                                          // $71F1
-	nop                                          // $71F2
-	nop                                          // $71F3
-	nop                                          // $71F4
-	lda #$01                                     // $71F5
-	sta $50                                      // $71F7
-	jsr $6e75                                    // $71F9
-	lda #$04                                     // $71FC
-	sta $55                                      // $71FE
-	jsr $6f5c                                    // $7200
-	jsr $61a0                                    // $7203
-	lda $55                                      // $7206
-	cmp #$04                                     // $7208
-	.byte $90, $0B                               // $720A  bcc $7217
-	lda $33                                      // $720C
-	cmp #$2a                                     // $720E
-	.byte $D0, $05                               // $7210  bne $7217
-	jsr $71b5                                    // $7212
-	dec $55                                      // $7215
-	lda $55                                      // $7217
-	cmp #$03                                     // $7219
-	.byte $90, $0E                               // $721B  bcc $722B
-	lda $33                                      // $721D
-	cmp #$8a                                     // $721F
-	.byte $90, $08                               // $7221  bcc $722B
-	jsr $6090                                    // $7223
-	jsr $7110                                    // $7226
-	dec $55                                      // $7229
-	lda $50                                      // $722B
-	.byte $D0, $06                               // $722D  bne $7235
-	jsr $61ca                                    // $722F
-	jmp $724e                                    // $7232
-	cmp #$05                                     // $7235
-	.byte $D0, $0B                               // $7237  bne $7244
-	lda $55                                      // $7239
-	cmp #$02                                     // $723B
-	.byte $90, $05                               // $723D  bcc $7244
-	jsr $6090                                    // $723F
-	dec $55                                      // $7242
-	ldx #$18                                     // $7244
-	ldy #$ff                                     // $7246
-	dey                                          // $7248
-	.byte $D0, $FD                               // $7249  bne $7248
-	dex                                          // $724B
-	.byte $D0, $F8                               // $724C  bne $7246
-	lda $50                                      // $724E
-	.byte $D0, $AE                               // $7250  bne $7200
-	lda #$0c                                     // $7252
-	sta $36                                      // $7254
-	rts                                          // $7256
+	sta $2dc0,x                                  // $6D17
+	sta $2e00,x                                  // $6D1A
+	dex                                          // $6D1D
+	.byte $10, $F7                               // $6D1E  bpl $6D17
+	rts                                          // $6D20
+	nop                                          // $6D21
+	lda #$00                                     // $6D22
+	sta $33                                      // $6D24
+	lda #$40                                     // $6D26
+	sta $34                                      // $6D28
+	lda #$30                                     // $6D2A
+	sta $30                                      // $6D2C
+	lda #$5c                                     // $6D2E
+	sta $31                                      // $6D30
+	sta $35                                      // $6D32
+	dec $52                                      // $6D34
+	rts                                          // $6D36
+	dec $56                                      // $6D37
+	.byte $D0, $10                               // $6D39  bne $6D4B
+	lda $dc04                                    // $6D3B
+	sta $d002                                    // $6D3E  ; VIC_SP1X
+	sta $d004                                    // $6D41
+	sta $d006                                    // $6D44
+	lda #$10                                     // $6D47
+	sta $56                                      // $6D49
+	rts                                          // $6D4B
+	nop                                          // $6D4C
+	nop                                          // $6D4D
+	nop                                          // $6D4E
+	nop                                          // $6D4F
+	lda #$bc                                     // $6D50
+	sta $38                                      // $6D52
+	lda #$bd                                     // $6D54
+	sta $3a                                      // $6D56
+	lda #$07                                     // $6D58
+	sta $39                                      // $6D5A
+	lda #$08                                     // $6D5C
+	sta $3b                                      // $6D5E
+	lda #$01                                     // $6D60
+	sta $3f                                      // $6D62
+	sta $40                                      // $6D64
+	lda #$40                                     // $6D66
+	sta $51                                      // $6D68
+	lda #$00                                     // $6D6A
+	sta $33                                      // $6D6C
+	lda #$08                                     // $6D6E
+	sta $32                                      // $6D70
+	sta $36                                      // $6D72
+	lda #$50                                     // $6D74
+	sta $30                                      // $6D76
+	sta $34                                      // $6D78
+	lda #$53                                     // $6D7A
+	sta $31                                      // $6D7C
+	sta $35                                      // $6D7E
+	lda #$d2                                     // $6D80
+	sta $d007                                    // $6D82
+	rts                                          // $6D85
+	nop                                          // $6D86
+	nop                                          // $6D87
+	nop                                          // $6D88
+	nop                                          // $6D89
+	nop                                          // $6D8A
+	nop                                          // $6D8B
+	nop                                          // $6D8C
+	nop                                          // $6D8D
+	nop                                          // $6D8E
+	nop                                          // $6D8F
+	lda $51                                      // $6D90
+	cmp #$08                                     // $6D92
+	.byte $90, $03                               // $6D94  bcc $6D99
+	jmp $6e42                                    // $6D96
+	lda $52                                      // $6D99
+	cmp #$01                                     // $6D9B
+	.byte $D0, $03                               // $6D9D  bne $6DA2
+	jmp $6db3                                    // $6D9F
+	cmp #$02                                     // $6DA2
+	.byte $D0, $03                               // $6DA4  bne $6DA9
+	jmp $6deb                                    // $6DA6
+	cmp #$03                                     // $6DA9
+	.byte $D0, $03                               // $6DAB  bne $6DB0
+	jmp $6dfa                                    // $6DAD
+	jmp $6e2f                                    // $6DB0
+	lda $51                                      // $6DB3
+	.byte $F0, $15                               // $6DB5  beq $6DCC
+	lda $37                                      // $6DB7
+	clc                                          // $6DB9
+	asl                                          // $6DBA
+	tay                                          // $6DBB
+	lda $d000,y                                  // $6DBC  ; VIC_SP0X
+	adc #$0c                                     // $6DBF
+	sta $d000,y                                  // $6DC1  ; VIC_SP0X
+	lda $d001,y                                  // $6DC4  ; VIC_SP0Y
+	adc #$0a                                     // $6DC7
+	sta $d001,y                                  // $6DC9  ; VIC_SP0Y
+	lda $d017                                    // $6DCC  ; VIC_SPYEXP
+	and $3e                                      // $6DCF
+	sta $d017                                    // $6DD1  ; VIC_SPYEXP
+	lda $d01d                                    // $6DD4  ; VIC_SPXEXP
+	and $3e                                      // $6DD7
+	sta $d01d                                    // $6DD9  ; VIC_SPXEXP
+	ldy $37                                      // $6DDC
+	lda #$dd                                     // $6DDE
+	sta $07f8,y                                  // $6DE0
+	lda #$01                                     // $6DE3
+	sta $d027,y                                  // $6DE5
+	inc $52                                      // $6DE8
+	rts                                          // $6DEA
+	ldy $37                                      // $6DEB
+	lda #$de                                     // $6DED
+	sta $07f8,y                                  // $6DEF
+	lda #$03                                     // $6DF2
+	sta $d027,y                                  // $6DF4
+	inc $52                                      // $6DF7
+	rts                                          // $6DF9
+	lda $d017                                    // $6DFA  ; VIC_SPYEXP
+	ora $3d                                      // $6DFD
+	sta $d017                                    // $6DFF  ; VIC_SPYEXP
+	lda $d01d                                    // $6E02  ; VIC_SPXEXP
+	ora $3d                                      // $6E05
+	sta $d01d                                    // $6E07  ; VIC_SPXEXP
+	lda $37                                      // $6E0A
+	clc                                          // $6E0C
+	asl                                          // $6E0D
+	tay                                          // $6E0E
+	sec                                          // $6E0F
+	lda $d000,y                                  // $6E10  ; VIC_SP0X
+	sbc #$0c                                     // $6E13
+	sta $d000,y                                  // $6E15  ; VIC_SP0X
+	lda $d001,y                                  // $6E18  ; VIC_SP0Y
+	sbc #$0a                                     // $6E1B
+	sta $d001,y                                  // $6E1D  ; VIC_SP0Y
+	ldy $37                                      // $6E20
+	lda #$dd                                     // $6E22
+	sta $07f8,y                                  // $6E24
+	lda #$07                                     // $6E27
+	sta $d027,y                                  // $6E29
+	inc $52                                      // $6E2C
+	rts                                          // $6E2E
+	ldy $37                                      // $6E2F
+	lda #$de                                     // $6E31
+	sta $07f8,y                                  // $6E33
+	lda #$0a                                     // $6E36
+	sta $d027,y                                  // $6E38
+	lda #$01                                     // $6E3B
+	sta $52                                      // $6E3D
+	inc $51                                      // $6E3F
+	rts                                          // $6E41
+	jsr $61c5                                    // $6E42
+	lda $37                                      // $6E45
+	clc                                          // $6E47
+	asl                                          // $6E48
+	tax                                          // $6E49
+	lda $d001,x                                  // $6E4A  ; VIC_SP0Y
+	cmp #$c0                                     // $6E4D
+	.byte $B0, $21                               // $6E4F  bcs $6E72
+	ldy #$05                                     // $6E51
+	inc $d003,x                                  // $6E53  ; VIC_SP1Y
+	inc $d005,x                                  // $6E56
+	inc $d001,x                                  // $6E59  ; VIC_SP0Y
+	dey                                          // $6E5C
+	.byte $10, $F4                               // $6E5D  bpl $6E53
+	lda $d001,x                                  // $6E5F  ; VIC_SP0Y
+	cmp #$d0                                     // $6E62
+	.byte $B0, $01                               // $6E64  bcs $6E67
+	rts                                          // $6E66
+	lda #$bc                                     // $6E67
+	sta $38                                      // $6E69
+	lda #$bd                                     // $6E6B
+	sta $3a                                      // $6E6D
+	jmp $6e42                                    // $6E6F
+	inc $52                                      // $6E72
+	lda $52                                      // $6E74
+	cmp #$80                                     // $6E76
+	.byte $90, $0C                               // $6E78  bcc $6E86
+	lda #$00                                     // $6E7A
+	sta $52                                      // $6E7C
+	lda $d015                                    // $6E7E  ; VIC_SPEN
+	and $3e                                      // $6E81
+	sta $d015                                    // $6E83  ; VIC_SPEN
+	rts                                          // $6E86
+	nop                                          // $6E87
+	lda $d012                                    // $6E88  ; VIC_RASTER
+	.byte $D0, $2D                               // $6E8B  bne $6EBA
+	lda $dc04                                    // $6E8D
+	and #$0f                                     // $6E90
+	cmp #$04                                     // $6E92
+	.byte $D0, $25                               // $6E94  bne $6EBB
+	jsr $6d22                                    // $6E96
+	lda #$01                                     // $6E99
+	sta $d021                                    // $6E9B  ; VIC_BG0
+	lda #$01                                     // $6E9E
+	sta $d02e                                    // $6EA0
+	lda #$07                                     // $6EA3
+	sta $d025                                    // $6EA5  ; VIC_SPMCOL0
+	lda #$00                                     // $6EA8
+	sta $d026                                    // $6EAA  ; VIC_SPMCOL1
+	lda #$02                                     // $6EAD
+	sta $d028                                    // $6EAF
+	sta $d029                                    // $6EB2
+	lda #$02                                     // $6EB5
+	sta $d02a                                    // $6EB7
+	rts                                          // $6EBA
+	lda $d012                                    // $6EBB  ; VIC_RASTER
+	.byte $D0, $FB                               // $6EBE  bne $6EBB
+	lda #$00                                     // $6EC0
+	sta $d021                                    // $6EC2  ; VIC_BG0
+	sta $d025                                    // $6EC5  ; VIC_SPMCOL0
+	sta $d026                                    // $6EC8  ; VIC_SPMCOL1
+	sta $d028                                    // $6ECB
+	sta $d029                                    // $6ECE
+	sta $d02a                                    // $6ED1
+	jmp $6d37                                    // $6ED4
+	nop                                          // $6ED7
+	nop                                          // $6ED8
+	nop                                          // $6ED9
+	nop                                          // $6EDA
+	nop                                          // $6EDB
+	nop                                          // $6EDC
+	lda #$b4                                     // $6EDD
+	sta $07f9                                    // $6EDF
+	lda #$00                                     // $6EE2
+	sta $d028                                    // $6EE4
+	lda #$b5                                     // $6EE7
+	sta $07fa                                    // $6EE9
+	sta $38                                      // $6EEC
+	lda #$b6                                     // $6EEE
+	sta $3a                                      // $6EF0
+	lda #$07                                     // $6EF2
+	sta $39                                      // $6EF4
+	sta $3b                                      // $6EF6
+	sta $d029                                    // $6EF8
+	lda #$02                                     // $6EFB
+	sta $37                                      // $6EFD
+	sta $3f                                      // $6EFF
+	sta $40                                      // $6F01
+	lda #$04                                     // $6F03
+	sta $3c                                      // $6F05
+	lda #$06                                     // $6F07
+	sta $3d                                      // $6F09
+	lda #$f9                                     // $6F0B
+	sta $3e                                      // $6F0D
+	lda $d017                                    // $6F0F  ; VIC_SPYEXP
+	ora #$06                                     // $6F12
+	sta $d017                                    // $6F14  ; VIC_SPYEXP
+	lda $d01d                                    // $6F17  ; VIC_SPXEXP
+	ora #$06                                     // $6F1A
+	sta $d01d                                    // $6F1C  ; VIC_SPXEXP
+	lda $d01b                                    // $6F1F  ; VIC_SPPRI
+	and #$f9                                     // $6F22
+	sta $d01b                                    // $6F24  ; VIC_SPPRI
+	lda #$20                                     // $6F27
+	sta $d003                                    // $6F29  ; VIC_SP1Y
+	sta $d005                                    // $6F2C
+	lda #$a0                                     // $6F2F
+	sta $d002                                    // $6F31  ; VIC_SP1X
+	sta $d004                                    // $6F34
+	lda $d010                                    // $6F37  ; VIC_SPXMSB
+	and #$f9                                     // $6F3A
+	sta $d010                                    // $6F3C  ; VIC_SPXMSB
+	lda $d015                                    // $6F3F  ; VIC_SPEN
+	ora #$06                                     // $6F42
+	sta $d015                                    // $6F44  ; VIC_SPEN
+	lda $d01c                                    // $6F47  ; VIC_SPMCOL
+	and #$f9                                     // $6F4A
+	sta $d01c                                    // $6F4C  ; VIC_SPMCOL
+	lda #$00                                     // $6F4F
+	sta $33                                      // $6F51
+	lda #$40                                     // $6F53
+	sta $30                                      // $6F55
+	sta $34                                      // $6F57
+	lda #$55                                     // $6F59
+	sta $31                                      // $6F5B
+	sta $35                                      // $6F5D
+	rts                                          // $6F5F
+	lda $d010                                    // $6F60  ; VIC_SPXMSB
+	and #$06                                     // $6F63
+	.byte $D0, $01                               // $6F65  bne $6F68
+	rts                                          // $6F67
+	lda $d002                                    // $6F68  ; VIC_SP1X
+	cmp #$60                                     // $6F6B
+	.byte $90, $F8                               // $6F6D  bcc $6F67
+	cmp #$a0                                     // $6F6F
+	.byte $B0, $F4                               // $6F71  bcs $6F67
+	lda $4e                                      // $6F73
+	sta $42                                      // $6F75
+	rts                                          // $6F77
+	nop                                          // $6F78
+	nop                                          // $6F79
+	nop                                          // $6F7A
+	nop                                          // $6F7B
+	nop                                          // $6F7C
+	nop                                          // $6F7D
+	nop                                          // $6F7E
+	nop                                          // $6F7F
+	ldx #$00                                     // $6F80
+	lda $5790,x                                  // $6F82
+	sta $07a9,x                                  // $6F85
+	lda #$0a                                     // $6F88
+	sta $dba9,x                                  // $6F8A
+	inx                                          // $6F8D
+	cpx #$06                                     // $6F8E
+	.byte $D0, $F0                               // $6F90  bne $6F82
+	lda $5790,x                                  // $6F92
+	sta $07cb,x                                  // $6F95
+	lda #$0a                                     // $6F98
+	sta $dbcb,x                                  // $6F9A
+	inx                                          // $6F9D
+	cpx #$0d                                     // $6F9E
+	.byte $D0, $F0                               // $6FA0  bne $6F92
+	rts                                          // $6FA2
+	nop                                          // $6FA3
+	nop                                          // $6FA4
+	nop                                          // $6FA5
+	nop                                          // $6FA6
+	nop                                          // $6FA7
+	nop                                          // $6FA8
+	nop                                          // $6FA9
+	nop                                          // $6FAA
+	nop                                          // $6FAB
+	nop                                          // $6FAC
+	nop                                          // $6FAD
+	nop                                          // $6FAE
+	nop                                          // $6FAF
+	lda $57                                      // $6FB0
+	and #$0f                                     // $6FB2
+	.byte $D0, $1B                               // $6FB4  bne $6FD1
+	lda #$c2                                     // $6FB6
+	sta $07f9                                    // $6FB8
+	sta $38                                      // $6FBB
+	lda #$c3                                     // $6FBD
+	sta $3a                                      // $6FBF
+	lda $d010                                    // $6FC1  ; VIC_SPXMSB
+	ora #$02                                     // $6FC4
+	sta $d010                                    // $6FC6  ; VIC_SPXMSB
+	lda #$58                                     // $6FC9
+	sta $d002                                    // $6FCB  ; VIC_SP1X
+	jmp $6fe9                                    // $6FCE
+	lda #$c4                                     // $6FD1
+	sta $07f9                                    // $6FD3
+	sta $38                                      // $6FD6
+	lda #$c5                                     // $6FD8
+	sta $3a                                      // $6FDA
+	lda $d010                                    // $6FDC  ; VIC_SPXMSB
+	and #$fd                                     // $6FDF
+	sta $d010                                    // $6FE1  ; VIC_SPXMSB
+	lda #$00                                     // $6FE4
+	sta $d002                                    // $6FE6  ; VIC_SP1X
+	lda #$00                                     // $6FE9
+	sta $d028                                    // $6FEB
+	sta $39                                      // $6FEE
+	sta $3b                                      // $6FF0
+	lda #$01                                     // $6FF2
+	sta $37                                      // $6FF4
+	sta $3f                                      // $6FF6
+	sta $40                                      // $6FF8
+	lda #$02                                     // $6FFA
+	sta $3c                                      // $6FFC
+	sta $3d                                      // $6FFE
+	lda #$fd                                     // $7000
+	sta $3e                                      // $7002
+	lda #$80                                     // $7004
+	sta $d003                                    // $7006  ; VIC_SP1Y
+	lda $d017                                    // $7009  ; VIC_SPYEXP
+	ora #$02                                     // $700C
+	sta $d017                                    // $700E  ; VIC_SPYEXP
+	lda $d01d                                    // $7011  ; VIC_SPXEXP
+	ora #$02                                     // $7014
+	sta $d01d                                    // $7016  ; VIC_SPXEXP
+	lda $d01b                                    // $7019  ; VIC_SPPRI
+	and #$fd                                     // $701C
+	sta $d01b                                    // $701E  ; VIC_SPPRI
+	lda $d01c                                    // $7021  ; VIC_SPMCOL
+	and #$fd                                     // $7024
+	sta $d01c                                    // $7026  ; VIC_SPMCOL
+	lda $d015                                    // $7029  ; VIC_SPEN
+	ora #$02                                     // $702C
+	sta $d015                                    // $702E  ; VIC_SPEN
+	rts                                          // $7031
+	nop                                          // $7032
+	nop                                          // $7033
+	nop                                          // $7034
+	lda $dc04                                    // $7035
+	and #$01                                     // $7038
+	.byte $F0, $04                               // $703A  beq $7040
+	jmp $7060                                    // $703C
+	nop                                          // $703F
+	lda $4e                                      // $7040
+	cmp #$10                                     // $7042
+	.byte $D0, $0B                               // $7044  bne $7051
+	lda #$b9                                     // $7046
+	sta $38                                      // $7048
+	lda #$ba                                     // $704A
+	sta $3a                                      // $704C
+	jmp $7059                                    // $704E
+	lda #$c2                                     // $7051
+	sta $38                                      // $7053
+	lda #$c3                                     // $7055
+	sta $3a                                      // $7057
+	lda #$f0                                     // $7059
+	sta $57                                      // $705B
+	rts                                          // $705D
+	nop                                          // $705E
+	nop                                          // $705F
+	lda $4e                                      // $7060
+	cmp #$10                                     // $7062
+	.byte $D0, $0B                               // $7064  bne $7071
+	lda #$c0                                     // $7066
+	sta $38                                      // $7068
+	lda #$c1                                     // $706A
+	sta $3a                                      // $706C
+	jmp $7079                                    // $706E
+	lda #$c4                                     // $7071
+	sta $38                                      // $7073
+	lda #$c5                                     // $7075
+	sta $3a                                      // $7077
+	lda #$0f                                     // $7079
+	sta $57                                      // $707B
+	rts                                          // $707D
+	nop                                          // $707E
+	nop                                          // $707F
+	lda #$b7                                     // $7080
+	sta $07f9                                    // $7082
+	sta $38                                      // $7085
+	lda #$00                                     // $7087
+	sta $d028                                    // $7089
+	sta $39                                      // $708C
+	sta $3b                                      // $708E
+	lda #$b8                                     // $7090
+	sta $3a                                      // $7092
+	lda #$01                                     // $7094
+	sta $37                                      // $7096
+	lda #$02                                     // $7098
+	sta $3d                                      // $709A
+	lda #$fd                                     // $709C
+	sta $3e                                      // $709E
+	lda #$03                                     // $70A0
+	sta $3c                                      // $70A2
+	lda #$06                                     // $70A4
+	sta $3f                                      // $70A6
+	sta $40                                      // $70A8
+	lda $d017                                    // $70AA  ; VIC_SPYEXP
+	ora #$02                                     // $70AD
+	sta $d017                                    // $70AF  ; VIC_SPYEXP
+	lda $d01d                                    // $70B2  ; VIC_SPXEXP
+	ora #$02                                     // $70B5
+	sta $d01d                                    // $70B7  ; VIC_SPXEXP
+	lda $d01b                                    // $70BA  ; VIC_SPPRI
+	and #$fd                                     // $70BD
+	sta $d01b                                    // $70BF  ; VIC_SPPRI
+	lda $d01c                                    // $70C2  ; VIC_SPMCOL
+	and #$fd                                     // $70C5
+	sta $d01c                                    // $70C7  ; VIC_SPMCOL
+	lda #$90                                     // $70CA
+	sta $d003                                    // $70CC  ; VIC_SP1Y
+	lda $08                                      // $70CF
+	cmp #$54                                     // $70D1
+	.byte $D0, $10                               // $70D3  bne $70E5
+	lda $d010                                    // $70D5  ; VIC_SPXMSB
+	ora #$02                                     // $70D8
+	sta $d010                                    // $70DA  ; VIC_SPXMSB
+	lda #$70                                     // $70DD
+	sta $d002                                    // $70DF  ; VIC_SP1X
+	jmp $70f2                                    // $70E2
+	lda $d010                                    // $70E5  ; VIC_SPXMSB
+	and #$fd                                     // $70E8
+	sta $d010                                    // $70EA  ; VIC_SPXMSB
+	lda #$00                                     // $70ED
+	sta $d002                                    // $70EF  ; VIC_SP1X
+	lda $d015                                    // $70F2  ; VIC_SPEN
+	ora #$02                                     // $70F5
+	sta $d015                                    // $70F7  ; VIC_SPEN
+	rts                                          // $70FA
+	nop                                          // $70FB
+	nop                                          // $70FC
+	nop                                          // $70FD
+	nop                                          // $70FE
+	nop                                          // $70FF
+	lda $50                                      // $7100
+	and #$01                                     // $7102
+	.byte $F0, $1B                               // $7104  beq $7121
+	lda #$c8                                     // $7106
+	sta $07f9                                    // $7108
+	sta $38                                      // $710B
+	lda #$c9                                     // $710D
+	sta $3a                                      // $710F
+	lda $d010                                    // $7111  ; VIC_SPXMSB
+	ora #$02                                     // $7114
+	sta $d010                                    // $7116  ; VIC_SPXMSB
+	lda #$70                                     // $7119
+	sta $d002                                    // $711B  ; VIC_SP1X
+	jmp $7139                                    // $711E
+	lda #$c6                                     // $7121
+	sta $07f9                                    // $7123
+	sta $38                                      // $7126
+	lda #$c7                                     // $7128
+	sta $3a                                      // $712A
+	lda $d010                                    // $712C  ; VIC_SPXMSB
+	and #$fd                                     // $712F
+	sta $d010                                    // $7131  ; VIC_SPXMSB
+	lda #$00                                     // $7134
+	sta $d002                                    // $7136  ; VIC_SP1X
+	lda #$02                                     // $7139
+	sta $d028                                    // $713B
+	sta $3c                                      // $713E
+	sta $3d                                      // $7140
+	sta $39                                      // $7142
+	sta $3b                                      // $7144
+	lda #$01                                     // $7146
+	sta $37                                      // $7148
+	lda #$fd                                     // $714A
+	sta $3e                                      // $714C
+	lda #$08                                     // $714E
+	sta $3f                                      // $7150
+	sta $40                                      // $7152
+	lda $d017                                    // $7154  ; VIC_SPYEXP
+	ora #$02                                     // $7157
+	sta $d017                                    // $7159  ; VIC_SPYEXP
+	lda $d01d                                    // $715C  ; VIC_SPXEXP
+	ora #$02                                     // $715F
+	sta $d01d                                    // $7161  ; VIC_SPXEXP
+	lda $d01c                                    // $7164  ; VIC_SPMCOL
+	and #$fd                                     // $7167
+	sta $d01c                                    // $7169  ; VIC_SPMCOL
+	lda $d01b                                    // $716C  ; VIC_SPPRI
+	ora #$02                                     // $716F
+	sta $d01b                                    // $7171  ; VIC_SPPRI
+	lda #$10                                     // $7174
+	sta $d003                                    // $7176  ; VIC_SP1Y
+	lda $d015                                    // $7179  ; VIC_SPEN
+	ora #$02                                     // $717C
+	sta $d015                                    // $717E  ; VIC_SPEN
+	rts                                          // $7181
+	nop                                          // $7182
+	nop                                          // $7183
+	nop                                          // $7184
+	nop                                          // $7185
+	nop                                          // $7186
+	nop                                          // $7187
+	nop                                          // $7188
+	nop                                          // $7189
+	nop                                          // $718A
+	nop                                          // $718B
+	nop                                          // $718C
+	nop                                          // $718D
+	nop                                          // $718E
+	nop                                          // $718F
+	lda $16                                      // $7190
+	cmp #$18                                     // $7192
+	.byte $90, $04                               // $7194  bcc $719A
+	lda #$00                                     // $7196
+	sta $16                                      // $7198
+	inc $16                                      // $719A
+	inc $16                                      // $719C
+	inc $16                                      // $719E
+	inc $16                                      // $71A0
+	jsr $61f0                                    // $71A2
+	rts                                          // $71A5
+	nop                                          // $71A6
+	nop                                          // $71A7
+	nop                                          // $71A8
+	nop                                          // $71A9
+	ldy #$00                                     // $71AA
+	lda #$01                                     // $71AC
+	sta ($2e),y                                  // $71AE
+	clc                                          // $71B0
+	lda $2e                                      // $71B1
+	adc #$28                                     // $71B3
+	sta $2e                                      // $71B5
+	lda #$01                                     // $71B7
+	sta ($2e),y                                  // $71B9
+	rts                                          // $71BB
+	nop                                          // $71BC
+	nop                                          // $71BD
+	nop                                          // $71BE
+	nop                                          // $71BF
+	nop                                          // $71C0
+	nop                                          // $71C1
+	nop                                          // $71C2
+	nop                                          // $71C3
+	nop                                          // $71C4
+	nop                                          // $71C5
+	nop                                          // $71C6
+	nop                                          // $71C7
+	nop                                          // $71C8
+	nop                                          // $71C9
+	nop                                          // $71CA
+	nop                                          // $71CB
+	lda #$03                                     // $71CC
+	sta $37                                      // $71CE
+	lda #$ca                                     // $71D0
+	sta $07f9                                    // $71D2
+	sta $38                                      // $71D5
+	sta $3a                                      // $71D7
+	lda #$cb                                     // $71D9
+	sta $07fa                                    // $71DB
+	lda #$02                                     // $71DE
+	sta $d028                                    // $71E0
+	sta $d029                                    // $71E3
+	sta $39                                      // $71E6
+	sta $3b                                      // $71E8
+	lda $d01c                                    // $71EA  ; VIC_SPMCOL
+	ora #$06                                     // $71ED
+	sta $d01c                                    // $71EF  ; VIC_SPMCOL
+	lda $d017                                    // $71F2  ; VIC_SPYEXP
+	and #$f9                                     // $71F5
+	sta $d017                                    // $71F7  ; VIC_SPYEXP
+	lda $d01d                                    // $71FA  ; VIC_SPXEXP
+	and #$f9                                     // $71FD
+	sta $d01d                                    // $71FF  ; VIC_SPXEXP
+	lda $d010                                    // $7202  ; VIC_SPXMSB
+	ora #$06                                     // $7205
+	sta $d010                                    // $7207  ; VIC_SPXMSB
+	lda $d01b                                    // $720A  ; VIC_SPPRI
+	ora #$06                                     // $720D
+	sta $d01b                                    // $720F  ; VIC_SPPRI
+	lda #$30                                     // $7212
+	sta $d003                                    // $7214  ; VIC_SP1Y
+	sta $d005                                    // $7217
+	lda #$60                                     // $721A
+	sta $d002                                    // $721C  ; VIC_SP1X
+	lda #$78                                     // $721F
+	sta $d004                                    // $7221
+	lda $d015                                    // $7224  ; VIC_SPEN
+	ora #$06                                     // $7227
+	sta $d015                                    // $7229  ; VIC_SPEN
+	rts                                          // $722C
+	nop                                          // $722D
+	nop                                          // $722E
+	nop                                          // $722F
+	lda $d01d                                    // $7230  ; VIC_SPXEXP
+	ora #$06                                     // $7233
+	sta $d01d                                    // $7235  ; VIC_SPXEXP
+	clc                                          // $7238
+	lda $d002                                    // $7239  ; VIC_SP1X
+	adc #$30                                     // $723C
+	sta $d004                                    // $723E
+	lda $d01b                                    // $7241  ; VIC_SPPRI
+	and #$f9                                     // $7244
+	sta $d01b                                    // $7246  ; VIC_SPPRI
+	rts                                          // $7249
+	lda $d017                                    // $724A  ; VIC_SPYEXP
+	ora #$06                                     // $724D
+	sta $d017                                    // $724F  ; VIC_SPYEXP
+	rts                                          // $7252
+	nop                                          // $7253
+	nop                                          // $7254
+	nop                                          // $7255
+	nop                                          // $7256
 	nop                                          // $7257
 	nop                                          // $7258
 	nop                                          // $7259
-	dec $32                                      // $725A
-	.byte $F0, $03                               // $725C  beq $7261
-	jmp $72d9                                    // $725E
-	lda $36                                      // $7261
-	sta $32                                      // $7263
-	ldy $33                                      // $7265
-	lda ($34),y                                  // $7267
-	cmp #$ff                                     // $7269
+	nop                                          // $725A
+	nop                                          // $725B
+	nop                                          // $725C
+	nop                                          // $725D
+	nop                                          // $725E
+	nop                                          // $725F
+	lda $50                                      // $7260
+	cmp #$07                                     // $7262
+	.byte $D0, $03                               // $7264  bne $7269
+	jmp $7358                                    // $7266
+	cmp #$06                                     // $7269
 	.byte $D0, $03                               // $726B  bne $7270
-	jmp $72e1                                    // $726D
-	sta $d401                                    // $7270  ; SID_FR1HI
-	inc $33                                      // $7273
-	iny                                          // $7275
-	.byte $D0, $02                               // $7276  bne $727A
-	inc $35                                      // $7278
-	lda ($34),y                                  // $727A
-	cmp #$ff                                     // $727C
-	.byte $D0, $03                               // $727E  bne $7283
-	jmp $72e1                                    // $7280
-	sta $d400                                    // $7283  ; SID_FR1LO
-	inc $33                                      // $7286
-	iny                                          // $7288
-	.byte $D0, $02                               // $7289  bne $728D
-	inc $35                                      // $728B
-	lda ($34),y                                  // $728D
-	cmp #$ff                                     // $728F
-	.byte $D0, $03                               // $7291  bne $7296
-	jmp $72e1                                    // $7293
-	sta $d408                                    // $7296
-	inc $33                                      // $7299
-	iny                                          // $729B
-	.byte $D0, $02                               // $729C  bne $72A0
-	inc $35                                      // $729E
-	lda ($34),y                                  // $72A0
-	cmp #$ff                                     // $72A2
-	.byte $D0, $03                               // $72A4  bne $72A9
-	jmp $72e1                                    // $72A6
-	sta $d407                                    // $72A9
-	inc $33                                      // $72AC
-	iny                                          // $72AE
-	.byte $D0, $02                               // $72AF  bne $72B3
-	inc $35                                      // $72B1
-	lda ($34),y                                  // $72B3
-	cmp #$ff                                     // $72B5
-	.byte $D0, $03                               // $72B7  bne $72BC
-	jmp $72e1                                    // $72B9
-	sta $d40f                                    // $72BC  ; SID_FLTHI
-	inc $33                                      // $72BF
-	iny                                          // $72C1
-	.byte $D0, $02                               // $72C2  bne $72C6
-	inc $35                                      // $72C4
-	lda ($34),y                                  // $72C6
-	cmp #$ff                                     // $72C8
-	.byte $D0, $03                               // $72CA  bne $72CF
-	jmp $72e1                                    // $72CC
-	sta $d40e                                    // $72CF  ; SID_FLTLO
-	inc $33                                      // $72D2
-	iny                                          // $72D4
-	.byte $D0, $02                               // $72D5  bne $72D9
-	inc $35                                      // $72D7
-	lda #$10                                     // $72D9
-	sta $d01a                                    // $72DB  ; VIC_IRQEN
-	jmp $72f2                                    // $72DE
-	lda #$00                                     // $72E1
-	sta $33                                      // $72E3
-	lda $30                                      // $72E5
-	sta $34                                      // $72E7
-	lda $31                                      // $72E9
-	sta $35                                      // $72EB
-	lda #$10                                     // $72ED
-	sta $d01a                                    // $72EF  ; VIC_IRQEN
-	jsr $6710                                    // $72F2
-	jmp $ea31                                    // $72F5
-	nop                                          // $72F8
-	nop                                          // $72F9
-	lda #$00                                     // $72FA
-	sta $d01a                                    // $72FC  ; VIC_IRQEN
-	lda #$5a                                     // $72FF
-	sta $0314                                    // $7301
-	lda #$72                                     // $7304
-	sta $0315                                    // $7306
-	lda #$10                                     // $7309
-	sta $d01a                                    // $730B  ; VIC_IRQEN
-	rts                                          // $730E
-	nop                                          // $730F
-	lda $d003                                    // $7310  ; VIC_SP1Y
-	cmp #$70                                     // $7313
-	.byte $B0, $20                               // $7315  bcs $7337
-	lda $d017                                    // $7317  ; VIC_SPYEXP
-	and #$f9                                     // $731A
-	sta $d017                                    // $731C  ; VIC_SPYEXP
-	lda $d01d                                    // $731F  ; VIC_SPXEXP
-	and #$f9                                     // $7322
-	sta $d01d                                    // $7324  ; VIC_SPXEXP
-	lda $d01b                                    // $7327  ; VIC_SPPRI
-	ora #$06                                     // $732A
-	sta $d01b                                    // $732C  ; VIC_SPPRI
-	lda #$08                                     // $732F
-	sta $d418                                    // $7331  ; SID_FMODE
-	jmp $7360                                    // $7334
-	lda $d017                                    // $7337  ; VIC_SPYEXP
-	ora #$06                                     // $733A
-	sta $d017                                    // $733C  ; VIC_SPYEXP
-	lda $d01d                                    // $733F  ; VIC_SPXEXP
-	ora #$06                                     // $7342
-	sta $d01d                                    // $7344  ; VIC_SPXEXP
-	lda $d01b                                    // $7347  ; VIC_SPPRI
-	and #$f9                                     // $734A
-	sta $d01b                                    // $734C  ; VIC_SPPRI
-	lda $d002                                    // $734F  ; VIC_SP1X
-	sta $d004                                    // $7352
-	lda $d003                                    // $7355  ; VIC_SP1Y
-	sta $d005                                    // $7358
-	lda #$0f                                     // $735B
-	sta $d418                                    // $735D  ; SID_FMODE
-	lda $d010                                    // $7360  ; VIC_SPXMSB
-	and #$06                                     // $7363
-	.byte $F0, $0F                               // $7365  beq $7376
-	lda $d002                                    // $7367  ; VIC_SP1X
-	cmp #$60                                     // $736A
-	.byte $90, $08                               // $736C  bcc $7376
-	cmp #$d0                                     // $736E
-	.byte $B0, $04                               // $7370  bcs $7376
-	lda $4e                                      // $7372
-	sta $42                                      // $7374
-	rts                                          // $7376
+	jmp $7340                                    // $726D
+	cmp #$05                                     // $7270
+	.byte $D0, $03                               // $7272  bne $7277
+	jmp $72ef                                    // $7274
+	and #$01                                     // $7277
+	.byte $F0, $34                               // $7279  beq $72AF
+	ldx #$02                                     // $727B
+	dec $d002                                    // $727D  ; VIC_SP1X
+	.byte $D0, $03                               // $7280  bne $7285
+	jsr $728b                                    // $7282
+	dex                                          // $7285
+	.byte $10, $F5                               // $7286  bpl $727D
+	jmp $7297                                    // $7288
+	lda $d010                                    // $728B  ; VIC_SPXMSB
+	and #$fd                                     // $728E
+	sta $d010                                    // $7290  ; VIC_SPXMSB
+	dec $d002                                    // $7293  ; VIC_SP1X
+	rts                                          // $7296
+	lda $d002                                    // $7297  ; VIC_SP1X
+	cmp #$05                                     // $729A
+	.byte $B0, $0D                               // $729C  bcs $72AB
+	lda $d010                                    // $729E  ; VIC_SPXMSB
+	and #$02                                     // $72A1
+	.byte $D0, $06                               // $72A3  bne $72AB
+	inc $50                                      // $72A5
+	jsr $7100                                    // $72A7
+	rts                                          // $72AA
+	inc $d003                                    // $72AB  ; VIC_SP1Y
+	rts                                          // $72AE
+	ldx #$02                                     // $72AF
+	inc $d002                                    // $72B1  ; VIC_SP1X
+	.byte $D0, $03                               // $72B4  bne $72B9
+	jsr $72bf                                    // $72B6
+	dex                                          // $72B9
+	.byte $10, $F5                               // $72BA  bpl $72B1
+	jmp $72cb                                    // $72BC
+	lda $d010                                    // $72BF  ; VIC_SPXMSB
+	ora #$02                                     // $72C2
+	sta $d010                                    // $72C4  ; VIC_SPXMSB
+	inc $d002                                    // $72C7  ; VIC_SP1X
+	rts                                          // $72CA
+	lda $d002                                    // $72CB  ; VIC_SP1X
+	cmp #$60                                     // $72CE
+	.byte $90, $19                               // $72D0  bcc $72EB
+	lda $d010                                    // $72D2  ; VIC_SPXMSB
+	and #$02                                     // $72D5
+	.byte $F0, $12                               // $72D7  beq $72EB
+	inc $50                                      // $72D9
+	lda $50                                      // $72DB
+	cmp #$05                                     // $72DD
+	.byte $D0, $06                               // $72DF  bne $72E7
+	jsr $71d0                                    // $72E1
+	jmp $72ea                                    // $72E4
+	jsr $7100                                    // $72E7
+	rts                                          // $72EA
+	inc $d003                                    // $72EB  ; VIC_SP1Y
+	rts                                          // $72EE
+	ldx #$04                                     // $72EF
+	dec $d002                                    // $72F1  ; VIC_SP1X
+	.byte $D0, $03                               // $72F4  bne $72F9
+	jsr $7307                                    // $72F6
+	dec $d004                                    // $72F9
+	.byte $D0, $03                               // $72FC  bne $7301
+	jsr $7316                                    // $72FE
+	dex                                          // $7301
+	.byte $10, $ED                               // $7302  bpl $72F1
+	jmp $7325                                    // $7304
+	lda $d010                                    // $7307  ; VIC_SPXMSB
+	and #$fd                                     // $730A
+	sta $d010                                    // $730C  ; VIC_SPXMSB
+	dec $d002                                    // $730F  ; VIC_SP1X
+	dec $d004                                    // $7312
+	rts                                          // $7315
+	lda $d010                                    // $7316  ; VIC_SPXMSB
+	and #$fb                                     // $7319
+	sta $d010                                    // $731B  ; VIC_SPXMSB
+	dec $d002                                    // $731E  ; VIC_SP1X
+	dec $d004                                    // $7321
+	rts                                          // $7324
+	lda $d002                                    // $7325  ; VIC_SP1X
+	cmp #$40                                     // $7328
+	.byte $B0, $0D                               // $732A  bcs $7339
+	lda $d010                                    // $732C  ; VIC_SPXMSB
+	and #$02                                     // $732F
+	.byte $D0, $06                               // $7331  bne $7339
+	inc $50                                      // $7333
+	jsr $7230                                    // $7335
+	rts                                          // $7338
+	inc $d003                                    // $7339  ; VIC_SP1Y
+	inc $d005                                    // $733C
+	rts                                          // $733F
+	ldx #$03                                     // $7340
+	inc $d002                                    // $7342  ; VIC_SP1X
+	inc $d004                                    // $7345
+	dex                                          // $7348
+	.byte $10, $F7                               // $7349  bpl $7342
+	lda $d002                                    // $734B  ; VIC_SP1X
+	cmp #$c8                                     // $734E
+	.byte $90, $05                               // $7350  bcc $7357
+	inc $50                                      // $7352
+	jsr $724a                                    // $7354
+	rts                                          // $7357
+	ldx #$03                                     // $7358
+	dec $d002                                    // $735A  ; VIC_SP1X
+	dec $d003                                    // $735D  ; VIC_SP1Y
+	dec $d004                                    // $7360
+	dec $d005                                    // $7363
+	dex                                          // $7366
+	.byte $10, $F1                               // $7367  bpl $735A
+	lda $d003                                    // $7369  ; VIC_SP1Y
+	cmp #$0a                                     // $736C
+	.byte $B0, $04                               // $736E  bcs $7374
+	lda #$00                                     // $7370
+	sta $50                                      // $7372
+	rts                                          // $7374
+	nop                                          // $7375
+	nop                                          // $7376
 	nop                                          // $7377
 	nop                                          // $7378
 	nop                                          // $7379
-	lda #$00                                     // $737A
-	sta $24                                      // $737C
-	sta $50                                      // $737E
-	lda #$21                                     // $7380
-	sta $d412                                    // $7382
-	lda #$01                                     // $7385
-	sta $26                                      // $7387
-	sta $25                                      // $7389
-	lda #$dd                                     // $738B
-	sta $07f8                                    // $738D
-	lda #$02                                     // $7390
-	sta $d027                                    // $7392
-	ldx #$ff                                     // $7395
-	ldy #$ff                                     // $7397
-	dey                                          // $7399
-	.byte $D0, $FD                               // $739A  bne $7399
-	dex                                          // $739C
-	.byte $D0, $F8                               // $739D  bne $7397
-	lda #$06                                     // $739F
-	sta $39                                      // $73A1
-	lda #$01                                     // $73A3
-	sta $3b                                      // $73A5
-	lda #$00                                     // $73A7
-	sta $55                                      // $73A9
-	jsr $61a0                                    // $73AB
-	ldy #$ff                                     // $73AE
-	dey                                          // $73B0
-	.byte $D0, $FD                               // $73B1  bne $73B0
-	dec $55                                      // $73B3
-	.byte $D0, $F4                               // $73B5  bne $73AB
-	lda $d015                                    // $73B7  ; VIC_SPEN
-	and #$f0                                     // $73BA
-	sta $d015                                    // $73BC  ; VIC_SPEN
-	lda #$01                                     // $73BF
-	sta $d027                                    // $73C1
-	sta $26                                      // $73C4
-	lda #$00                                     // $73C6
-	sta $25                                      // $73C8
-	sta $43                                      // $73CA
-	sta $42                                      // $73CC
-	sta $28                                      // $73CE
-	lda #$10                                     // $73D0
-	sta $29                                      // $73D2
-	jmp $6387                                    // $73D4
-	nop                                          // $73D7
-	nop                                          // $73D8
-	nop                                          // $73D9
-	lda $d002                                    // $73DA  ; VIC_SP1X
-	cmp #$98                                     // $73DD
-	.byte $90, $25                               // $73DF  bcc $7406
-	cmp #$a8                                     // $73E1
-	.byte $B0, $21                               // $73E3  bcs $7406
-	lda $d003                                    // $73E5  ; VIC_SP1Y
-	cmp #$b0                                     // $73E8
-	.byte $90, $1A                               // $73EA  bcc $7406
-	lda $d010                                    // $73EC  ; VIC_SPXMSB
-	and #$02                                     // $73EF
-	.byte $D0, $13                               // $73F1  bne $7406
-	lda $d015                                    // $73F3  ; VIC_SPEN
-	and #$02                                     // $73F6
-	.byte $F0, $0C                               // $73F8  beq $7406
-	lda $42                                      // $73FA
-	cmp #$84                                     // $73FC
-	.byte $F0, $06                               // $73FE  beq $7406
-	lda $42                                      // $7400
-	and #$7f                                     // $7402
-	sta $43                                      // $7404
-	jmp $7fe8                                    // $7406
-	nop                                          // $7409
-	lda $d002                                    // $740A  ; VIC_SP1X
-	cmp #$94                                     // $740D
-	.byte $90, $26                               // $740F  bcc $7437
-	cmp #$ac                                     // $7411
-	.byte $B0, $22                               // $7413  bcs $7437
-	lda $d003                                    // $7415  ; VIC_SP1Y
-	cmp #$d2                                     // $7418
-	.byte $90, $1B                               // $741A  bcc $7437
-	cmp #$e2                                     // $741C
-	.byte $B0, $17                               // $741E  bcs $7437
-	lda #$01                                     // $7420
-	sta $37                                      // $7422
-	lda #$02                                     // $7424
-	sta $3d                                      // $7426
-	lda #$fd                                     // $7428
-	sta $3e                                      // $742A
-	lda $42                                      // $742C
-	and #$7f                                     // $742E
-	sta $43                                      // $7430
-	lda #$00                                     // $7432
-	sta $42                                      // $7434
-	rts                                          // $7436
-	lda $d004                                    // $7437
-	cmp #$94                                     // $743A
-	.byte $90, $26                               // $743C  bcc $7464
-	cmp #$ac                                     // $743E
-	.byte $B0, $22                               // $7440  bcs $7464
-	lda $d005                                    // $7442
-	cmp #$d2                                     // $7445
-	.byte $90, $1B                               // $7447  bcc $7464
-	cmp #$e2                                     // $7449
-	.byte $B0, $17                               // $744B  bcs $7464
-	lda #$02                                     // $744D
-	sta $37                                      // $744F
-	lda #$04                                     // $7451
-	sta $3d                                      // $7453
-	lda #$fb                                     // $7455
-	sta $3e                                      // $7457
-	lda $42                                      // $7459
-	and #$7f                                     // $745B
-	sta $43                                      // $745D
-	lda #$00                                     // $745F
-	sta $42                                      // $7461
-	rts                                          // $7463
-	lda $d006                                    // $7464
-	cmp #$94                                     // $7467
-	.byte $90, $25                               // $7469  bcc $7490
-	cmp #$ac                                     // $746B
-	.byte $B0, $21                               // $746D  bcs $7490
-	lda $d007                                    // $746F
-	cmp #$d2                                     // $7472
-	.byte $90, $1A                               // $7474  bcc $7490
-	cmp #$e2                                     // $7476
-	.byte $B0, $16                               // $7478  bcs $7490
-	lda #$03                                     // $747A
-	sta $37                                      // $747C
-	lda #$08                                     // $747E
-	sta $3d                                      // $7480
-	lda #$f7                                     // $7482
-	sta $3e                                      // $7484
-	lda $42                                      // $7486
-	and #$7f                                     // $7488
-	sta $43                                      // $748A
-	lda #$00                                     // $748C
-	sta $42                                      // $748E
-	rts                                          // $7490
-	nop                                          // $7491
-	nop                                          // $7492
-	nop                                          // $7493
-	nop                                          // $7494
-	lda $50                                      // $7495
-	.byte $D0, $17                               // $7497  bne $74B0
-	lda #$a6                                     // $7499
-	sta $07f9                                    // $749B
-	lda #$a7                                     // $749E
-	sta $07fa                                    // $74A0
-	lda #$b7                                     // $74A3
-	sta $d002                                    // $74A5  ; VIC_SP1X
-	lda #$e6                                     // $74A8
-	sta $d004                                    // $74AA
-	jmp $74c4                                    // $74AD
-	lda #$a4                                     // $74B0
-	sta $07f9                                    // $74B2
-	lda #$a5                                     // $74B5
-	sta $07fa                                    // $74B7
-	lda #$58                                     // $74BA
-	sta $d002                                    // $74BC  ; VIC_SP1X
-	lda #$87                                     // $74BF
-	sta $d004                                    // $74C1
-	lda #$56                                     // $74C4
-	sta $d003                                    // $74C6  ; VIC_SP1Y
-	sta $d005                                    // $74C9
-	lda #$02                                     // $74CC
-	sta $d028                                    // $74CE
-	sta $d029                                    // $74D1
-	lda #$03                                     // $74D4
-	sta $37                                      // $74D6
-	lda #$02                                     // $74D8
-	sta $3c                                      // $74DA
-	lda $d010                                    // $74DC  ; VIC_SPXMSB
-	ora #$06                                     // $74DF
-	sta $d010                                    // $74E1  ; VIC_SPXMSB
-	lda $d015                                    // $74E4  ; VIC_SPEN
-	ora #$06                                     // $74E7
-	and #$f7                                     // $74E9
-	sta $d015                                    // $74EB  ; VIC_SPEN
-	lda $d017                                    // $74EE  ; VIC_SPYEXP
-	ora #$06                                     // $74F1
-	sta $d017                                    // $74F3  ; VIC_SPYEXP
-	lda $d01d                                    // $74F6  ; VIC_SPXEXP
-	ora #$06                                     // $74F9
-	sta $d01d                                    // $74FB  ; VIC_SPXEXP
-	lda $d01b                                    // $74FE  ; VIC_SPPRI
-	and #$f0                                     // $7501
-	sta $d01b                                    // $7503  ; VIC_SPPRI
-	lda $d01c                                    // $7506  ; VIC_SPMCOL
-	ora #$06                                     // $7509
-	sta $d01c                                    // $750B  ; VIC_SPMCOL
-	rts                                          // $750E
-	nop                                          // $750F
-	lda $50                                      // $7510
-	.byte $D0, $08                               // $7512  bne $751C
-	lda #$4c                                     // $7514
-	sta $d006                                    // $7516
-	jmp $7521                                    // $7519
-	lda #$ff                                     // $751C
-	sta $d006                                    // $751E
-	lda #$76                                     // $7521
-	sta $d007                                    // $7523
-	lda #$dd                                     // $7526
-	sta $07fb                                    // $7528
-	sta $38                                      // $752B
-	lda #$de                                     // $752D
-	sta $3a                                      // $752F
-	lda #$07                                     // $7531
-	sta $d02a                                    // $7533
-	sta $39                                      // $7536
-	lda #$08                                     // $7538
-	sta $3b                                      // $753A
-	lda #$20                                     // $753C
-	sta $3f                                      // $753E
-	sta $40                                      // $7540
-	lda #$08                                     // $7542
-	sta $3d                                      // $7544
-	lda #$f7                                     // $7546
-	sta $3e                                      // $7548
-	lda $d015                                    // $754A  ; VIC_SPEN
-	ora #$08                                     // $754D
-	sta $d015                                    // $754F  ; VIC_SPEN
-	lda $d01c                                    // $7552  ; VIC_SPMCOL
-	and #$f7                                     // $7555
-	sta $d01c                                    // $7557  ; VIC_SPMCOL
-	lda $d010                                    // $755A  ; VIC_SPXMSB
-	and #$f7                                     // $755D
-	sta $d010                                    // $755F  ; VIC_SPXMSB
-	lda #$03                                     // $7562
-	sta $37                                      // $7564
-	rts                                          // $7566
-	jsr $61a0                                    // $7567
-	dec $53                                      // $756A
-	.byte $F0, $01                               // $756C  beq $756F
-	rts                                          // $756E
-	lda #$03                                     // $756F
-	sta $53                                      // $7571
-	ldx #$01                                     // $7573
-	inc $d002                                    // $7575  ; VIC_SP1X
-	.byte $D0, $1D                               // $7578  bne $7597
-	lda $d010                                    // $757A  ; VIC_SPXMSB
-	and #$02                                     // $757D
-	.byte $F0, $0B                               // $757F  beq $758C
-	lda $d010                                    // $7581  ; VIC_SPXMSB
-	and #$fd                                     // $7584
-	sta $d010                                    // $7586  ; VIC_SPXMSB
-	jmp $7594                                    // $7589
-	lda $d010                                    // $758C  ; VIC_SPXMSB
-	ora #$02                                     // $758F
-	sta $d010                                    // $7591  ; VIC_SPXMSB
-	inc $d002                                    // $7594  ; VIC_SP1X
-	inc $d004                                    // $7597
-	.byte $D0, $1D                               // $759A  bne $75B9
-	lda $d010                                    // $759C  ; VIC_SPXMSB
-	and #$04                                     // $759F
-	.byte $F0, $0B                               // $75A1  beq $75AE
-	lda $d010                                    // $75A3  ; VIC_SPXMSB
-	and #$fb                                     // $75A6
-	sta $d010                                    // $75A8  ; VIC_SPXMSB
-	jmp $75b6                                    // $75AB
-	lda $d010                                    // $75AE  ; VIC_SPXMSB
-	ora #$04                                     // $75B1
-	sta $d010                                    // $75B3  ; VIC_SPXMSB
-	inc $d004                                    // $75B6
-	lda $d004                                    // $75B9
-	cmp #$2a                                     // $75BC
-	.byte $D0, $0C                               // $75BE  bne $75CC
-	lda $d010                                    // $75C0  ; VIC_SPXMSB
-	and #$04                                     // $75C3
-	.byte $D0, $05                               // $75C5  bne $75CC
-	inc $51                                      // $75C7
-	jsr $7510                                    // $75C9
-	lda $51                                      // $75CC
-	.byte $F0, $1F                               // $75CE  beq $75EF
-	inc $d006                                    // $75D0
-	inc $d007                                    // $75D3
-	lda $d007                                    // $75D6
-	cmp #$ea                                     // $75D9
-	.byte $90, $0F                               // $75DB  bcc $75EC
-	lda #$00                                     // $75DD
-	sta $51                                      // $75DF
-	lda $d015                                    // $75E1  ; VIC_SPEN
-	and #$f7                                     // $75E4
-	sta $d015                                    // $75E6  ; VIC_SPEN
-	jmp $75ef                                    // $75E9
-	jsr $76c3                                    // $75EC
-	dex                                          // $75EF
-	.byte $D0, $83                               // $75F0  bne $7575
-	rts                                          // $75F2
-	nop                                          // $75F3
-	jsr $61a0                                    // $75F4
-	dec $53                                      // $75F7
-	.byte $F0, $01                               // $75F9  beq $75FC
-	rts                                          // $75FB
-	lda #$03                                     // $75FC
-	sta $53                                      // $75FE
-	ldx #$01                                     // $7600
-	dec $d004                                    // $7602
-	.byte $D0, $1D                               // $7605  bne $7624
-	lda $d010                                    // $7607  ; VIC_SPXMSB
-	and #$04                                     // $760A
-	.byte $F0, $0B                               // $760C  beq $7619
-	lda $d010                                    // $760E  ; VIC_SPXMSB
-	and #$fb                                     // $7611
-	sta $d010                                    // $7613  ; VIC_SPXMSB
-	jmp $7621                                    // $7616
-	lda $d010                                    // $7619  ; VIC_SPXMSB
-	ora #$04                                     // $761C
-	sta $d010                                    // $761E  ; VIC_SPXMSB
-	dec $d004                                    // $7621
-	dec $d002                                    // $7624  ; VIC_SP1X
-	.byte $D0, $1D                               // $7627  bne $7646
-	lda $d010                                    // $7629  ; VIC_SPXMSB
-	and #$02                                     // $762C
-	.byte $F0, $0B                               // $762E  beq $763B
-	lda $d010                                    // $7630  ; VIC_SPXMSB
-	and #$fd                                     // $7633
-	sta $d010                                    // $7635  ; VIC_SPXMSB
-	jmp $7643                                    // $7638
-	lda $d010                                    // $763B  ; VIC_SPXMSB
-	ora #$02                                     // $763E
-	sta $d010                                    // $7640  ; VIC_SPXMSB
-	dec $d002                                    // $7643  ; VIC_SP1X
-	lda $d002                                    // $7646  ; VIC_SP1X
-	cmp #$0a                                     // $7649
-	.byte $D0, $0C                               // $764B  bne $7659
-	lda $d010                                    // $764D  ; VIC_SPXMSB
-	and #$02                                     // $7650
-	.byte $F0, $05                               // $7652  beq $7659
-	inc $51                                      // $7654
-	jsr $7510                                    // $7656
-	lda $51                                      // $7659
-	.byte $F0, $1F                               // $765B  beq $767C
-	dec $d006                                    // $765D
-	inc $d007                                    // $7660
-	lda $d007                                    // $7663
-	cmp #$ea                                     // $7666
-	.byte $90, $0F                               // $7668  bcc $7679
-	lda #$00                                     // $766A
-	sta $51                                      // $766C
-	lda $d015                                    // $766E  ; VIC_SPEN
-	and #$f7                                     // $7671
-	sta $d015                                    // $7673  ; VIC_SPEN
-	jmp $767c                                    // $7676
-	jsr $76c3                                    // $7679
-	dex                                          // $767C
-	.byte $D0, $83                               // $767D  bne $7602
-	rts                                          // $767F
-	lda #$a8                                     // $7680
-	sta $d006                                    // $7682
-	lda #$80                                     // $7685
-	sta $d007                                    // $7687
-	lda #$01                                     // $768A
-	sta $55                                      // $768C
-	lda $d01b                                    // $768E  ; VIC_SPPRI
-	and #$f7                                     // $7691
-	sta $d01b                                    // $7693  ; VIC_SPPRI
-	jmp $7526                                    // $7696
-	nop                                          // $7699
-	nop                                          // $769A
-	nop                                          // $769B
-	nop                                          // $769C
-	nop                                          // $769D
-	nop                                          // $769E
-	nop                                          // $769F
-	jsr $61a0                                    // $76A0
-	dec $55                                      // $76A3
-	.byte $F0, $01                               // $76A5  beq $76A8
-	rts                                          // $76A7
-	lda #$05                                     // $76A8
-	sta $55                                      // $76AA
-	inc $d007                                    // $76AC
-	lda $d007                                    // $76AF
-	cmp #$ea                                     // $76B2
-	.byte $90, $0D                               // $76B4  bcc $76C3
-	lda $d015                                    // $76B6  ; VIC_SPEN
-	and #$f7                                     // $76B9
-	sta $d015                                    // $76BB  ; VIC_SPEN
-	lda #$08                                     // $76BE
-	sta $42                                      // $76C0
-	rts                                          // $76C2
-	cmp #$b8                                     // $76C3
-	.byte $90, $FB                               // $76C5  bcc $76C2
-	lda $d006                                    // $76C7
-	cmp #$a8                                     // $76CA
-	.byte $90, $F4                               // $76CC  bcc $76C2
-	cmp #$b0                                     // $76CE
-	.byte $B0, $F0                               // $76D0  bcs $76C2
-	lda $d010                                    // $76D2  ; VIC_SPXMSB
-	and #$08                                     // $76D5
-	.byte $D0, $04                               // $76D7  bne $76DD
-	lda #$08                                     // $76D9
-	sta $43                                      // $76DB
-	rts                                          // $76DD
-	nop                                          // $76DE
-	nop                                          // $76DF
-	dec $53                                      // $76E0
-	.byte $F0, $01                               // $76E2  beq $76E5
-	rts                                          // $76E4
-	lda $54                                      // $76E5
-	sta $53                                      // $76E7
-	lda $50                                      // $76E9
-	.byte $D0, $03                               // $76EB  bne $76F0
-	jmp $7708                                    // $76ED
-	cmp #$07                                     // $76F0
-	.byte $D0, $03                               // $76F2  bne $76F7
-	jmp $7724                                    // $76F4
-	cmp #$08                                     // $76F7
-	.byte $D0, $03                               // $76F9  bne $76FE
-	jmp $773c                                    // $76FB
-	and #$01                                     // $76FE
-	.byte $D0, $03                               // $7700  bne $7705
-	jmp $774c                                    // $7702
-	jmp $7762                                    // $7705
-	ldx #$04                                     // $7708
-	dec $d002                                    // $770A  ; VIC_SP1X
-	dec $d004                                    // $770D
-	inc $d003                                    // $7710  ; VIC_SP1Y
-	inc $d005                                    // $7713
-	lda $d002                                    // $7716  ; VIC_SP1X
-	cmp #$60                                     // $7719
-	.byte $D0, $03                               // $771B  bne $7720
-	jmp $7778                                    // $771D
-	dex                                          // $7720
-	.byte $D0, $E7                               // $7721  bne $770A
-	rts                                          // $7723
-	ldx #$05                                     // $7724
-	inc $d002                                    // $7726  ; VIC_SP1X
-	inc $d004                                    // $7729
-	lda $d002                                    // $772C  ; VIC_SP1X
-	cmp #$98                                     // $772F
-	.byte $D0, $05                               // $7731  bne $7738
-	inc $51                                      // $7733
-	jmp $7778                                    // $7735
-	dex                                          // $7738
-	.byte $D0, $EB                               // $7739  bne $7726
-	rts                                          // $773B
-	ldx #$06                                     // $773C
-	dec $d003                                    // $773E  ; VIC_SP1Y
-	dec $d005                                    // $7741
-	lda $d003                                    // $7744  ; VIC_SP1Y
-	.byte $D0, $02                               // $7747  bne $774B
-	inc $50                                      // $7749
-	rts                                          // $774B
-	ldx #$04                                     // $774C
-	dec $d002                                    // $774E  ; VIC_SP1X
-	dec $d004                                    // $7751
-	lda $d002                                    // $7754  ; VIC_SP1X
-	cmp #$60                                     // $7757
-	.byte $D0, $03                               // $7759  bne $775E
-	jmp $7778                                    // $775B
-	dex                                          // $775E
-	.byte $D0, $ED                               // $775F  bne $774E
-	rts                                          // $7761
-	ldx #$04                                     // $7762
-	inc $d002                                    // $7764  ; VIC_SP1X
-	inc $d004                                    // $7767
-	lda $d002                                    // $776A  ; VIC_SP1X
-	cmp #$c0                                     // $776D
-	.byte $D0, $03                               // $776F  bne $7774
-	jmp $7778                                    // $7771
-	dex                                          // $7774
-	.byte $D0, $ED                               // $7775  bne $7764
-	rts                                          // $7777
-	inc $50                                      // $7778
-	lda $50                                      // $777A
-	cmp #$01                                     // $777C
-	.byte $D0, $0D                               // $777E  bne $778D
-	lda #$a0                                     // $7780
-	sta $07f9                                    // $7782
-	lda #$a1                                     // $7785
-	sta $07fa                                    // $7787
-	jmp $782a                                    // $778A
-	cmp #$02                                     // $778D
-	.byte $D0, $0D                               // $778F  bne $779E
-	lda #$a2                                     // $7791
-	sta $07f9                                    // $7793
-	lda #$a3                                     // $7796
-	sta $07fa                                    // $7798
-	jmp $782a                                    // $779B
-	cmp #$03                                     // $779E
-	.byte $D0, $0D                               // $77A0  bne $77AF
-	lda #$a2                                     // $77A2
-	sta $07f9                                    // $77A4
-	lda #$a3                                     // $77A7
-	sta $07fa                                    // $77A9
-	jmp $782a                                    // $77AC
-	cmp #$04                                     // $77AF
-	.byte $D0, $26                               // $77B1  bne $77D9
-	lda #$a0                                     // $77B3
-	sta $07f9                                    // $77B5
-	lda #$a1                                     // $77B8
-	sta $07fa                                    // $77BA
-	lda $d017                                    // $77BD  ; VIC_SPYEXP
-	ora #$06                                     // $77C0
-	sta $d017                                    // $77C2  ; VIC_SPYEXP
-	lda $d01d                                    // $77C5  ; VIC_SPXEXP
-	ora #$06                                     // $77C8
-	sta $d01d                                    // $77CA  ; VIC_SPXEXP
-	sec                                          // $77CD
-	lda $d002                                    // $77CE  ; VIC_SP1X
-	sbc #$18                                     // $77D1
-	sta $d002                                    // $77D3  ; VIC_SP1X
-	jmp $782a                                    // $77D6
-	cmp #$05                                     // $77D9
-	.byte $D0, $15                               // $77DB  bne $77F2
-	lda $d017                                    // $77DD  ; VIC_SPYEXP
-	and #$f9                                     // $77E0
-	sta $d017                                    // $77E2  ; VIC_SPYEXP
-	lda #$a2                                     // $77E5
-	sta $07f9                                    // $77E7
-	lda #$a3                                     // $77EA
-	sta $07fa                                    // $77EC
-	jmp $782a                                    // $77EF
-	cmp #$06                                     // $77F2
-	.byte $D0, $0D                               // $77F4  bne $7803
-	lda #$ca                                     // $77F6
-	sta $07f9                                    // $77F8
-	lda #$cb                                     // $77FB
-	sta $07fa                                    // $77FD
-	jmp $782a                                    // $7800
-	cmp #$07                                     // $7803
-	.byte $D0, $15                               // $7805  bne $781C
-	lda $d017                                    // $7807  ; VIC_SPYEXP
-	ora #$06                                     // $780A
-	sta $d017                                    // $780C  ; VIC_SPYEXP
-	lda #$a2                                     // $780F
-	sta $07f9                                    // $7811
-	lda #$a3                                     // $7814
-	sta $07fa                                    // $7816
-	jmp $782a                                    // $7819
-	cmp #$08                                     // $781C
-	.byte $D0, $10                               // $781E  bne $7830
-	lda #$ca                                     // $7820
-	sta $07f9                                    // $7822
-	lda #$cb                                     // $7825
-	sta $07fa                                    // $7827
-	lda $54                                      // $782A
-	sbc #$04                                     // $782C
-	sta $54                                      // $782E
-	inc $d003                                    // $7830  ; VIC_SP1Y
-	inc $d005                                    // $7833
-	lda $51                                      // $7836
-	.byte $F0, $03                               // $7838  beq $783D
-	jsr $7680                                    // $783A
-	lda $50                                      // $783D
-	cmp #$06                                     // $783F
-	.byte $D0, $08                               // $7841  bne $784B
-	lda $d01b                                    // $7843  ; VIC_SPPRI
-	and #$f9                                     // $7846
-	sta $d01b                                    // $7848  ; VIC_SPPRI
-	cmp #$08                                     // $784B
-	.byte $D0, $04                               // $784D  bne $7853
-	lda #$03                                     // $784F
-	sta $37                                      // $7851
-	rts                                          // $7853
+	nop                                          // $737A
+	nop                                          // $737B
+	nop                                          // $737C
+	nop                                          // $737D
+	nop                                          // $737E
+	nop                                          // $737F
+	lda #$00                                     // $7380
+	sta $33                                      // $7382
+	lda #$50                                     // $7384
+	sta $30                                      // $7386
+	sta $34                                      // $7388
+	lda #$53                                     // $738A
+	sta $31                                      // $738C
+	sta $35                                      // $738E
+	lda #$08                                     // $7390
+	sta $36                                      // $7392
+	sta $32                                      // $7394
+	lda #$38                                     // $7396
+	sta $50                                      // $7398
+	lda #$dd                                     // $739A
+	sta $07fb                                    // $739C
+	lda #$02                                     // $739F
+	sta $d02a                                    // $73A1
+	lda $d010                                    // $73A4  ; VIC_SPXMSB
+	and #$f7                                     // $73A7
+	sta $d010                                    // $73A9  ; VIC_SPXMSB
+	lda #$a8                                     // $73AC
+	sta $d006                                    // $73AE
+	lda #$c4                                     // $73B1
+	sta $d007                                    // $73B3
+	nop                                          // $73B6
+	nop                                          // $73B7
+	nop                                          // $73B8
+	nop                                          // $73B9
+	nop                                          // $73BA
+	nop                                          // $73BB
+	lda $d015                                    // $73BC  ; VIC_SPEN
+	and #$fe                                     // $73BF
+	ora #$08                                     // $73C1
+	sta $d015                                    // $73C3  ; VIC_SPEN
+	lda #$21                                     // $73C6
+	sta $d404                                    // $73C8  ; SID_CR1
+	lda $16                                      // $73CB
+	cmp #$28                                     // $73CD
+	.byte $90, $04                               // $73CF  bcc $73D5
+	lda #$00                                     // $73D1
+	sta $16                                      // $73D3
+	inc $16                                      // $73D5
+	inc $16                                      // $73D7
+	jsr $61f0                                    // $73D9
+	jsr $61c5                                    // $73DC
+	lda $07fb                                    // $73DF
+	cmp #$dd                                     // $73E2
+	.byte $D0, $08                               // $73E4  bne $73EE
+	lda #$de                                     // $73E6
+	sta $07fb                                    // $73E8
+	jmp $73f3                                    // $73EB
+	lda #$dd                                     // $73EE
+	sta $07fb                                    // $73F0
+	ldx #$48                                     // $73F3
+	ldy #$ff                                     // $73F5
+	dey                                          // $73F7
+	.byte $D0, $FD                               // $73F8  bne $73F7
+	dex                                          // $73FA
+	.byte $D0, $F8                               // $73FB  bne $73F5
+	lda $50                                      // $73FD
+	cmp #$20                                     // $73FF
+	.byte $D0, $08                               // $7401  bne $740B
+	lda $d017                                    // $7403  ; VIC_SPYEXP
+	ora #$08                                     // $7406
+	sta $d017                                    // $7408  ; VIC_SPYEXP
+	dec $50                                      // $740B
+	.byte $D0, $BC                               // $740D  bne $73CB
+	ldx #$00                                     // $740F
+	lda $07c3,x                                  // $7411
+	sta $60,x                                    // $7414
+	inx                                          // $7416
+	cpx #$08                                     // $7417
+	.byte $D0, $F6                               // $7419  bne $7411
+	jmp $2200                                    // $741B
+	nop                                          // $741E
+	nop                                          // $741F
+	ldx #$00                                     // $7420
+	ldy #$00                                     // $7422
+	lda $5860,x                                  // $7424
+	.byte $F0, $06                               // $7427  beq $742F
+	sta ($58),y                                  // $7429
+	lda #$0a                                     // $742B
+	sta ($5a),y                                  // $742D
+	inx                                          // $742F
+	cpx $5c                                      // $7430
+	.byte $F0, $0B                               // $7432  beq $743F
+	iny                                          // $7434
+	cpy $5d                                      // $7435
+	.byte $D0, $EB                               // $7437  bne $7424
+	jsr $745d                                    // $7439
+	jmp $7422                                    // $743C
+	cpx #$a8                                     // $743F
+	.byte $F0, $2D                               // $7441  beq $7470
+	lda #$4c                                     // $7443
+	sta $58                                      // $7445
+	sta $5a                                      // $7447
+	lda #$05                                     // $7449
+	sta $59                                      // $744B
+	lda #$d9                                     // $744D
+	sta $5b                                      // $744F
+	lda #$a8                                     // $7451
+	sta $5c                                      // $7453
+	lda #$0f                                     // $7455
+	sta $5d                                      // $7457
+	jmp $7422                                    // $7459
+	rts                                          // $745C
+	clc                                          // $745D
+	lda $58                                      // $745E
+	adc #$28                                     // $7460
+	sta $58                                      // $7462
+	sta $5a                                      // $7464
+	.byte $90, $04                               // $7466  bcc $746C
+	inc $59                                      // $7468
+	inc $5b                                      // $746A
+	rts                                          // $746C
+	nop                                          // $746D
+	nop                                          // $746E
+	nop                                          // $746F
+	lda #$91                                     // $7470
+	sta $58                                      // $7472
+	sta $5a                                      // $7474
+	lda #$06                                     // $7476
+	sta $59                                      // $7478
+	lda #$da                                     // $747A
+	sta $5b                                      // $747C
+	lda #$0c                                     // $747E
+	sta $5c                                      // $7480
+	lda #$04                                     // $7482
+	sta $5d                                      // $7484
+	ldx #$00                                     // $7486
+	ldy #$00                                     // $7488
+	lda $5908,x                                  // $748A
+	.byte $F0, $06                               // $748D  beq $7495
+	sta ($58),y                                  // $748F
+	lda $45                                      // $7491
+	sta ($5a),y                                  // $7493
+	inx                                          // $7495
+	cpx $5c                                      // $7496
+	.byte $F0, $0B                               // $7498  beq $74A5
+	iny                                          // $749A
+	cpy $5d                                      // $749B
+	.byte $D0, $EB                               // $749D  bne $748A
+	jsr $745d                                    // $749F
+	jmp $7488                                    // $74A2
+	cpx #$40                                     // $74A5
+	.byte $F0, $19                               // $74A7  beq $74C2
+	lda #$28                                     // $74A9
+	sta $58                                      // $74AB
+	sta $5a                                      // $74AD
+	lda #$07                                     // $74AF
+	sta $59                                      // $74B1
+	lda #$db                                     // $74B3
+	sta $5b                                      // $74B5
+	lda #$40                                     // $74B7
+	sta $5c                                      // $74B9
+	lda #$17                                     // $74BB
+	sta $5d                                      // $74BD
+	jmp $7488                                    // $74BF
+	rts                                          // $74C2
+	nop                                          // $74C3
+	nop                                          // $74C4
+	lda $d01e                                    // $74C5  ; VIC_SPCOL
+	and #$03                                     // $74C8
+	cmp #$03                                     // $74CA
+	.byte $F0, $01                               // $74CC  beq $74CF
+	rts                                          // $74CE
+	lda $d002                                    // $74CF  ; VIC_SP1X
+	adc #$08                                     // $74D2
+	cmp $d000                                    // $74D4  ; VIC_SP0X
+	.byte $B0, $F5                               // $74D7  bcs $74CE
+	adc #$10                                     // $74D9
+	cmp $d000                                    // $74DB  ; VIC_SP0X
+	.byte $90, $EE                               // $74DE  bcc $74CE
+	lda $d003                                    // $74E0  ; VIC_SP1Y
+	adc #$02                                     // $74E3
+	cmp $d001                                    // $74E5  ; VIC_SP0Y
+	.byte $B0, $E4                               // $74E8  bcs $74CE
+	adc #$10                                     // $74EA
+	cmp $d001                                    // $74EC  ; VIC_SP0Y
+	.byte $90, $DD                               // $74EF  bcc $74CE
+	lda $42                                      // $74F1
+	sta $43                                      // $74F3
+	lda #$00                                     // $74F5
+	sta $42                                      // $74F7
+	rts                                          // $74F9
+	nop                                          // $74FA
+	nop                                          // $74FB
+	nop                                          // $74FC
+	nop                                          // $74FD
+	nop                                          // $74FE
+	nop                                          // $74FF
+	dec $32                                      // $7500
+	.byte $F0, $03                               // $7502  beq $7507
+	jmp $757f                                    // $7504
+	lda $36                                      // $7507
+	sta $32                                      // $7509
+	ldy $33                                      // $750B
+	lda ($34),y                                  // $750D
+	cmp #$ff                                     // $750F
+	.byte $D0, $03                               // $7511  bne $7516
+	jmp $7587                                    // $7513
+	sta $d401                                    // $7516  ; SID_FR1HI
+	inc $33                                      // $7519
+	iny                                          // $751B
+	.byte $D0, $02                               // $751C  bne $7520
+	inc $35                                      // $751E
+	lda ($34),y                                  // $7520
+	cmp #$ff                                     // $7522
+	.byte $D0, $03                               // $7524  bne $7529
+	jmp $7587                                    // $7526
+	sta $d400                                    // $7529  ; SID_FR1LO
+	inc $33                                      // $752C
+	iny                                          // $752E
+	.byte $D0, $02                               // $752F  bne $7533
+	inc $35                                      // $7531
+	lda ($34),y                                  // $7533
+	cmp #$ff                                     // $7535
+	.byte $D0, $03                               // $7537  bne $753C
+	jmp $7587                                    // $7539
+	sta $d408                                    // $753C
+	inc $33                                      // $753F
+	iny                                          // $7541
+	.byte $D0, $02                               // $7542  bne $7546
+	inc $35                                      // $7544
+	lda ($34),y                                  // $7546
+	cmp #$ff                                     // $7548
+	.byte $D0, $03                               // $754A  bne $754F
+	jmp $7587                                    // $754C
+	sta $d407                                    // $754F
+	inc $33                                      // $7552
+	iny                                          // $7554
+	.byte $D0, $02                               // $7555  bne $7559
+	inc $35                                      // $7557
+	lda ($34),y                                  // $7559
+	cmp #$ff                                     // $755B
+	.byte $D0, $03                               // $755D  bne $7562
+	jmp $7587                                    // $755F
+	sta $d40f                                    // $7562  ; SID_FLTHI
+	inc $33                                      // $7565
+	iny                                          // $7567
+	.byte $D0, $02                               // $7568  bne $756C
+	inc $35                                      // $756A
+	lda ($34),y                                  // $756C
+	cmp #$ff                                     // $756E
+	.byte $D0, $03                               // $7570  bne $7575
+	jmp $7587                                    // $7572
+	sta $d40e                                    // $7575  ; SID_FLTLO
+	inc $33                                      // $7578
+	iny                                          // $757A
+	.byte $D0, $02                               // $757B  bne $757F
+	inc $35                                      // $757D
+	lda #$10                                     // $757F
+	sta $d01a                                    // $7581  ; VIC_IRQEN
+	jmp $7598                                    // $7584
+	lda #$00                                     // $7587
+	sta $33                                      // $7589
+	lda $30                                      // $758B
+	sta $34                                      // $758D
+	lda $31                                      // $758F
+	sta $35                                      // $7591
+	lda #$10                                     // $7593
+	sta $d01a                                    // $7595  ; VIC_IRQEN
+	jsr $674c                                    // $7598
+	jmp $ea31                                    // $759B
+	nop                                          // $759E
+	nop                                          // $759F
+	lda #$00                                     // $75A0
+	sta $d01a                                    // $75A2  ; VIC_IRQEN
+	lda #$00                                     // $75A5
+	sta $0314                                    // $75A7
+	lda #$75                                     // $75AA
+	sta $0315                                    // $75AC
+	lda #$10                                     // $75AF
+	sta $d01a                                    // $75B1  ; VIC_IRQEN
+	rts                                          // $75B4
+	nop                                          // $75B5
+	nop                                          // $75B6
+	nop                                          // $75B7
+	nop                                          // $75B8
+	nop                                          // $75B9
+	nop                                          // $75BA
+	nop                                          // $75BB
+	nop                                          // $75BC
+	nop                                          // $75BD
+	nop                                          // $75BE
+	nop                                          // $75BF
+	lda $d002                                    // $75C0  ; VIC_SP1X
+	cmp #$98                                     // $75C3
+	.byte $90, $25                               // $75C5  bcc $75EC
+	cmp #$a8                                     // $75C7
+	.byte $B0, $21                               // $75C9  bcs $75EC
+	lda $d003                                    // $75CB  ; VIC_SP1Y
+	cmp #$b0                                     // $75CE
+	.byte $90, $1A                               // $75D0  bcc $75EC
+	lda $d010                                    // $75D2  ; VIC_SPXMSB
+	and #$02                                     // $75D5
+	.byte $D0, $13                               // $75D7  bne $75EC
+	lda $d015                                    // $75D9  ; VIC_SPEN
+	and #$02                                     // $75DC
+	.byte $F0, $0C                               // $75DE  beq $75EC
+	lda $42                                      // $75E0
+	cmp #$84                                     // $75E2
+	.byte $F0, $06                               // $75E4  beq $75EC
+	lda $42                                      // $75E6
+	and #$7f                                     // $75E8
+	sta $43                                      // $75EA
+	rts                                          // $75EC
+	nop                                          // $75ED
+	nop                                          // $75EE
+	nop                                          // $75EF
+	ldx #$00                                     // $75F0
+	ldy #$00                                     // $75F2
+	lda $59b0,x                                  // $75F4
+	cmp #$ff                                     // $75F7
+	.byte $F0, $06                               // $75F9  beq $7601
+	sta ($58),y                                  // $75FB
+	lda #$0a                                     // $75FD
+	sta ($5a),y                                  // $75FF
+	inx                                          // $7601
+	cpx #$69                                     // $7602
+	.byte $F0, $17                               // $7604  beq $761D
+	iny                                          // $7606
+	cpy #$15                                     // $7607
+	.byte $D0, $E9                               // $7609  bne $75F4
+	clc                                          // $760B
+	lda $58                                      // $760C
+	adc #$28                                     // $760E
+	sta $58                                      // $7610
+	sta $5a                                      // $7612
+	.byte $90, $04                               // $7614  bcc $761A
+	inc $59                                      // $7616
+	inc $5b                                      // $7618
+	jmp $75f2                                    // $761A
+	lda #$5a                                     // $761D
+	sta $58                                      // $761F
+	sta $5a                                      // $7621
+	lda #$04                                     // $7623
+	sta $59                                      // $7625
+	lda #$d8                                     // $7627
+	sta $5b                                      // $7629
+	rts                                          // $762B
+	nop                                          // $762C
+	nop                                          // $762D
+	nop                                          // $762E
+	nop                                          // $762F
+	lda #$00                                     // $7630
+	sta $24                                      // $7632
+	sta $50                                      // $7634
+	lda #$21                                     // $7636
+	sta $d412                                    // $7638
+	lda #$01                                     // $763B
+	sta $26                                      // $763D
+	sta $25                                      // $763F
+	lda #$dd                                     // $7641
+	sta $07f8                                    // $7643
+	lda #$02                                     // $7646
+	sta $d027                                    // $7648
+	ldx #$ff                                     // $764B
+	ldy #$ff                                     // $764D
+	dey                                          // $764F
+	.byte $D0, $FD                               // $7650  bne $764F
+	dex                                          // $7652
+	.byte $D0, $F8                               // $7653  bne $764D
+	lda #$06                                     // $7655
+	sta $39                                      // $7657
+	lda #$01                                     // $7659
+	sta $3b                                      // $765B
+	lda #$00                                     // $765D
+	sta $55                                      // $765F
+	jsr $61c5                                    // $7661
+	ldy #$ff                                     // $7664
+	dey                                          // $7666
+	.byte $D0, $FD                               // $7667  bne $7666
+	dec $55                                      // $7669
+	.byte $D0, $F4                               // $766B  bne $7661
+	lda $d015                                    // $766D  ; VIC_SPEN
+	and #$f0                                     // $7670
+	sta $d015                                    // $7672  ; VIC_SPEN
+	lda #$01                                     // $7675
+	sta $d027                                    // $7677
+	sta $26                                      // $767A
+	lda #$00                                     // $767C
+	sta $25                                      // $767E
+	sta $43                                      // $7680
+	sta $42                                      // $7682
+	sta $28                                      // $7684
+	lda #$05                                     // $7686
+	sta $29                                      // $7688
+	rts                                          // $768A
+	nop                                          // $768B
+	nop                                          // $768C
+	nop                                          // $768D
+	nop                                          // $768E
+	nop                                          // $768F
+	lda #$01                                     // $7690
+	sta $50                                      // $7692
+	jsr $7100                                    // $7694
+	lda #$04                                     // $7697
+	sta $55                                      // $7699
+	jsr $7260                                    // $769B
+	jsr $61c5                                    // $769E
+	lda $55                                      // $76A1
+	cmp #$04                                     // $76A3
+	.byte $90, $0B                               // $76A5  bcc $76B2
+	lda $33                                      // $76A7
+	cmp #$2a                                     // $76A9
+	.byte $D0, $05                               // $76AB  bne $76B2
+	jsr $75f0                                    // $76AD
+	dec $55                                      // $76B0
+	lda $55                                      // $76B2
+	cmp #$03                                     // $76B4
+	.byte $90, $0B                               // $76B6  bcc $76C3
+	lda $33                                      // $76B8
+	cmp #$8a                                     // $76BA
+	.byte $90, $05                               // $76BC  bcc $76C3
+	jsr $6c10                                    // $76BE
+	dec $55                                      // $76C1
+	lda $50                                      // $76C3
+	.byte $D0, $06                               // $76C5  bne $76CD
+	jsr $61f0                                    // $76C7
+	jmp $76e6                                    // $76CA
+	cmp #$05                                     // $76CD
+	.byte $D0, $0B                               // $76CF  bne $76DC
+	lda $55                                      // $76D1
+	cmp #$02                                     // $76D3
+	.byte $90, $05                               // $76D5  bcc $76DC
+	jsr $6090                                    // $76D7
+	dec $55                                      // $76DA
+	ldx #$18                                     // $76DC
+	ldy #$ff                                     // $76DE
+	dey                                          // $76E0
+	.byte $D0, $FD                               // $76E1  bne $76E0
+	dex                                          // $76E3
+	.byte $D0, $F8                               // $76E4  bne $76DE
+	lda $50                                      // $76E6
+	.byte $D0, $B1                               // $76E8  bne $769B
+	lda #$0c                                     // $76EA
+	sta $36                                      // $76EC
+	rts                                          // $76EE
+	nop                                          // $76EF
+	lda $d003                                    // $76F0  ; VIC_SP1Y
+	cmp #$70                                     // $76F3
+	.byte $B0, $20                               // $76F5  bcs $7717
+	lda $d017                                    // $76F7  ; VIC_SPYEXP
+	and #$f9                                     // $76FA
+	sta $d017                                    // $76FC  ; VIC_SPYEXP
+	lda $d01d                                    // $76FF  ; VIC_SPXEXP
+	and #$f9                                     // $7702
+	sta $d01d                                    // $7704  ; VIC_SPXEXP
+	lda $d01b                                    // $7707  ; VIC_SPPRI
+	ora #$06                                     // $770A
+	sta $d01b                                    // $770C  ; VIC_SPPRI
+	lda #$08                                     // $770F
+	sta $d418                                    // $7711  ; SID_FMODE
+	jmp $7740                                    // $7714
+	lda $d017                                    // $7717  ; VIC_SPYEXP
+	ora #$06                                     // $771A
+	sta $d017                                    // $771C  ; VIC_SPYEXP
+	lda $d01d                                    // $771F  ; VIC_SPXEXP
+	ora #$06                                     // $7722
+	sta $d01d                                    // $7724  ; VIC_SPXEXP
+	lda $d01b                                    // $7727  ; VIC_SPPRI
+	and #$f9                                     // $772A
+	sta $d01b                                    // $772C  ; VIC_SPPRI
+	lda $d002                                    // $772F  ; VIC_SP1X
+	sta $d004                                    // $7732
+	lda $d003                                    // $7735  ; VIC_SP1Y
+	sta $d005                                    // $7738
+	lda #$0f                                     // $773B
+	sta $d418                                    // $773D  ; SID_FMODE
+	lda $d010                                    // $7740  ; VIC_SPXMSB
+	and #$06                                     // $7743
+	.byte $F0, $0F                               // $7745  beq $7756
+	lda $d002                                    // $7747  ; VIC_SP1X
+	cmp #$60                                     // $774A
+	.byte $90, $08                               // $774C  bcc $7756
+	cmp #$d0                                     // $774E
+	.byte $B0, $04                               // $7750  bcs $7756
+	lda $4e                                      // $7752
+	sta $42                                      // $7754
+	rts                                          // $7756
+	nop                                          // $7757
+	nop                                          // $7758
+	nop                                          // $7759
+	nop                                          // $775A
+	nop                                          // $775B
+	nop                                          // $775C
+	nop                                          // $775D
+	nop                                          // $775E
+	nop                                          // $775F
+	lda $d002                                    // $7760  ; VIC_SP1X
+	cmp #$94                                     // $7763
+	.byte $90, $26                               // $7765  bcc $778D
+	cmp #$ac                                     // $7767
+	.byte $B0, $22                               // $7769  bcs $778D
+	lda $d003                                    // $776B  ; VIC_SP1Y
+	cmp #$d2                                     // $776E
+	.byte $90, $1B                               // $7770  bcc $778D
+	cmp #$e2                                     // $7772
+	.byte $B0, $17                               // $7774  bcs $778D
+	lda #$01                                     // $7776
+	sta $37                                      // $7778
+	lda #$02                                     // $777A
+	sta $3d                                      // $777C
+	lda #$fd                                     // $777E
+	sta $3e                                      // $7780
+	lda $42                                      // $7782
+	and #$7f                                     // $7784
+	sta $43                                      // $7786
+	lda #$00                                     // $7788
+	sta $42                                      // $778A
+	rts                                          // $778C
+	lda $d004                                    // $778D
+	cmp #$94                                     // $7790
+	.byte $90, $26                               // $7792  bcc $77BA
+	cmp #$ac                                     // $7794
+	.byte $B0, $22                               // $7796  bcs $77BA
+	lda $d005                                    // $7798
+	cmp #$d2                                     // $779B
+	.byte $90, $1B                               // $779D  bcc $77BA
+	cmp #$e2                                     // $779F
+	.byte $B0, $17                               // $77A1  bcs $77BA
+	lda #$02                                     // $77A3
+	sta $37                                      // $77A5
+	lda #$04                                     // $77A7
+	sta $3d                                      // $77A9
+	lda #$fb                                     // $77AB
+	sta $3e                                      // $77AD
+	lda $42                                      // $77AF
+	and #$7f                                     // $77B1
+	sta $43                                      // $77B3
+	lda #$00                                     // $77B5
+	sta $42                                      // $77B7
+	rts                                          // $77B9
+	lda $d006                                    // $77BA
+	cmp #$94                                     // $77BD
+	.byte $90, $25                               // $77BF  bcc $77E6
+	cmp #$ac                                     // $77C1
+	.byte $B0, $21                               // $77C3  bcs $77E6
+	lda $d007                                    // $77C5
+	cmp #$d2                                     // $77C8
+	.byte $90, $1A                               // $77CA  bcc $77E6
+	cmp #$e2                                     // $77CC
+	.byte $B0, $16                               // $77CE  bcs $77E6
+	lda #$03                                     // $77D0
+	sta $37                                      // $77D2
+	lda #$08                                     // $77D4
+	sta $3d                                      // $77D6
+	lda #$f7                                     // $77D8
+	sta $3e                                      // $77DA
+	lda $42                                      // $77DC
+	and #$7f                                     // $77DE
+	sta $43                                      // $77E0
+	lda #$00                                     // $77E2
+	sta $42                                      // $77E4
+	rts                                          // $77E6
+	nop                                          // $77E7
+	nop                                          // $77E8
+	nop                                          // $77E9
+	nop                                          // $77EA
+	nop                                          // $77EB
+	nop                                          // $77EC
+	nop                                          // $77ED
+	nop                                          // $77EE
+	nop                                          // $77EF
+	lda $d01e                                    // $77F0  ; VIC_SPCOL
+	sta $4c                                      // $77F3
+	and #$03                                     // $77F5
+	cmp #$03                                     // $77F7
+	.byte $D0, $03                               // $77F9  bne $77FE
+	jmp $7815                                    // $77FB
+	lda $4c                                      // $77FE
+	and #$05                                     // $7800
+	cmp #$05                                     // $7802
+	.byte $D0, $03                               // $7804  bne $7809
+	jmp $7832                                    // $7806
+	lda $4c                                      // $7809
+	and #$09                                     // $780B
+	cmp #$09                                     // $780D
+	.byte $D0, $03                               // $780F  bne $7814
+	jmp $784f                                    // $7811
+	rts                                          // $7814
+	lda $d017                                    // $7815  ; VIC_SPYEXP
+	and #$02                                     // $7818
+	.byte $F0, $F8                               // $781A  beq $7814
+	inc $41                                      // $781C
+	lda #$b3                                     // $781E
+	sta $07f9                                    // $7820
+	lda $d015                                    // $7823  ; VIC_SPEN
+	and #$fe                                     // $7826
+	sta $d015                                    // $7828  ; VIC_SPEN
+	lda #$05                                     // $782B
+	sta $29                                      // $782D
+	jmp $7814                                    // $782F
+	lda $d017                                    // $7832  ; VIC_SPYEXP
+	and #$04                                     // $7835
+	.byte $F0, $DB                               // $7837  beq $7814
+	inc $41                                      // $7839
+	lda #$b3                                     // $783B
+	sta $07fa                                    // $783D
+	lda $d015                                    // $7840  ; VIC_SPEN
+	and #$fe                                     // $7843
+	sta $d015                                    // $7845  ; VIC_SPEN
+	lda #$08                                     // $7848
+	sta $29                                      // $784A
+	jmp $7814                                    // $784C
+	lda $d017                                    // $784F  ; VIC_SPYEXP
+	and #$08                                     // $7852
 	.byte $F0, $BE                               // $7854  beq $7814
 	inc $41                                      // $7856
 	lda #$b3                                     // $7858
@@ -16520,885 +17992,766 @@
 	nop                                          // $786D
 	nop                                          // $786E
 	nop                                          // $786F
-	lda #$b7                                     // $7870
-	sta $07fa                                    // $7872
-	lda #$b8                                     // $7875
-	sta $07fb                                    // $7877
-	lda #$03                                     // $787A
-	sta $d029                                    // $787C
-	sta $d02a                                    // $787F
-	lda #$50                                     // $7882
-	sta $d005                                    // $7884
-	lda #$78                                     // $7887
-	sta $d007                                    // $7889
-	lda $d010                                    // $788C  ; VIC_SPXMSB
-	and #$f3                                     // $788F
-	sta $d010                                    // $7891  ; VIC_SPXMSB
-	lda $d017                                    // $7894  ; VIC_SPYEXP
-	ora #$0c                                     // $7897
-	sta $d017                                    // $7899  ; VIC_SPYEXP
-	lda $d01d                                    // $789C  ; VIC_SPXEXP
-	ora #$0c                                     // $789F
-	sta $d01d                                    // $78A1  ; VIC_SPXEXP
-	lda $d01c                                    // $78A4  ; VIC_SPMCOL
-	and #$f3                                     // $78A7
-	sta $d01c                                    // $78A9  ; VIC_SPMCOL
-	lda $d01b                                    // $78AC  ; VIC_SPPRI
-	ora #$0c                                     // $78AF
-	sta $d01b                                    // $78B1  ; VIC_SPPRI
-	lda $d015                                    // $78B4  ; VIC_SPEN
-	ora #$0c                                     // $78B7
-	sta $d015                                    // $78B9  ; VIC_SPEN
-	rts                                          // $78BC
-	nop                                          // $78BD
-	nop                                          // $78BE
-	nop                                          // $78BF
-	lda $57                                      // $78C0
-	and #$0f                                     // $78C2
-	.byte $D0, $20                               // $78C4  bne $78E6
-	lda #$b9                                     // $78C6
-	sta $07f9                                    // $78C8
-	sta $38                                      // $78CB
-	lda #$ba                                     // $78CD
-	sta $3a                                      // $78CF
-	lda $d010                                    // $78D1  ; VIC_SPXMSB
-	ora #$02                                     // $78D4
-	sta $d010                                    // $78D6  ; VIC_SPXMSB
-	lda #$60                                     // $78D9
-	sta $d002                                    // $78DB  ; VIC_SP1X
-	lda #$80                                     // $78DE
-	sta $d003                                    // $78E0  ; VIC_SP1Y
-	jmp $7903                                    // $78E3
-	lda #$c0                                     // $78E6
-	sta $07f9                                    // $78E8
-	sta $38                                      // $78EB
-	lda #$c1                                     // $78ED
-	sta $3a                                      // $78EF
-	lda $d010                                    // $78F1  ; VIC_SPXMSB
-	and #$fd                                     // $78F4
-	sta $d010                                    // $78F6  ; VIC_SPXMSB
-	lda #$00                                     // $78F9
-	sta $d002                                    // $78FB  ; VIC_SP1X
-	lda #$88                                     // $78FE
-	sta $d003                                    // $7900  ; VIC_SP1Y
-	lda #$01                                     // $7903
-	sta $d028                                    // $7905
-	sta $39                                      // $7908
-	sta $3b                                      // $790A
-	sta $37                                      // $790C
-	lda #$02                                     // $790E
-	sta $3f                                      // $7910
-	sta $40                                      // $7912
-	sta $3c                                      // $7914
-	sta $3d                                      // $7916
-	lda #$fd                                     // $7918
-	sta $3e                                      // $791A
-	lda $d017                                    // $791C  ; VIC_SPYEXP
-	ora #$02                                     // $791F
-	sta $d017                                    // $7921  ; VIC_SPYEXP
-	lda $d01d                                    // $7924  ; VIC_SPXEXP
-	ora #$02                                     // $7927
-	sta $d01d                                    // $7929  ; VIC_SPXEXP
-	lda $d01b                                    // $792C  ; VIC_SPPRI
-	and #$fd                                     // $792F
-	sta $d01b                                    // $7931  ; VIC_SPPRI
-	lda $d01c                                    // $7934  ; VIC_SPMCOL
-	and #$fd                                     // $7937
-	sta $d01c                                    // $7939  ; VIC_SPMCOL
-	lda $d015                                    // $793C  ; VIC_SPEN
-	ora #$02                                     // $793F
-	sta $d015                                    // $7941  ; VIC_SPEN
-	rts                                          // $7944
-	nop                                          // $7945
-	nop                                          // $7946
-	nop                                          // $7947
-	nop                                          // $7948
-	nop                                          // $7949
-	lda $57                                      // $794A
-	.byte $30, $1D                               // $794C  bmi $796B
-	lda $d002                                    // $794E  ; VIC_SP1X
-	cmp #$8a                                     // $7951
-	.byte $90, $4E                               // $7953  bcc $79A3
-	cmp #$a0                                     // $7955
-	.byte $B0, $4A                               // $7957  bcs $79A3
-	lda $d003                                    // $7959  ; VIC_SP1Y
-	cmp #$b0                                     // $795C
-	.byte $90, $43                               // $795E  bcc $79A3
-	lda $d003                                    // $7960  ; VIC_SP1Y
-	adc #$08                                     // $7963
-	sta $d003                                    // $7965  ; VIC_SP1Y
-	jmp $7985                                    // $7968
-	lda $d002                                    // $796B  ; VIC_SP1X
-	cmp #$b8                                     // $796E
-	.byte $B0, $31                               // $7970  bcs $79A3
-	cmp #$a8                                     // $7972
-	.byte $90, $2D                               // $7974  bcc $79A3
-	lda $d003                                    // $7976  ; VIC_SP1Y
-	cmp #$b8                                     // $7979
-	.byte $90, $26                               // $797B  bcc $79A3
-	lda $d003                                    // $797D  ; VIC_SP1Y
-	adc #$02                                     // $7980
-	sta $d003                                    // $7982  ; VIC_SP1Y
-	lda $d015                                    // $7985  ; VIC_SPEN
-	and #$02                                     // $7988
-	.byte $F0, $17                               // $798A  beq $79A3
-	nop                                          // $798C
-	lda $42                                      // $798D
-	and #$7f                                     // $798F
-	sta $43                                      // $7991
-	lda $d015                                    // $7993  ; VIC_SPEN
-	and #$f3                                     // $7996
-	sta $d015                                    // $7998  ; VIC_SPEN
-	lda $d01b                                    // $799B  ; VIC_SPPRI
-	and #$f0                                     // $799E
-	sta $d01b                                    // $79A0  ; VIC_SPPRI
-	rts                                          // $79A3
-	nop                                          // $79A4
-	lda $d01e                                    // $79A5  ; VIC_SPCOL
-	sta $56                                      // $79A8
-	and #$03                                     // $79AA
-	cmp #$03                                     // $79AC
-	.byte $D0, $29                               // $79AE  bne $79D9
-	lda $d002                                    // $79B0  ; VIC_SP1X
-	nop                                          // $79B3
-	nop                                          // $79B4
-	cmp $d000                                    // $79B5  ; VIC_SP0X
-	.byte $B0, $1F                               // $79B8  bcs $79D9
-	adc #$18                                     // $79BA
-	cmp $d000                                    // $79BC  ; VIC_SP0X
-	.byte $90, $18                               // $79BF  bcc $79D9
-	lda $d003                                    // $79C1  ; VIC_SP1Y
-	sbc #$08                                     // $79C4
-	cmp $d001                                    // $79C6  ; VIC_SP0Y
-	.byte $B0, $0E                               // $79C9  bcs $79D9
-	adc #$20                                     // $79CB
-	cmp $d001                                    // $79CD  ; VIC_SP0Y
-	.byte $90, $07                               // $79D0  bcc $79D9
-	jsr $737a                                    // $79D2
-	lda $4e                                      // $79D5
-	sta $42                                      // $79D7
-	rts                                          // $79D9
-	nop                                          // $79DA
-	nop                                          // $79DB
-	nop                                          // $79DC
-	nop                                          // $79DD
-	nop                                          // $79DE
-	nop                                          // $79DF
-	lda $53                                      // $79E0
-	.byte $D0, $0D                               // $79E2  bne $79F1
-	inc $d004                                    // $79E4
-	inc $d006                                    // $79E7
-	lda #$01                                     // $79EA
-	sta $53                                      // $79EC
-	jmp $79fb                                    // $79EE
-	dec $d004                                    // $79F1
-	dec $d006                                    // $79F4
-	lda #$00                                     // $79F7
-	sta $53                                      // $79F9
-	lda $56                                      // $79FB
-	nop                                          // $79FD
-	and #$05                                     // $79FE
-	cmp #$05                                     // $7A00
-	.byte $D0, $38                               // $7A02  bne $7A3C
-	lda $d004                                    // $7A04
-	adc #$08                                     // $7A07
-	cmp $d000                                    // $7A09  ; VIC_SP0X
-	.byte $B0, $25                               // $7A0C  bcs $7A33
-	adc #$10                                     // $7A0E
-	cmp $d000                                    // $7A10  ; VIC_SP0X
-	.byte $90, $1E                               // $7A13  bcc $7A33
-	lda $d005                                    // $7A15
-	cmp $d001                                    // $7A18  ; VIC_SP0Y
-	.byte $B0, $16                               // $7A1B  bcs $7A33
-	adc #$10                                     // $7A1D
-	cmp $d001                                    // $7A1F  ; VIC_SP0Y
-	.byte $90, $0F                               // $7A22  bcc $7A33
-	lda $42                                      // $7A24
-	sta $43                                      // $7A26
-	lda #$00                                     // $7A28
-	sta $42                                      // $7A2A
-	jsr $6387                                    // $7A2C
-	lda #$60                                     // $7A2F
-	sta $29                                      // $7A31
-	rts                                          // $7A33
-	nop                                          // $7A34
-	nop                                          // $7A35
-	nop                                          // $7A36
-	nop                                          // $7A37
-	nop                                          // $7A38
-	nop                                          // $7A39
-	nop                                          // $7A3A
-	nop                                          // $7A3B
-	nop                                          // $7A3C
-	nop                                          // $7A3D
-	nop                                          // $7A3E
-	nop                                          // $7A3F
-	nop                                          // $7A40
-	nop                                          // $7A41
-	nop                                          // $7A42
-	nop                                          // $7A43
-	nop                                          // $7A44
-	lda $d01e                                    // $7A45  ; VIC_SPCOL
-	and #$03                                     // $7A48
-	cmp #$03                                     // $7A4A
-	.byte $F0, $01                               // $7A4C  beq $7A4F
-	rts                                          // $7A4E
-	lda $d002                                    // $7A4F  ; VIC_SP1X
-	adc #$08                                     // $7A52
-	cmp $d000                                    // $7A54  ; VIC_SP0X
-	.byte $B0, $29                               // $7A57  bcs $7A82
-	adc #$06                                     // $7A59
-	cmp $d000                                    // $7A5B  ; VIC_SP0X
-	.byte $90, $22                               // $7A5E  bcc $7A82
-	lda $d003                                    // $7A60  ; VIC_SP1Y
-	adc #$0c                                     // $7A63
-	cmp $d001                                    // $7A65  ; VIC_SP0Y
-	.byte $B0, $18                               // $7A68  bcs $7A82
-	adc #$0c                                     // $7A6A
-	cmp $d001                                    // $7A6C  ; VIC_SP0Y
-	.byte $90, $11                               // $7A6F  bcc $7A82
-	lda $42                                      // $7A71
-	sta $43                                      // $7A73
-	lda #$00                                     // $7A75
-	sta $42                                      // $7A77
-	lda #$99                                     // $7A79
-	sta $28                                      // $7A7B
-	sta $29                                      // $7A7D
-	jmp $6387                                    // $7A7F
-	rts                                          // $7A82
+	lda $50                                      // $7870
+	.byte $D0, $17                               // $7872  bne $788B
+	lda #$a6                                     // $7874
+	sta $07f9                                    // $7876
+	lda #$a7                                     // $7879
+	sta $07fa                                    // $787B
+	lda #$b7                                     // $787E
+	sta $d002                                    // $7880  ; VIC_SP1X
+	lda #$e6                                     // $7883
+	sta $d004                                    // $7885
+	jmp $789f                                    // $7888
+	lda #$a4                                     // $788B
+	sta $07f9                                    // $788D
+	lda #$a5                                     // $7890
+	sta $07fa                                    // $7892
+	lda #$58                                     // $7895
+	sta $d002                                    // $7897  ; VIC_SP1X
+	lda #$87                                     // $789A
+	sta $d004                                    // $789C
+	lda #$56                                     // $789F
+	sta $d003                                    // $78A1  ; VIC_SP1Y
+	sta $d005                                    // $78A4
+	lda #$02                                     // $78A7
+	sta $d028                                    // $78A9
+	sta $d029                                    // $78AC
+	lda #$03                                     // $78AF
+	sta $37                                      // $78B1
+	lda #$02                                     // $78B3
+	sta $3c                                      // $78B5
+	lda $d010                                    // $78B7  ; VIC_SPXMSB
+	ora #$06                                     // $78BA
+	sta $d010                                    // $78BC  ; VIC_SPXMSB
+	lda $d015                                    // $78BF  ; VIC_SPEN
+	ora #$06                                     // $78C2
+	and #$f7                                     // $78C4
+	sta $d015                                    // $78C6  ; VIC_SPEN
+	lda $d017                                    // $78C9  ; VIC_SPYEXP
+	ora #$06                                     // $78CC
+	sta $d017                                    // $78CE  ; VIC_SPYEXP
+	lda $d01d                                    // $78D1  ; VIC_SPXEXP
+	ora #$06                                     // $78D4
+	sta $d01d                                    // $78D6  ; VIC_SPXEXP
+	lda $d01b                                    // $78D9  ; VIC_SPPRI
+	and #$f0                                     // $78DC
+	sta $d01b                                    // $78DE  ; VIC_SPPRI
+	lda $d01c                                    // $78E1  ; VIC_SPMCOL
+	ora #$06                                     // $78E4
+	sta $d01c                                    // $78E6  ; VIC_SPMCOL
+	rts                                          // $78E9
+	nop                                          // $78EA
+	nop                                          // $78EB
+	nop                                          // $78EC
+	nop                                          // $78ED
+	nop                                          // $78EE
+	nop                                          // $78EF
+	lda $50                                      // $78F0
+	.byte $D0, $08                               // $78F2  bne $78FC
+	lda #$4c                                     // $78F4
+	sta $d006                                    // $78F6
+	jmp $7901                                    // $78F9
+	lda #$ff                                     // $78FC
+	sta $d006                                    // $78FE
+	lda #$76                                     // $7901
+	sta $d007                                    // $7903
+	lda #$dd                                     // $7906
+	sta $07fb                                    // $7908
+	sta $38                                      // $790B
+	lda #$de                                     // $790D
+	sta $3a                                      // $790F
+	lda #$07                                     // $7911
+	sta $d02a                                    // $7913
+	sta $39                                      // $7916
+	lda #$08                                     // $7918
+	sta $3b                                      // $791A
+	lda #$20                                     // $791C
+	sta $3f                                      // $791E
+	sta $40                                      // $7920
+	lda #$08                                     // $7922
+	sta $3d                                      // $7924
+	lda #$f7                                     // $7926
+	sta $3e                                      // $7928
+	lda $d015                                    // $792A  ; VIC_SPEN
+	ora #$08                                     // $792D
+	sta $d015                                    // $792F  ; VIC_SPEN
+	lda $d01c                                    // $7932  ; VIC_SPMCOL
+	and #$f7                                     // $7935
+	sta $d01c                                    // $7937  ; VIC_SPMCOL
+	lda $d010                                    // $793A  ; VIC_SPXMSB
+	and #$f7                                     // $793D
+	sta $d010                                    // $793F  ; VIC_SPXMSB
+	lda #$03                                     // $7942
+	sta $37                                      // $7944
+	rts                                          // $7946
+	jsr $61c5                                    // $7947
+	dec $53                                      // $794A
+	.byte $F0, $01                               // $794C  beq $794F
+	rts                                          // $794E
+	lda #$03                                     // $794F
+	sta $53                                      // $7951
+	ldx #$01                                     // $7953
+	inc $d002                                    // $7955  ; VIC_SP1X
+	.byte $D0, $1D                               // $7958  bne $7977
+	lda $d010                                    // $795A  ; VIC_SPXMSB
+	and #$02                                     // $795D
+	.byte $F0, $0B                               // $795F  beq $796C
+	lda $d010                                    // $7961  ; VIC_SPXMSB
+	and #$fd                                     // $7964
+	sta $d010                                    // $7966  ; VIC_SPXMSB
+	jmp $7974                                    // $7969
+	lda $d010                                    // $796C  ; VIC_SPXMSB
+	ora #$02                                     // $796F
+	sta $d010                                    // $7971  ; VIC_SPXMSB
+	inc $d002                                    // $7974  ; VIC_SP1X
+	inc $d004                                    // $7977
+	.byte $D0, $1D                               // $797A  bne $7999
+	lda $d010                                    // $797C  ; VIC_SPXMSB
+	and #$04                                     // $797F
+	.byte $F0, $0B                               // $7981  beq $798E
+	lda $d010                                    // $7983  ; VIC_SPXMSB
+	and #$fb                                     // $7986
+	sta $d010                                    // $7988  ; VIC_SPXMSB
+	jmp $7996                                    // $798B
+	lda $d010                                    // $798E  ; VIC_SPXMSB
+	ora #$04                                     // $7991
+	sta $d010                                    // $7993  ; VIC_SPXMSB
+	inc $d004                                    // $7996
+	lda $d004                                    // $7999
+	cmp #$2a                                     // $799C
+	.byte $D0, $0C                               // $799E  bne $79AC
+	lda $d010                                    // $79A0  ; VIC_SPXMSB
+	and #$04                                     // $79A3
+	.byte $D0, $05                               // $79A5  bne $79AC
+	inc $51                                      // $79A7
+	jsr $78f0                                    // $79A9
+	lda $51                                      // $79AC
+	.byte $F0, $1F                               // $79AE  beq $79CF
+	inc $d006                                    // $79B0
+	inc $d007                                    // $79B3
+	lda $d007                                    // $79B6
+	cmp #$ea                                     // $79B9
+	.byte $90, $0F                               // $79BB  bcc $79CC
+	lda #$00                                     // $79BD
+	sta $51                                      // $79BF
+	lda $d015                                    // $79C1  ; VIC_SPEN
+	and #$f7                                     // $79C4
+	sta $d015                                    // $79C6  ; VIC_SPEN
+	jmp $79cf                                    // $79C9
+	jsr $7ab3                                    // $79CC
+	dex                                          // $79CF
+	.byte $D0, $83                               // $79D0  bne $7955
+	rts                                          // $79D2
+	nop                                          // $79D3
+	jsr $61c5                                    // $79D4
+	dec $53                                      // $79D7
+	.byte $F0, $01                               // $79D9  beq $79DC
+	rts                                          // $79DB
+	lda #$03                                     // $79DC
+	sta $53                                      // $79DE
+	ldx #$01                                     // $79E0
+	dec $d004                                    // $79E2
+	.byte $D0, $1D                               // $79E5  bne $7A04
+	lda $d010                                    // $79E7  ; VIC_SPXMSB
+	and #$04                                     // $79EA
+	.byte $F0, $0B                               // $79EC  beq $79F9
+	lda $d010                                    // $79EE  ; VIC_SPXMSB
+	and #$fb                                     // $79F1
+	sta $d010                                    // $79F3  ; VIC_SPXMSB
+	jmp $7a01                                    // $79F6
+	lda $d010                                    // $79F9  ; VIC_SPXMSB
+	ora #$04                                     // $79FC
+	sta $d010                                    // $79FE  ; VIC_SPXMSB
+	dec $d004                                    // $7A01
+	dec $d002                                    // $7A04  ; VIC_SP1X
+	.byte $D0, $1D                               // $7A07  bne $7A26
+	lda $d010                                    // $7A09  ; VIC_SPXMSB
+	and #$02                                     // $7A0C
+	.byte $F0, $0B                               // $7A0E  beq $7A1B
+	lda $d010                                    // $7A10  ; VIC_SPXMSB
+	and #$fd                                     // $7A13
+	sta $d010                                    // $7A15  ; VIC_SPXMSB
+	jmp $7a23                                    // $7A18
+	lda $d010                                    // $7A1B  ; VIC_SPXMSB
+	ora #$02                                     // $7A1E
+	sta $d010                                    // $7A20  ; VIC_SPXMSB
+	dec $d002                                    // $7A23  ; VIC_SP1X
+	lda $d002                                    // $7A26  ; VIC_SP1X
+	cmp #$0a                                     // $7A29
+	.byte $D0, $0C                               // $7A2B  bne $7A39
+	lda $d010                                    // $7A2D  ; VIC_SPXMSB
+	and #$02                                     // $7A30
+	.byte $F0, $05                               // $7A32  beq $7A39
+	inc $51                                      // $7A34
+	jsr $78f0                                    // $7A36
+	lda $51                                      // $7A39
+	.byte $F0, $1F                               // $7A3B  beq $7A5C
+	dec $d006                                    // $7A3D
+	inc $d007                                    // $7A40
+	lda $d007                                    // $7A43
+	cmp #$ea                                     // $7A46
+	.byte $90, $0F                               // $7A48  bcc $7A59
+	lda #$00                                     // $7A4A
+	sta $51                                      // $7A4C
+	lda $d015                                    // $7A4E  ; VIC_SPEN
+	and #$f7                                     // $7A51
+	sta $d015                                    // $7A53  ; VIC_SPEN
+	jmp $7a5c                                    // $7A56
+	jsr $7ab3                                    // $7A59
+	dex                                          // $7A5C
+	.byte $D0, $83                               // $7A5D  bne $79E2
+	rts                                          // $7A5F
+	lda #$a8                                     // $7A60
+	sta $d006                                    // $7A62
+	lda #$80                                     // $7A65
+	sta $d007                                    // $7A67
+	lda #$01                                     // $7A6A
+	sta $55                                      // $7A6C
+	lda $d01b                                    // $7A6E  ; VIC_SPPRI
+	and #$f7                                     // $7A71
+	sta $d01b                                    // $7A73  ; VIC_SPPRI
+	jmp $7906                                    // $7A76
+	nop                                          // $7A79
+	nop                                          // $7A7A
+	nop                                          // $7A7B
+	nop                                          // $7A7C
+	nop                                          // $7A7D
+	nop                                          // $7A7E
+	nop                                          // $7A7F
+	nop                                          // $7A80
+	nop                                          // $7A81
+	nop                                          // $7A82
 	nop                                          // $7A83
 	nop                                          // $7A84
-	lda $d01e                                    // $7A85  ; VIC_SPCOL
-	and #$03                                     // $7A88
-	cmp #$03                                     // $7A8A
-	.byte $F0, $01                               // $7A8C  beq $7A8F
-	rts                                          // $7A8E
-	lda $d002                                    // $7A8F  ; VIC_SP1X
-	cmp $d000                                    // $7A92  ; VIC_SP0X
-	.byte $B0, $F7                               // $7A95  bcs $7A8E
-	adc #$10                                     // $7A97
-	cmp $d000                                    // $7A99  ; VIC_SP0X
-	.byte $90, $F0                               // $7A9C  bcc $7A8E
-	lda $d003                                    // $7A9E  ; VIC_SP1Y
-	cmp $d001                                    // $7AA1  ; VIC_SP0Y
-	.byte $B0, $E8                               // $7AA4  bcs $7A8E
-	adc #$18                                     // $7AA6
-	cmp $d001                                    // $7AA8  ; VIC_SP0Y
-	.byte $90, $E1                               // $7AAB  bcc $7A8E
-	lda $42                                      // $7AAD
-	sta $43                                      // $7AAF
-	lda #$00                                     // $7AB1
-	sta $42                                      // $7AB3
-	rts                                          // $7AB5
-	nop                                          // $7AB6
-	nop                                          // $7AB7
-	nop                                          // $7AB8
-	nop                                          // $7AB9
-	nop                                          // $7ABA
-	nop                                          // $7ABB
-	nop                                          // $7ABC
-	nop                                          // $7ABD
-	nop                                          // $7ABE
-	nop                                          // $7ABF
-	lda $d01e                                    // $7AC0  ; VIC_SPCOL
-	and #$07                                     // $7AC3
-	cmp #$03                                     // $7AC5
-	.byte $F0, $05                               // $7AC7  beq $7ACE
-	cmp #$07                                     // $7AC9
-	.byte $F0, $01                               // $7ACB  beq $7ACE
+	nop                                          // $7A85
+	nop                                          // $7A86
+	nop                                          // $7A87
+	nop                                          // $7A88
+	nop                                          // $7A89
+	nop                                          // $7A8A
+	nop                                          // $7A8B
+	nop                                          // $7A8C
+	nop                                          // $7A8D
+	nop                                          // $7A8E
+	nop                                          // $7A8F
+	jsr $61c5                                    // $7A90
+	dec $55                                      // $7A93
+	.byte $F0, $01                               // $7A95  beq $7A98
+	rts                                          // $7A97
+	lda #$05                                     // $7A98
+	sta $55                                      // $7A9A
+	inc $d007                                    // $7A9C
+	lda $d007                                    // $7A9F
+	cmp #$ea                                     // $7AA2
+	.byte $90, $0D                               // $7AA4  bcc $7AB3
+	lda $d015                                    // $7AA6  ; VIC_SPEN
+	and #$f7                                     // $7AA9
+	sta $d015                                    // $7AAB  ; VIC_SPEN
+	lda #$08                                     // $7AAE
+	sta $42                                      // $7AB0
+	rts                                          // $7AB2
+	cmp #$b8                                     // $7AB3
+	.byte $90, $FB                               // $7AB5  bcc $7AB2
+	lda $d006                                    // $7AB7
+	cmp #$a8                                     // $7ABA
+	.byte $90, $F4                               // $7ABC  bcc $7AB2
+	cmp #$b0                                     // $7ABE
+	.byte $B0, $F0                               // $7AC0  bcs $7AB2
+	lda $d010                                    // $7AC2  ; VIC_SPXMSB
+	and #$08                                     // $7AC5
+	.byte $D0, $04                               // $7AC7  bne $7ACD
+	lda #$08                                     // $7AC9
+	sta $43                                      // $7ACB
 	rts                                          // $7ACD
-	lda $52                                      // $7ACE
-	cmp #$0b                                     // $7AD0
-	.byte $D0, $0D                               // $7AD2  bne $7AE1
-	lda $d002                                    // $7AD4  ; VIC_SP1X
-	sbc #$08                                     // $7AD7
-	cmp $d000                                    // $7AD9  ; VIC_SP0X
-	.byte $B0, $5A                               // $7ADC  bcs $7B38
-	jmp $7b00                                    // $7ADE
-	cmp #$03                                     // $7AE1
-	.byte $D0, $0D                               // $7AE3  bne $7AF2
-	lda $d002                                    // $7AE5  ; VIC_SP1X
-	adc #$18                                     // $7AE8
-	cmp $d000                                    // $7AEA  ; VIC_SP0X
-	.byte $B0, $49                               // $7AED  bcs $7B38
-	jmp $7b00                                    // $7AEF
-	cmp #$07                                     // $7AF2
-	.byte $D0, $42                               // $7AF4  bne $7B38
-	lda $d002                                    // $7AF6  ; VIC_SP1X
-	adc #$40                                     // $7AF9
-	cmp $d000                                    // $7AFB  ; VIC_SP0X
-	.byte $B0, $38                               // $7AFE  bcs $7B38
-	adc #$10                                     // $7B00
-	cmp $d000                                    // $7B02  ; VIC_SP0X
-	.byte $90, $31                               // $7B05  bcc $7B38
-	lda $d003                                    // $7B07  ; VIC_SP1Y
-	adc #$08                                     // $7B0A
-	cmp $d001                                    // $7B0C  ; VIC_SP0Y
-	.byte $B0, $27                               // $7B0F  bcs $7B38
-	adc #$10                                     // $7B11
-	cmp $d001                                    // $7B13  ; VIC_SP0Y
-	.byte $90, $20                               // $7B16  bcc $7B38
-	lda $42                                      // $7B18
-	sta $43                                      // $7B1A
-	jsr $6387                                    // $7B1C
-	nop                                          // $7B1F
-	lda #$00                                     // $7B20
-	sta $33                                      // $7B22
-	lda #$01                                     // $7B24
-	sta $26                                      // $7B26
-	lda #$40                                     // $7B28
-	sta $30                                      // $7B2A
-	sta $34                                      // $7B2C
-	lda #$55                                     // $7B2E
-	sta $31                                      // $7B30
-	sta $35                                      // $7B32
-	lda #$40                                     // $7B34
-	sta $29                                      // $7B36
-	lda #$10                                     // $7B38
-	sta $28                                      // $7B3A
-	rts                                          // $7B3C
-	nop                                          // $7B3D
-	nop                                          // $7B3E
-	nop                                          // $7B3F
-	lda #$ce                                     // $7B40
-	sta $07f9                                    // $7B42
-	lda #$cf                                     // $7B45
-	sta $07fa                                    // $7B47
-	lda #$d0                                     // $7B4A
-	sta $07fb                                    // $7B4C
-	lda #$b1                                     // $7B4F
-	sta $07ff                                    // $7B51
-	lda #$58                                     // $7B54
-	sta $d003                                    // $7B56  ; VIC_SP1Y
-	sta $53                                      // $7B59
-	lda #$6c                                     // $7B5B
-	sta $d005                                    // $7B5D
-	lda #$80                                     // $7B60
-	sta $d007                                    // $7B62
-	lda #$30                                     // $7B65
-	sta $d00f                                    // $7B67
-	lda #$a0                                     // $7B6A
-	sta $d00e                                    // $7B6C
-	lda $d010                                    // $7B6F  ; VIC_SPXMSB
-	and #$00                                     // $7B72
-	sta $d010                                    // $7B74  ; VIC_SPXMSB
-	lda #$00                                     // $7B77
-	sta $37                                      // $7B79
-	lda #$00                                     // $7B7B
-	sta $d028                                    // $7B7D
-	sta $d029                                    // $7B80
-	sta $d02a                                    // $7B83
-	lda #$00                                     // $7B86
-	sta $d02e                                    // $7B88
-	lda $d017                                    // $7B8B  ; VIC_SPYEXP
-	and #$f0                                     // $7B8E
-	ora #$80                                     // $7B90
-	sta $d017                                    // $7B92  ; VIC_SPYEXP
-	lda $d01d                                    // $7B95  ; VIC_SPXEXP
-	and #$f0                                     // $7B98
-	ora #$80                                     // $7B9A
-	sta $d01d                                    // $7B9C  ; VIC_SPXEXP
-	lda $d01b                                    // $7B9F  ; VIC_SPPRI
-	ora #$8e                                     // $7BA2
-	sta $d01b                                    // $7BA4  ; VIC_SPPRI
-	lda $d01c                                    // $7BA7  ; VIC_SPMCOL
-	ora #$0e                                     // $7BAA
-	sta $d01c                                    // $7BAC  ; VIC_SPMCOL
-	lda $d015                                    // $7BAF  ; VIC_SPEN
-	ora #$8e                                     // $7BB2
-	sta $d015                                    // $7BB4  ; VIC_SPEN
-	lda #$50                                     // $7BB7
-	sta $d002                                    // $7BB9  ; VIC_SP1X
-	sta $d004                                    // $7BBC
-	sta $d006                                    // $7BBF
-	lda #$00                                     // $7BC2
-	sta $50                                      // $7BC4
-	sta $54                                      // $7BC6
-	sta $51                                      // $7BC8
-	lda #$05                                     // $7BCA
-	sta $56                                      // $7BCC
-	rts                                          // $7BCE
-	nop                                          // $7BCF
-	lda #$30                                     // $7BD0
-	sta $d003                                    // $7BD2  ; VIC_SP1Y
-	lda #$80                                     // $7BD5
-	sta $d007                                    // $7BD7
-	lda $d017                                    // $7BDA  ; VIC_SPYEXP
-	ora #$0e                                     // $7BDD
-	sta $d017                                    // $7BDF  ; VIC_SPYEXP
-	lda $d01d                                    // $7BE2  ; VIC_SPXEXP
-	ora #$0e                                     // $7BE5
-	sta $d017                                    // $7BE7  ; VIC_SPYEXP
-	ora #$0e                                     // $7BEA
-	sta $d01d                                    // $7BEC  ; VIC_SPXEXP
-	lda $d01b                                    // $7BEF  ; VIC_SPPRI
-	ora #$8e                                     // $7BF2
-	sta $d01b                                    // $7BF4  ; VIC_SPPRI
-	lda #$58                                     // $7BF7
-	sta $d005                                    // $7BF9
-	rts                                          // $7BFC
-	nop                                          // $7BFD
-	nop                                          // $7BFE
-	nop                                          // $7BFF
-	lda #$00                                     // $7C00
-	sta $d015                                    // $7C02  ; VIC_SPEN
-	sta $d01b                                    // $7C05  ; VIC_SPPRI
-	sta $d001                                    // $7C08  ; VIC_SP0Y
-	sta $d003                                    // $7C0B  ; VIC_SP1Y
-	sta $d005                                    // $7C0E
-	sta $d007                                    // $7C11
-	sta $d009                                    // $7C14
-	sta $d00b                                    // $7C17
-	sta $d00d                                    // $7C1A
-	sta $d00f                                    // $7C1D
-	lda #$98                                     // $7C20
-	sta $07f8                                    // $7C22
-	lda #$99                                     // $7C25
-	sta $07f9                                    // $7C27
-	lda #$9a                                     // $7C2A
-	sta $07fa                                    // $7C2C
-	lda #$9b                                     // $7C2F
-	sta $07fb                                    // $7C31
-	lda #$9c                                     // $7C34
-	sta $07fc                                    // $7C36
-	lda #$9d                                     // $7C39
-	sta $07fd                                    // $7C3B
-	lda #$9e                                     // $7C3E
-	sta $07fe                                    // $7C40
-	lda #$9f                                     // $7C43
-	sta $07ff                                    // $7C45
-	lda #$60                                     // $7C48
-	sta $d000                                    // $7C4A  ; VIC_SP0X
-	sta $d006                                    // $7C4D
-	lda #$90                                     // $7C50
-	sta $d002                                    // $7C52  ; VIC_SP1X
-	sta $d008                                    // $7C55
-	lda #$c0                                     // $7C58
-	sta $d004                                    // $7C5A
-	sta $d00a                                    // $7C5D
-	lda #$78                                     // $7C60
-	sta $d00c                                    // $7C62
-	lda #$a8                                     // $7C65
-	sta $d00e                                    // $7C67
-	lda #$0b                                     // $7C6A
-	sta $d026                                    // $7C6C  ; VIC_SPMCOL1
-	lda #$07                                     // $7C6F
-	sta $d025                                    // $7C71  ; VIC_SPMCOL0
-	ldx #$07                                     // $7C74
-	lda #$02                                     // $7C76
-	sta $d027,x                                  // $7C78
-	dex                                          // $7C7B
-	.byte $10, $FA                               // $7C7C  bpl $7C78
-	lda #$ff                                     // $7C7E
-	sta $d017                                    // $7C80  ; VIC_SPYEXP
-	sta $d01d                                    // $7C83  ; VIC_SPXEXP
-	sta $d01c                                    // $7C86  ; VIC_SPMCOL
-	lda #$00                                     // $7C89
-	sta $d010                                    // $7C8B  ; VIC_SPXMSB
-	rts                                          // $7C8E
-	nop                                          // $7C8F
-	lda #$c0                                     // $7C90
-	sta $d015                                    // $7C92  ; VIC_SPEN
-	inc $d00d                                    // $7C95
-	inc $d00f                                    // $7C98
-	lda $d00d                                    // $7C9B
-	cmp #$2b                                     // $7C9E
-	.byte $D0, $02                               // $7CA0  bne $7CA4
-	inc $50                                      // $7CA2
-	lda $50                                      // $7CA4
-	.byte $F0, $32                               // $7CA6  beq $7CDA
-	lda #$f8                                     // $7CA8
-	sta $d015                                    // $7CAA  ; VIC_SPEN
-	inc $d007                                    // $7CAD
-	inc $d009                                    // $7CB0
-	inc $d00b                                    // $7CB3
-	lda $d007                                    // $7CB6
-	cmp #$29                                     // $7CB9
-	.byte $D0, $02                               // $7CBB  bne $7CBF
-	inc $51                                      // $7CBD
-	lda $51                                      // $7CBF
-	.byte $F0, $17                               // $7CC1  beq $7CDA
-	lda #$ff                                     // $7CC3
-	sta $d015                                    // $7CC5  ; VIC_SPEN
-	inc $d001                                    // $7CC8  ; VIC_SP0Y
-	inc $d003                                    // $7CCB  ; VIC_SP1Y
-	inc $d005                                    // $7CCE
-	lda $d00d                                    // $7CD1
-	cmp #$88                                     // $7CD4
-	.byte $90, $02                               // $7CD6  bcc $7CDA
-	inc $52                                      // $7CD8
-	rts                                          // $7CDA
-	nop                                          // $7CDB
-	nop                                          // $7CDC
-	nop                                          // $7CDD
-	nop                                          // $7CDE
-	nop                                          // $7CDF
-	lda $d01e                                    // $7CE0  ; VIC_SPCOL
-	sta $4c                                      // $7CE3
-	and #$03                                     // $7CE5
-	cmp #$03                                     // $7CE7
-	.byte $D0, $03                               // $7CE9  bne $7CEE
-	jmp $7d05                                    // $7CEB
-	lda $4c                                      // $7CEE
-	and #$05                                     // $7CF0
-	cmp #$05                                     // $7CF2
-	.byte $D0, $03                               // $7CF4  bne $7CF9
-	jmp $7d1d                                    // $7CF6
-	lda $4c                                      // $7CF9
-	and #$09                                     // $7CFB
-	cmp #$09                                     // $7CFD
-	.byte $D0, $03                               // $7CFF  bne $7D04
-	jmp $7d35                                    // $7D01
-	rts                                          // $7D04
-	lda $d017                                    // $7D05  ; VIC_SPYEXP
-	and #$02                                     // $7D08
-	.byte $F0, $F8                               // $7D0A  beq $7D04
-	inc $41                                      // $7D0C
-	lda #$b3                                     // $7D0E
-	sta $07f9                                    // $7D10
-	jsr $7d4d                                    // $7D13
-	lda #$05                                     // $7D16
-	sta $29                                      // $7D18
-	jmp $7d04                                    // $7D1A
-	lda $d017                                    // $7D1D  ; VIC_SPYEXP
-	and #$04                                     // $7D20
-	.byte $F0, $E0                               // $7D22  beq $7D04
-	inc $41                                      // $7D24
-	lda #$b3                                     // $7D26
-	sta $07fa                                    // $7D28
-	jsr $7d4d                                    // $7D2B
-	lda #$05                                     // $7D2E
-	sta $29                                      // $7D30
-	jmp $7d04                                    // $7D32
-	lda $d017                                    // $7D35  ; VIC_SPYEXP
-	and #$08                                     // $7D38
-	.byte $F0, $C8                               // $7D3A  beq $7D04
-	inc $41                                      // $7D3C
-	lda #$b3                                     // $7D3E
-	sta $07fb                                    // $7D40
-	jsr $7d4d                                    // $7D43
-	lda #$05                                     // $7D46
-	sta $29                                      // $7D48
-	jmp $7d04                                    // $7D4A
-	lda $d015                                    // $7D4D  ; VIC_SPEN
-	and #$fe                                     // $7D50
-	sta $d015                                    // $7D52  ; VIC_SPEN
-	rts                                          // $7D55
-	lda #$90                                     // $7D56
-	sta $d005                                    // $7D58
-	lda #$b8                                     // $7D5B
-	sta $d007                                    // $7D5D
-	lda #$0e                                     // $7D60
-	sta $d029                                    // $7D62
-	sta $d02a                                    // $7D65
-	lda $d017                                    // $7D68  ; VIC_SPYEXP
-	ora #$0c                                     // $7D6B
-	sta $d017                                    // $7D6D  ; VIC_SPYEXP
-	lda $d01d                                    // $7D70  ; VIC_SPXEXP
-	ora #$0c                                     // $7D73
-	sta $d01d                                    // $7D75  ; VIC_SPXEXP
-	lda $d01c                                    // $7D78  ; VIC_SPMCOL
-	ora #$0c                                     // $7D7B
-	sta $d01c                                    // $7D7D  ; VIC_SPMCOL
-	lda $d01b                                    // $7D80  ; VIC_SPPRI
-	ora #$0c                                     // $7D83
-	sta $d01b                                    // $7D85  ; VIC_SPPRI
-	lda $d010                                    // $7D88  ; VIC_SPXMSB
-	and #$f3                                     // $7D8B
-	sta $d010                                    // $7D8D  ; VIC_SPXMSB
-	lda $d015                                    // $7D90  ; VIC_SPEN
-	ora #$0c                                     // $7D93
-	sta $d015                                    // $7D95  ; VIC_SPEN
-	ldx #$10                                     // $7D98
-	lda $5d84,x                                  // $7D9A
-	sta $30,x                                    // $7D9D
-	dex                                          // $7D9F
-	.byte $10, $F8                               // $7DA0  bpl $7D9A
-	lda #$81                                     // $7DA2
-	sta $d412                                    // $7DA4
-	lda #$94                                     // $7DA7
-	sta $07fa                                    // $7DA9
-	lda #$95                                     // $7DAC
-	sta $07fb                                    // $7DAE
-	lda #$92                                     // $7DB1
-	sta $07f9                                    // $7DB3
-	lda $d004                                    // $7DB6
-	sta $d006                                    // $7DB9
-	rts                                          // $7DBC
-	nop                                          // $7DBD
-	nop                                          // $7DBE
-	nop                                          // $7DBF
-	dec $54                                      // $7DC0
-	.byte $F0, $01                               // $7DC2  beq $7DC5
-	rts                                          // $7DC4
-	lda $dc04                                    // $7DC5
-	and #$3f                                     // $7DC8
-	sta $54                                      // $7DCA
-	inc $54                                      // $7DCC
-	ldx $53                                      // $7DCE
-	lda $5da0,x                                  // $7DD0
-	sta $07fa                                    // $7DD3
-	lda $5daa,x                                  // $7DD6
-	sta $07fb                                    // $7DD9
-	lda $5db4,x                                  // $7DDC
-	sta $d004                                    // $7DDF
-	sta $d006                                    // $7DE2
-	dec $53                                      // $7DE5
-	.byte $10, $04                               // $7DE7  bpl $7DED
-	lda #$09                                     // $7DE9
-	sta $53                                      // $7DEB
-	lda $d015                                    // $7DED  ; VIC_SPEN
-	and #$0c                                     // $7DF0
-	.byte $D0, $09                               // $7DF2  bne $7DFD
-	lda $42                                      // $7DF4
-	and #$7f                                     // $7DF6
-	sta $42                                      // $7DF8
-	rts                                          // $7DFA
-	nop                                          // $7DFB
-	nop                                          // $7DFC
-	lda $dc04                                    // $7DFD
-	and #$03                                     // $7E00
-	.byte $D0, $04                               // $7E02  bne $7E08
-	lda #$00                                     // $7E04
-	sta $33                                      // $7E06
-	lda #$81                                     // $7E08
-	sta $d412                                    // $7E0A
-	rts                                          // $7E0D
+	nop                                          // $7ACE
+	nop                                          // $7ACF
+	dec $53                                      // $7AD0
+	.byte $F0, $01                               // $7AD2  beq $7AD5
+	rts                                          // $7AD4
+	lda $54                                      // $7AD5
+	sta $53                                      // $7AD7
+	lda $50                                      // $7AD9
+	.byte $D0, $03                               // $7ADB  bne $7AE0
+	jmp $7af8                                    // $7ADD
+	cmp #$07                                     // $7AE0
+	.byte $D0, $03                               // $7AE2  bne $7AE7
+	jmp $7b14                                    // $7AE4
+	cmp #$08                                     // $7AE7
+	.byte $D0, $03                               // $7AE9  bne $7AEE
+	jmp $7b2c                                    // $7AEB
+	and #$01                                     // $7AEE
+	.byte $D0, $03                               // $7AF0  bne $7AF5
+	jmp $7b3c                                    // $7AF2
+	jmp $7b52                                    // $7AF5
+	ldx #$04                                     // $7AF8
+	dec $d002                                    // $7AFA  ; VIC_SP1X
+	dec $d004                                    // $7AFD
+	inc $d003                                    // $7B00  ; VIC_SP1Y
+	inc $d005                                    // $7B03
+	lda $d002                                    // $7B06  ; VIC_SP1X
+	cmp #$60                                     // $7B09
+	.byte $D0, $03                               // $7B0B  bne $7B10
+	jmp $7b68                                    // $7B0D
+	dex                                          // $7B10
+	.byte $D0, $E7                               // $7B11  bne $7AFA
+	rts                                          // $7B13
+	ldx #$05                                     // $7B14
+	inc $d002                                    // $7B16  ; VIC_SP1X
+	inc $d004                                    // $7B19
+	lda $d002                                    // $7B1C  ; VIC_SP1X
+	cmp #$98                                     // $7B1F
+	.byte $D0, $05                               // $7B21  bne $7B28
+	inc $51                                      // $7B23
+	jmp $7b68                                    // $7B25
+	dex                                          // $7B28
+	.byte $D0, $EB                               // $7B29  bne $7B16
+	rts                                          // $7B2B
+	ldx #$06                                     // $7B2C
+	dec $d003                                    // $7B2E  ; VIC_SP1Y
+	dec $d005                                    // $7B31
+	lda $d003                                    // $7B34  ; VIC_SP1Y
+	.byte $D0, $02                               // $7B37  bne $7B3B
+	inc $50                                      // $7B39
+	rts                                          // $7B3B
+	ldx #$04                                     // $7B3C
+	dec $d002                                    // $7B3E  ; VIC_SP1X
+	dec $d004                                    // $7B41
+	lda $d002                                    // $7B44  ; VIC_SP1X
+	cmp #$60                                     // $7B47
+	.byte $D0, $03                               // $7B49  bne $7B4E
+	jmp $7b68                                    // $7B4B
+	dex                                          // $7B4E
+	.byte $D0, $ED                               // $7B4F  bne $7B3E
+	rts                                          // $7B51
+	ldx #$04                                     // $7B52
+	inc $d002                                    // $7B54  ; VIC_SP1X
+	inc $d004                                    // $7B57
+	lda $d002                                    // $7B5A  ; VIC_SP1X
+	cmp #$c0                                     // $7B5D
+	.byte $D0, $03                               // $7B5F  bne $7B64
+	jmp $7b68                                    // $7B61
+	dex                                          // $7B64
+	.byte $D0, $ED                               // $7B65  bne $7B54
+	rts                                          // $7B67
+	inc $50                                      // $7B68
+	lda $50                                      // $7B6A
+	cmp #$01                                     // $7B6C
+	.byte $D0, $0D                               // $7B6E  bne $7B7D
+	lda #$a0                                     // $7B70
+	sta $07f9                                    // $7B72
+	lda #$a1                                     // $7B75
+	sta $07fa                                    // $7B77
+	jmp $7c1a                                    // $7B7A
+	cmp #$02                                     // $7B7D
+	.byte $D0, $0D                               // $7B7F  bne $7B8E
+	lda #$a2                                     // $7B81
+	sta $07f9                                    // $7B83
+	lda #$a3                                     // $7B86
+	sta $07fa                                    // $7B88
+	jmp $7c1a                                    // $7B8B
+	cmp #$03                                     // $7B8E
+	.byte $D0, $0D                               // $7B90  bne $7B9F
+	lda #$a2                                     // $7B92
+	sta $07f9                                    // $7B94
+	lda #$a3                                     // $7B97
+	sta $07fa                                    // $7B99
+	jmp $7c1a                                    // $7B9C
+	cmp #$04                                     // $7B9F
+	.byte $D0, $26                               // $7BA1  bne $7BC9
+	lda #$a0                                     // $7BA3
+	sta $07f9                                    // $7BA5
+	lda #$a1                                     // $7BA8
+	sta $07fa                                    // $7BAA
+	lda $d017                                    // $7BAD  ; VIC_SPYEXP
+	ora #$06                                     // $7BB0
+	sta $d017                                    // $7BB2  ; VIC_SPYEXP
+	lda $d01d                                    // $7BB5  ; VIC_SPXEXP
+	ora #$06                                     // $7BB8
+	sta $d01d                                    // $7BBA  ; VIC_SPXEXP
+	sec                                          // $7BBD
+	lda $d002                                    // $7BBE  ; VIC_SP1X
+	sbc #$18                                     // $7BC1
+	sta $d002                                    // $7BC3  ; VIC_SP1X
+	jmp $7c1a                                    // $7BC6
+	cmp #$05                                     // $7BC9
+	.byte $D0, $15                               // $7BCB  bne $7BE2
+	lda $d017                                    // $7BCD  ; VIC_SPYEXP
+	and #$f9                                     // $7BD0
+	sta $d017                                    // $7BD2  ; VIC_SPYEXP
+	lda #$a2                                     // $7BD5
+	sta $07f9                                    // $7BD7
+	lda #$a3                                     // $7BDA
+	sta $07fa                                    // $7BDC
+	jmp $7c1a                                    // $7BDF
+	cmp #$06                                     // $7BE2
+	.byte $D0, $0D                               // $7BE4  bne $7BF3
+	lda #$ca                                     // $7BE6
+	sta $07f9                                    // $7BE8
+	lda #$cb                                     // $7BEB
+	sta $07fa                                    // $7BED
+	jmp $7c1a                                    // $7BF0
+	cmp #$07                                     // $7BF3
+	.byte $D0, $15                               // $7BF5  bne $7C0C
+	lda $d017                                    // $7BF7  ; VIC_SPYEXP
+	ora #$06                                     // $7BFA
+	sta $d017                                    // $7BFC  ; VIC_SPYEXP
+	lda #$a2                                     // $7BFF
+	sta $07f9                                    // $7C01
+	lda #$a3                                     // $7C04
+	sta $07fa                                    // $7C06
+	jmp $7c1a                                    // $7C09
+	cmp #$08                                     // $7C0C
+	.byte $D0, $10                               // $7C0E  bne $7C20
+	lda #$ca                                     // $7C10
+	sta $07f9                                    // $7C12
+	lda #$cb                                     // $7C15
+	sta $07fa                                    // $7C17
+	lda $54                                      // $7C1A
+	sbc #$04                                     // $7C1C
+	sta $54                                      // $7C1E
+	inc $d003                                    // $7C20  ; VIC_SP1Y
+	inc $d005                                    // $7C23
+	lda $51                                      // $7C26
+	.byte $F0, $03                               // $7C28  beq $7C2D
+	jsr $7a60                                    // $7C2A
+	lda $50                                      // $7C2D
+	cmp #$06                                     // $7C2F
+	.byte $D0, $08                               // $7C31  bne $7C3B
+	lda $d01b                                    // $7C33  ; VIC_SPPRI
+	and #$f9                                     // $7C36
+	sta $d01b                                    // $7C38  ; VIC_SPPRI
+	cmp #$08                                     // $7C3B
+	.byte $D0, $04                               // $7C3D  bne $7C43
+	lda #$03                                     // $7C3F
+	sta $37                                      // $7C41
+	rts                                          // $7C43
+	brk                                          // $7C44
+	brk                                          // $7C45
+	brk                                          // $7C46
+	brk                                          // $7C47
+	brk                                          // $7C48
+	brk                                          // $7C49
+	lda $d01e                                    // $7C4A  ; VIC_SPCOL
+	and #$07                                     // $7C4D
+	cmp #$03                                     // $7C4F
+	.byte $F0, $05                               // $7C51  beq $7C58
+	cmp #$07                                     // $7C53
+	.byte $F0, $01                               // $7C55  beq $7C58
+	rts                                          // $7C57
+	lda $52                                      // $7C58
+	cmp #$0b                                     // $7C5A
+	.byte $D0, $0D                               // $7C5C  bne $7C6B
+	lda $d002                                    // $7C5E  ; VIC_SP1X
+	nop                                          // $7C61
+	nop                                          // $7C62
+	cmp $d000                                    // $7C63  ; VIC_SP0X
+	.byte $B0, $5A                               // $7C66  bcs $7CC2
+	jmp $7c8a                                    // $7C68
+	cmp #$03                                     // $7C6B
+	.byte $D0, $0D                               // $7C6D  bne $7C7C
+	lda $d002                                    // $7C6F  ; VIC_SP1X
+	adc #$20                                     // $7C72
+	cmp $d000                                    // $7C74  ; VIC_SP0X
+	.byte $B0, $49                               // $7C77  bcs $7CC2
+	jmp $7c8a                                    // $7C79
+	cmp #$07                                     // $7C7C
+	.byte $D0, $42                               // $7C7E  bne $7CC2
+	lda $d002                                    // $7C80  ; VIC_SP1X
+	adc #$40                                     // $7C83
+	cmp $d000                                    // $7C85  ; VIC_SP0X
+	.byte $B0, $38                               // $7C88  bcs $7CC2
+	adc #$10                                     // $7C8A
+	cmp $d000                                    // $7C8C  ; VIC_SP0X
+	.byte $90, $31                               // $7C8F  bcc $7CC2
+	lda $d003                                    // $7C91  ; VIC_SP1Y
+	sbc #$10                                     // $7C94
+	cmp $d001                                    // $7C96  ; VIC_SP0Y
+	.byte $B0, $27                               // $7C99  bcs $7CC2
+	adc #$30                                     // $7C9B
+	cmp $d001                                    // $7C9D  ; VIC_SP0Y
+	.byte $90, $20                               // $7CA0  bcc $7CC2
+	lda $42                                      // $7CA2
+	sta $43                                      // $7CA4
+	lda #$00                                     // $7CA6
+	sta $42                                      // $7CA8
+	sta $24                                      // $7CAA
+	sta $33                                      // $7CAC
+	lda #$01                                     // $7CAE
+	sta $26                                      // $7CB0
+	lda #$40                                     // $7CB2
+	sta $30                                      // $7CB4
+	sta $34                                      // $7CB6
+	lda #$55                                     // $7CB8
+	sta $31                                      // $7CBA
+	sta $35                                      // $7CBC
+	lda #$50                                     // $7CBE
+	sta $29                                      // $7CC0
+	lda #$10                                     // $7CC2
+	sta $28                                      // $7CC4
+	rts                                          // $7CC6
+	dec $56                                      // $7CC7
+	.byte $F0, $01                               // $7CC9  beq $7CCC
+	rts                                          // $7CCB
+	lda #$0c                                     // $7CCC
+	sta $56                                      // $7CCE
+	lda #$b7                                     // $7CD0
+	sta $07fa                                    // $7CD2
+	lda #$b8                                     // $7CD5
+	sta $07fb                                    // $7CD7
+	lda #$03                                     // $7CDA
+	sta $d029                                    // $7CDC
+	sta $d02a                                    // $7CDF
+	lda #$50                                     // $7CE2
+	sta $d005                                    // $7CE4
+	lda #$78                                     // $7CE7
+	sta $d007                                    // $7CE9
+	lda $d010                                    // $7CEC  ; VIC_SPXMSB
+	and #$f3                                     // $7CEF
+	sta $d010                                    // $7CF1  ; VIC_SPXMSB
+	lda $d017                                    // $7CF4  ; VIC_SPYEXP
+	ora #$0c                                     // $7CF7
+	sta $d017                                    // $7CF9  ; VIC_SPYEXP
+	lda $d01d                                    // $7CFC  ; VIC_SPXEXP
+	ora #$0c                                     // $7CFF
+	sta $d01d                                    // $7D01  ; VIC_SPXEXP
+	lda $d01c                                    // $7D04  ; VIC_SPMCOL
+	and #$f3                                     // $7D07
+	sta $d01c                                    // $7D09  ; VIC_SPMCOL
+	lda $d01b                                    // $7D0C  ; VIC_SPPRI
+	ora #$0c                                     // $7D0F
+	sta $d01b                                    // $7D11  ; VIC_SPPRI
+	lda $d015                                    // $7D14  ; VIC_SPEN
+	ora #$0c                                     // $7D17
+	sta $d015                                    // $7D19  ; VIC_SPEN
+	rts                                          // $7D1C
+	nop                                          // $7D1D
+	nop                                          // $7D1E
+	nop                                          // $7D1F
+	lda $57                                      // $7D20
+	and #$0f                                     // $7D22
+	.byte $D0, $20                               // $7D24  bne $7D46
+	lda #$b9                                     // $7D26
+	sta $07f9                                    // $7D28
+	sta $38                                      // $7D2B
+	lda #$ba                                     // $7D2D
+	sta $3a                                      // $7D2F
+	lda $d010                                    // $7D31  ; VIC_SPXMSB
+	ora #$02                                     // $7D34
+	sta $d010                                    // $7D36  ; VIC_SPXMSB
+	lda #$58                                     // $7D39
+	sta $d002                                    // $7D3B  ; VIC_SP1X
+	lda #$80                                     // $7D3E
+	sta $d003                                    // $7D40  ; VIC_SP1Y
+	jmp $7d63                                    // $7D43
+	lda #$c0                                     // $7D46
+	sta $07f9                                    // $7D48
+	sta $38                                      // $7D4B
+	lda #$c1                                     // $7D4D
+	sta $3a                                      // $7D4F
+	lda $d010                                    // $7D51  ; VIC_SPXMSB
+	and #$fd                                     // $7D54
+	sta $d010                                    // $7D56  ; VIC_SPXMSB
+	lda #$00                                     // $7D59
+	sta $d002                                    // $7D5B  ; VIC_SP1X
+	lda #$88                                     // $7D5E
+	sta $d003                                    // $7D60  ; VIC_SP1Y
+	lda #$01                                     // $7D63
+	sta $d028                                    // $7D65
+	sta $39                                      // $7D68
+	sta $3b                                      // $7D6A
+	lda #$01                                     // $7D6C
+	sta $37                                      // $7D6E
+	sta $3f                                      // $7D70
+	sta $40                                      // $7D72
+	lda #$02                                     // $7D74
+	sta $3c                                      // $7D76
+	sta $3d                                      // $7D78
+	lda #$fd                                     // $7D7A
+	sta $3e                                      // $7D7C
+	lda $d017                                    // $7D7E  ; VIC_SPYEXP
+	ora #$02                                     // $7D81
+	sta $d017                                    // $7D83  ; VIC_SPYEXP
+	lda $d01d                                    // $7D86  ; VIC_SPXEXP
+	ora #$02                                     // $7D89
+	sta $d01d                                    // $7D8B  ; VIC_SPXEXP
+	lda $d01b                                    // $7D8E  ; VIC_SPPRI
+	and #$fd                                     // $7D91
+	sta $d01b                                    // $7D93  ; VIC_SPPRI
+	lda $d01c                                    // $7D96  ; VIC_SPMCOL
+	and #$fd                                     // $7D99
+	sta $d01c                                    // $7D9B  ; VIC_SPMCOL
+	lda $d015                                    // $7D9E  ; VIC_SPEN
+	ora #$02                                     // $7DA1
+	sta $d015                                    // $7DA3  ; VIC_SPEN
+	lda #$02                                     // $7DA6
+	sta $3f                                      // $7DA8
+	sta $40                                      // $7DAA
+	rts                                          // $7DAC
+	nop                                          // $7DAD
+	nop                                          // $7DAE
+	nop                                          // $7DAF
+	lda $57                                      // $7DB0
+	.byte $30, $1D                               // $7DB2  bmi $7DD1
+	lda $d002                                    // $7DB4  ; VIC_SP1X
+	cmp #$8a                                     // $7DB7
+	.byte $90, $4E                               // $7DB9  bcc $7E09
+	cmp #$a0                                     // $7DBB
+	.byte $B0, $4A                               // $7DBD  bcs $7E09
+	lda $d003                                    // $7DBF  ; VIC_SP1Y
+	cmp #$b0                                     // $7DC2
+	.byte $90, $43                               // $7DC4  bcc $7E09
+	lda $d003                                    // $7DC6  ; VIC_SP1Y
+	adc #$08                                     // $7DC9
+	sta $d003                                    // $7DCB  ; VIC_SP1Y
+	jmp $7deb                                    // $7DCE
+	lda $d002                                    // $7DD1  ; VIC_SP1X
+	cmp #$b8                                     // $7DD4
+	.byte $B0, $31                               // $7DD6  bcs $7E09
+	cmp #$a8                                     // $7DD8
+	.byte $90, $2D                               // $7DDA  bcc $7E09
+	lda $d003                                    // $7DDC  ; VIC_SP1Y
+	cmp #$b8                                     // $7DDF
+	.byte $90, $26                               // $7DE1  bcc $7E09
+	lda $d003                                    // $7DE3  ; VIC_SP1Y
+	adc #$02                                     // $7DE6
+	sta $d003                                    // $7DE8  ; VIC_SP1Y
+	lda $d015                                    // $7DEB  ; VIC_SPEN
+	and #$02                                     // $7DEE
+	.byte $F0, $17                               // $7DF0  beq $7E09
+	nop                                          // $7DF2
+	lda $42                                      // $7DF3
+	and #$7f                                     // $7DF5
+	sta $43                                      // $7DF7
+	lda $d015                                    // $7DF9  ; VIC_SPEN
+	and #$f3                                     // $7DFC
+	sta $d015                                    // $7DFE  ; VIC_SPEN
+	lda $d01b                                    // $7E01  ; VIC_SPPRI
+	and #$f0                                     // $7E04
+	sta $d01b                                    // $7E06  ; VIC_SPPRI
+	rts                                          // $7E09
+	nop                                          // $7E0A
+	nop                                          // $7E0B
+	nop                                          // $7E0C
+	nop                                          // $7E0D
 	nop                                          // $7E0E
-	nop                                          // $7E0F
-	dec $51                                      // $7E10
-	.byte $F0, $01                               // $7E12  beq $7E15
-	rts                                          // $7E14
-	lda #$06                                     // $7E15
-	sta $51                                      // $7E17
-	dec $d005                                    // $7E19
-	dec $d007                                    // $7E1C
-	lda $d005                                    // $7E1F
-	cmp #$5c                                     // $7E22
-	.byte $B0, $04                               // $7E24  bcs $7E2A
-	lda #$00                                     // $7E26
-	sta $52                                      // $7E28
-	rts                                          // $7E2A
-	nop                                          // $7E2B
-	dec $55                                      // $7E2C
-	.byte $D0, $39                               // $7E2E  bne $7E69
-	lda #$92                                     // $7E30
-	sta $07f9                                    // $7E32
-	lda #$07                                     // $7E35
-	sta $d028                                    // $7E37
-	lda #$a2                                     // $7E3A
-	sta $d002                                    // $7E3C  ; VIC_SP1X
-	lda #$70                                     // $7E3F
-	sta $d003                                    // $7E41  ; VIC_SP1Y
-	lda $d017                                    // $7E44  ; VIC_SPYEXP
-	ora #$02                                     // $7E47
-	sta $d017                                    // $7E49  ; VIC_SPYEXP
-	sta $d01d                                    // $7E4C  ; VIC_SPXEXP
-	lda $d01c                                    // $7E4F  ; VIC_SPMCOL
-	and #$fd                                     // $7E52
-	sta $d01c                                    // $7E54  ; VIC_SPMCOL
-	lda $d01b                                    // $7E57  ; VIC_SPPRI
-	and #$fd                                     // $7E5A
-	sta $d01b                                    // $7E5C  ; VIC_SPPRI
-	ldx #$10                                     // $7E5F
-	lda $5d84,x                                  // $7E61
-	sta $30,x                                    // $7E64
-	dex                                          // $7E66
-	.byte $10, $F8                               // $7E67  bpl $7E61
-	lda $d010                                    // $7E69  ; VIC_SPXMSB
-	and #$fd                                     // $7E6C
-	sta $d010                                    // $7E6E  ; VIC_SPXMSB
-	rts                                          // $7E71
-	lda $d015                                    // $7E72  ; VIC_SPEN
-	and #$0c                                     // $7E75
-	.byte $D0, $01                               // $7E77  bne $7E7A
-	rts                                          // $7E79
-	dec $51                                      // $7E7A
-	.byte $D0, $FB                               // $7E7C  bne $7E79
-	lda #$0a                                     // $7E7E
-	sta $51                                      // $7E80
-	lda $d015                                    // $7E82  ; VIC_SPEN
-	ora #$02                                     // $7E85
-	sta $d015                                    // $7E87  ; VIC_SPEN
-	inc $d003                                    // $7E8A  ; VIC_SP1Y
-	inc $d003                                    // $7E8D  ; VIC_SP1Y
-	lda $d003                                    // $7E90  ; VIC_SP1Y
-	cmp #$f0                                     // $7E93
-	.byte $B0, $1F                               // $7E95  bcs $7EB6
-	cmp #$c0                                     // $7E97
-	.byte $90, $27                               // $7E99  bcc $7EC2
-	lda $d002                                    // $7E9B  ; VIC_SP1X
-	cmp #$98                                     // $7E9E
-	.byte $90, $20                               // $7EA0  bcc $7EC2
-	cmp #$a8                                     // $7EA2
-	.byte $B0, $1C                               // $7EA4  bcs $7EC2
-	lda $d010                                    // $7EA6  ; VIC_SPXMSB
-	and #$02                                     // $7EA9
-	.byte $D0, $15                               // $7EAB  bne $7EC2
-	lda $42                                      // $7EAD
-	and #$7f                                     // $7EAF
-	sta $43                                      // $7EB1
-	jmp $6387                                    // $7EB3
-	lda $d015                                    // $7EB6  ; VIC_SPEN
-	and #$fd                                     // $7EB9
-	sta $d015                                    // $7EBB  ; VIC_SPEN
-	lda #$02                                     // $7EBE
-	sta $55                                      // $7EC0
-	rts                                          // $7EC2
-	nop                                          // $7EC3
-	nop                                          // $7EC4
-	lda $d01e                                    // $7EC5  ; VIC_SPCOL
-	and #$05                                     // $7EC8
-	cmp #$05                                     // $7ECA
-	.byte $D0, $31                               // $7ECC  bne $7EFF
-	lda $d004                                    // $7ECE
-	adc #$09                                     // $7ED1
-	cmp $d000                                    // $7ED3  ; VIC_SP0X
-	.byte $B0, $27                               // $7ED6  bcs $7EFF
-	adc #$08                                     // $7ED8
-	cmp $d000                                    // $7EDA  ; VIC_SP0X
-	.byte $90, $20                               // $7EDD  bcc $7EFF
-	lda $d005                                    // $7EDF
-	cmp $d001                                    // $7EE2  ; VIC_SP0Y
-	.byte $B0, $18                               // $7EE5  bcs $7EFF
-	adc #$10                                     // $7EE7
-	cmp $d001                                    // $7EE9  ; VIC_SP0Y
-	.byte $90, $11                               // $7EEC  bcc $7EFF
-	lda $42                                      // $7EEE
-	sta $43                                      // $7EF0
-	jsr $6387                                    // $7EF2
-	lda #$80                                     // $7EF5
-	sta $29                                      // $7EF7
-	lda #$00                                     // $7EF9
-	sta $42                                      // $7EFB
-	sta $42                                      // $7EFD
-	rts                                          // $7EFF
-	ldx #$28                                     // $7F00
-	lda #$00                                     // $7F02
-	sta $d400,x                                  // $7F04  ; SID_FR1LO
-	dex                                          // $7F07
-	.byte $10, $F8                               // $7F08  bpl $7F02
-	ldx #$18                                     // $7F0A
-	lda $50c0,x                                  // $7F0C
-	sta $d400,x                                  // $7F0F  ; SID_FR1LO
-	dex                                          // $7F12
-	.byte $10, $F7                               // $7F13  bpl $7F0C
-	rts                                          // $7F15
-	nop                                          // $7F16
-	nop                                          // $7F17
-	nop                                          // $7F18
-	nop                                          // $7F19
-	lda #$00                                     // $7F1A
-	sta $33                                      // $7F1C
-	lda #$40                                     // $7F1E
-	sta $34                                      // $7F20
-	lda #$30                                     // $7F22
-	sta $30                                      // $7F24
-	lda #$5c                                     // $7F26
-	sta $31                                      // $7F28
-	sta $35                                      // $7F2A
-	dec $52                                      // $7F2C
-	rts                                          // $7F2E
-	dec $56                                      // $7F2F
-	.byte $D0, $10                               // $7F31  bne $7F43
-	lda $dc04                                    // $7F33
-	sta $d002                                    // $7F36  ; VIC_SP1X
-	sta $d004                                    // $7F39
-	sta $d006                                    // $7F3C
-	lda #$10                                     // $7F3F
-	sta $56                                      // $7F41
-	rts                                          // $7F43
-	nop                                          // $7F44
-	lda $d010                                    // $7F45  ; VIC_SPXMSB
-	and #$06                                     // $7F48
-	.byte $D0, $01                               // $7F4A  bne $7F4D
-	rts                                          // $7F4C
-	lda $d002                                    // $7F4D  ; VIC_SP1X
-	cmp #$60                                     // $7F50
-	.byte $90, $F8                               // $7F52  bcc $7F4C
-	cmp #$a0                                     // $7F54
-	.byte $B0, $F4                               // $7F56  bcs $7F4C
-	lda $4e                                      // $7F58
-	sta $42                                      // $7F5A
-	rts                                          // $7F5C
-	brk                                          // $7F5D
-	brk                                          // $7F5E
-	brk                                          // $7F5F
-	ldx #$00                                     // $7F60
-	lda $5790,x                                  // $7F62
-	sta $07a9,x                                  // $7F65
-	lda #$0a                                     // $7F68
-	sta $dba9,x                                  // $7F6A
-	inx                                          // $7F6D
-	cpx #$06                                     // $7F6E
-	.byte $D0, $F0                               // $7F70  bne $7F62
-	lda $5790,x                                  // $7F72
-	sta $07cb,x                                  // $7F75
-	lda #$0a                                     // $7F78
-	sta $dbcb,x                                  // $7F7A
-	inx                                          // $7F7D
-	cpx #$0d                                     // $7F7E
-	.byte $D0, $F0                               // $7F80  bne $7F72
-	rts                                          // $7F82
-	nop                                          // $7F83
-	nop                                          // $7F84
-	lda $16                                      // $7F85
-	cmp #$18                                     // $7F87
-	.byte $90, $04                               // $7F89  bcc $7F8F
-	lda #$00                                     // $7F8B
-	sta $16                                      // $7F8D
-	inc $16                                      // $7F8F
-	inc $16                                      // $7F91
-	inc $16                                      // $7F93
-	inc $16                                      // $7F95
-	jmp $61ca                                    // $7F97
-	nop                                          // $7F9A
-	nop                                          // $7F9B
-	nop                                          // $7F9C
-	nop                                          // $7F9D
-	nop                                          // $7F9E
-	nop                                          // $7F9F
-	lda $d01d                                    // $7FA0  ; VIC_SPXEXP
-	ora #$06                                     // $7FA3
-	sta $d01d                                    // $7FA5  ; VIC_SPXEXP
-	clc                                          // $7FA8
-	lda $d002                                    // $7FA9  ; VIC_SP1X
-	adc #$30                                     // $7FAC
-	sta $d004                                    // $7FAE
-	lda $d01b                                    // $7FB1  ; VIC_SPPRI
-	and #$f9                                     // $7FB4
-	sta $d01b                                    // $7FB6  ; VIC_SPPRI
-	rts                                          // $7FB9
-	lda $d017                                    // $7FBA  ; VIC_SPYEXP
-	ora #$06                                     // $7FBD
-	sta $d017                                    // $7FBF  ; VIC_SPYEXP
-	rts                                          // $7FC2
-	nop                                          // $7FC3
-	nop                                          // $7FC4
-	ldy $dc05                                    // $7FC5
-	ldx $5050,y                                  // $7FC8
-	lda $0400,x                                  // $7FCB
-	cmp #$7b                                     // $7FCE
-	.byte $F0, $01                               // $7FD0  beq $7FD3
-	rts                                          // $7FD2
-	lda #$7c                                     // $7FD3
-	sta $0400,x                                  // $7FD5
-	lda #$01                                     // $7FD8
-	sta $d800,x                                  // $7FDA
-	ldy #$00                                     // $7FDD
-	dey                                          // $7FDF
-	.byte $D0, $FD                               // $7FE0  bne $7FDF
-	lda #$7b                                     // $7FE2
-	sta $0400,x                                  // $7FE4
-	rts                                          // $7FE7
-	lda $42                                      // $7FE8
-	cmp #$a0                                     // $7FEA
-	.byte $D0, $07                               // $7FEC  bne $7FF5
-	lda $55                                      // $7FEE
-	.byte $D0, $03                               // $7FF0  bne $7FF5
-	jmp $7e82                                    // $7FF2
-	rts                                          // $7FF5
-	nop                                          // $7FF6
-	nop                                          // $7FF7
-	nop                                          // $7FF8
-	nop                                          // $7FF9
+	lda $d01e                                    // $7E0F  ; VIC_SPCOL
+	sta $56                                      // $7E12
+	and #$03                                     // $7E14
+	cmp #$03                                     // $7E16
+	.byte $D0, $2D                               // $7E18  bne $7E47
+	lda $d002                                    // $7E1A  ; VIC_SP1X
+	sbc #$04                                     // $7E1D
+	cmp $d000                                    // $7E1F  ; VIC_SP0X
+	.byte $B0, $23                               // $7E22  bcs $7E47
+	adc #$14                                     // $7E24
+	cmp $d000                                    // $7E26  ; VIC_SP0X
+	.byte $90, $1C                               // $7E29  bcc $7E47
+	lda $d003                                    // $7E2B  ; VIC_SP1Y
+	sbc #$08                                     // $7E2E
+	cmp $d001                                    // $7E30  ; VIC_SP0Y
+	.byte $B0, $12                               // $7E33  bcs $7E47
+	adc #$14                                     // $7E35
+	cmp $d001                                    // $7E37  ; VIC_SP0Y
+	.byte $90, $0B                               // $7E3A  bcc $7E47
+	jsr $7630                                    // $7E3C
+	lda $4e                                      // $7E3F
+	sta $42                                      // $7E41
+	lda #$10                                     // $7E43
+	sta $29                                      // $7E45
+	rts                                          // $7E47
+	nop                                          // $7E48
+	nop                                          // $7E49
+	lda $53                                      // $7E4A
+	.byte $D0, $0D                               // $7E4C  bne $7E5B
+	inc $d004                                    // $7E4E
+	inc $d006                                    // $7E51
+	lda #$01                                     // $7E54
+	sta $53                                      // $7E56
+	jmp $7e65                                    // $7E58
+	dec $d004                                    // $7E5B
+	dec $d006                                    // $7E5E
+	lda #$00                                     // $7E61
+	sta $53                                      // $7E63
+	lda $56                                      // $7E65
+	nop                                          // $7E67
+	and #$05                                     // $7E68
+	cmp #$05                                     // $7E6A
+	.byte $D0, $3C                               // $7E6C  bne $7EAA
+	lda $d004                                    // $7E6E
+	adc #$0c                                     // $7E71
+	cmp $d000                                    // $7E73  ; VIC_SP0X
+	.byte $B0, $32                               // $7E76  bcs $7EAA
+	adc #$08                                     // $7E78
+	cmp $d000                                    // $7E7A  ; VIC_SP0X
+	.byte $90, $2B                               // $7E7D  bcc $7EAA
+	lda $d005                                    // $7E7F
+	cmp $d001                                    // $7E82  ; VIC_SP0Y
+	.byte $B0, $23                               // $7E85  bcs $7EAA
+	adc #$20                                     // $7E87
+	cmp $d001                                    // $7E89  ; VIC_SP0Y
+	.byte $90, $1C                               // $7E8C  bcc $7EAA
+	lda $42                                      // $7E8E
+	sta $43                                      // $7E90
+	lda #$00                                     // $7E92
+	sta $42                                      // $7E94
+	sta $24                                      // $7E96
+	lda #$41                                     // $7E98
+	sta $d412                                    // $7E9A
+	lda #$fc                                     // $7E9D
+	sta $d015                                    // $7E9F  ; VIC_SPEN
+	lda #$01                                     // $7EA2
+	sta $26                                      // $7EA4
+	lda #$75                                     // $7EA6
+	sta $29                                      // $7EA8
+	rts                                          // $7EAA
+	nop                                          // $7EAB
+	nop                                          // $7EAC
+	nop                                          // $7EAD
+	nop                                          // $7EAE
+	nop                                          // $7EAF
+	lda $d01e                                    // $7EB0  ; VIC_SPCOL
+	and #$03                                     // $7EB3
+	cmp #$03                                     // $7EB5
+	.byte $F0, $01                               // $7EB7  beq $7EBA
+	rts                                          // $7EB9
+	lda $d002                                    // $7EBA  ; VIC_SP1X
+	adc #$08                                     // $7EBD
+	cmp $d000                                    // $7EBF  ; VIC_SP0X
+	.byte $B0, $26                               // $7EC2  bcs $7EEA
+	adc #$08                                     // $7EC4
+	cmp $d000                                    // $7EC6  ; VIC_SP0X
+	.byte $90, $1F                               // $7EC9  bcc $7EEA
+	lda $d003                                    // $7ECB  ; VIC_SP1Y
+	adc #$08                                     // $7ECE
+	cmp $d001                                    // $7ED0  ; VIC_SP0Y
+	.byte $B0, $15                               // $7ED3  bcs $7EEA
+	adc #$08                                     // $7ED5
+	cmp $d001                                    // $7ED7  ; VIC_SP0Y
+	.byte $90, $0E                               // $7EDA  bcc $7EEA
+	lda $42                                      // $7EDC
+	sta $43                                      // $7EDE
+	lda #$00                                     // $7EE0
+	sta $42                                      // $7EE2
+	lda #$99                                     // $7EE4
+	sta $28                                      // $7EE6
+	sta $29                                      // $7EE8
+	rts                                          // $7EEA
+	nop                                          // $7EEB
+	nop                                          // $7EEC
+	nop                                          // $7EED
+	nop                                          // $7EEE
+	nop                                          // $7EEF
+	nop                                          // $7EF0
+	nop                                          // $7EF1
+	brk                                          // $7EF2
+	brk                                          // $7EF3
+	brk                                          // $7EF4
+	brk                                          // $7EF5
+	brk                                          // $7EF6
+	brk                                          // $7EF7
+	lda $00,x                                    // $7EF8
+	brk                                          // $7EFA
+	brk                                          // $7EFB
+	cmp ($00,x)                                  // $7EFC
+	sbc $00,x                                    // $7EFE

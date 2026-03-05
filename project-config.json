@@ -2,7 +2,7 @@
     "name": "main",
     "toolkit": "kick",
     "sources": [
-        "projects/1476_forbidden_forest/forbidden_forest.asm"
+        "projects/test/main.asm"
     ],
     "build": "debug"
 }

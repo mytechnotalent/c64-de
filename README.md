@@ -4,6 +4,14 @@
 
 <br>
 
+# Today's Tutorial [March 6, 2026]
+## Lesson 124: x64 Course (Part 4 - Number Systems)
+This tutorial will discuss number systems.
+
+-> Click [HERE](https://0xinfection.github.io/reversing) to read the FREE ebook.
+
+<br>
+
 # C64 Development Environment
 
 A hardcore macOS development environment to forge and reverse engineer C-64 legends and develop new ones with pure 6502 Assembler.

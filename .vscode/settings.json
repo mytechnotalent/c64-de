@@ -1,7 +1,7 @@
 {
     "vs64.kickInstallDir": "/Users/kevinthomas/Documents/c64-de/KickAssembler",
     "vs64.javaExecutable": "/opt/homebrew/opt/openjdk@21/bin/java",
-    "vs64.viceExecutable": "/Users/kevinthomas/Documents/c64-de/vice-arm64-sdl2-3.10/bin/x64sc-debug",
+    "vs64.viceExecutable": "/Users/kevinthomas/Documents/c64-de/vice-arm64-gtk3-3.10/bin/x64sc",
     "vs64.viceArgs": "",
     "vs64.autoBuild": true,
     "vs64.loglevel": 5

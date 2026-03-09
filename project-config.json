@@ -2,7 +2,7 @@
     "name": "main",
     "toolkit": "kick",
     "sources": [
-        "projects/test/main.asm"
+        "projects/teset/main.asm"
     ],
     "build": "debug"
 }

@@ -26,12 +26,22 @@ DISASM="$SCRIPT_DIR/disasm.py"
 FORMAT_ASM="$SCRIPT_DIR/format_asm.py"
 PROJECTS_DIR="$C64_ROOT/projects"
 
-# ---- VICE binary directory: ARM64 vs x86-64 Mac ----
-if [[ "$(uname -m)" == "arm64" ]]; then
-    VICE_BIN="$C64_ROOT/vice-arm64-sdl2-3.10/bin"
-else
-    VICE_BIN="$C64_ROOT/vice-x86-64-sdl2-3.10/bin"
-fi
+# ---- VICE binary directory: detect OS and architecture ----
+case "$(uname -s)" in
+    Darwin)
+        if [[ "$(uname -m)" == "arm64" ]]; then
+            VICE_BIN="$C64_ROOT/vice-arm64-gtk3-3.10/bin"
+        else
+            VICE_BIN="$C64_ROOT/vice-x86-64-gtk3-3.10/bin"
+        fi
+        ;;
+    Linux)
+        VICE_BIN="/usr/bin"
+        ;;
+    MINGW*|MSYS*|CYGWIN*)
+        VICE_BIN="$C64_ROOT/GTK3VICE-3.10-win64/bin"
+        ;;
+esac
 C1541="$VICE_BIN/c1541"
 PETCAT="$VICE_BIN/petcat"
 
@@ -373,7 +383,7 @@ _build_inject_cmds() {
 # that copies the original D64 and injects each rebuilt PRG.
 # -------------------------------------------------------------
 _inject_func_body() {
-    printf 'C1541="$VICE_DIR/bin/c1541"\n'
+    printf 'if [ -n "$VICE_DIR" ]; then C1541="$VICE_DIR/bin/c1541"; else C1541="c1541"; fi\n'
     printf 'ORIG_D64="$SCRIPT_DIR/%s"\n' "$1"
     printf 'TEST_D64="$BUILD_DIR/test.d64"\n\n'
     printf '_build_test_d64() {\n'
@@ -426,18 +436,26 @@ C64_ROOT="\$(cd "\$SCRIPT_DIR/../.." && pwd)"
 KICKASS="\$C64_ROOT/KickAssembler/KickAss.jar"
 BUILD_DIR="\$C64_ROOT/build"
 
-if [[ "\$(uname -m)" == "arm64" ]]; then
-    VICE_DIR="\$C64_ROOT/vice-arm64-sdl2-3.10"
-else
-    VICE_DIR="\$C64_ROOT/vice-x86-64-sdl2-3.10"
-fi
+case "\$(uname -s)" in
+    Darwin)
+        if [[ "\$(uname -m)" == "arm64" ]]; then
+            VICE_DIR="\$C64_ROOT/vice-arm64-gtk3-3.10"
+        else
+            VICE_DIR="\$C64_ROOT/vice-x86-64-gtk3-3.10"
+        fi
+        ;;
+    Linux)
+        VICE_DIR=""
+        ;;
+    MINGW*|MSYS*|CYGWIN*)
+        VICE_DIR="\$C64_ROOT/GTK3VICE-3.10-win64"
+        ;;
+esac
 
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 CYAN='\033[0;36m'
 NC='\033[0m'
-
-VICE_CFG="\$HOME/.config/vice/sdl-vicerc"
 $D64_INJECT_FUNC
 mkdir -p "\$BUILD_DIR"
 echo -e "\${CYAN}=== Building: $PROJECT_NAME ===\${NC}"
@@ -451,7 +469,11 @@ if [ "\$1" = "run" ]; then
     echo ""
     echo -e "\${CYAN}Launching in VICE (x64sc)...\${NC}"
 $(if $USE_D64_INJECT; then echo '    _build_test_d64'; fi)
-    open -a "\$VICE_DIR/VICE.app" --args --program x64sc -config "\$VICE_CFG" -autostart "$D64_AUTOSTART"
+    case "\$(uname -s)" in
+        Darwin) open -a "\$VICE_DIR/VICE.app" --args --program x64sc -autostart "$D64_AUTOSTART" ;;
+        Linux)  x64sc -autostart "$D64_AUTOSTART" ;;
+        *)      "\$VICE_DIR/bin/x64sc" -autostart "$D64_AUTOSTART" ;;
+    esac
 fi
 
 if [ "\$1" = "debug" ]; then
@@ -459,7 +481,11 @@ if [ "\$1" = "debug" ]; then
     echo -e "\${CYAN}Launching in VICE with debug symbols...\${NC}"
 $(if $USE_D64_INJECT; then echo '    _build_test_d64'; fi)
     SYM_FILE="\$SCRIPT_DIR/${DEBUG_SYM_BASE}.sym"
-    open -a "\$VICE_DIR/VICE.app" --args --program x64sc -config "\$VICE_CFG" -moncommands "\$SYM_FILE" -autostart "$D64_AUTOSTART"
+    case "\$(uname -s)" in
+        Darwin) open -a "\$VICE_DIR/VICE.app" --args --program x64sc -moncommands "\$SYM_FILE" -autostart "$D64_AUTOSTART" ;;
+        Linux)  x64sc -moncommands "\$SYM_FILE" -autostart "$D64_AUTOSTART" ;;
+        *)      "\$VICE_DIR/bin/x64sc" -moncommands "\$SYM_FILE" -autostart "$D64_AUTOSTART" ;;
+    esac
     echo -e "\${GREEN}VICE started with labels loaded.\${NC}"
 fi
 BUILDSCRIPT
@@ -539,7 +565,17 @@ build_for_debug() {
     local asm_path="$PROJECT_DIR/$main_asm"
     local build_dir="$C64_ROOT/build"
     local kickass="$C64_ROOT/KickAssembler/KickAss.jar"
-    local java_exe="/opt/homebrew/opt/openjdk@21/bin/java"
+    local java_exe
+    case "$(uname -s)" in
+        Darwin)
+            if [[ "$(uname -m)" == "arm64" ]]; then
+                java_exe="/opt/homebrew/opt/openjdk@21/bin/java"
+            else
+                java_exe="/usr/local/opt/openjdk@21/bin/java"
+            fi
+            ;;
+        *) java_exe="java" ;;
+    esac
     mkdir -p "$build_dir"
     echo -e "${CYAN}[5/5] Building for VS64 debug...${NC}"
     if "$java_exe" -jar "$kickass" "$asm_path" \

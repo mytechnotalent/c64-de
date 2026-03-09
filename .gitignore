@@ -23,6 +23,7 @@ venv/
 
 # VICE
 *.d64.bak
+*.dmg
 
 # macOS
 .DS_Store

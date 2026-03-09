@@ -14,56 +14,99 @@ This tutorial will discuss binary addition.
 
 # C64 Development Environment
 
-A hardcore macOS development environment to forge and reverse engineer C-64 legends and develop new ones with pure 6502 Assembler.
+A hardcore cross-platform development environment to forge and reverse engineer C-64 legends and develop new ones with pure 6502 Assembler.
+
+Supports **macOS** (Apple Silicon & Intel), **Windows** (64-bit), and **Ubuntu Linux**.
 
 ## Quick Setup
 
-VICE and KickAssembler are bundled in the repo. All you need is Java and the VS64 extension.
+VICE (GTK3) and KickAssembler are bundled in the repo. All you need is Java and the VS64 extension.
 
 ### 1 — Install Java 21 (required by KickAssembler)
 
+**macOS (Apple Silicon & Intel):**
 ```sh
 brew install openjdk@21
 ```
 
-> **Apple Silicon path:** `/opt/homebrew/opt/openjdk@21/bin/java`
-> **Intel path:** `/usr/local/opt/openjdk@21/bin/java`
+**Windows:**
+```powershell
+winget install EclipseAdoptium.Temurin.21.JDK
+```
+Or download from https://adoptium.net/temurin/releases/?version=21 and install the `.msi`.
 
-### 2 — Install the VS64 extension
+**Ubuntu Linux:**
+```sh
+sudo apt install openjdk-21-jdk
+```
 
-Open VS Code → `Cmd+Shift+X` → search **VS64** → install `rosc.vs64`.
+> **Java paths by platform:**
+> - macOS Apple Silicon: `/opt/homebrew/opt/openjdk@21/bin/java`
+> - macOS Intel: `/usr/local/opt/openjdk@21/bin/java`
+> - Windows: `C:\Program Files\Eclipse Adoptium\jdk-21...\bin\java.exe` (or on PATH after install)
+> - Linux: `/usr/bin/java`
 
-### 3 — Update `.vscode/settings.json` for your machine
+### 2 — Install VICE (Linux only)
 
-Open `.vscode/settings.json` and confirm the paths match your Mac:
+On macOS and Windows, VICE GTK3 v3.10 is bundled in the repo. On Linux, install it from the system package manager:
 
-**Apple Silicon:**
+```sh
+sudo apt install vice
+```
+
+### 3 — Install the VS64 extension
+
+Open VS Code → `Cmd+Shift+X` (macOS) / `Ctrl+Shift+X` (Windows/Linux) → search **VS64** → install `rosc.vs64`.
+
+### 4 — Update `.vscode/settings.json` for your machine
+
+Open `.vscode/settings.json` and set the paths for your platform:
+
+**macOS (Apple Silicon):**
 ```json
 {
     "vs64.kickInstallDir": "${workspaceFolder}/KickAssembler",
     "vs64.javaExecutable": "/opt/homebrew/opt/openjdk@21/bin/java",
-    "vs64.viceExecutable": "${workspaceFolder}/vice-arm64-sdl2-3.10/bin/x64sc-debug",
-    "vs64.viceArgs": "-config ${HOME}/.config/vice/sdl-vicerc",
+    "vs64.viceExecutable": "${workspaceFolder}/vice-arm64-gtk3-3.10/bin/x64sc",
     "vs64.autoBuild": true,
     "vs64.loglevel": 0
 }
 ```
 
-**Intel:**
+**macOS (Intel):**
 ```json
 {
     "vs64.kickInstallDir": "${workspaceFolder}/KickAssembler",
     "vs64.javaExecutable": "/usr/local/opt/openjdk@21/bin/java",
-    "vs64.viceExecutable": "${workspaceFolder}/vice-x86-64-sdl2-3.10/bin/x64sc-debug",
-    "vs64.viceArgs": "-config ${HOME}/.config/vice/sdl-vicerc",
+    "vs64.viceExecutable": "${workspaceFolder}/vice-x86-64-gtk3-3.10/bin/x64sc",
     "vs64.autoBuild": true,
     "vs64.loglevel": 0
 }
 ```
 
-> **Important:** The correct setting key is `vs64.viceArgs` (not `vs64.viceArguments`).
+**Windows:**
+```json
+{
+    "vs64.kickInstallDir": "${workspaceFolder}/KickAssembler",
+    "vs64.javaExecutable": "java",
+    "vs64.viceExecutable": "${workspaceFolder}/GTK3VICE-3.10-win64/bin/x64sc.exe",
+    "vs64.autoBuild": true,
+    "vs64.loglevel": 0
+}
+```
 
-### 4 — Open the workspace and press F5
+**Ubuntu Linux:**
+```json
+{
+    "vs64.kickInstallDir": "${workspaceFolder}/KickAssembler",
+    "vs64.javaExecutable": "java",
+    "vs64.viceExecutable": "/usr/bin/x64sc",
+    "vs64.autoBuild": true,
+    "vs64.loglevel": 0
+}
+```
+
+### 5 — Open the workspace and press F5
 
 Open the `c64-de` folder in VS Code, open any `.asm` file, and press **F5** to build and debug.
 
@@ -91,31 +134,34 @@ Both tools output to the same unified `build/` directory at the workspace root, 
 
 ## Tools
 
-| Tool                      | Description                                                             |
-| ------------------------- | ----------------------------------------------------------------------- |
-| **KickAssembler v5.25**   | 6502 cross-assembler (`KickAssembler/KickAss.jar`)                      |
-| **VICE v3.10**            | C64 emulator — arm64 and x86-64 builds bundled                          |
-| **new_project.sh**        | Create a new project from TEMPLATE (`tools/new_project.sh`)             |
-| **d64toasm.sh**           | D64 disk image → KickAssembler project (`tools/d64toasm.sh`)            |
-| **disasm.py**             | 6502 disassembler — listing or KickAssembler format (`tools/disasm.py`) |
-| **format_asm.py**         | ASM formatter (`tools/format_asm.py`)                                   |
-| **set_active_project.py** | Switch the active VS64 debug target (`tools/set_active_project.py`)     |
+| Tool                      | Description                                                              |
+| ------------------------- | ------------------------------------------------------------------------ |
+| **KickAssembler v5.25**   | 6502 cross-assembler (`KickAssembler/KickAss.jar`) — Java, all platforms |
+| **VICE v3.10 (GTK3)**     | C64 emulator — macOS (arm64 + x86-64), Windows, Linux                    |
+| **new_project.sh**        | Create a new project from TEMPLATE (`tools/new_project.sh`)              |
+| **d64toasm.sh**           | D64 disk image → KickAssembler project (`tools/d64toasm.sh`)             |
+| **disasm.py**             | 6502 disassembler — listing or KickAssembler format (`tools/disasm.py`)  |
+| **format_asm.py**         | ASM formatter (`tools/format_asm.py`)                                    |
+| **set_active_project.py** | Switch the active VS64 debug target (`tools/set_active_project.py`)      |
 
 ## Project Structure
 
 ```
 c64-de/
-├── build/                  Compiled output (main.prg, main.dbg) — shared by all projects
+├── build/                      Compiled output (main.prg, main.dbg) — shared by all projects
 ├── projects/
-│   ├── TEMPLATE/           Skeleton for new projects (main.asm)
-│   └── <your_project>/     Your project source (.asm, .prg, build.sh)
-├── tools/                  All tooling scripts
-├── KickAssembler/          KickAssembler v5.25 (bundled)
-├── vice-arm64-sdl2-3.10/  VICE for Apple Silicon (bundled)
-├── vice-x86-64-sdl2-3.10/ VICE for Intel Mac (bundled)
-├── project-config.json     VS64 active project pointer (auto-managed)
-└── .vscode/                VS Code settings, tasks, and launch configs
+│   ├── TEMPLATE/               Skeleton for new projects (main.asm)
+│   └── <your_project>/         Your project source (.asm, .prg, build.sh)
+├── tools/                      All tooling scripts
+├── KickAssembler/              KickAssembler v5.25 (bundled, Java — all platforms)
+├── vice-arm64-gtk3-3.10/       VICE GTK3 for macOS Apple Silicon (bundled)
+├── vice-x86-64-gtk3-3.10/      VICE GTK3 for macOS Intel (bundled)
+├── GTK3VICE-3.10-win64/        VICE GTK3 for Windows 64-bit (bundled)
+├── project-config.json         VS64 active project pointer (auto-managed)
+└── .vscode/                    VS Code settings, tasks, and launch configs
 ```
+
+> **Linux:** VICE is installed system-wide via `sudo apt install vice` — no bundled folder needed.
 
 > **`build/` is always at the workspace root.** Both the per-project `build.sh` and VS64's F5 debug write to the same directory. There are no per-project `build/` folders.
 
@@ -248,9 +294,9 @@ The workspace includes two debug configurations in `.vscode/launch.json`:
   ```
   > The `name` is always `"main"` so VS64 consistently outputs `build/main.prg` and `build/main.dbg`.
 
-### VICE Dock Icon
+### VICE Dock Icon (macOS)
 
-VS64 launches VICE via `bin/x64sc-debug`, a wrapper that uses `open -a VICE.app` so VICE shows with its proper icon in the macOS Dock.
+On macOS, VS64 launches VICE via `bin/x64sc`. The `build.sh` scripts use `open -a VICE.app` so VICE shows with its proper icon in the macOS Dock. On Linux and Windows, VICE is launched directly.
 
 ## VS Code Tasks
 
@@ -290,7 +336,7 @@ python3 tools/format_asm.py main.asm
 Launch with `./build.sh debug` to auto-load all label names from `main.sym`.
 Once VICE is running, press **Cmd+Escape** to open the monitor.
 
-### VICE macOS Hotkeys
+### VICE Hotkeys (macOS — use Ctrl instead of Cmd on Windows/Linux)
 
 | Shortcut      | Action            |
 | ------------- | ----------------- |

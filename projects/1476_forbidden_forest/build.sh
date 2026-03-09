@@ -15,18 +15,26 @@ C64_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 KICKASS="$C64_ROOT/KickAssembler/KickAss.jar"
 BUILD_DIR="$C64_ROOT/build"
 
-if [[ "$(uname -m)" == "arm64" ]]; then
-    VICE_DIR="$C64_ROOT/vice-arm64-sdl2-3.10"
-else
-    VICE_DIR="$C64_ROOT/vice-x86-64-sdl2-3.10"
-fi
+case "$(uname -s)" in
+    Darwin)
+        if [[ "$(uname -m)" == "arm64" ]]; then
+            VICE_DIR="$C64_ROOT/vice-arm64-gtk3-3.10"
+        else
+            VICE_DIR="$C64_ROOT/vice-x86-64-gtk3-3.10"
+        fi
+        ;;
+    Linux)
+        VICE_DIR=""
+        ;;
+    MINGW*|MSYS*|CYGWIN*)
+        VICE_DIR="$C64_ROOT/GTK3VICE-3.10-win64"
+        ;;
+esac
 
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 CYAN='\033[0;36m'
 NC='\033[0m'
-
-VICE_CFG="$HOME/.config/vice/sdl-vicerc"
 
 mkdir -p "$BUILD_DIR"
 echo -e "${CYAN}=== Building: 1476_forbidden_forest ===${NC}"
@@ -44,15 +52,21 @@ echo -e "${GREEN}Build successful!${NC} -> $BUILD_DIR/main.prg"
 if [ "$1" = "run" ]; then
     echo ""
     echo -e "${CYAN}Launching in VICE (x64sc)...${NC}"
-
-    open -a "$VICE_DIR/VICE.app" --args --program x64sc -config "$VICE_CFG" -autostart "$BUILD_DIR/main.prg"
+    case "$(uname -s)" in
+        Darwin) open -a "$VICE_DIR/VICE.app" --args --program x64sc -autostart "$BUILD_DIR/main.prg" ;;
+        Linux)  x64sc -autostart "$BUILD_DIR/main.prg" ;;
+        *)      "$VICE_DIR/bin/x64sc" -autostart "$BUILD_DIR/main.prg" ;;
+    esac
 fi
 
 if [ "$1" = "debug" ]; then
     echo ""
     echo -e "${CYAN}Launching in VICE with debug symbols...${NC}"
-
     SYM_FILE="$SCRIPT_DIR/forbidden_forest.sym"
-    open -a "$VICE_DIR/VICE.app" --args --program x64sc -config "$VICE_CFG" -moncommands "$SYM_FILE" -autostart "$BUILD_DIR/main.prg"
+    case "$(uname -s)" in
+        Darwin) open -a "$VICE_DIR/VICE.app" --args --program x64sc -moncommands "$SYM_FILE" -autostart "$BUILD_DIR/main.prg" ;;
+        Linux)  x64sc -moncommands "$SYM_FILE" -autostart "$BUILD_DIR/main.prg" ;;
+        *)      "$VICE_DIR/bin/x64sc" -moncommands "$SYM_FILE" -autostart "$BUILD_DIR/main.prg" ;;
+    esac
     echo -e "${GREEN}VICE started with labels loaded.${NC}"
 fi

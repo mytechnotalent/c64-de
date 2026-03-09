@@ -22,6 +22,8 @@ Supports **macOS** (Apple Silicon & Intel), **Windows** (64-bit), and **Ubuntu L
 
 VICE (GTK3) and KickAssembler are bundled in the repo. All you need is Java and the VS64 extension.
 
+> **Windows users:** All shell scripts in this repo require **Git Bash**. See the [Windows Setup Guide](#windows-setup-guide) below for complete step-by-step instructions.
+
 ### 1 — Install Java 21 (required by KickAssembler)
 
 **macOS (Apple Silicon & Intel):**
@@ -29,11 +31,13 @@ VICE (GTK3) and KickAssembler are bundled in the repo. All you need is Java and 
 brew install openjdk@21
 ```
 
-**Windows:**
+**Windows (PowerShell, run as Administrator):**
 ```powershell
 winget install EclipseAdoptium.Temurin.21.JDK
 ```
-Or download from https://adoptium.net/temurin/releases/?version=21 and install the `.msi`.
+Or download the `.msi` installer from https://adoptium.net/temurin/releases/?version=21
+
+> **Important:** During installation, check **"Add to PATH"** and **"Set JAVA_HOME"** so `java` works from any terminal.
 
 **Ubuntu Linux:**
 ```sh
@@ -43,10 +47,26 @@ sudo apt install openjdk-21-jdk
 > **Java paths by platform:**
 > - macOS Apple Silicon: `/opt/homebrew/opt/openjdk@21/bin/java`
 > - macOS Intel: `/usr/local/opt/openjdk@21/bin/java`
-> - Windows: `C:\Program Files\Eclipse Adoptium\jdk-21...\bin\java.exe` (or on PATH after install)
+> - Windows: on PATH after install (verify with `java -version` in Git Bash)
 > - Linux: `/usr/bin/java`
 
-### 2 — Install VICE (Linux only)
+### 2 — Install Git Bash (Windows only)
+
+All build scripts and tools in this repo are bash scripts. On Windows, you need **Git for Windows** which includes Git Bash:
+
+1. Download from https://gitforwindows.org
+2. Run the installer — **use all default settings**
+3. On the "Adjusting your PATH" screen, select **"Git from the command line and also from 3rd-party software"**
+4. Complete the installation
+
+> **Verify it works:** Open **Git Bash** from the Start menu and run:
+> ```sh
+> bash --version
+> java -version
+> ```
+> Both commands should produce output without errors.
+
+### 3 — Install VICE (Linux only)
 
 On macOS and Windows, VICE GTK3 v3.10 is bundled in the repo. On Linux, install it from the system package manager:
 
@@ -54,11 +74,11 @@ On macOS and Windows, VICE GTK3 v3.10 is bundled in the repo. On Linux, install 
 sudo apt install vice
 ```
 
-### 3 — Install the VS64 extension
+### 4 — Install the VS64 extension
 
 Open VS Code → `Cmd+Shift+X` (macOS) / `Ctrl+Shift+X` (Windows/Linux) → search **VS64** → install `rosc.vs64`.
 
-### 4 — Update `.vscode/settings.json` for your machine
+### 5 — Update `.vscode/settings.json` for your machine
 
 Open `.vscode/settings.json` and set the paths for your platform:
 
@@ -106,7 +126,17 @@ Open `.vscode/settings.json` and set the paths for your platform:
 }
 ```
 
-### 5 — Open the workspace and press F5
+### 6 — Configure VS Code terminal (Windows only)
+
+To ensure VS Code tasks run correctly, set Git Bash as the default terminal:
+
+1. Open VS Code → `Ctrl+Shift+P` → type **"Terminal: Select Default Profile"**
+2. Select **Git Bash**
+3. Restart VS Code
+
+> This ensures all build tasks and shell scripts run in Git Bash automatically.
+
+### 7 — Open the workspace and press F5
 
 Open the `c64-de` folder in VS Code, open any `.asm` file, and press **F5** to build and debug.
 
@@ -302,16 +332,18 @@ On macOS, VS64 launches VICE via `bin/x64sc`. The `build.sh` scripts use `open -
 
 Run tasks from the menu: **Terminal → Run Task…**
 
-| Task                          | Shortcut      | Description                                     |
-| ----------------------------- | ------------- | ----------------------------------------------- |
-| **Set Active Project**        | (pre-launch)  | Updates `project-config.json` for the open file |
-| **Format ASM**                | —             | Formats the current `.asm` file in-place        |
-| **Build C64 Project**         | `Cmd+Shift+B` | Assembles with KickAssembler (default build)    |
-| **Build & Run C64 Project**   | —             | Build + launch in VICE                          |
-| **Build & Debug C64 Project** | —             | Build + launch VICE with debug symbols          |
-| **Build for VS64 Debug**      | —             | Build with `-debugdump` for F5 debugging        |
+| Task                          | Shortcut                             | Description                                     |
+| ----------------------------- | ------------------------------------ | ----------------------------------------------- |
+| **Set Active Project**        | (pre-launch)                         | Updates `project-config.json` for the open file |
+| **Format ASM**                | —                                    | Formats the current `.asm` file in-place        |
+| **Build C64 Project**         | `Cmd+Shift+B` / `Ctrl+Shift+B` (Win) | Assembles with KickAssembler (default build)    |
+| **Build & Run C64 Project**   | —                                    | Build + launch in VICE                          |
+| **Build & Debug C64 Project** | —                                    | Build + launch VICE with debug symbols          |
+| **Build for VS64 Debug**      | —                                    | Build with `-debugdump` for F5 debugging        |
 
 ## Command Line Usage
+
+> **Windows:** Run all commands in **Git Bash** (not PowerShell or CMD).
 
 ```sh
 # Create a new project from scratch
@@ -328,6 +360,108 @@ python3 tools/format_asm.py main.asm
 ./build.sh run        # Build + launch in VICE
 ./build.sh debug      # Build + launch with debug symbols
 ```
+
+## Windows Setup Guide
+
+Complete walkthrough for getting the C64 Development Environment running on Windows 10/11.
+
+### Prerequisites
+
+You need three things installed before cloning the repo:
+
+#### Step 1: Install Git for Windows (includes Git Bash)
+
+1. Download from https://gitforwindows.org
+2. Run the installer
+3. **Use all default settings** — just click Next through each screen
+4. On the **"Adjusting your PATH"** screen, make sure **"Git from the command line and also from 3rd-party software"** is selected
+5. Finish the installation
+
+#### Step 2: Install Java 21
+
+1. Open **PowerShell** (press `Win+X` → **Terminal** or **PowerShell**)
+2. Run:
+   ```powershell
+   winget install EclipseAdoptium.Temurin.21.JDK
+   ```
+3. **Or** download the `.msi` from https://adoptium.net/temurin/releases/?version=21
+4. During installation, **check these boxes:**
+   - ✅ Add to PATH
+   - ✅ Set JAVA_HOME
+
+#### Step 3: Install VS Code
+
+1. Download from https://code.visualstudio.com
+2. During installation, **check these boxes:**
+   - ✅ Add "Open with Code" action to Windows Explorer context menu
+   - ✅ Add to PATH
+
+### Clone and Open the Repo
+
+Open **Git Bash** from the Start menu and run:
+
+```sh
+cd ~/Documents
+git clone https://github.com/mytechnotalent/c64-de.git
+cd c64-de
+code .
+```
+
+### Configure VS Code for Git Bash
+
+This is **required** so VS Code tasks and terminals use Git Bash:
+
+1. In VS Code, press `Ctrl+Shift+P`
+2. Type **"Terminal: Select Default Profile"** and press Enter
+3. Select **Git Bash**
+4. Close and reopen VS Code
+
+### Configure VS64
+
+1. Press `Ctrl+Shift+X` → search **VS64** → click **Install**
+2. Open `.vscode/settings.json` and replace its contents with:
+   ```json
+   {
+       "vs64.kickInstallDir": "${workspaceFolder}/KickAssembler",
+       "vs64.javaExecutable": "java",
+       "vs64.viceExecutable": "${workspaceFolder}/GTK3VICE-3.10-win64/bin/x64sc.exe",
+       "vs64.autoBuild": true,
+       "vs64.loglevel": 0
+   }
+   ```
+3. Save the file
+
+### Verify Everything Works
+
+Open the VS Code terminal (`Ctrl+`` `) — it should show a **Git Bash** prompt (not PowerShell). Run:
+
+```sh
+# Verify Java
+java -version
+
+# Verify VICE
+./GTK3VICE-3.10-win64/bin/x64sc.exe --version
+
+# Create a test project
+./tools/new_project.sh hello_world
+
+# Build it
+cd projects/hello_world
+./build.sh
+```
+
+If all commands succeed, press **F5** on any `.asm` file to build and debug.
+
+### Windows Troubleshooting
+
+| Problem                           | Solution                                                                                                  |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `bash: java: command not found`   | Java wasn't added to PATH. Reinstall Java 21 and check "Add to PATH", then restart Git Bash.              |
+| `./build.sh: Permission denied`   | Run `chmod +x build.sh` in Git Bash.                                                                      |
+| VS Code terminal shows PowerShell | Set Git Bash as default: `Ctrl+Shift+P` → "Terminal: Select Default Profile" → Git Bash. Restart VS Code. |
+| `python3: command not found`      | On Windows, try `python` instead or install Python 3 from https://python.org (check "Add to PATH").       |
+| VICE window doesn't open          | Check that `GTK3VICE-3.10-win64/bin/x64sc.exe` exists. Try running it directly from Git Bash.             |
+| Line ending errors in scripts     | Run `git config --global core.autocrlf input` and re-clone the repo.                                      |
 
 ## Debugging with VICE Monitor
 

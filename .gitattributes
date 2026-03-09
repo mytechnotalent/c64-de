@@ -1,0 +1,5 @@
+# Ensure shell scripts always use LF line endings (required for Git Bash on Windows)
+*.sh text eol=lf
+*.py text eol=lf
+*.asm text eol=lf
+*.bas text eol=lf

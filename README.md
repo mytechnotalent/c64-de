@@ -4,14 +4,6 @@
 
 <br>
 
-# Today's Tutorial [March 9, 2026]
-## Lesson 126: x64 Course (Part 6 - Binary Subtraction)
-This tutorial will discuss binary subtraction.
-
--> Click [HERE](https://0xinfection.github.io/reversing) to read the FREE ebook.
-
-<br>
-
 # C64 Development Environment
 
 A hardcore cross-platform development environment to forge and reverse engineer C-64 legends and develop new ones with pure 6502 Assembler.

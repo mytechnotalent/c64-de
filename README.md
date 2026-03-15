@@ -14,7 +14,7 @@ Supports **macOS** (Apple Silicon & Intel), **Windows** (64-bit), and **Ubuntu L
 
 VICE (GTK3) and KickAssembler are bundled in the repo. All you need is Java and the VS64 extension.
 
-> **Windows users:** All shell scripts in this repo require **Git Bash**. See the [Windows Setup Guide](#windows-setup-guide) below for complete step-by-step instructions.
+> **Windows users:** Native `.bat` commands are included. You can use **PowerShell** end-to-end.
 
 ### 1 — Install Java 21 (required by KickAssembler)
 
@@ -25,9 +25,14 @@ brew install openjdk@21
 
 **Windows (PowerShell, run as Administrator):**
 ```powershell
+winget --version
 winget install EclipseAdoptium.Temurin.21.JDK
 ```
-Or download the `.msi` installer from https://adoptium.net/temurin/releases/?version=21
+If `winget` is not recognized, install or update **App Installer** from Microsoft Store,
+restart PowerShell, and run the command again.
+
+Or skip winget and install Java 21 directly from:
+https://adoptium.net/temurin/releases/?version=21
 
 > **Important:** During installation, check **"Add to PATH"** and **"Set JAVA_HOME"** so `java` works from any terminal.
 
@@ -39,21 +44,24 @@ sudo apt install openjdk-21-jdk
 > **Java paths by platform:**
 > - macOS Apple Silicon: `/opt/homebrew/opt/openjdk@21/bin/java`
 > - macOS Intel: `/usr/local/opt/openjdk@21/bin/java`
-> - Windows: on PATH after install (verify with `java -version` in Git Bash)
+> - Windows: on PATH after install (verify with `java -version` in PowerShell)
 > - Linux: `/usr/bin/java`
 
-### 2 — Install Git Bash (Windows only)
+> **Windows note:** If `.vscode/settings.json` contains a non-Windows `vs64.javaExecutable` path,
+> tooling now falls back to `java` on PATH instead of crashing.
 
-All build scripts and tools in this repo are bash scripts. On Windows, you need **Git for Windows** which includes Git Bash:
+### 2 — Install Git for Windows (recommended on Windows)
+
+Git is used for cloning/updating the repo:
 
 1. Download from https://gitforwindows.org
 2. Run the installer — **use all default settings**
 3. On the "Adjusting your PATH" screen, select **"Git from the command line and also from 3rd-party software"**
 4. Complete the installation
 
-> **Verify it works:** Open **Git Bash** from the Start menu and run:
-> ```sh
-> bash --version
+> **Verify it works:** Open **PowerShell** and run:
+> ```powershell
+> git --version
 > java -version
 > ```
 > Both commands should produce output without errors.
@@ -120,13 +128,7 @@ Open `.vscode/settings.json` and set the paths for your platform:
 
 ### 6 — Configure VS Code terminal (Windows only)
 
-To ensure VS Code tasks run correctly, set Git Bash as the default terminal:
-
-1. Open VS Code → `Ctrl+Shift+P` → type **"Terminal: Select Default Profile"**
-2. Select **Git Bash**
-3. Restart VS Code
-
-> This ensures all build tasks and shell scripts run in Git Bash automatically.
+PowerShell is supported. No Git Bash terminal setup is required.
 
 ### 7 — Open the workspace and press F5
 
@@ -138,19 +140,35 @@ There are two ways to create a project:
 
 ### New project from scratch
 
-```sh
-./tools/new_project.sh my_game
+```text
+macOS/Linux: ./tools/new_project.sh my_game
+Windows:     .\tools\new_project.bat my_game
 ```
 
-Creates `projects/my_game/` from the TEMPLATE skeleton with a starter `main.asm`, generates `build.sh`, sets it as the active VS64 target, and runs an initial build so **F5 works immediately**.
+Creates `projects/my_game/` from the TEMPLATE skeleton with a starter `main.asm`, generates `build.sh` and `build.bat`, sets it as the active VS64 target, and runs an initial build so **F5 works immediately**.
+
+After creating a project, run or debug it from the project folder:
+
+```text
+macOS/Linux:
+    cd projects/my_game
+    ./build.sh run
+    ./build.sh debug
+
+Windows (PowerShell):
+    cd .\projects\my_game
+    .\build.bat run
+    .\build.bat debug
+```
 
 ### Reverse engineer a D64 disk image
 
-```sh
-./tools/d64toasm.sh game.d64
+```text
+macOS/Linux: ./tools/d64toasm.sh game.d64
+Windows:     .\tools\d64toasm.bat game.d64
 ```
 
-Extracts all PRG files from the disk, disassembles machine language to KickAssembler source, decompiles BASIC loaders, generates `build.sh`, sets the active VS64 target, and builds — all in one command.
+Extracts all PRG files from the disk, disassembles machine language to KickAssembler source, decompiles BASIC loaders, generates `build.sh` and `build.bat`, sets the active VS64 target, and builds — all in one command.
 
 Both tools output to the same unified `build/` directory at the workspace root, which is where VS64 expects `main.prg` and `main.dbg` for F5 debugging.
 
@@ -160,10 +178,10 @@ Both tools output to the same unified `build/` directory at the workspace root, 
 | ------------------------- | ------------------------------------------------------------------------ |
 | **KickAssembler v5.25**   | 6502 cross-assembler (`KickAssembler/KickAss.jar`) — Java, all platforms |
 | **VICE v3.10 (GTK3)**     | C64 emulator — macOS (arm64 + x86-64), Windows, Linux                    |
-| **new_project.sh**        | Create a new project from TEMPLATE (`tools/new_project.sh`)              |
-| **d64toasm.sh**           | D64 disk image → KickAssembler project (`tools/d64toasm.sh`)             |
+| **new_project.sh / .bat** | Create a new project from TEMPLATE (`tools/new_project.sh`, `tools/new_project.bat`) |
+| **d64toasm.sh / .bat**    | D64 disk image → KickAssembler project (`tools/d64toasm.sh`, `tools/d64toasm.bat`) |
 | **disasm.py**             | 6502 disassembler — listing or KickAssembler format (`tools/disasm.py`)  |
-| **format_asm.py**         | ASM formatter (`tools/format_asm.py`)                                    |
+| **format_asm.py / .bat**  | ASM formatter (`tools/format_asm.py`, `tools/format_asm.bat`)            |
 | **set_active_project.py** | Switch the active VS64 debug target (`tools/set_active_project.py`)      |
 
 ## Project Structure
@@ -173,7 +191,7 @@ c64-de/
 ├── build/                      Compiled output (main.prg, main.dbg) — shared by all projects
 ├── projects/
 │   ├── TEMPLATE/               Skeleton for new projects (main.asm)
-│   └── <your_project>/         Your project source (.asm, .prg, build.sh)
+│   └── <your_project>/         Your project source (.asm, .prg, build.sh, build.bat)
 ├── tools/                      All tooling scripts
 ├── KickAssembler/              KickAssembler v5.25 (bundled, Java — all platforms)
 ├── vice-arm64-gtk3-3.10/       VICE GTK3 for macOS Apple Silicon (bundled)
@@ -185,7 +203,7 @@ c64-de/
 
 > **Linux:** VICE is installed system-wide via `sudo apt install vice` — no bundled folder needed.
 
-> **`build/` is always at the workspace root.** Both the per-project `build.sh` and VS64's F5 debug write to the same directory. There are no per-project `build/` folders.
+> **`build/` is always at the workspace root.** Both the per-project build scripts (`build.sh` and `build.bat`) and VS64's F5 debug write to the same directory. There are no per-project `build/` folders.
 
 ## D64 Reverse Engineering
 
@@ -199,26 +217,27 @@ The Internet Archive hosts the largest freely accessible collection of Commodore
 
 Search by game title, publisher, or year. Download the `.d64` file, drop it in the repo root, then run:
 
-```sh
-./tools/d64toasm.sh GameName.d64
+```text
+macOS/Linux: ./tools/d64toasm.sh GameName.d64
+Windows:     .\tools\d64toasm.bat GameName.d64
 ```
 
 ### d64toasm.sh — Full Pipeline
 
 Converts a `.d64` disk image into a ready-to-edit KickAssembler project:
 
-```sh
-# Auto-name the project from the disk filename
-./tools/d64toasm.sh game.d64
+```text
+macOS/Linux: ./tools/d64toasm.sh game.d64
+Windows:     .\tools\d64toasm.bat game.d64
 
-# Use a custom project name
-./tools/d64toasm.sh game.d64 my_project
+macOS/Linux: ./tools/d64toasm.sh game.d64 my_project
+Windows:     .\tools\d64toasm.bat game.d64 my_project
 ```
 
 **Pipeline steps:**
 1. Read D64 directory and list PRG files
 2. Extract each PRG, disassemble ML to `.asm`, decompile BASIC to `.bas`
-3. Generate `build.sh` for the project
+3. Generate `build.sh` and `build.bat` for the project
 4. Set the project as the active VS64 target (`project-config.json`)
 5. Run KickAssembler to produce `build/main.prg` and `build/main.dbg`
 
@@ -227,7 +246,8 @@ Converts a `.d64` disk image into a ready-to-edit KickAssembler project:
 <name>.asm        KickAssembler source (reassemblable, byte-for-byte identical)
 <name>.prg        Original extracted binary
 <name>.bas        BASIC listing (petcat decompile), if present
-build.sh          ./build.sh / ./build.sh run / ./build.sh debug
+build.sh          ./build.sh / ./build.sh run / ./build.sh debug (macOS/Linux)
+build.bat         build.bat / build.bat run / build.bat debug (Windows)
 ```
 
 Disassembled output uses real 6502 mnemonics with hardware register annotations:
@@ -253,7 +273,9 @@ When a disk has 2+ ML files (e.g. a BASIC loader that `LOAD`s a separate game fi
 2. Generates a `_build_test_d64()` function in `build.sh` that injects rebuilt PRGs back into the disk
 3. Launches VICE with the disk image so the loader runs first
 
-No manual steps — `./build.sh run` handles everything.
+No manual steps on macOS/Linux (`./build.sh run`).
+
+On Windows (`build.bat run`), the generated pipeline currently autostarts `build/main.prg` directly.
 
 ### D64 Compatibility
 
@@ -335,22 +357,24 @@ Run tasks from the menu: **Terminal → Run Task…**
 
 ## Command Line Usage
 
-> **Windows:** Run all commands in **Git Bash** (not PowerShell or CMD).
+> **Windows:** Run all commands in **PowerShell**.
 
-```sh
-# Create a new project from scratch
-./tools/new_project.sh my_game
+```text
+macOS/Linux:
+    ./tools/new_project.sh my_game
+    ./tools/d64toasm.sh game.d64
+    python3 tools/format_asm.py main.asm
+    ./build.sh
+    ./build.sh run
+    ./build.sh debug
 
-# Reverse engineer a D64 disk image
-./tools/d64toasm.sh game.d64
-
-# Format an ASM file
-python3 tools/format_asm.py main.asm
-
-# From a project directory:
-./build.sh            # Build only
-./build.sh run        # Build + launch in VICE
-./build.sh debug      # Build + launch with debug symbols
+Windows (PowerShell):
+    .\tools\new_project.bat my_game
+    .\tools\d64toasm.bat game.d64
+    .\tools\format_asm.bat main.asm
+    .\build.bat
+    .\build.bat run
+    .\build.bat debug
 ```
 
 ## Windows Setup Guide
@@ -361,7 +385,7 @@ Complete walkthrough for getting the C64 Development Environment running on Wind
 
 You need three things installed before cloning the repo:
 
-#### Step 1: Install Git for Windows (includes Git Bash)
+#### Step 1: Install Git for Windows
 
 1. Download from https://gitforwindows.org
 2. Run the installer
@@ -372,12 +396,18 @@ You need three things installed before cloning the repo:
 #### Step 2: Install Java 21
 
 1. Open **PowerShell** (press `Win+X` → **Terminal** or **PowerShell**)
-2. Run:
+2. Check that winget exists:
+    ```powershell
+    winget --version
+    ```
+3. If winget is missing, install/update **App Installer** from Microsoft Store,
+    then close and reopen PowerShell.
+4. Install Java 21:
    ```powershell
    winget install EclipseAdoptium.Temurin.21.JDK
    ```
-3. **Or** download the `.msi` from https://adoptium.net/temurin/releases/?version=21
-4. During installation, **check these boxes:**
+5. **Or** download the `.msi` from https://adoptium.net/temurin/releases/?version=21
+6. During installation, **check these boxes:**
    - ✅ Add to PATH
    - ✅ Set JAVA_HOME
 
@@ -390,23 +420,18 @@ You need three things installed before cloning the repo:
 
 ### Clone and Open the Repo
 
-Open **Git Bash** from the Start menu and run:
+Open **PowerShell** and run:
 
-```sh
-cd ~/Documents
+```powershell
+cd $HOME\Documents
 git clone https://github.com/mytechnotalent/c64-de.git
 cd c64-de
 code .
 ```
 
-### Configure VS Code for Git Bash
+### Configure VS Code for PowerShell
 
-This is **required** so VS Code tasks and terminals use Git Bash:
-
-1. In VS Code, press `Ctrl+Shift+P`
-2. Type **"Terminal: Select Default Profile"** and press Enter
-3. Select **Git Bash**
-4. Close and reopen VS Code
+No special shell profile is required. PowerShell works out of the box.
 
 ### Configure VS64
 
@@ -425,9 +450,9 @@ This is **required** so VS Code tasks and terminals use Git Bash:
 
 ### Verify Everything Works
 
-Open the VS Code terminal (`Ctrl+`` `) — it should show a **Git Bash** prompt (not PowerShell). Run:
+Open the VS Code terminal (`Ctrl+`` `) in PowerShell and run:
 
-```sh
+```powershell
 # Verify Java
 java -version
 
@@ -435,11 +460,11 @@ java -version
 ./GTK3VICE-3.10-win64/bin/x64sc.exe --version
 
 # Create a test project
-./tools/new_project.sh hello_world
+.\tools\new_project.bat hello_world
 
 # Build it
-cd projects/hello_world
-./build.sh
+cd .\projects\hello_world
+.\build.bat
 ```
 
 If all commands succeed, press **F5** on any `.asm` file to build and debug.
@@ -448,11 +473,12 @@ If all commands succeed, press **F5** on any `.asm` file to build and debug.
 
 | Problem                           | Solution                                                                                                  |
 | --------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `bash: java: command not found`   | Java wasn't added to PATH. Reinstall Java 21 and check "Add to PATH", then restart Git Bash.              |
-| `./build.sh: Permission denied`   | Run `chmod +x build.sh` in Git Bash.                                                                      |
-| VS Code terminal shows PowerShell | Set Git Bash as default: `Ctrl+Shift+P` → "Terminal: Select Default Profile" → Git Bash. Restart VS Code. |
+| `java` is not recognized           | Java wasn't added to PATH. Reinstall Java 21 and check "Add to PATH", then restart PowerShell.              |
+| `vs64.javaExecutable` points to a wrong path | Set it to `java` (recommended on Windows) or a valid Java executable path.                                      |
+| `winget` is not recognized         | Install/update **App Installer** from Microsoft Store, reopen PowerShell, or use the direct Temurin MSI installer. |
+| `build.bat` fails to run          | Ensure you are in the project folder and run `.\build.bat` from PowerShell.                               |
 | `python3: command not found`      | On Windows, try `python` instead or install Python 3 from https://python.org (check "Add to PATH").       |
-| VICE window doesn't open          | Check that `GTK3VICE-3.10-win64/bin/x64sc.exe` exists. Try running it directly from Git Bash.             |
+| VICE window doesn't open          | Check that `GTK3VICE-3.10-win64/bin/x64sc.exe` exists. Try running it directly from PowerShell.             |
 | Line ending errors in scripts     | Run `git config --global core.autocrlf input` and re-clone the repo.                                      |
 
 ## Debugging with VICE Monitor

@@ -79,9 +79,8 @@ _show_usage() {
 # -------------------------------------------------------------
 _normalize_name() {
     PROJECT_NAME="$(echo "$1" \
-        | tr '[:upper:]' '[:lower:]' \
         | tr ' -' '_' \
-        | sed 's/[^a-z0-9_]//g')"
+        | sed 's/[^A-Za-z0-9_]//g')"
     [ -n "$PROJECT_NAME" ] || die "project name '$1' is invalid (nothing left after cleanup)"
 }
 

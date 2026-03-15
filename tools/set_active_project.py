@@ -11,6 +11,7 @@ Usage: set_active_project.py <workspace_root> <relative_asm_path>
 import json
 import subprocess
 import sys
+import shutil
 from pathlib import Path
 
 # Always use "main" as the project name so VS64 consistently
@@ -78,12 +79,15 @@ def _find_java() -> str:
     if settings_path.exists():
         try:
             s = json.loads(settings_path.read_text())
-            java = s.get("vs64.javaExecutable", "")
+            java = str(s.get("vs64.javaExecutable", "")).strip()
             if java:
-                return java
+                # Accept configured executable only if it is callable on this OS.
+                # This prevents crashes when settings contain a macOS path on Windows.
+                if Path(java).exists() or shutil.which(java):
+                    return java
         except (json.JSONDecodeError, KeyError):
             pass
-    return "java"
+    return shutil.which("java") or "java"
 
 
 def _run_kickass(workspace: Path, rel_path: str) -> bool:
@@ -114,13 +118,20 @@ def _run_kickass(workspace: Path, rel_path: str) -> bool:
         "-o",
         str(build_dir / "main.prg"),
     ]
-    result = subprocess.run(cmd, cwd=str(src.parent), capture_output=True, text=True)
+    try:
+        result = subprocess.run(cmd, cwd=str(src.parent), capture_output=True, text=True)
+    except FileNotFoundError:
+        print("Build FAILED: Java executable not found.")
+        print("Tip: install Java 21 and set vs64.javaExecutable to a valid value, or use 'java' on PATH.")
+        return False
     if result.returncode == 0:
         print("Build OK → build/main.prg + build/main.dbg")
         return True
     print(f"Build FAILED (exit {result.returncode})")
     if result.stdout:
         print(result.stdout[-500:])
+    if result.stderr:
+        print(result.stderr[-500:])
     return False
 
 

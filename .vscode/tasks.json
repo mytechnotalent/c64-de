@@ -6,6 +6,9 @@
             "label": "Set Active Project",
             "type": "shell",
             "command": "python3",
+            "windows": {
+                "command": "python"
+            },
             "args": [
                 "${workspaceFolder}/tools/set_active_project.py",
                 "${workspaceFolder}",
@@ -21,6 +24,9 @@
             "label": "Format ASM",
             "type": "shell",
             "command": "python3",
+            "windows": {
+                "command": "python"
+            },
             "args": [
                 "${workspaceFolder}/tools/format_asm.py",
                 "${file}"
@@ -36,6 +42,10 @@
             "label": "Build C64 Project",
             "type": "shell",
             "command": "bash",
+            "windows": {
+                "command": "${fileDirname}\\build.bat",
+                "args": []
+            },
             "args": [
                 "${fileDirname}/build.sh"
             ],
@@ -49,6 +59,12 @@
             "label": "Build & Run C64 Project",
             "type": "shell",
             "command": "bash",
+            "windows": {
+                "command": "${fileDirname}\\build.bat",
+                "args": [
+                    "run"
+                ]
+            },
             "args": [
                 "${fileDirname}/build.sh",
                 "run"
@@ -60,6 +76,12 @@
             "label": "Build & Debug C64 Project",
             "type": "shell",
             "command": "bash",
+            "windows": {
+                "command": "${fileDirname}\\build.bat",
+                "args": [
+                    "debug"
+                ]
+            },
             "args": [
                 "${fileDirname}/build.sh",
                 "debug"
@@ -70,7 +92,7 @@
         {
             "label": "Build for VS64 Debug",
             "type": "shell",
-            "command": "/opt/homebrew/opt/openjdk@21/bin/java",
+            "command": "java",
             "args": [
                 "-jar",
                 "${workspaceFolder}/KickAssembler/KickAss.jar",
